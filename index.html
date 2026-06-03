@@ -10,23 +10,53 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; }
 
-  #header {
+#header {
     background: linear-gradient(135deg, #16213e, #0f3460);
-    padding: 16px;
-    text-align: center;
     border-bottom: 2px solid #e94560;
   }
+  #top-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  #title {
+    color: #e94560;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  #top-bar select {
+    flex: 1;
+    background: #0f3460;
+    color: white;
+    border: 1px solid #e94560;
+    border-radius: 6px;
+    padding: 6px 4px;
+    font-size: 12px;
+  }
+  #mode-toggle {
+    background: #0f3460;
+    border: 1px solid #e94560;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
   #header h1 { font-size: 24px; color: #e94560; letter-spacing: 2px; }
   #header p { font-size: 12px; color: #a0a0b0; margin-top: 4px; }
 
-  #filter-bar {
+
+#filter-bar {
     background: #16213e;
-    padding: 10px 16px;
+    padding: 8px 12px;
     display: flex;
-    gap: 12px;
+    gap: 8px;
     align-items: center;
     border-bottom: 1px solid #0f3460;
-    flex-wrap: wrap;
   }
 
   .filter-group {
@@ -121,29 +151,22 @@
 <body>
 
 <div id="header">
-  <h1>🏃 断酒<span style="font-size:0.6em;">で</span>GO</h1>
-  <p>例会場を探す・チェックインする</p>
-</div>
-
-<div id="filter-bar">
-  <div class="filter-group">
-    <span class="filter-label">📅 日付</span>
+  <div id="top-bar">
+    <span id="title">🏃 断酒GO</span>
     <select id="date-filter" onchange="applyFilters()">
-      <option value="all">全て</option>
+      <option value="all">📅 全日付</option>
       <option value="today">今日</option>
       <option value="tomorrow">明日</option>
       <option value="dayafter">明後日</option>
     </select>
-  </div>
-  <div class="filter-group">
-    <span class="filter-label">📍 エリア</span>
     <select id="area-filter" onchange="applyFilters()">
-      <option value="all">全て</option>
-      <option value="東京都">東京都</option>
-      <option value="埼玉県">埼玉県</option>
-      <option value="神奈川県">神奈川県</option>
-      <option value="千葉県">千葉県</option>
+      <option value="all">📍 全エリア</option>
+      <option value="東京都">東京</option>
+      <option value="神奈川県">神奈川</option>
+      <option value="埼玉県">埼玉</option>
+      <option value="千葉県">千葉</option>
     </select>
+    <button id="mode-toggle" onclick="toggleMode()">🗺️</button>
   </div>
 </div>
 <div id="legend">
@@ -199,7 +222,7 @@ function getStyle(v) {
   const label = getDateLabel(v.next_date);
   if (label === 'today')    return { color: '#C0392B', size: 28, cls: 'pin-today' };
   if (label === 'tomorrow') return { color: '#D35400', size: 26, cls: '' };
-  if (label === 'dayafter') return { color: '#9A7D0A', size: 20, cls: '' };
+  if (label === 'dayafter') return { color: '#E8857A', size: 21, cls: '' };
   // その他→エリアカラー
   const areaColor = AREA_COLORS[v.prefecture] || '#555';
   return { color: areaColor, size: 15, cls: '' };
@@ -265,6 +288,17 @@ const VENUES = [{"id": 255, "facility_name": "ウェルネス柏", "address": "�
 
 let allMarkers = [];
 
+let currentMode = 'comfort';
+
+function toggleMode() {
+  currentMode = currentMode === 'comfort' ? 'explore' : 'comfort';
+  const btn = document.getElementById('mode-toggle');
+  btn.textContent = currentMode === 'comfort' ? '🗺️' : '🏃';
+  btn.style.background = currentMode === 'explore' ? '#e94560' : 
+'#0f3460';
+  applyFilters();
+}
+
 function applyFilters() {
   const dateFilter = document.getElementById('date-filter').value;
   const areaFilter = document.getElementById('area-filter').value;
@@ -277,6 +311,10 @@ function applyFilters() {
     if (!v.lat || !v.lng) return;
 
     const label = getDateLabel(v.next_date);
+
+    // モード判定
+    if (currentMode === 'comfort' && label === 'none') return;
+    if (currentMode === 'comfort' && label === 'other') return;
 
     // 日付フィルター
     if (dateFilter !== 'all' && label !== dateFilter) return;
