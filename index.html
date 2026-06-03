@@ -174,27 +174,29 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 </div>
 
 <div id="legend">
+  <div id="legend">
+  <span id="count-total" style="color:#a0a0b0;font-size:15px;">全191件中23件</span>
   <div class="legend-item">
   <div class="legend-dot" 
   style="width:12px;height:12px;background:#C0392B;"></div>
-    <span>今日開催</span>
+    <span>今日<span id="count-today">0</span>件</span>
   </div>
   <div class="legend-item">
     <div class="legend-dot"style="width:12px;height:12px;background:#D35400;"></div>
-    <span>明日</span>
+    <span>明日<span id="count-tomorrow">0</span>件</span>
   </div>
   <div class="legend-item">
     <div class="legend-dot"style="width:12px;height:12px;background:#E8857A;"></div>
-    <span>明後日</span>
+    <span>明後日<span id="count-dayafter">0</span>件</span>
   </div>
 </div>
   </div>
 </div>
 
 <div id="map"></div>
-<div id="count-bar">読み込み中...</div>
-
-<script>
+<div id="footer" style="background:#16213e;padding:4px 
+16px;font-size:11px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">© 
+2026 近多摩福生 | Beta版</div> <script>
 const map = L.map('map').setView([35.68, 139.60], 9);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
@@ -203,7 +205,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const TODAY    = new Date().toISOString().split('T')[0];
 const TOMORROW = new Date(Date.now() + 86400000).toISOString().split('T')[0];
 const DAY_AFTER= new Date(Date.now() + 172800000).toISOString().split('T')[0];
-
 // エリアカラー（その他用）
 const AREA_COLORS = {
   '東京都':  '#1A5276',
@@ -335,10 +336,24 @@ function applyFilters() {
     count++;
   });
 
-  const todayCount = VENUES.filter(v => getDateLabel(v.next_date) === 'today').length;
-  document.getElementById('count-bar').textContent =
-    `📍 表示中: ${count}件 ／ 今日開催: ${todayCount}件 ／ 全${VENUES.length}件`;
-}
+
+const todayCount = VENUES.filter(v => getDateLabel(v.next_date) === 
+'today').length;
+  const tomorrowCount = VENUES.filter(v => getDateLabel(v.next_date) === 
+'tomorrow').length;
+  const dayafterCount = VENUES.filter(v => getDateLabel(v.next_date) === 
+'dayafter').length;
+  document.getElementById('count-today').textContent = todayCount;
+  document.getElementById('count-tomorrow').textContent = tomorrowCount;
+  document.getElementById('count-dayafter').textContent = dayafterCount;
+  document.getElementById('count-total').textContent = 
+`全${VENUES.length}件中${count}件`;
+
+  document.getElementById('count-bar').innerHTML =
+    `全${VENUES.length}件中${count}件表示 <span 
+style="color:#C0392B">●</span>${todayCount} <span 
+style="color:#D35400">●</span>${tomorrowCount} <span 
+style="color:#E8857A">●</span>${dayafterCount}`; }
 
 applyFilters();
 </script>
