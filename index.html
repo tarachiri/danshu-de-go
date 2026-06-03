@@ -8,7 +8,10 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; }
+  body { font-family: -apple-system, sans-serif; background: 
+#1a1a2e; color: #fff; display: flex; flex-direction: column; 
+height: 100dvh; margin: 0; overflow: hidden; }
+body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; }
 
 #header {
     background: linear-gradient(135deg, #16213e, #0f3460);
@@ -106,7 +109,7 @@
     flex-shrink: 0;
   }
 
-  #map { height: calc(100vh - 155px); width: 100%; }
+  #map { flex: 1; width: 100%; min-height: 0; }
 
   #count-bar {
     background: #16213e;
