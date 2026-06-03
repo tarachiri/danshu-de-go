@@ -199,7 +199,7 @@ function getStyle(v) {
   const label = getDateLabel(v.next_date);
   if (label === 'today')    return { color: '#C0392B', size: 28, cls: 'pin-today' };
   if (label === 'tomorrow') return { color: '#D35400', size: 26, cls: '' };
-  if (label === 'dayafter') return { color: '#9A7D0A', size: 20, cls: '' };
+  if (label === 'dayafter') return { color: '#E8857A', size: 21, cls: '' };
   // その他→エリアカラー
   const areaColor = AREA_COLORS[v.prefecture] || '#555';
   return { color: areaColor, size: 15, cls: '' };
