@@ -329,6 +329,44 @@ let allMarkers = [];
 
 let currentMode = 'comfort';
 
+function showInstallGuide() {
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isAndroid = /android/i.test(navigator.userAgent);
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:flex-end;';
+  const modal = document.createElement('div');
+  modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;';
+  if(isIOS){
+    modal.innerHTML = `
+      <div style="font-size:16px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:14px;line-height:2;color:#ccc;">
+        ① 下のメニューバーの <b style="color:#fff;">「共有」</b> をタップ<br>
+        ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択<br>
+        ③ 右上の <b style="color:#fff;">「追加」</b> をタップ
+      </div>
+      <button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:bold;">閉じる</button>
+    `;
+  } else if(isAndroid){
+    modal.innerHTML = `
+      <div style="font-size:16px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:14px;line-height:2;color:#ccc;">
+        ① ブラウザ右上の <b style="color:#fff;">メニュー（⋮）</b> をタップ<br>
+        ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択
+      </div>
+      <button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:bold;">閉じる</button>
+    `;
+  } else {
+    modal.innerHTML = `
+      <div style="font-size:16px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:14px;color:#ccc;">スマートフォンでアクセスしてホーム画面に追加してください！</div>
+      <button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:bold;">閉じる</button>
+    `;
+  }
+  overlay.appendChild(modal);
+  overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+  document.body.appendChild(overlay);
+}
+
 function toggleMode() {
   currentMode = currentMode === 'comfort' ? 'explore' : 'comfort';
   const btn = document.getElementById('mode-toggle-float');
