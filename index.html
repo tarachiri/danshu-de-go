@@ -502,12 +502,7 @@ const todayCount = VENUES.filter(v => getDateLabel(v.next_date) ===
   document.getElementById('count-dayafter').textContent = dayafterCount;
   document.getElementById('count-total').textContent = 
 `全${VENUES.length}件中${count}件`;
-
-  document.getElementById('count-bar').innerHTML =
-    `全${VENUES.length}件中${count}件表示 <span 
-style="color:#C0392B">●</span>${todayCount} <span 
-style="color:#D35400">●</span>${tomorrowCount} <span 
-style="color:#E8857A">●</span>${dayafterCount}`; }
+}
 
 applyFilters();
 </script>
