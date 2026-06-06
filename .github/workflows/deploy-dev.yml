@@ -13,10 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy to gh-pages-dev (staging)
+      - name: Deploy to danshu-de-go-dev
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages-dev
+          personal_token: ${{ secrets.DEV_DEPLOY_TOKEN }}
+          external_repository: tarachiri/danshu-de-go-dev
+          publish_branch: gh-pages
           publish_dir: .
           cname: dev.dansyu-go.nukadokonokai.com
