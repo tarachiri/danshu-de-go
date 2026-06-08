@@ -594,6 +594,7 @@ function jumpToMarker(id, lat, lng) {
   document.getElementById('date-filter').value = 'all';
   applyFilters();
   setTimeout(() => {
+    console.log("flyTo called", id, lat, lng);
     if (window._leafletMap) {
       const point = window._leafletMap.latLngToContainerPoint([lat, lng]);
       const newPoint = window._leafletMap.containerPointToLatLng([point.x, point.y - 150]);
