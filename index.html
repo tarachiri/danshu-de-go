@@ -32,8 +32,8 @@
       background: #1a1a2e;
       z-index: 9999;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: space-between;
-      padding: 10vh 32px 8vh;
+      align-items: center; justify-content: flex-start; gap: 14px;
+      padding: 8vh 32px 4vh;
       cursor: pointer;
       transition: opacity 0.6s ease;
       overflow: hidden;
@@ -41,15 +41,15 @@
     #splash-overlay.fade-out { opacity: 0; pointer-events: none; }
     .sp-top { display:flex; flex-direction:column; align-items:center; }
     .sp-deco { width:1px; height:40px; background:linear-gradient(to bottom,transparent,rgba(180,140,80,0.6)); margin-bottom:20px; }
-    .sp-kana { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
-    .sp-title { font-family:'Noto Serif JP',serif; font-size:52px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
-    .sp-sub { font-family:'Noto Serif JP',serif; font-size:13px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:20px; }
+    .sp-kana { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
+    .sp-title { font-family:'Noto Serif JP',serif; font-size:38px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
+    .sp-sub { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:20px; }
     .sp-runner { font-size:56px; line-height:1; margin-bottom:8px; }
-    .sp-tagline { font-family:'Noto Sans JP',sans-serif; font-size:11px; font-weight:300; color:rgba(240,232,208,0.4); letter-spacing:.22em; text-align:center; line-height:1.9; }
+    .sp-tagline { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; color:rgba(240,232,208,0.4); letter-spacing:.22em; text-align:center; line-height:1.9; }
     .sp-divider { width:48px; height:1px; background:rgba(180,140,80,0.3); }
     .sp-qr { display:flex; flex-direction:column; align-items:center; gap:12px; }
     .sp-qr-frame { background:#f0e8d0; border-radius:12px; padding:12px; }
-    .sp-qr-label { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.35); letter-spacing:.3em; text-align:center; }
+    .sp-qr-label { font-family:'Noto Sans JP',sans-serif; font-size:12px; font-weight:300; color:rgba(240,232,208,0.35); letter-spacing:.3em; text-align:center; }
     .sp-btn {
       position:relative; width:280px; padding:18px 0; border-radius:50px;
       border:1.5px solid rgba(180,140,80,0.7); background:rgba(180,140,80,0.1);
@@ -79,7 +79,7 @@
   </div>
   <div class="sp-divider"></div>
   <div class="sp-qr">
-    <div class="sp-qr-frame"><canvas id="sp-qr-canvas" width="140" height="140"></canvas></div>
+    <div class="sp-qr-frame"><canvas id="sp-qr-canvas" width="120" height="120"></canvas></div>
     <p class="sp-qr-label">読み取って今すぐ開く</p>
   </div>
   <div class="sp-btn">
@@ -97,7 +97,7 @@
   var d=document.createElement('div');
   d.style.cssText='visibility:hidden;position:absolute;';
   document.body.appendChild(d);
-  new QRCode(d,{text:'https://dansyu-go.nukadokonokai.com/',width:140,height:140,colorDark:'#1a1a2e',colorLight:'#f0e8d0',correctLevel:QRCode.CorrectLevel.M});
+  new QRCode(d,{text:'https://dansyu-go.nukadokonokai.com/',width:120,height:120,colorDark:'#1a1a2e',colorLight:'#f0e8d0',correctLevel:QRCode.CorrectLevel.M});
   setTimeout(function(){
     var c=d.querySelector('canvas');
     var t=document.getElementById('sp-qr-canvas');
