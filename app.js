@@ -234,7 +234,7 @@ function renderSchedule() {
     .catch(() => { container.innerHTML = '<div style="color:#e94560;text-align:center;padding:32px;">取得エラー</div>'; });
 }
 
-const VENUES = (() => { const x = new XMLHttpRequest(); x.open("GET", "venues.json?v=" + Date.now(), false); x.send(); return JSON.parse(x.responseText); })();
+const VENUES = (() => { const x = new XMLHttpRequest(); x.open("GET", "venues.json?v=" + Date.now(), false); x.send(); const lm = x.getResponseHeader("Last-Modified"); if(lm){ const d = new Date(lm); const label = d.getFullYear()+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+String(d.getDate()).padStart(2,"0"); const f = document.getElementById("footer-updated"); if(f) f.textContent = "更新: "+label; } return JSON.parse(x.responseText); })();
 
 let allMarkers = [];
 
