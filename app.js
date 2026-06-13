@@ -178,12 +178,14 @@ function jumpToMarker(id, lat, lng, name) {
       window._leafletMap.once('moveend', () => {
         const m = (window._markers && window._markers[id]) || findMarkerByCoords(lat, lng);
         if (m) {
-          m.openPopup();
-          const mapHeight = window._leafletMap.getSize().y;
-          const markerPoint = window._leafletMap.latLngToContainerPoint([lat, lng]);
-          const targetY = mapHeight * 0.75;
-          const offset = markerPoint.y - targetY;
-          window._leafletMap.panBy([0, offset]);
+          clusterGroup.zoomToShowLayer(m, () => {
+            m.openPopup();
+            const mapHeight = window._leafletMap.getSize().y;
+            const markerPoint = window._leafletMap.latLngToContainerPoint([lat, lng]);
+            const targetY = mapHeight * 0.75;
+            const offset = markerPoint.y - targetY;
+            window._leafletMap.panBy([0, offset]);
+          });
         } else if (name) {
           L.popup().setLatLng([lat, lng]).setContent('<b>' + name + '</b>').openOn(window._leafletMap);
         }
@@ -251,7 +253,13 @@ function renderSchedule() {
 }
 
 let VENUES = [];
-let allMarkers = [];
+let clusterGroup = L.markerClusterGroup({
+  maxClusterRadius: 60,
+  showCoverageOnHover: false,
+  zoomToBoundsOnClick: true,
+  disableClusteringAtZoom: 14
+});
+map.addLayer(clusterGroup);
 let currentMode = 'comfort';
 
 function initVenues() {
@@ -324,8 +332,8 @@ function applyFilters() {
   const dateFilter = document.getElementById('date-filter').value;
   const areaFilter = document.getElementById('area-filter').value;
 
-  allMarkers.forEach(m => map.removeLayer(m));
-  allMarkers = [];
+  clusterGroup.clearLayers();
+  window._markers = {};
 
   let count = 0;
   VENUES.forEach(v => {
@@ -346,9 +354,7 @@ function applyFilters() {
     const marker = L.marker([v.lat, v.lng], { icon: makeIcon(v) })
       .bindPopup(buildPopup(v), { maxWidth: 300 });
 
-    marker.addTo(map);
-    allMarkers.push(marker);
-    if (!window._markers) window._markers = {};
+    clusterGroup.addLayer(marker);
     window._markers[v.id] = marker;
     count++;
   });
