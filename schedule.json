@@ -1,49 +1,5 @@
 [
   {
-    "id": 547,
-    "meeting_name": "荒川断酒会　懇談会",
-    "next_date": "2026-06-12",
-    "start_time": "10:00",
-    "end_time": "11:30",
-    "prefecture": "東京都",
-    "address": "東日暮里ふれあい館, 日本、〒116-0014 東京都荒川区東日暮里１丁目１７−",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "id": 32,
-    "meeting_name": "練馬石神井懇談会",
-    "next_date": "2026-06-12",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "",
-    "latitude": 35.7451911,
-    "longitude": 139.6015934
-  },
-  {
-    "id": 19,
-    "meeting_name": "荒川例会",
-    "next_date": "2026-06-12",
-    "start_time": "19:00",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "〒116-0014 東京都荒川区東日暮里１丁目１７−１３ 都営東日暮里一丁目アパート１３号棟",
-    "latitude": 35.7298096,
-    "longitude": 139.7899732
-  },
-  {
-    "id": 416,
-    "meeting_name": "荒川懇談会",
-    "next_date": "2026-06-12",
-    "start_time": "19:00",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東日暮里ふれあい館, 日本、〒116-0014 東京都荒川区東日暮里１丁目１７−",
-    "latitude": 35.7300027,
-    "longitude": 139.7896524
-  },
-  {
     "id": 18,
     "meeting_name": "中央断酒会　例会",
     "next_date": "2026-06-13",
@@ -62,6 +18,17 @@
     "end_time": "11:45",
     "prefecture": "東京都",
     "address": "富岡区民館, 日本、〒135-0047 東京都江東区富岡１丁目１６−１２",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 593,
+    "meeting_name": "品川断酒会　懇談会",
+    "next_date": "2026-06-13",
+    "start_time": "09:30",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "",
     "latitude": null,
     "longitude": null
   },
@@ -88,6 +55,17 @@
     "longitude": 139.6590796
   },
   {
+    "id": 639,
+    "meeting_name": "世話人会",
+    "next_date": "2026-06-13",
+    "start_time": "17:00",
+    "end_time": "18:15",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
     "id": 71,
     "meeting_name": "アメシスト例会(女性限定)",
     "next_date": "2026-06-13",
@@ -97,6 +75,17 @@
     "address": "〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２",
     "latitude": 35.4684095,
     "longitude": 139.6207449
+  },
+  {
+    "id": 643,
+    "meeting_name": "理事会・支部長会",
+    "next_date": "2026-06-13",
+    "start_time": "18:00",
+    "end_time": "20:30",
+    "prefecture": "神奈川県",
+    "address": "",
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": 11,
@@ -176,6 +165,83 @@
     "longitude": null
   },
   {
+    "id": 624,
+    "meeting_name": "【日程変更】西部家族会 → １４日(日)へ変更",
+    "next_date": "2026-06-13",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.885499,
+    "longitude": 139.497001
+  },
+  {
+    "id": 628,
+    "meeting_name": "【日程変更】川越例会 → １４日(日)へ変更",
+    "next_date": "2026-06-13",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.885499,
+    "longitude": 139.497001
+  },
+  {
+    "id": 630,
+    "meeting_name": "川越例会",
+    "next_date": "2026-06-13",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.885499,
+    "longitude": 139.497001
+  },
+  {
+    "id": 632,
+    "meeting_name": "西部家族会",
+    "next_date": "2026-06-13",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.885499,
+    "longitude": 139.497001
+  },
+  {
+    "id": 637,
+    "meeting_name": "埼玉中央本部例会",
+    "next_date": "2026-06-13",
+    "start_time": "19:00",
+    "end_time": "20:30",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 429,
+    "meeting_name": "●■連合/多摩総会",
+    "next_date": "2026-06-14",
+    "start_time": "04:00",
+    "end_time": "05:00",
+    "prefecture": "東京都",
+    "address": "〒186-0003 東京都国立市富士見台２丁目３８−５",
+    "latitude": 35.687467166727785,
+    "longitude": 139.44450371547399
+  },
+  {
+    "id": 607,
+    "meeting_name": "江東(家族だけの会）",
+    "next_date": "2026-06-14",
+    "start_time": "04:30",
+    "end_time": "06:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
     "id": 583,
     "meeting_name": "■多摩本部例会",
     "next_date": "2026-06-14",
@@ -183,6 +249,28 @@
     "end_time": "07:00",
     "prefecture": "東京都",
     "address": "〒186-0003 東京都国立市富士見台２丁目３８−５",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 606,
+    "meeting_name": "世田谷断酒会　例会",
+    "next_date": "2026-06-14",
+    "start_time": "05:00",
+    "end_time": "07:00",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 601,
+    "meeting_name": "特定非営利活動法人　東京断酒新生会　総会",
+    "next_date": "2026-06-14",
+    "start_time": "09:30",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "",
     "latitude": null,
     "longitude": null
   },
@@ -209,6 +297,28 @@
     "longitude": null
   },
   {
+    "id": 627,
+    "meeting_name": "【日程変更】西部家族会 ← １３日(土)から変更",
+    "next_date": "2026-06-14",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.885499,
+    "longitude": 139.497001
+  },
+  {
+    "id": 634,
+    "meeting_name": "【日程変更】川越例会 ← １３日(土)から変更",
+    "next_date": "2026-06-14",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.885499,
+    "longitude": 139.497001
+  },
+  {
     "id": 167,
     "meeting_name": "秩父市上宮地例会",
     "next_date": "2026-06-14",
@@ -227,6 +337,17 @@
     "end_time": "15:00",
     "prefecture": "埼玉県",
     "address": "秩父市上宮地町27-5",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 642,
+    "meeting_name": "合同例会",
+    "next_date": "2026-06-14",
+    "start_time": "13:00",
+    "end_time": "15:30",
+    "prefecture": "神奈川県",
+    "address": "",
     "latitude": null,
     "longitude": null
   },
@@ -253,6 +374,28 @@
     "longitude": null
   },
   {
+    "id": 602,
+    "meeting_name": "新宿断酒会　第２例会",
+    "next_date": "2026-06-15",
+    "start_time": "09:00",
+    "end_time": "10:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 592,
+    "meeting_name": "杉並断酒会　懇談会",
+    "next_date": "2026-06-15",
+    "start_time": "10:00",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
     "id": 38,
     "meeting_name": "新宿第２例会",
     "next_date": "2026-06-15",
@@ -264,6 +407,17 @@
     "longitude": 139.7051045
   },
   {
+    "id": 588,
+    "meeting_name": "ハートボックス",
+    "next_date": "2026-06-16",
+    "start_time": "04:30",
+    "end_time": "06:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
     "id": 466,
     "meeting_name": "白菊家族会(夜）",
     "next_date": "2026-06-16",
@@ -273,6 +427,17 @@
     "address": "IKE･Biz としま産業振興プラザ, 日本、〒171-0021 東京都豊島区西池袋２丁目３７−４ Ike･Biz としま産業振興プラザ",
     "latitude": null,
     "longitude": null
+  },
+  {
+    "id": 432,
+    "meeting_name": "●■連合理事会",
+    "next_date": "2026-06-16",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "prefecture": "東京都",
+    "address": "〒191-0011 東京都日野市日野本町７丁目５−２３",
+    "latitude": 35.6794963,
+    "longitude": 139.4001215
   },
   {
     "id": 505,
@@ -297,12 +462,56 @@
     "longitude": 135.5064694
   },
   {
+    "id": 650,
+    "meeting_name": "⚠️心理検査法基礎実験レポート締め切り１７：００",
+    "next_date": "2026-06-17",
+    "start_time": "",
+    "end_time": "",
+    "prefecture": "神奈川県",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
     "id": 550,
     "meeting_name": "京王断酒会　調布第３懇談会",
     "next_date": "2026-06-17",
     "start_time": "09:30",
     "end_time": "11:30",
     "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 591,
+    "meeting_name": "京王断酒会　調布第３懇談会",
+    "next_date": "2026-06-17",
+    "start_time": "09:30",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": 36.247719,
+    "longitude": 139.625257
+  },
+  {
+    "id": 603,
+    "meeting_name": "北断酒会　第２例会",
+    "next_date": "2026-06-17",
+    "start_time": "09:30",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 653,
+    "meeting_name": "神断連昼例会(川崎担当)　県民センター7階",
+    "next_date": "2026-06-17",
+    "start_time": "13:00",
+    "end_time": "14:30",
+    "prefecture": "神奈川県",
     "address": "",
     "latitude": null,
     "longitude": null
@@ -317,6 +526,17 @@
     "address": "埼玉県さいたま市浦和区常盤９丁目３０−２２",
     "latitude": 35.87107779834567,
     "longitude": 139.64297681195663
+  },
+  {
+    "id": 638,
+    "meeting_name": "【会場変更】埼玉中央【浦和昼例会】",
+    "next_date": "2026-06-17",
+    "start_time": "13:30",
+    "end_time": "15:00",
+    "prefecture": "埼玉県",
+    "address": "浦和ふれあい館, 日本、〒330-0061 埼玉県さいたま市浦和区常盤９丁目３０−２２",
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": 248,
@@ -341,6 +561,17 @@
     "longitude": null
   },
   {
+    "id": 635,
+    "meeting_name": "【日程変更】西部本部例会 → １９日(金)へ変更",
+    "next_date": "2026-06-17",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.8320552,
+    "longitude": 139.5539954
+  },
+  {
     "id": 473,
     "meeting_name": "世田谷断酒会　砧懇談会",
     "next_date": "2026-06-18",
@@ -348,6 +579,17 @@
     "end_time": "11:30",
     "prefecture": "東京都",
     "address": "世田谷区 砧総合支所, 日本、〒157-8501 東京都世田谷区成城６丁目２−１",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 589,
+    "meeting_name": "足立断酒会　第2例会",
+    "next_date": "2026-06-18",
+    "start_time": "09:30",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "",
     "latitude": null,
     "longitude": null
   },
@@ -385,6 +627,17 @@
     "longitude": null
   },
   {
+    "id": 657,
+    "meeting_name": "幸市民館例会　幸市民館　第３会議室",
+    "next_date": "2026-06-18",
+    "start_time": "10:00",
+    "end_time": "11:45",
+    "prefecture": "神奈川県",
+    "address": "〒212-0023 神奈川県川崎市幸区戸手本町１丁目１１−",
+    "latitude": null,
+    "longitude": null
+  },
+  {
     "id": 43,
     "meeting_name": "世田谷例会",
     "next_date": "2026-06-18",
@@ -416,5 +669,93 @@
     "address": "〒190-0023 東京都立川市柴崎町２丁目１５−８",
     "latitude": 35.694704,
     "longitude": 139.4080884
+  },
+  {
+    "id": 572,
+    "meeting_name": "大田断酒会　第２例会",
+    "next_date": "2026-06-19",
+    "start_time": "09:30",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "カムカム新蒲田, 日本、〒144-0054 東京都大田区新蒲田１丁目１８−１６",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 474,
+    "meeting_name": "荒川断酒会　家族会",
+    "next_date": "2026-06-19",
+    "start_time": "10:00",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "東日暮里ふれあい館, 日本、〒116-0014 東京都荒川区東日暮里１丁目１７−",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 511,
+    "meeting_name": "【日程変更】西部本部例会 ← １７日(水)から変更",
+    "next_date": "2026-06-19",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 598,
+    "meeting_name": "荒川断酒会　家族会",
+    "next_date": "2026-06-19",
+    "start_time": "10:00",
+    "end_time": "11:30",
+    "prefecture": "東京都",
+    "address": "東日暮里ふれあい館, 日本、〒116-0014 東京都荒川区東日暮里１丁目１７−",
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": 633,
+    "meeting_name": "【日程変更】西部本部例会 ← １７日(水)から変更",
+    "next_date": "2026-06-19",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "prefecture": "埼玉県",
+    "address": "",
+    "latitude": 35.8320552,
+    "longitude": 139.5539954
+  },
+  {
+    "id": 549,
+    "meeting_name": "江東懇談会",
+    "next_date": "2026-06-19",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都江東区大島４丁目５−１",
+    "latitude": 35.6901,
+    "longitude": 139.8197
+  },
+  {
+    "id": 113,
+    "meeting_name": "南部久里浜例会",
+    "next_date": "2026-06-19",
+    "start_time": "19:00",
+    "end_time": "20:15",
+    "prefecture": "神奈川県",
+    "address": "〒239-0831 神奈川県横須賀市久里浜６丁目１４−２ 横須賀市久里浜行政センター 2階",
+    "latitude": 35.2266507,
+    "longitude": 139.7060164
+  },
+  {
+    "id": 120,
+    "meeting_name": "鎌倉本部例会",
+    "next_date": "2026-06-19",
+    "start_time": "19:00",
+    "end_time": "19:45",
+    "prefecture": "神奈川県",
+    "address": "〒248-0012 神奈川県鎌倉市御成町２０−２１",
+    "latitude": 35.3170594,
+    "longitude": 139.5462249
   }
 ]
