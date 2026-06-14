@@ -252,18 +252,6 @@
     "longitude": 139.6428014
   },
   {
-    "id": 26,
-    "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
-    "meeting_name": "北断酒会　第２例会",
-    "next_date": "2026-06-17",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都北区中十条１丁目２−１８",
-    "latitude": 35.7576949,
-    "longitude": 139.729642
-  },
-  {
     "id": 411,
     "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
     "meeting_name": "京王断酒会　調布第３懇談会",
@@ -274,6 +262,18 @@
     "address": "",
     "latitude": 35.6764225,
     "longitude": 139.650027
+  },
+  {
+    "id": 26,
+    "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
+    "meeting_name": "北断酒会　第２例会",
+    "next_date": "2026-06-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都北区中十条１丁目２−１８",
+    "latitude": 35.7576949,
+    "longitude": 139.729642
   },
   {
     "id": 248,
@@ -384,18 +384,6 @@
     "longitude": 139.7483749
   },
   {
-    "id": 454,
-    "event_id": "tkj587720ootufn30a1215o70k@google.com",
-    "meeting_name": "江東断酒会　懇談会",
-    "next_date": "2026-06-19",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都江東区大島４丁目５−１",
-    "latitude": 35.6901,
-    "longitude": 139.8197
-  },
-  {
     "id": 410,
     "event_id": "ppjoi2c43ou48fock1arrv4g80@google.com",
     "meeting_name": "大田断酒会　第２例会",
@@ -406,6 +394,18 @@
     "address": "東京都大田区新蒲田１丁目１８−１６",
     "latitude": 35.5574732,
     "longitude": 139.7113395
+  },
+  {
+    "id": 454,
+    "event_id": "tkj587720ootufn30a1215o70k@google.com",
+    "meeting_name": "江東断酒会　懇談会",
+    "next_date": "2026-06-19",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都江東区大島４丁目５−１",
+    "latitude": 35.6901,
+    "longitude": 139.8197
   },
   {
     "id": 364,
@@ -553,8 +553,8 @@
   },
   {
     "id": 241,
-    "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
-    "meeting_name": "●立川家族会",
+    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
+    "meeting_name": "●立川本部例会",
     "next_date": "2026-06-21",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -565,8 +565,8 @@
   },
   {
     "id": 241,
-    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
-    "meeting_name": "●立川本部例会",
+    "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
+    "meeting_name": "●立川家族会",
     "next_date": "2026-06-21",
     "start_time": "14:00",
     "end_time": "16:00",
