@@ -61,8 +61,8 @@
   },
   {
     "id": 370,
-    "event_id": "1o9bopkppavge8br59ma245dhp@google.com",
-    "meeting_name": "■多摩家族会",
+    "event_id": "03kag86ljsh28efip2sdfk8ggl@google.com",
+    "meeting_name": "■多摩本部例会",
     "next_date": "2026-06-14",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -73,8 +73,8 @@
   },
   {
     "id": 370,
-    "event_id": "03kag86ljsh28efip2sdfk8ggl@google.com",
-    "meeting_name": "■多摩本部例会",
+    "event_id": "1o9bopkppavge8br59ma245dhp@google.com",
+    "meeting_name": "■多摩家族会",
     "next_date": "2026-06-14",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -108,18 +108,6 @@
     "longitude": 139.8197
   },
   {
-    "id": 162,
-    "event_id": "5u7ohknq34n6oc9pehbs1s01fm@google.com",
-    "meeting_name": "【日程変更】西部家族会 ← １３日(土)から変更",
-    "next_date": "2026-06-14",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "prefecture": "埼玉県",
-    "address": "埼玉県熊谷市仲町19",
-    "latitude": 36.1475166,
-    "longitude": 139.3829333
-  },
-  {
     "id": 141,
     "event_id": "41i6c55ij918769r42kcsb8moe@google.com",
     "meeting_name": "【日程変更】川越例会 ← １３日(土)から変更",
@@ -130,6 +118,18 @@
     "address": "川越市藤間27-1",
     "latitude": 35.8859582,
     "longitude": 139.4965871
+  },
+  {
+    "id": 162,
+    "event_id": "5u7ohknq34n6oc9pehbs1s01fm@google.com",
+    "meeting_name": "【日程変更】西部家族会 ← １３日(土)から変更",
+    "next_date": "2026-06-14",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "埼玉県",
+    "address": "埼玉県熊谷市仲町19",
+    "latitude": 36.1475166,
+    "longitude": 139.3829333
   },
   {
     "id": 38,
@@ -252,18 +252,6 @@
     "longitude": 139.6428014
   },
   {
-    "id": 411,
-    "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
-    "meeting_name": "京王断酒会　調布第３懇談会",
-    "next_date": "2026-06-17",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "",
-    "latitude": 35.6764225,
-    "longitude": 139.650027
-  },
-  {
     "id": 26,
     "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
     "meeting_name": "北断酒会　第２例会",
@@ -274,6 +262,18 @@
     "address": "東京都北区中十条１丁目２−１８",
     "latitude": 35.7576949,
     "longitude": 139.729642
+  },
+  {
+    "id": 411,
+    "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
+    "meeting_name": "京王断酒会　調布第３懇談会",
+    "next_date": "2026-06-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": 35.6764225,
+    "longitude": 139.650027
   },
   {
     "id": 248,
@@ -540,18 +540,6 @@
     "longitude": 139.6127035
   },
   {
-    "id": 78,
-    "event_id": "chh32e9p60o36b9nclj30b9kchgj8bb16li66b9i64pm8cr560p66or56g@google.com",
-    "meeting_name": "⭐️全断連定時社員総会",
-    "next_date": "2026-06-21",
-    "start_time": "",
-    "end_time": "",
-    "prefecture": "神奈川県",
-    "address": "東京都港区新橋１丁目１８−１",
-    "latitude": 35.66891409999999,
-    "longitude": 139.7554639
-  },
-  {
     "id": 415,
     "event_id": "suan4lnp188fkuprp8o6acql08@google.com",
     "meeting_name": "新宿断酒会　第１例会",
@@ -565,8 +553,8 @@
   },
   {
     "id": 241,
-    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
-    "meeting_name": "●立川本部例会",
+    "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
+    "meeting_name": "●立川家族会",
     "next_date": "2026-06-21",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -577,8 +565,8 @@
   },
   {
     "id": 241,
-    "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
-    "meeting_name": "●立川家族会",
+    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
+    "meeting_name": "●立川本部例会",
     "next_date": "2026-06-21",
     "start_time": "14:00",
     "end_time": "16:00",
