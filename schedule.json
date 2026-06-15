@@ -1,29 +1,5 @@
 [
   {
-    "id": 38,
-    "event_id": "kt8fmd4bopa88701ul8fpdvll4@google.com",
-    "meeting_name": "新宿断酒会　第２例会",
-    "next_date": "2026-06-15",
-    "start_time": "18:00",
-    "end_time": "19:30",
-    "prefecture": "東京都",
-    "address": "東京都新宿区高田馬場２丁目１８−１ 新宿区戸塚特別出張所等区民施設",
-    "latitude": 35.7144575,
-    "longitude": 139.7051045
-  },
-  {
-    "id": 446,
-    "event_id": "bvi1pglpu327hesdq7m6sco4ds@google.com",
-    "meeting_name": "杉並断酒会　懇談会",
-    "next_date": "2026-06-15",
-    "start_time": "19:00",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都杉並区阿佐谷南１丁目４７−１７",
-    "latitude": 35.7047,
-    "longitude": 139.6364
-  },
-  {
     "id": 6,
     "event_id": "m6qv171ra9tb8qma7okgesqt9s@google.com",
     "meeting_name": "ハートボックス",
@@ -360,18 +336,6 @@
     "longitude": 139.5568566
   },
   {
-    "id": 422,
-    "event_id": "rnqoe3dt6pg2uq7tomjqktrb44@google.com",
-    "meeting_name": "練馬断酒会　第２例会",
-    "next_date": "2026-06-20",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都練馬区北町８丁目２８−１０ 練馬区立北町地域集会所",
-    "latitude": 35.7677151,
-    "longitude": 139.6496689
-  },
-  {
     "id": 283,
     "event_id": "57pbsotm1agvuj1sjqg8l64bco@google.com",
     "meeting_name": "江戸川断酒会　第２例会",
@@ -382,6 +346,18 @@
     "address": "東京都江戸川区船堀４丁目１−１",
     "latitude": 35.6842543,
     "longitude": 139.8648859
+  },
+  {
+    "id": 422,
+    "event_id": "rnqoe3dt6pg2uq7tomjqktrb44@google.com",
+    "meeting_name": "練馬断酒会　第２例会",
+    "next_date": "2026-06-20",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都練馬区北町８丁目２８−１０ 練馬区立北町地域集会所",
+    "latitude": 35.7677151,
+    "longitude": 139.6496689
   },
   {
     "id": 170,
@@ -421,6 +397,18 @@
   },
   {
     "id": 241,
+    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
+    "meeting_name": "●立川本部例会",
+    "next_date": "2026-06-21",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "prefecture": "東京都",
+    "address": "東京都立川市柴崎町２丁目１５−８",
+    "latitude": 35.694704,
+    "longitude": 139.4080884
+  },
+  {
+    "id": 241,
     "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
     "meeting_name": "●立川家族会",
     "next_date": "2026-06-21",
@@ -432,16 +420,16 @@
     "longitude": 139.4080884
   },
   {
-    "id": 241,
-    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
-    "meeting_name": "●立川本部例会",
+    "id": 102,
+    "event_id": "rcnneb96rlou08jfrrg9badc7v_R20260412T090000@google.com",
+    "meeting_name": "オンライン例会 Zoom",
     "next_date": "2026-06-21",
-    "start_time": "14:00",
-    "end_time": "16:00",
-    "prefecture": "東京都",
-    "address": "東京都立川市柴崎町２丁目１５−８",
-    "latitude": 35.694704,
-    "longitude": 139.4080884
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "prefecture": "神奈川県",
+    "address": "",
+    "latitude": 35.4913535,
+    "longitude": 139.284143
   },
   {
     "id": 2,
@@ -466,5 +454,53 @@
     "address": "神奈川県川崎市宮前区宮前平２丁目２０−５",
     "latitude": 35.5892143,
     "longitude": 139.5786927
+  },
+  {
+    "id": 6,
+    "event_id": "khbkjtaon0lq1uhft5c746c95o@google.com",
+    "meeting_name": "ハートボックス",
+    "next_date": "2026-06-23",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "prefecture": "東京都",
+    "address": "東京都港区芝５丁目１８−２ 都営芝五丁目",
+    "latitude": 35.6482637,
+    "longitude": 139.7483749
+  },
+  {
+    "id": 98,
+    "event_id": "a0g69bf6c460opnln20cem10mt_R20260623T090000@google.com",
+    "meeting_name": "相談·質問📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "next_date": "2026-06-23",
+    "start_time": "18:00",
+    "end_time": "18:45",
+    "prefecture": "神奈川県",
+    "address": "平塚市見附町1-8  崇善公民館2階",
+    "latitude": 35.3290681,
+    "longitude": 139.3440372
+  },
+  {
+    "id": 454,
+    "event_id": "mgerll39vilg5dh0v49sv9olnc@google.com",
+    "meeting_name": "江東断酒会　第２例会",
+    "next_date": "2026-06-23",
+    "start_time": "18:30",
+    "end_time": "20:45",
+    "prefecture": "東京都",
+    "address": "東京都江東区大島４丁目５−１",
+    "latitude": 35.6901,
+    "longitude": 139.8197
+  },
+  {
+    "id": 98,
+    "event_id": "po3e3rrbpgu6ri9fd9nphvksbg_R20260623T094500@google.com",
+    "meeting_name": "平塚例会📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "next_date": "2026-06-23",
+    "start_time": "18:45",
+    "end_time": "20:30",
+    "prefecture": "神奈川県",
+    "address": "平塚市見附町1-8  崇善公民館2階",
+    "latitude": 35.3290681,
+    "longitude": 139.3440372
   }
 ]
