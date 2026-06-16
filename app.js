@@ -260,6 +260,7 @@ let clusterGroup = L.markerClusterGroup({
   disableClusteringAtZoom: 14
 });
 map.addLayer(clusterGroup);
+let comfortGroup = L.layerGroup();
 let currentMode = 'comfort';
 
 function initVenues() {
@@ -332,7 +333,17 @@ function applyFilters() {
   const dateFilter = document.getElementById('date-filter').value;
   const areaFilter = document.getElementById('area-filter').value;
 
+  // モードに応じてアクティブレイヤーを切替
+  const activeGroup = currentMode === 'comfort' ? comfortGroup : clusterGroup;
   clusterGroup.clearLayers();
+  comfortGroup.clearLayers();
+  if (currentMode === 'comfort') {
+    if (map.hasLayer(clusterGroup)) map.removeLayer(clusterGroup);
+    if (!map.hasLayer(comfortGroup)) map.addLayer(comfortGroup);
+  } else {
+    if (map.hasLayer(comfortGroup)) map.removeLayer(comfortGroup);
+    if (!map.hasLayer(clusterGroup)) map.addLayer(clusterGroup);
+  }
   window._markers = {};
 
   let count = 0;
@@ -354,7 +365,7 @@ function applyFilters() {
     const marker = L.marker([v.lat, v.lng], { icon: makeIcon(v) })
       .bindPopup(buildPopup(v), { maxWidth: 300 });
 
-    clusterGroup.addLayer(marker);
+    activeGroup.addLayer(marker);
     window._markers[v.id] = marker;
     count++;
   });
