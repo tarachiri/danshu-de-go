@@ -1,65 +1,5 @@
 [
   {
-    "id": 6,
-    "event_id": "m6qv171ra9tb8qma7okgesqt9s@google.com",
-    "meeting_name": "ハートボックス",
-    "next_date": "2026-06-16",
-    "start_time": "13:30",
-    "end_time": "15:30",
-    "prefecture": "東京都",
-    "address": "東京都港区芝５丁目１８−２ 都営芝五丁目",
-    "latitude": 35.6482637,
-    "longitude": 139.7483749
-  },
-  {
-    "id": 98,
-    "event_id": "6q9281dd58jba24fn9m7osgsr8_R20260616T090000@google.com",
-    "meeting_name": "相談·質問",
-    "next_date": "2026-06-16",
-    "start_time": "18:00",
-    "end_time": "18:45",
-    "prefecture": "神奈川県",
-    "address": "平塚市見附町1-8  崇善公民館2階",
-    "latitude": 35.3290681,
-    "longitude": 139.3440372
-  },
-  {
-    "id": 407,
-    "event_id": "fdnmaraj2smbvsr6d78tvko1i4@google.com",
-    "meeting_name": "白菊家族会(夜）",
-    "next_date": "2026-06-16",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都豊島区西池袋２丁目３７−４ Ike･Biz としま産業振興プラザ",
-    "latitude": 35.7277303,
-    "longitude": 139.706734
-  },
-  {
-    "id": 98,
-    "event_id": "gj5231ph5avr85f0atqi9dtaua_R20260616T094500@google.com",
-    "meeting_name": "平塚例会",
-    "next_date": "2026-06-16",
-    "start_time": "18:45",
-    "end_time": "20:30",
-    "prefecture": "神奈川県",
-    "address": "平塚市見附町1-8  崇善公民館2階",
-    "latitude": 35.3290681,
-    "longitude": 139.3440372
-  },
-  {
-    "id": 110,
-    "event_id": "72091so729e7pu15j4vjl17t7s@google.com",
-    "meeting_name": "中央支部例会",
-    "next_date": "2026-06-16",
-    "start_time": "19:00",
-    "end_time": "20:15",
-    "prefecture": "神奈川県",
-    "address": "神奈川県横須賀市西逸見町１丁目１−３８−１１",
-    "latitude": 35.2842547,
-    "longitude": 139.6521476
-  },
-  {
     "id": 297,
     "event_id": "4ue4c6e06edke7qn4v5bn74j0i@google.com",
     "meeting_name": "●福生酒害相談",
@@ -96,18 +36,6 @@
     "longitude": 139.6428014
   },
   {
-    "id": 411,
-    "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
-    "meeting_name": "京王断酒会　調布第３懇談会",
-    "next_date": "2026-06-17",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "",
-    "latitude": 35.6764225,
-    "longitude": 139.650027
-  },
-  {
     "id": 26,
     "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
     "meeting_name": "北断酒会　第２例会",
@@ -118,6 +46,18 @@
     "address": "東京都北区中十条１丁目２−１８",
     "latitude": 35.7576949,
     "longitude": 139.729642
+  },
+  {
+    "id": 411,
+    "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
+    "meeting_name": "京王断酒会　調布第３懇談会",
+    "next_date": "2026-06-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": 35.6764225,
+    "longitude": 139.650027
   },
   {
     "id": 248,
@@ -228,18 +168,6 @@
     "longitude": 139.7483749
   },
   {
-    "id": 454,
-    "event_id": "tkj587720ootufn30a1215o70k@google.com",
-    "meeting_name": "江東断酒会　懇談会",
-    "next_date": "2026-06-19",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都江東区大島４丁目５−１",
-    "latitude": 35.6901,
-    "longitude": 139.8197
-  },
-  {
     "id": 410,
     "event_id": "ppjoi2c43ou48fock1arrv4g80@google.com",
     "meeting_name": "大田断酒会　第２例会",
@@ -250,6 +178,18 @@
     "address": "東京都大田区新蒲田１丁目１８−１６",
     "latitude": 35.5574732,
     "longitude": 139.7113395
+  },
+  {
+    "id": 454,
+    "event_id": "tkj587720ootufn30a1215o70k@google.com",
+    "meeting_name": "江東断酒会　懇談会",
+    "next_date": "2026-06-19",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都江東区大島４丁目５−１",
+    "latitude": 35.6901,
+    "longitude": 139.8197
   },
   {
     "id": 364,
@@ -502,5 +442,89 @@
     "address": "平塚市見附町1-8  崇善公民館2階",
     "latitude": 35.3290681,
     "longitude": 139.3440372
+  },
+  {
+    "id": 247,
+    "event_id": "63pocvjqnjfe7egrcqgaajgis4@google.com",
+    "meeting_name": "●立川酒害相談",
+    "next_date": "2026-06-24",
+    "start_time": "13:00",
+    "end_time": "16:00",
+    "prefecture": "東京都",
+    "address": "東京都立川市富士見町２丁目３６−４７",
+    "latitude": 35.7012732,
+    "longitude": 139.4019165
+  },
+  {
+    "id": 454,
+    "event_id": "ja926bmrthfe4a1c1sp7gpifuk@google.com",
+    "meeting_name": "アメシスト　第２例会",
+    "next_date": "2026-06-24",
+    "start_time": "13:30",
+    "end_time": "15:00",
+    "prefecture": "東京都",
+    "address": "東京都江東区大島４丁目５−１",
+    "latitude": 35.6901,
+    "longitude": 139.8197
+  },
+  {
+    "id": 411,
+    "event_id": "c7ds6aiv8e2494tcskfj3u7p5k@google.com",
+    "meeting_name": "京王断酒会　調布第４懇談会",
+    "next_date": "2026-06-24",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "",
+    "latitude": 35.6764225,
+    "longitude": 139.650027
+  },
+  {
+    "id": 34,
+    "event_id": "mak35r4op06hjg5millvan2jlo@google.com",
+    "meeting_name": "指針と規範勉強会",
+    "next_date": "2026-06-24",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都中央区日本橋小伝馬町５−１",
+    "latitude": 35.6909163,
+    "longitude": 139.7770622
+  },
+  {
+    "id": 117,
+    "event_id": "0ugf2umhl4838j7lsa2r53gl6u@google.com",
+    "meeting_name": "家族会",
+    "next_date": "2026-06-24",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "神奈川県",
+    "address": "神奈川県小田原市酒匂２丁目３２−１６",
+    "latitude": 35.268425,
+    "longitude": 139.1849158
+  },
+  {
+    "id": 117,
+    "event_id": "6chrooucj13eobr2gkv50rf1mf@google.com",
+    "meeting_name": "例会",
+    "next_date": "2026-06-24",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "神奈川県",
+    "address": "神奈川県小田原市酒匂２丁目３２−１６",
+    "latitude": 35.268425,
+    "longitude": 139.1849158
+  },
+  {
+    "id": 44,
+    "event_id": "sdfe911d9g1u8m1bsq9huie038@google.com",
+    "meeting_name": "MM豊洲",
+    "next_date": "2026-06-24",
+    "start_time": "19:30",
+    "end_time": "21:30",
+    "prefecture": "東京都",
+    "address": "東京都江東区豊洲２丁目２−１８",
+    "latitude": 35.6542788,
+    "longitude": 139.7952583
   }
 ]
