@@ -14,7 +14,7 @@
   {
     "id": 98,
     "event_id": "6q9281dd58jba24fn9m7osgsr8_R20260616T090000@google.com",
-    "meeting_name": "相談·質問📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "meeting_name": "相談·質問",
     "next_date": "2026-06-16",
     "start_time": "18:00",
     "end_time": "18:45",
@@ -38,7 +38,7 @@
   {
     "id": 98,
     "event_id": "gj5231ph5avr85f0atqi9dtaua_R20260616T094500@google.com",
-    "meeting_name": "平塚例会📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "meeting_name": "平塚例会",
     "next_date": "2026-06-16",
     "start_time": "18:45",
     "end_time": "20:30",
@@ -96,18 +96,6 @@
     "longitude": 139.6428014
   },
   {
-    "id": 26,
-    "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
-    "meeting_name": "北断酒会　第２例会",
-    "next_date": "2026-06-17",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都北区中十条１丁目２−１８",
-    "latitude": 35.7576949,
-    "longitude": 139.729642
-  },
-  {
     "id": 411,
     "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
     "meeting_name": "京王断酒会　調布第３懇談会",
@@ -118,6 +106,18 @@
     "address": "",
     "latitude": 35.6764225,
     "longitude": 139.650027
+  },
+  {
+    "id": 26,
+    "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
+    "meeting_name": "北断酒会　第２例会",
+    "next_date": "2026-06-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都北区中十条１丁目２−１８",
+    "latitude": 35.7576949,
+    "longitude": 139.729642
   },
   {
     "id": 248,
@@ -228,18 +228,6 @@
     "longitude": 139.7483749
   },
   {
-    "id": 410,
-    "event_id": "ppjoi2c43ou48fock1arrv4g80@google.com",
-    "meeting_name": "大田断酒会　第２例会",
-    "next_date": "2026-06-19",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都大田区新蒲田１丁目１８−１６",
-    "latitude": 35.5574732,
-    "longitude": 139.7113395
-  },
-  {
     "id": 454,
     "event_id": "tkj587720ootufn30a1215o70k@google.com",
     "meeting_name": "江東断酒会　懇談会",
@@ -250,6 +238,18 @@
     "address": "東京都江東区大島４丁目５−１",
     "latitude": 35.6901,
     "longitude": 139.8197
+  },
+  {
+    "id": 410,
+    "event_id": "ppjoi2c43ou48fock1arrv4g80@google.com",
+    "meeting_name": "大田断酒会　第２例会",
+    "next_date": "2026-06-19",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都大田区新蒲田１丁目１８−１６",
+    "latitude": 35.5574732,
+    "longitude": 139.7113395
   },
   {
     "id": 364,
@@ -302,7 +302,7 @@
   {
     "id": 100,
     "event_id": "4m2j068b3bniogm4545uevcvbv_R20260516T034500@google.com",
-    "meeting_name": "相談·質問📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "meeting_name": "相談·質問",
     "next_date": "2026-06-20",
     "start_time": "12:45",
     "end_time": "13:30",
@@ -314,7 +314,7 @@
   {
     "id": 100,
     "event_id": "7ob01spi3f4u6n8iojbj8k8qnm_R20260516T043000@google.com",
-    "meeting_name": "伊勢原例会📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "meeting_name": "伊勢原例会",
     "next_date": "2026-06-20",
     "start_time": "13:30",
     "end_time": "15:30",
@@ -336,18 +336,6 @@
     "longitude": 139.5568566
   },
   {
-    "id": 283,
-    "event_id": "57pbsotm1agvuj1sjqg8l64bco@google.com",
-    "meeting_name": "江戸川断酒会　第２例会",
-    "next_date": "2026-06-20",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都江戸川区船堀４丁目１−１",
-    "latitude": 35.6842543,
-    "longitude": 139.8648859
-  },
-  {
     "id": 422,
     "event_id": "rnqoe3dt6pg2uq7tomjqktrb44@google.com",
     "meeting_name": "練馬断酒会　第２例会",
@@ -358,6 +346,18 @@
     "address": "東京都練馬区北町８丁目２８−１０ 練馬区立北町地域集会所",
     "latitude": 35.7677151,
     "longitude": 139.6496689
+  },
+  {
+    "id": 283,
+    "event_id": "57pbsotm1agvuj1sjqg8l64bco@google.com",
+    "meeting_name": "江戸川断酒会　第２例会",
+    "next_date": "2026-06-20",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都江戸川区船堀４丁目１−１",
+    "latitude": 35.6842543,
+    "longitude": 139.8648859
   },
   {
     "id": 170,
@@ -470,7 +470,7 @@
   {
     "id": 98,
     "event_id": "a0g69bf6c460opnln20cem10mt_R20260623T090000@google.com",
-    "meeting_name": "相談·質問📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "meeting_name": "相談·質問",
     "next_date": "2026-06-23",
     "start_time": "18:00",
     "end_time": "18:45",
@@ -494,7 +494,7 @@
   {
     "id": 98,
     "event_id": "po3e3rrbpgu6ri9fd9nphvksbg_R20260623T094500@google.com",
-    "meeting_name": "平塚例会📱090-6656-4355 保坂(今です!）slowhand-1955-y@outlook.jp",
+    "meeting_name": "平塚例会",
     "next_date": "2026-06-23",
     "start_time": "18:45",
     "end_time": "20:30",
