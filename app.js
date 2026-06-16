@@ -239,7 +239,7 @@ function renderSchedule() {
   Object.keys(byDate).sort().forEach(date => {
     const evs = byDate[date];
     const isToday = date === SCH_TODAY;
-    const label = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date).getDay()] + '）';
+    const label = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date + 'T00:00:00+09:00').getDay()] + '）';
     html += `<div class="sch-date-header"><span>${label}</span>${isToday?'<span class="sch-date-today">今日</span>':''}<span class="sch-date-count">${evs.length}件</span></div>`;
     evs.forEach(e => {
       const pref = e.prefecture === '東京都' ? 'tokyo' : e.prefecture === '埼玉県' ? 'saitama' : e.prefecture === '神奈川県' ? 'kanagawa' : 'chiba';
