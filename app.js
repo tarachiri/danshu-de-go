@@ -254,7 +254,7 @@ function renderSchedule() {
 
 let VENUES = [];
 let clusterGroup = L.markerClusterGroup({
-  maxClusterRadius: 20,
+  maxClusterRadius: 10,
   showCoverageOnHover: false,
   zoomToBoundsOnClick: true,
   disableClusteringAtZoom: 14
