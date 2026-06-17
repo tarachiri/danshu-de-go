@@ -1,99 +1,15 @@
 [
   {
-    "id": 297,
-    "event_id": "4ue4c6e06edke7qn4v5bn74j0i@google.com",
-    "meeting_name": "●福生酒害相談",
-    "next_date": "2026-06-17",
-    "start_time": "13:00",
-    "end_time": "16:00",
-    "prefecture": "東京都",
-    "address": "東京都福生市福生１０１４−１０",
-    "latitude": 35.7422623,
-    "longitude": 139.3276923
-  },
-  {
-    "id": 71,
-    "event_id": "0r756dbmiu45miqk9rc1q58aes@google.com",
-    "meeting_name": "神断連昼例会(川崎担当)　県民センター7階",
-    "next_date": "2026-06-17",
-    "start_time": "13:00",
-    "end_time": "14:30",
-    "prefecture": "神奈川県",
-    "address": "神奈川県横浜市神奈川区鶴屋町２丁目２４−２",
-    "latitude": 35.4684095,
-    "longitude": 139.6207449
-  },
-  {
-    "id": 64,
-    "event_id": "bem70p23f29f1fkndoft7p0p98_R20260617T043000@google.com",
-    "meeting_name": "【会場変更】埼玉中央【浦和昼例会】",
-    "next_date": "2026-06-17",
-    "start_time": "13:30",
-    "end_time": "15:00",
-    "prefecture": "埼玉県",
-    "address": "埼玉県さいたま市浦和区常盤９丁目３０−２２",
-    "latitude": 35.8711464,
-    "longitude": 139.6428014
-  },
-  {
-    "id": 26,
-    "event_id": "8dkjgrcglkc1snmh0rdlgmnhdo@google.com",
-    "meeting_name": "北断酒会　第２例会",
-    "next_date": "2026-06-17",
+    "id": 412,
+    "event_id": "jkfgsvc1gq00bdijjh24log9is@google.com",
+    "meeting_name": "世田谷断酒会　砧懇談会",
+    "next_date": "2026-06-18",
     "start_time": "18:30",
     "end_time": "20:30",
     "prefecture": "東京都",
-    "address": "東京都北区中十条１丁目２−１８",
-    "latitude": 35.7576949,
-    "longitude": 139.729642
-  },
-  {
-    "id": 411,
-    "event_id": "dgp8gct6ptq2vq569hhsrpooa0@google.com",
-    "meeting_name": "京王断酒会　調布第３懇談会",
-    "next_date": "2026-06-17",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "",
-    "latitude": 35.6764225,
-    "longitude": 139.650027
-  },
-  {
-    "id": 248,
-    "event_id": "41fa7tjl8bdg9598ffo4dlfe13@google.com",
-    "meeting_name": "■国分寺例会",
-    "next_date": "2026-06-17",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "prefecture": "東京都",
-    "address": "東京都国分寺市本多１丁目７−１",
-    "latitude": 35.7053251,
-    "longitude": 139.4825249
-  },
-  {
-    "id": 137,
-    "event_id": "2ko9omjv1clkucjqt87vg0980f_R20250521T100000@google.com",
-    "meeting_name": "【日程変更】西部本部例会 → １９日(金)へ変更",
-    "next_date": "2026-06-17",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "prefecture": "埼玉県",
-    "address": "富士見市針ヶ谷1-38",
-    "latitude": 35.8320496,
-    "longitude": 139.5539752
-  },
-  {
-    "id": 117,
-    "event_id": "7m5pq8nfj7ca04ntg208uu2ahe@google.com",
-    "meeting_name": "合同例会",
-    "next_date": "2026-06-17",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "prefecture": "神奈川県",
-    "address": "神奈川県小田原市酒匂２丁目３２−１６",
-    "latitude": 35.268425,
-    "longitude": 139.1849158
+    "address": "東京都世田谷区成城６丁目２−１",
+    "latitude": 35.6412777,
+    "longitude": 139.600756
   },
   {
     "id": 16,
@@ -106,18 +22,6 @@
     "address": "東京都足立区竹の塚２丁目２５−１７",
     "latitude": 35.7925227,
     "longitude": 139.7950596
-  },
-  {
-    "id": 412,
-    "event_id": "jkfgsvc1gq00bdijjh24log9is@google.com",
-    "meeting_name": "世田谷断酒会　砧懇談会",
-    "next_date": "2026-06-18",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都世田谷区成城６丁目２−１",
-    "latitude": 35.6412777,
-    "longitude": 139.600756
   },
   {
     "id": 404,
@@ -337,8 +241,8 @@
   },
   {
     "id": 241,
-    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
-    "meeting_name": "●立川本部例会",
+    "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
+    "meeting_name": "●立川家族会",
     "next_date": "2026-06-21",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -349,8 +253,8 @@
   },
   {
     "id": 241,
-    "event_id": "6mfqhpavpfi78g4f1jfmk5k8v6@google.com",
-    "meeting_name": "●立川家族会",
+    "event_id": "0jtechbqutvfhpf7f5b405na9p@google.com",
+    "meeting_name": "●立川本部例会",
     "next_date": "2026-06-21",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -526,5 +430,77 @@
     "address": "東京都江東区豊洲２丁目２−１８",
     "latitude": 35.6542788,
     "longitude": 139.7952583
+  },
+  {
+    "id": 407,
+    "event_id": "02dscij25rq6oklvdci74up2g0@google.com",
+    "meeting_name": "白菊家族会",
+    "next_date": "2026-06-25",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "prefecture": "東京都",
+    "address": "東京都豊島区西池袋２丁目３７−４ Ike･Biz としま産業振興プラザ",
+    "latitude": 35.7277303,
+    "longitude": 139.706734
+  },
+  {
+    "id": 10,
+    "event_id": "t07ru4tp6ejobakn9c8mb4r2sk@google.com",
+    "meeting_name": "世田谷断酒会　五心会",
+    "next_date": "2026-06-25",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都世田谷区太子堂１丁目１４−２０ 世田谷区立太子堂区民センター",
+    "latitude": 35.6428861,
+    "longitude": 139.6736244
+  },
+  {
+    "id": 23,
+    "event_id": "fvkuln64t5aonumf08tjs1acco@google.com",
+    "meeting_name": "墨田断酒会　第２例会",
+    "next_date": "2026-06-25",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都墨田区両国２丁目２０−１２ ライオンズステーションプラザ両国 １０１",
+    "latitude": 35.6953018,
+    "longitude": 139.7926487
+  },
+  {
+    "id": 6,
+    "event_id": "25f6knj9s19ofb1r7plsi31gcs@google.com",
+    "meeting_name": "港断酒会　懇談会",
+    "next_date": "2026-06-25",
+    "start_time": "18:30",
+    "end_time": "20:00",
+    "prefecture": "東京都",
+    "address": "東京都港区芝５丁目１８−２ 都営芝五丁目",
+    "latitude": 35.6482637,
+    "longitude": 139.7483749
+  },
+  {
+    "id": 72,
+    "event_id": "74oj0cb6cko66b9ichgj2b9k68ojabb1c4sj6bb160s3ic9j6sr66c3570@google.com",
+    "meeting_name": "旭支部",
+    "next_date": "2026-06-25",
+    "start_time": "18:30",
+    "end_time": "20:00",
+    "prefecture": "神奈川県",
+    "address": "神奈川県横浜市旭区二俣川２丁目５０−１４ コプレ二俣川 商業・業務棟 6F",
+    "latitude": 35.4631654,
+    "longitude": 139.5326339
+  },
+  {
+    "id": 244,
+    "event_id": "1617la40hose7mmto8o0hki4c1@google.com",
+    "meeting_name": "■八王子例会",
+    "next_date": "2026-06-25",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "prefecture": "東京都",
+    "address": "東京都八王子市東町５−６",
+    "latitude": 35.658532,
+    "longitude": 139.3399542
   }
 ]
