@@ -20,6 +20,17 @@
 </head>
 <body>
 
+<!-- 免責同意オーバーレイ（1日1回） -->
+<div id="disclaimer-overlay" style="display:none;">
+  <div id="disclaimer-box">
+    <h2>ご利用にあたって</h2>
+    <p>📅 日程・時刻・会場は変更になる場合があります</p>
+    <p>📍 表示される地図・住所は実際の会場と異なる場合があります</p>
+    <p class="disclaimer-confirm">必ず公式カレンダーでご確認ください</p>
+    <button id="disclaimer-btn" onclick="agreeDisclaimer()">同意して始める</button>
+  </div>
+</div>
+
 <!-- スプラッシュオーバーレイ -->
 <div id="splash-overlay" onclick="this.classList.add('fade-out'); setTimeout(()=>this.remove(),600)">
   <style>
@@ -78,6 +89,16 @@
   <div class="sp-qr">
     <div class="sp-qr-frame"><canvas id="sp-qr-canvas" width="120" height="120"></canvas></div>
     <p class="sp-qr-label">読み取って今すぐ開く</p>
+    <p style="
+      font-size: 0.75em;
+      color: #7F8C8D;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.4;
+    ">
+      日程・会場は変更になる場合があります<br>
+      必ず公式カレンダーでご確認ください
+    </p>
   </div>
   <div class="sp-btn">
     <span class="sp-btn-text">タッチして開始！</span>
@@ -185,6 +206,11 @@ flex-shrink:0;"></div>
 <div id="schedule"></div>
 <div id="footer" style="background:#16213e;padding:4px 
 16px;font-size: 15px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">© 
-2026 ぬか床の会 | <span id="footer-updated"></span></div> <script src="app.js"></script>
+2026 ぬか床の会 | <span id="footer-updated"></span></div>
+<script src="app.js"></script>
+<script>
+if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }
+showDisclaimerIfNeeded();
+</script>
 </body>
 </html>

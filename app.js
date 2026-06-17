@@ -78,15 +78,18 @@ function formatDate(d) {
 }
 
 function buildPopup(v) {
-  const label = getDateLabel(v.next_date);
+  let label = getDateLabel(v.next_date);
   const badgeColors = {
     today: '#C0392B', tomorrow: '#D35400',
-    dayafter: '#9A7D0A', other: '#555', none: '#888'
+    dayafter: '#9A7D0A', other: '#555', none: '#888',
+    exception: '#C0392B'
   };
   const badgeTexts = {
     today: '今日開催！', tomorrow: '明日開催', dayafter: '明後日開催',
-    other: '開催予定あり', none: '日程未定'
+    other: '開催予定あり', none: '日程未定',
+    exception: '⚠️ 要確認'
   };
+  if (v.has_exception) { label = 'exception'; }
   const typeEmoji = {
     'シングル': '💍', 'アメシスト': '💜', '家族': '👨‍👩‍👧', '相談': '💬', '本部': '🏛️'
   };
@@ -102,8 +105,8 @@ function buildPopup(v) {
   const emoji = typeEmoji[v.meeting_type] || '🍶';
 
   // Googleカレンダーリンク
-  const calLink = v.htmlLink
-    ? `<a href="${v.htmlLink}" target="_blank" class="popup-link cal-link">📅 Googleカレンダーで見る</a>`
+  const calLink = v.calendar_url
+    ? `<a href="${v.calendar_url}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">📅 公式<br>カレンダー</a>`
     : '';
 
   // Google Maps経路リンク
@@ -130,18 +133,18 @@ function buildPopup(v) {
 
   return `
     <div class="popup-box">
-      <span class="popup-badge" style="background:${badgeColors[label]}">${badgeTexts[label]}</span>
+      <span class="popup-badge ${label === 'exception' ? 'exception-badge' : ''}" style="background:${badgeColors[label]}">${badgeTexts[label]}</span>
       <div class="popup-name">${emoji} ${name}</div>
       ${facility && facility !== name ? `<div class="popup-facility">🏢 ${facility}${building ? ' ' + building : ''}</div>` : ''}
       ${addr ? `<div class="popup-address">📍 ${addr}</div>` : ''}
-      ${dateStr ? `<div class="popup-date" style="color:${badgeColors[label]}">📅 ${dateStr} ${timeStr}</div>` : ''}
-      ${v.recurrence ? `<div class="popup-recurrence">🔁 ${v.recurrence}</div>` : ''}
+      ${!v.has_exception && dateStr ? `<div class="popup-date" style="color:${badgeColors[label]}">📅 ${dateStr} ${timeStr}</div>` : ''}
+      ${!v.has_exception && v.recurrence ? `<div class="popup-recurrence">🔁 ${v.recurrence}</div>` : ''}
 
       
       ${v.contact_phone && false ? `<div class="popup-phone">📞 ${v.contact_phone}</div>` : ''}
 
+      ${v.has_exception && v.exc_note ? `<div class="popup-exception-note">📢 ${v.exc_note}</div>` : ''}
       <div class="popup-links">
-                ${v.official_url ? `<a href="${v.official_url}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">🌐公式<br>サイト</a>` : ''}
         ${calLink}
         ${mapsLink}
       </div>
@@ -449,3 +452,19 @@ function openShareBar() {
 }
 
 openShareBar();
+
+// ===== 免責同意（1日1回） =====
+function showDisclaimerIfNeeded() {
+  const today = new Date().toISOString().slice(0, 10);
+  const agreed = localStorage.getItem('disclaimer_agreed');
+  if (agreed === today) return;
+  const overlay = document.getElementById('disclaimer-overlay');
+  if (overlay) overlay.style.display = 'flex';
+}
+
+function agreeDisclaimer() {
+  const today = new Date().toISOString().slice(0, 10);
+  localStorage.setItem('disclaimer_agreed', today);
+  const overlay = document.getElementById('disclaimer-overlay');
+  if (overlay) overlay.style.display = 'none';
+}

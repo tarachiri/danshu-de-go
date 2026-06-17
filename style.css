@@ -167,3 +167,77 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
     100% { transform: rotate(-45deg) scale(1); }
   }
   .pin-today { animation: pulse 1.2s ease-in-out infinite; }
+
+/* 免責同意オーバーレイ */
+#disclaimer-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#disclaimer-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+#disclaimer-box h2 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #2C3E50;
+}
+
+#disclaimer-box p {
+  font-size: 0.95em;
+  color: #2C3E50;
+  margin: 8px 0;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.disclaimer-confirm {
+  font-weight: bold;
+  color: #C0392B !important;
+  margin-top: 16px !important;
+  text-align: center !important;
+}
+
+#disclaimer-btn {
+  margin-top: 20px;
+  background: #2C3E50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+#disclaimer-btn:active {
+  background: #1A252F;
+}
+
+/* 要確認ノート */
+.popup-exception-note {
+  font-size: 19px;
+  font-weight: bold;
+  color: #7D3C00;
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: #FEF9E7;
+  border-left: 4px solid #E67E22;
+  border-radius: 4px;
+  line-height: 1.5;
+}
