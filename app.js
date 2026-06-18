@@ -44,7 +44,9 @@ function getStyle(v) {
   if (label === 'tomorrow') return { color: '#D35400', size: 26, cls: '' };
   if (label === 'dayafter') return { color: '#E8857A', size: 21, cls: '' };
   // その他→エリアカラー
-  const areaColor = AREA_COLORS[v.prefecture] || '#555';
+  const areaColor = (v.meetings && v.meetings.length > 0)
+    ? (AREA_COLORS[v.prefecture] || '#555')
+    : '#5DADE2';
   return { color: areaColor, size: 15, cls: '' };
 }
 
