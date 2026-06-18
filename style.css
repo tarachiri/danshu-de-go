@@ -128,9 +128,10 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
     text-align: center;
   }
 
-  .popup-box { font-family: -apple-system, sans-serif; min-width: 220px; }
+  .popup-box { font-family: -apple-system, sans-serif; min-width: 220px; display: flex; flex-direction: column; overflow: hidden; }
   .popup-badge {
     display: inline-block;
+    max-width: calc(100% - 48px);
     padding: 2px 8px;
     border-radius: 10px;
     font-size: 15px;
@@ -240,4 +241,70 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   border-left: 4px solid #E67E22;
   border-radius: 4px;
   line-height: 1.5;
+}
+
+/* ── v6 複数例会カード ── */
+
+.meeting-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #f9f9f9;
+}
+
+.meeting-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.meeting-card-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+/* ── v6 ポップアップ スクロール構造 ── */
+.leaflet-popup-content {
+  margin: 8px !important;
+  max-height: 55vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.meetings-list {
+  max-height: 180px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 8px;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meeting-count-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: #1A5276;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+/* 閉じるボタン大型化 */
+.leaflet-popup-close-button {
+  font-size: 32px !important;
+  width: 44px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  top: 2px !important;
+  right: 2px !important;
+  color: #333 !important;
 }

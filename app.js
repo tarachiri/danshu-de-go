@@ -78,50 +78,79 @@ function formatDate(d) {
 }
 
 function buildPopup(v) {
-  let label = getDateLabel(v.next_date);
+  // ── 定数 ──────────────────────────────────────────
   const badgeColors = {
-    today: '#C0392B', tomorrow: '#D35400',
-    dayafter: '#9A7D0A', other: '#555', none: '#888',
-    exception: '#C0392B'
+    today:     '#C0392B',
+    tomorrow:  '#D35400',
+    dayafter:  '#9A7D0A',
+    other:     '#555',
+    none:      '#888',
+    exception: '#C0392B',
+    cancel:    '#7D3C00'
   };
   const badgeTexts = {
-    today: '今日開催！', tomorrow: '明日開催', dayafter: '明後日開催',
-    other: '開催予定あり', none: '日程未定',
-    exception: '⚠️ 要確認'
-  };
-  if (v.has_exception) { label = 'exception'; }
-  const typeEmoji = {
-    'シングル': '💍', 'アメシスト': '💜', '家族': '👨‍👩‍👧', '相談': '💬', '本部': '🏛️'
+    today:     '今日開催！',
+    tomorrow:  '明日開催',
+    dayafter:  '明後日開催',
+    other:     '開催予定あり',
+    none:      '日程未定',
+    exception: '⚠️ 要確認',
+    cancel:    '⚠️ 中止あり'
   };
 
-  const name = v.meeting_name || v.facility_name || '例会場';
-  const facility = v.facility_name || '';
-  const building = v.building_name || '';
+  // 例会タイプアイコン（通常・空は表示なし）
+  const typeEmoji = {
+    'シングル':   '🔵',
+    'アメシスト': '💜',
+    '家族':       '👨‍👩‍👧',
+    '相談':       '💬',
+    '本部':       '🏛️'
+  };
+
+  // ── 住所整形 ───────────────────────────────────────
   let addr = v.address || '';
   addr = addr.replace(/^.*〒\d{3}-\d{4}\s*/, '').replace(/,?\s*日本.*$/, '').trim();
 
-  const timeStr = v.start_time ? `${v.start_time}〜${v.end_time || ''}` : '';
-  const dateStr = formatDate(v.next_date);
-  const emoji = typeEmoji[v.meeting_type] || '🍶';
+  // ── meetings 配列を取得（なければフォールバック） ──
+  const meetings = (v.meetings && v.meetings.length > 0) ? v.meetings : null;
 
-  // Googleカレンダーリンク
+  // ── 大見出し：直近例会名（meetings[0] or フォールバック） ──
+  let headName, headEmoji, headLabel;
+  if (meetings) {
+    const first = meetings[0];
+    headName  = first.name || v.facility_name || '例会場';
+    headEmoji = typeEmoji[first.meeting_type] || '';
+    // 大見出しバッジ：has_exception か next_date で判定
+    if (first.has_exception) {
+      headLabel = first.exc_type === 'cancel' ? 'cancel' : 'exception';
+    } else {
+      headLabel = getDateLabel(first.next_date);
+    }
+  } else {
+    // フォールバック（meetings未リンク）
+    headName  = v.fallback_meeting_name || v.facility_name || '例会場';
+    headEmoji = '';
+    headLabel = v.has_exception
+      ? 'exception'
+      : getDateLabel(v.fallback_next_date || v.next_date);
+  }
+
+  // ── Googleカレンダーリンク（会場単位） ───────────
   const calLink = v.calendar_url
     ? `<a href="${v.calendar_url}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">📅 公式<br>カレンダー</a>`
     : '';
 
-  // Google Maps経路リンク
-  const mapsQuery = encodeURIComponent(addr || facility);
+  // ── Google Maps経路リンク（会場単位） ────────────
+  const mapsQuery = encodeURIComponent(addr || v.facility_name || '');
   const mapsLink = mapsQuery
     ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="popup-link map-link" style="color:#000">🗺️経路を<br>調べる</a>`
     : '';
 
-  // --- 要確認ポップアップ（needs_verification = 1）---
-  // 電話表示ルール: ユーザー向け問い合わせ先は contact_phone のみ。
-  // phone（会場電話）は地図リンク生成等の内部用途専用。ポップアップには出さない。
+  // ── needs_verification 警告（会場単位） ──────────
   let verifyNotice = '';
   if (Number(v.needs_verification) === 1) {
     const url = v.official_url || '';
-    const isAozora = (v.meeting_name === 'あおぞら例会') || (name === 'あおぞら例会');
+    const isAozora = headName === 'あおぞら例会';
     const msg = isAozora
       ? 'この例会は季節や天候により開催地が変わる場合があります。'
       : 'この例会の日程は変更になる場合があります。';
@@ -131,26 +160,73 @@ function buildPopup(v) {
     verifyNotice = `<div class="popup-verify">⚠️ ${msg}<br>公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
   }
 
+  // ── 例会カード生成 ────────────────────────────────
+  let meetingsHTML = '';
+  if (meetings) {
+    meetingsHTML = meetings.map(m => {
+      // カードごとバッジ
+      let cardLabel;
+      if (m.has_exception) {
+        cardLabel = m.exc_type === 'cancel' ? 'cancel' : 'exception';
+      } else {
+        cardLabel = getDateLabel(m.next_date);
+      }
+      const cardColor = badgeColors[cardLabel] || '#555';
+      const cardText  = badgeTexts[cardLabel]  || '開催予定あり';
+      const mEmoji    = typeEmoji[m.meeting_type] || '';
+
+      // 日付・時刻
+      const timeStr = m.start_time ? `${m.start_time}〜${m.end_time || ''}` : '';
+      const dateStr = formatDate(m.next_date);
+
+      // ⚠️ 例外ノート（カードごと）
+      const excNote = (m.has_exception && m.exc_note)
+        ? `<div class="popup-exception-note">📢 ${m.exc_note}</div>`
+        : '';
+
+      return `
+        <div class="meeting-card">
+          <div class="meeting-card-header">
+            <span class="popup-badge" style="background:${cardColor};font-size:11px;padding:2px 7px;">${cardText}</span>
+            <span class="meeting-card-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}</span>
+          </div>
+          ${!m.has_exception && dateStr ? `<div class="popup-date" style="color:${cardColor}">📅 ${dateStr} ${timeStr}</div>` : ''}
+          ${!m.has_exception && m.recurrence ? `<div class="popup-recurrence">🔁 ${m.recurrence}</div>` : ''}
+          ${excNote}
+        </div>`;
+    }).join('');
+  } else {
+    // フォールバック表示（meetings未リンク）
+    const fbTime = v.start_time ? `${v.start_time}〜${v.end_time || ''}` : '';
+    const fbDate = formatDate(v.fallback_next_date || v.next_date);
+    meetingsHTML = `
+      <div class="meeting-card">
+        <div class="popup-date" style="color:${badgeColors[headLabel]}">
+          ${fbDate ? `📅 ${fbDate} ${fbTime}` : '📅 日程未定'}
+        </div>
+        ${v.fallback_schedule ? `<div class="popup-recurrence">🔁 ${v.fallback_schedule}</div>` : ''}
+      </div>`;
+  }
+
+  // ── ポップアップ組み立て ──────────────────────────
   return `
     <div class="popup-box">
-      <span class="popup-badge ${label === 'exception' ? 'exception-badge' : ''}" style="background:${badgeColors[label]}">${badgeTexts[label]}</span>
-      <div class="popup-name">${emoji} ${name}</div>
-      ${facility && facility !== name ? `<div class="popup-facility">🏢 ${facility}${building ? ' ' + building : ''}</div>` : ''}
+      <span class="popup-badge ${headLabel === 'exception' || headLabel === 'cancel' ? 'exception-badge' : ''}"
+            style="background:${badgeColors[headLabel]}">${badgeTexts[headLabel]}</span>
+      <div class="popup-name">🏢 ${v.facility_name || headName}${meetings && meetings.length > 1 ? '<span class="meeting-count-badge">' + meetings.length + '件</span>' : ''}</div>
       ${addr ? `<div class="popup-address">📍 ${addr}</div>` : ''}
-      ${!v.has_exception && dateStr ? `<div class="popup-date" style="color:${badgeColors[label]}">📅 ${dateStr} ${timeStr}</div>` : ''}
-      ${!v.has_exception && v.recurrence ? `<div class="popup-recurrence">🔁 ${v.recurrence}</div>` : ''}
-
-      
-      ${v.contact_phone && false ? `<div class="popup-phone">📞 ${v.contact_phone}</div>` : ''}
-
-      ${v.has_exception && v.exc_note ? `<div class="popup-exception-note">📢 ${v.exc_note}</div>` : ''}
-      <div class="popup-links">
+      ${verifyNotice}
+      <div class="meetings-list">
+        ${meetingsHTML}
+      </div>
+      <div class="popup-links" style="flex-shrink:0">
         ${calLink}
         ${mapsLink}
       </div>
     </div>
   `;
 }
+
 
 // 座標から最寄りマーカーを探す（id不一致時のフォールバック）
 function findMarkerByCoords(lat, lng) {
@@ -263,6 +339,17 @@ let clusterGroup = L.markerClusterGroup({
   disableClusteringAtZoom: 14
 });
 map.addLayer(clusterGroup);
+
+// popupopen: LeafletのmaxHeightを解除
+map.on('popupopen', function(e) {
+  const el = e.popup.getElement();
+  if (!el) return;
+  const content = el.querySelector('.leaflet-popup-content');
+  if (content) {
+    content.style.maxHeight = '';
+    content.style.overflow = '';
+  }
+});
 let comfortGroup = L.layerGroup();
 let currentMode = 'comfort';
 
