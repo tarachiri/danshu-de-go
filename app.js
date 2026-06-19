@@ -159,7 +159,7 @@ function buildPopup(v) {
     const urlLine = url
       ? `<a href="${url}" target="_blank" rel="noopener" class="verify-link">${url}</a>`
       : '';
-    verifyNotice = `<div class="popup-verify">⚠️ ${msg}<br>公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
+    verifyNotice = `<div class="popup-verify">⚠️ ${msg}公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
   }
 
   // ── 例会カード生成 ────────────────────────────────
