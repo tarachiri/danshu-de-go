@@ -371,6 +371,8 @@ function initVenues() {
     .then(data => {
       VENUES = data;
       applyFilters();
+      const ls = document.getElementById("loading-screen");
+      if(ls) ls.style.display="none";
     })
     .catch(() => {
       document.getElementById('count-total').textContent = '読込エラー';
