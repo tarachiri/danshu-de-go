@@ -6110,12 +6110,12 @@
     "meetings": [
       {
         "name": "千葉例会",
-        "day_of_week": "金",
-        "week_of_month": "3,4",
+        "day_of_week": "",
+        "week_of_month": "",
         "start_time": "18:30",
         "end_time": "20:30",
-        "recurrence": "第3・第4金曜",
-        "next_date": "2026-06-26",
+        "recurrence": "",
+        "next_date": "",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6126,11 +6126,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "",
     "meeting_name": "千葉例会",
     "start_time": "18:30",
     "end_time": "20:30",
-    "recurrence": "第3・第4金曜"
+    "recurrence": ""
   },
   {
     "id": 1136,
@@ -6774,10 +6774,10 @@
       {
         "name": "本部例会 こころの広場",
         "day_of_week": "木",
-        "week_of_month": "1,2,4",
+        "week_of_month": "",
         "start_time": "13:00",
         "end_time": "15:30",
-        "recurrence": "第1・第2・第4木曜",
+        "recurrence": "毎週木曜",
         "next_date": "2026-06-25",
         "has_exception": false,
         "exc_type": "",
