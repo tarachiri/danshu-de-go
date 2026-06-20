@@ -336,6 +336,18 @@
     "longitude": 139.632168
   },
   {
+    "id": 40,
+    "meeting_name": "杉並断酒会　懇談会",
+    "next_date": "2026-06-22",
+    "start_time": "19:00",
+    "end_time": "20:30",
+    "recurrence": "第1・第2・第4月曜",
+    "address": "",
+    "prefecture": "東京都",
+    "latitude": 35.7017573,
+    "longitude": 139.6352933
+  },
+  {
     "id": 80,
     "meeting_name": "宮前例会　宮前区保健福祉センター１階　健診ホール",
     "next_date": "2026-06-22",
@@ -504,6 +516,18 @@
     "longitude": 135.755615
   },
   {
+    "id": 6,
+    "meeting_name": "ハートボックス",
+    "next_date": "2026-06-23",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "recurrence": "毎週火曜",
+    "address": "〒108-0014 東京都港区芝５丁目１８−２ 都営芝五丁目アパート2号棟",
+    "prefecture": "東京都",
+    "latitude": 35.6482637,
+    "longitude": 139.7483749
+  },
+  {
     "id": 1700,
     "meeting_name": "ｻﾎﾟｰﾄﾐｰﾃｨﾝｸﾞ(昼例会)",
     "next_date": "2026-06-23",
@@ -538,6 +562,18 @@
     "prefecture": "埼玉県",
     "latitude": 35.8897351,
     "longitude": 139.7915
+  },
+  {
+    "id": 5,
+    "meeting_name": "江東断酒会　第2例会",
+    "next_date": "2026-06-23",
+    "start_time": "18:30",
+    "end_time": "20:45",
+    "recurrence": "第3・第4火曜",
+    "address": "〒136-0072 東京都江東区大島４丁目５−１",
+    "prefecture": "東京都",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
   },
   {
     "id": 10,
@@ -888,6 +924,18 @@
     "longitude": 135.73555
   },
   {
+    "id": 3,
+    "meeting_name": "京王断酒会　調布第4懇談会",
+    "next_date": "2026-06-24",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第4水曜",
+    "address": "",
+    "prefecture": "東京都",
+    "latitude": 35.752978,
+    "longitude": 139.734183
+  },
+  {
     "id": 18,
     "meeting_name": "シングルの集い　2",
     "next_date": "2026-06-24",
@@ -910,6 +958,18 @@
     "prefecture": "東京都",
     "latitude": 35.6911512,
     "longitude": 139.7770967
+  },
+  {
+    "id": 22,
+    "meeting_name": "指針と規範勉強会",
+    "next_date": "2026-06-24",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3・第4水曜",
+    "address": "中央区立十思スクエア 東京都中央区日本橋小伝馬町５−１ 中央区立十思スクエア等複合施設",
+    "prefecture": "東京都",
+    "latitude": 35.6906221,
+    "longitude": 139.7771028
   },
   {
     "id": 411,
@@ -1632,18 +1692,6 @@
     "longitude": 139.6207449
   },
   {
-    "id": 6,
-    "meeting_name": "ハートボックス",
-    "next_date": "2026-06-26",
-    "start_time": "13:30",
-    "end_time": "15:30",
-    "recurrence": "毎週金曜",
-    "address": "〒108-0014 東京都港区芝５丁目１８−２ 都営芝五丁目アパート2号棟",
-    "prefecture": "東京都",
-    "latitude": 35.6482637,
-    "longitude": 139.7483749
-  },
-  {
     "id": 1747,
     "meeting_name": "吹田市断酒会昼例会",
     "next_date": "2026-06-26",
@@ -2074,6 +2122,18 @@
     "prefecture": "神奈川県",
     "latitude": 35.4684095,
     "longitude": 139.6207449
+  },
+  {
+    "id": 29,
+    "meeting_name": "西武断酒会　例会",
+    "next_date": "2026-06-27",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第4土曜",
+    "address": "〒180-0013 東京都武蔵野市西久保１丁目２３−７ 西久保コミュニティセンター",
+    "prefecture": "東京都",
+    "latitude": 35.706036,
+    "longitude": 139.5568566
   },
   {
     "id": 590,
@@ -2688,6 +2748,30 @@
     "longitude": 139.9866516
   },
   {
+    "id": 3,
+    "meeting_name": "京王断酒会　調布第1懇談会",
+    "next_date": "2026-07-01",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1水曜",
+    "address": "",
+    "prefecture": "東京都",
+    "latitude": 35.752978,
+    "longitude": 139.734183
+  },
+  {
+    "id": 5,
+    "meeting_name": "江東断酒会　A懇談会",
+    "next_date": "2026-07-01",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1水曜",
+    "address": "〒136-0072 東京都江東区大島４丁目５−１",
+    "prefecture": "東京都",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
+  },
+  {
     "id": 10,
     "meeting_name": "北断酒会　第1例会",
     "next_date": "2026-07-01",
@@ -2890,6 +2974,18 @@
     "prefecture": "神奈川県",
     "latitude": 35.3979389,
     "longitude": 139.5326778
+  },
+  {
+    "id": 8,
+    "meeting_name": "墨田断酒会　第1例会",
+    "next_date": "2026-07-02",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1木曜",
+    "address": "両国駅前会館（ライオンズステーション南側１F）墨田区両国２丁目２０−１２ ライオンズステーションプラザ両国 (地図)",
+    "prefecture": "東京都",
+    "latitude": 35.6953018,
+    "longitude": 139.7926487
   },
   {
     "id": 9,
@@ -3228,6 +3324,18 @@
     "longitude": 139.6496689
   },
   {
+    "id": 35,
+    "meeting_name": "練馬断酒会　若葉会",
+    "next_date": "2026-07-04",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1土曜",
+    "address": "〒176-0001 東京都練馬区練馬１丁目１７−１",
+    "prefecture": "東京都",
+    "latitude": 35.7381707,
+    "longitude": 139.6533531
+  },
+  {
     "id": 931,
     "meeting_name": "石津川支部",
     "next_date": "2026-07-04",
@@ -3468,6 +3576,18 @@
     "longitude": 138.318253
   },
   {
+    "id": 29,
+    "meeting_name": "西武断酒会　朝例会",
+    "next_date": "2026-07-05",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "recurrence": "第1日曜",
+    "address": "〒180-0013 東京都武蔵野市西久保１丁目２３−７ 西久保コミュニティセンター",
+    "prefecture": "東京都",
+    "latitude": 35.706036,
+    "longitude": 139.5568566
+  },
+  {
     "id": 590,
     "meeting_name": "西武断酒会　朝例会",
     "next_date": "2026-07-05",
@@ -3506,6 +3626,18 @@
   {
     "id": 5,
     "meeting_name": "江東",
+    "next_date": "2026-07-05",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "recurrence": "第1日曜",
+    "address": "〒136-0072 東京都江東区大島４丁目５−１",
+    "prefecture": "東京都",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
+  },
+  {
+    "id": 5,
+    "meeting_name": "江東婦",
     "next_date": "2026-07-05",
     "start_time": "13:30",
     "end_time": "15:30",
@@ -3586,6 +3718,18 @@
     "prefecture": "東京都",
     "latitude": 35.7132763,
     "longitude": 139.7409537
+  },
+  {
+    "id": 39,
+    "meeting_name": "練馬断酒会　第1例会",
+    "next_date": "2026-07-06",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1月曜",
+    "address": "〒176-0012 東京都練馬区豊玉北６丁目１２−１ 練馬区役所本庁舎 (地図",
+    "prefecture": "東京都",
+    "latitude": 35.7357846,
+    "longitude": 139.6517759
   },
   {
     "id": 421,
@@ -3768,6 +3912,18 @@
     "longitude": 139.6917
   },
   {
+    "id": 5,
+    "meeting_name": "アメシスト第1例会",
+    "next_date": "2026-07-08",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "recurrence": "第2水曜",
+    "address": "〒136-0072 東京都江東区大島４丁目５−１",
+    "prefecture": "東京都",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
+  },
+  {
     "id": 10,
     "meeting_name": "アメシスト第1例会",
     "next_date": "2026-07-08",
@@ -3790,6 +3946,18 @@
     "prefecture": "東京都",
     "latitude": 35.7144575,
     "longitude": 139.7051045
+  },
+  {
+    "id": 3,
+    "meeting_name": "京王断酒会　調布第2懇談会",
+    "next_date": "2026-07-08",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第2水曜",
+    "address": "",
+    "prefecture": "東京都",
+    "latitude": 35.752978,
+    "longitude": 139.734183
   },
   {
     "id": 411,
@@ -4524,6 +4692,18 @@
     "longitude": 138.257782
   },
   {
+    "id": 14,
+    "meeting_name": "千代田断酒会　例会",
+    "next_date": "2026-07-14",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第2火曜",
+    "address": "〒101-0062 東京都千代田区神田駿河台２丁目５−２１ 障害者福祉センターえみふる",
+    "prefecture": "東京都",
+    "latitude": 35.7004181,
+    "longitude": 139.7607849
+  },
+  {
     "id": 249,
     "meeting_name": "千代田断酒会　例会",
     "next_date": "2026-07-14",
@@ -4606,6 +4786,18 @@
     "prefecture": "埼玉県",
     "latitude": 35.8574923,
     "longitude": 139.6496729
+  },
+  {
+    "id": 3,
+    "meeting_name": "京王断酒会　調布第3懇談会",
+    "next_date": "2026-07-15",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3水曜",
+    "address": "",
+    "prefecture": "東京都",
+    "latitude": 35.752978,
+    "longitude": 139.734183
   },
   {
     "id": 10,
@@ -4846,6 +5038,30 @@
     "prefecture": "静岡県",
     "latitude": 35.16135,
     "longitude": 138.676239
+  },
+  {
+    "id": 5,
+    "meeting_name": "江東断酒会　B懇談会",
+    "next_date": "2026-07-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3金曜",
+    "address": "〒136-0072 東京都江東区大島４丁目５−１",
+    "prefecture": "東京都",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
+  },
+  {
+    "id": 5,
+    "meeting_name": "江東断酒会　懇談会",
+    "next_date": "2026-07-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3金曜",
+    "address": "〒136-0072 東京都江東区大島４丁目５−１",
+    "prefecture": "東京都",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
   },
   {
     "id": 10,
@@ -5278,6 +5494,30 @@
     "prefecture": "静岡県",
     "latitude": 34.762508,
     "longitude": 138.13562
+  },
+  {
+    "id": 3,
+    "meeting_name": "京王断酒会　調布第5懇談会",
+    "next_date": "2026-07-29",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第5水曜",
+    "address": "",
+    "prefecture": "東京都",
+    "latitude": 35.752978,
+    "longitude": 139.734183
+  },
+  {
+    "id": 35,
+    "meeting_name": "練馬断酒会　懇談会",
+    "next_date": "2026-07-29",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第5水曜",
+    "address": "〒176-0001 東京都練馬区練馬１丁目１７−１",
+    "prefecture": "東京都",
+    "latitude": 35.7381707,
+    "longitude": 139.6533531
   },
   {
     "id": 411,
