@@ -44,39 +44,13 @@ function getStyle(v) {
   if (label === 'tomorrow') return { color: '#D35400', size: 26, cls: '' };
   if (label === 'dayafter') return { color: '#E8857A', size: 21, cls: '' };
   // その他→エリアカラー
-  const areaColor = AREA_COLORS[v.prefecture] || '#555';
+  const areaColor = (v.meetings && v.meetings.length > 0)
+    ? (AREA_COLORS[v.prefecture] || '#555')
+    : '#5DADE2';
   return { color: areaColor, size: 15, cls: '' };
 }
 
 function makeIcon(v) {
-  // ⚠️📍 warn_location: 正確な場所が分からない（市区町村代表点）
-  if (v.warn_location) {
-    return L.divIcon({
-      html: `<div style="font-size:22px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5));">⚠️</div>`,
-      iconSize: [26, 26],
-      iconAnchor: [13, 26],
-      popupAnchor: [0, -26],
-      className: ''
-    });
-  }
-  // ⚠️📅 warn_schedule: スケジュール推定（琥珀色ピン）
-  if (v.warn_schedule) {
-    const sz = 22;
-    return L.divIcon({
-      html: `<div style="
-        width:${sz}px;height:${sz}px;
-        background:#E67E22;
-        border:2px solid rgba(255,255,255,0.9);
-        border-radius:50% 50% 50% 0;
-        transform:rotate(-45deg);
-        box-shadow:0 2px 6px rgba(0,0,0,0.4);
-      "></div><span style="position:absolute;top:-4px;left:14px;font-size:11px;line-height:1;">⚠️</span>`,
-      iconSize: [sz, sz],
-      iconAnchor: [sz / 2, sz],
-      popupAnchor: [0, -sz],
-      className: ''
-    });
-  }
   const s = getStyle(v);
   return L.divIcon({
     html: `<div class="${s.cls}" style="
@@ -106,119 +80,155 @@ function formatDate(d) {
 }
 
 function buildPopup(v) {
-  // ⚠️📍 warn_location: 会場不明専用ポップアップ
-  if (v.warn_location) {
-    const PREF_URLS = {
-      '東京都':    'https://www.tokyo-danshu.or.jp/index.html',
-      '埼玉県':    'https://www.saitama-danshu.or.jp/index.html',
-      '神奈川県':  'https://www.shindanren.com',
-      'かながわ県':'https://www.shindanren.com',
-      '千葉県':    'https://sites.google.com/view/chibadanshu/',
-      '山梨県':    'https://www.tokyo-danshu.or.jp/index.html',
-    };
-    const name = v.meeting_name || '例会';
-    const area = v.address || '';
-    const timeStr = v.start_time ? `${v.start_time}〜${v.end_time || ''}` : '';
-    const dateStr = formatDate(v.next_date);
-    const schedStr = v.day_of_week ? `第${v.week_of_month}${v.day_of_week}曜`.trim() : '';
-    const siteUrl = v.official_url || PREF_URLS[v.prefecture] || '';
-    const officialBtn = siteUrl
-      ? `<a href="${siteUrl}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">🌐公式サイト</a>`
-      : '';
-    const mapsQuery = encodeURIComponent(area);
-    const mapsLink = mapsQuery
-      ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="popup-link map-link" style="color:#000">🗺️経路を調べる</a>`
-      : '';
-    return `
-      <div class="popup-box">
-        <div class="popup-name" style="color:#E67E22">⚠️ ${name}</div>
-        ${area ? `<div class="popup-address">📍 おおよそ ${area} 付近</div>` : ''}
-        ${dateStr ? `<div class="popup-date" style="color:#E67E22">📅 ${dateStr} ${timeStr}</div>` : ''}
-        ${schedStr ? `<div class="popup-recurrence">🔁 ${schedStr}</div>` : ''}
-        <div class="popup-verify"><b>⚠️ 会場確認中</b></div>
-        <div class="popup-links" style="flex-wrap:nowrap">
-          ${officialBtn}
-          ${mapsLink}
-        </div>
-      </div>`;
-  }
-
-  const label = getDateLabel(v.next_date);
+  // ── 定数 ──────────────────────────────────────────
   const badgeColors = {
-    today: '#C0392B', tomorrow: '#D35400',
-    dayafter: '#9A7D0A', other: '#555', none: '#888'
+    today:     '#C0392B',
+    tomorrow:  '#D35400',
+    dayafter:  '#9A7D0A',
+    other:     '#555',
+    none:      '#888',
+    exception: '#C0392B',
+    cancel:    '#7D3C00'
   };
   const badgeTexts = {
-    today: '今日開催！', tomorrow: '明日開催', dayafter: '明後日開催',
-    other: '開催予定あり', none: '日程未定'
-  };
-  const typeEmoji = {
-    'シングル': '💍', 'アメシスト': '💜', '家族': '👨‍👩‍👧', '相談': '💬', '本部': '🏛️'
+    today:     '今日開催！',
+    tomorrow:  '明日開催',
+    dayafter:  '明後日開催',
+    other:     '開催予定あり',
+    none:      '日程未定',
+    exception: '⚠️ 要確認',
+    cancel:    '⚠️ 中止あり'
   };
 
-  const name = v.meeting_name || v.facility_name || '例会場';
-  const facility = v.facility_name || '';
-  const building = v.building_name || '';
+  // 例会タイプアイコン（通常・空は表示なし）
+  const typeEmoji = {
+    'シングル':   '🔵',
+    'アメシスト': '💜',
+    '家族':       '👨‍👩‍👧',
+    '相談':       '💬',
+    '本部':       '🏛️'
+  };
+
+  // ── 住所整形 ───────────────────────────────────────
   let addr = v.address || '';
   addr = addr.replace(/^.*〒\d{3}-\d{4}\s*/, '').replace(/,?\s*日本.*$/, '').trim();
 
-  const timeStr = v.start_time ? `${v.start_time}〜${v.end_time || ''}` : '';
-  const dateStr = formatDate(v.next_date);
-  const emoji = typeEmoji[v.meeting_type] || '🍶';
+  // ── meetings 配列を取得（なければフォールバック） ──
+  const meetings = (v.meetings && v.meetings.length > 0) ? v.meetings : null;
 
-  // Googleカレンダーリンク
-  const calLink = v.htmlLink
-    ? `<a href="${v.htmlLink}" target="_blank" class="popup-link cal-link">📅 Googleカレンダーで見る</a>`
+  // ── 大見出し：直近例会名（meetings[0] or フォールバック） ──
+  let headName, headEmoji, headLabel;
+  if (meetings) {
+    const first = meetings[0];
+    headName  = first.name || v.facility_name || '例会場';
+    headEmoji = typeEmoji[first.meeting_type] || '';
+    // 大見出しバッジ：has_exception か next_date で判定
+    if (first.has_exception) {
+      headLabel = first.exc_type === 'cancel' ? 'cancel' : 'exception';
+    } else {
+      headLabel = getDateLabel(first.next_date);
+    }
+  } else {
+    // フォールバック（meetings未リンク）
+    headName  = v.fallback_meeting_name || v.facility_name || '例会場';
+    headEmoji = '';
+    headLabel = v.has_exception
+      ? 'exception'
+      : getDateLabel(v.fallback_next_date || v.next_date);
+  }
+
+  // ── Googleカレンダーリンク（会場単位） ───────────
+  const calLink = v.calendar_url
+    ? `<a href="${v.calendar_url}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">📅 公式<br>カレンダー</a>`
     : '';
 
-  // Google Maps経路リンク
-  const mapsQuery = encodeURIComponent(addr || facility);
+  // ── Google Maps経路リンク（会場単位） ────────────
+  const mapsQuery = encodeURIComponent(addr || v.facility_name || '');
   const mapsLink = mapsQuery
     ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="popup-link map-link" style="color:#000">🗺️経路を<br>調べる</a>`
     : '';
 
-  // --- 要確認ポップアップ ---
-  // warn_schedule: Phase6-B/6-Cで推定したスケジュール → 「開催日時は推定」
-  // needs_verification=1 その他: 「日程は変更になる場合あり」
+  // ── needs_verification 警告（会場単位） ──────────
   let verifyNotice = '';
-  if (v.warn_schedule) {
+  if (Number(v.needs_verification) === 1) {
     const url = v.official_url || '';
-    const urlLine = url
-      ? `<a href="${url}" target="_blank" rel="noopener" class="verify-link">${url}</a>`
-      : '';
-    verifyNotice = `<div class="popup-verify">⚠️ 開催日時は推定です。公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
-  } else if (Number(v.needs_verification) === 1) {
-    const url = v.official_url || '';
-    const isAozora = (v.meeting_name === 'あおぞら例会') || (name === 'あおぞら例会');
+    const isAozora = headName === 'あおぞら例会';
     const msg = isAozora
       ? 'この例会は季節や天候により開催地が変わる場合があります。'
       : 'この例会の日程は変更になる場合があります。';
     const urlLine = url
       ? `<a href="${url}" target="_blank" rel="noopener" class="verify-link">${url}</a>`
       : '';
-    verifyNotice = `<div class="popup-verify">⚠️ ${msg}<br>公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
+    verifyNotice = `<div class="popup-verify">⚠️ ${msg}公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
   }
 
+  // ── 例会カード生成 ────────────────────────────────
+  let meetingsHTML = '';
+  if (meetings) {
+    meetingsHTML = meetings.map(m => {
+      // カードごとバッジ
+      let cardLabel;
+      if (m.has_exception) {
+        cardLabel = m.exc_type === 'cancel' ? 'cancel' : 'exception';
+      } else {
+        cardLabel = getDateLabel(m.next_date);
+      }
+      const cardColor = badgeColors[cardLabel] || '#555';
+      const cardText  = badgeTexts[cardLabel]  || '開催予定あり';
+      const mEmoji    = typeEmoji[m.meeting_type] || '';
+
+      // 日付・時刻
+      const timeStr = m.start_time ? `${m.start_time}〜${m.end_time || ''}` : '';
+      const dateStr = formatDate(m.next_date);
+
+      // ⚠️ 例外ノート（カードごと）
+      const excNote = (m.has_exception && m.exc_note)
+        ? `<div class="popup-exception-note">📢 ${m.exc_note}</div>`
+        : '';
+
+      return `
+        <div class="meeting-card">
+          <div class="meeting-card-header">
+            <span class="popup-badge" style="background:${cardColor};font-size:11px;padding:2px 7px;">${cardText}</span>
+            <span class="meeting-card-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}</span>
+          </div>
+          ${!m.has_exception && dateStr ? `<div class="popup-date" style="color:${cardColor}">📅 ${dateStr} ${timeStr}</div>` : ''}
+          ${!m.has_exception && m.recurrence ? `<div class="popup-recurrence">🔁 ${m.recurrence}</div>` : ''}
+          ${excNote}
+        </div>`;
+    }).join('');
+  } else {
+    // フォールバック表示（meetings未リンク）
+    const fbTime = v.start_time ? `${v.start_time}〜${v.end_time || ''}` : '';
+    const fbDate = formatDate(v.fallback_next_date || v.next_date);
+    meetingsHTML = `
+      <div class="meeting-card">
+        <div class="popup-date" style="color:${badgeColors[headLabel]}">
+          ${fbDate ? `📅 ${fbDate} ${fbTime}` : '📅 日程未定'}
+        </div>
+        ${v.fallback_schedule ? `<div class="popup-recurrence">🔁 ${v.fallback_schedule}</div>` : ''}
+      </div>`;
+  }
+
+  // ── ポップアップ組み立て ──────────────────────────
   return `
     <div class="popup-box">
-      <span class="popup-badge" style="background:${badgeColors[label]}">${badgeTexts[label]}</span>
-      <div class="popup-name">${emoji} ${name}</div>
-      ${facility && facility !== name ? `<div class="popup-facility">🏢 ${facility}${building ? ' ' + building : ''}</div>` : ''}
+      <span class="popup-badge ${headLabel === 'exception' || headLabel === 'cancel' ? 'exception-badge' : ''}"
+            style="background:${badgeColors[headLabel]}">${badgeTexts[headLabel]}</span>
+      <div class="popup-name">🏢 ${v.facility_name || headName}${meetings && meetings.length > 1 ? '<span class="meeting-count-badge">' + meetings.length + '件</span>' : ''}</div>
       ${addr ? `<div class="popup-address">📍 ${addr}</div>` : ''}
-      ${dateStr ? `<div class="popup-date" style="color:${badgeColors[label]}">📅 ${dateStr} ${timeStr}</div>` : ''}
-      ${v.recurrence ? `<div class="popup-recurrence">🔁 ${v.recurrence}</div>` : ''}
-
-      
-      ${v.contact_phone && false ? `<div class="popup-phone">📞 ${v.contact_phone}</div>` : ''}
-
-      <div class="popup-links">
-                ${v.official_url ? `<a href="${v.official_url}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">🌐公式<br>サイト</a>` : ''}
+      ${verifyNotice}
+      <div class="meetings-list">
+        ${meetingsHTML}
+      </div>
+      <div class="popup-links" style="flex-shrink:0">
         ${calLink}
         ${mapsLink}
       </div>
     </div>
   `;
 }
+
 
 // 座標から最寄りマーカーを探す（id不一致時のフォールバック）
 function findMarkerByCoords(lat, lng) {
@@ -249,21 +259,14 @@ function jumpToMarker(id, lat, lng, name) {
       window._leafletMap.once('moveend', () => {
         const m = (window._markers && window._markers[id]) || findMarkerByCoords(lat, lng);
         if (m) {
-          const openAndPan = () => {
+          clusterGroup.zoomToShowLayer(m, () => {
             m.openPopup();
             const mapHeight = window._leafletMap.getSize().y;
             const markerPoint = window._leafletMap.latLngToContainerPoint([lat, lng]);
             const targetY = mapHeight * 0.75;
             const offset = markerPoint.y - targetY;
             window._leafletMap.panBy([0, offset]);
-          };
-          if (clusterGroup.hasLayer(m)) {
-            clusterGroup.zoomToShowLayer(m, openAndPan);
-          } else {
-            // urgentGroup: クラスター化されていないので直接表示
-            window._leafletMap.setView(m.getLatLng(), Math.max(window._leafletMap.getZoom(), 14));
-            openAndPan();
-          }
+          });
         } else if (name) {
           L.popup().setLatLng([lat, lng]).setContent('<b>' + name + '</b>').openOn(window._leafletMap);
         }
@@ -276,28 +279,20 @@ function jumpToMarker(id, lat, lng, name) {
 function switchTab(tab) {
   const mapEl = document.getElementById('map');
   const schEl = document.getElementById('schedule');
-  const newsEl = document.getElementById('news');
   const tabMap = document.getElementById('tab-map');
   const tabSch = document.getElementById('tab-schedule');
-  const tabNews = document.getElementById('tab-news');
-  mapEl.style.display = 'none';
-  schEl.style.display = 'none';
-  newsEl.style.display = 'none';
-  tabMap.classList.remove('active');
-  tabSch.classList.remove('active');
-  if (tabNews) tabNews.classList.remove('active');
   if (tab === 'map') {
     mapEl.style.display = '';
+    schEl.style.display = 'none';
     tabMap.classList.add('active');
+    tabSch.classList.remove('active');
     if (window._leafletMap) window._leafletMap.invalidateSize();
-  } else if (tab === 'schedule') {
+  } else {
+    mapEl.style.display = 'none';
     schEl.style.display = 'block';
+    tabMap.classList.remove('active');
     tabSch.classList.add('active');
     renderSchedule();
-  } else if (tab === 'news') {
-    newsEl.style.display = 'block';
-    if (tabNews) tabNews.classList.add('active');
-    renderNews();
   }
 }
 
@@ -325,7 +320,7 @@ function renderSchedule() {
   Object.keys(byDate).sort().forEach(date => {
     const evs = byDate[date];
     const isToday = date === SCH_TODAY;
-    const label = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date).getDay()] + '）';
+    const label = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date + 'T00:00:00+09:00').getDay()] + '）';
     html += `<div class="sch-date-header"><span>${label}</span>${isToday?'<span class="sch-date-today">今日</span>':''}<span class="sch-date-count">${evs.length}件</span></div>`;
     evs.forEach(e => {
       const pref = e.prefecture === '東京都' ? 'tokyo' : e.prefecture === '埼玉県' ? 'saitama' : e.prefecture === '神奈川県' ? 'kanagawa' : 'chiba';
@@ -338,62 +333,26 @@ function renderSchedule() {
     .catch(() => { container.innerHTML = '<div style="color:#e94560;text-align:center;padding:32px;">取得エラー</div>'; });
 }
 
-let _newsRendered = false;
-function renderNews() {
-  if (_newsRendered) return;
-  _newsRendered = true;
-  const container = document.getElementById('news');
-  container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
-  fetch('news.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(data => {
-      if (!data.items || data.items.length === 0) {
-        container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">お知らせはありません</div>';
-        return;
-      }
-      const updated = data.generated_at ? data.generated_at.slice(0,10) : '';
-      let html = `<div style="font-size:11px;color:#a0a0b0;text-align:right;margin-bottom:8px;">更新: ${updated}</div>`;
-      let lastPref = '';
-      for (const item of data.items) {
-        if (item.pref !== lastPref) {
-          html += `<div style="font-size:11px;font-weight:600;color:#888;letter-spacing:.08em;margin:12px 0 4px;">${item.pref}</div>`;
-          lastPref = item.pref;
-        }
-        const dateStr = item.date || '';
-        html += `
-          <a href="${item.url}" target="_blank" rel="noopener" style="display:block;background:#fff;border-radius:10px;padding:10px 12px;margin-bottom:6px;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.08);">
-            <div style="font-size:11px;color:#a0a0b0;margin-bottom:3px;">${dateStr} ${item.org}</div>
-            <div style="font-size:13px;color:#1a1a2e;font-weight:500;line-height:1.4;">${item.title}</div>
-            <div style="font-size:11px;color:#C0392B;margin-top:4px;">公式サイトで確認 →</div>
-          </a>`;
-      }
-      container.innerHTML = html;
-    })
-    .catch(() => {
-      container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込みエラー</div>';
-    });
-}
-
 let VENUES = [];
 let clusterGroup = L.markerClusterGroup({
-  maxClusterRadius: 60,
+  maxClusterRadius: 10,
   showCoverageOnHover: false,
   zoomToBoundsOnClick: true,
-  disableClusteringAtZoom: 14,
-  iconCreateFunction: function(cluster) {
-    const markers = cluster.getAllChildMarkers();
-    const hasDayAfter = markers.some(m => m.options.dateLabel === 'dayafter');
-    const cls = hasDayAfter ? 'cluster-dayafter' : 'cluster-normal';
-    return L.divIcon({
-      html: `<div class="${cls}">${markers.length}</div>`,
-      className: 'marker-cluster-custom',
-      iconSize: L.point(40, 40)
-    });
+  disableClusteringAtZoom: 14
+});
+map.addLayer(clusterGroup);
+
+// popupopen: LeafletのmaxHeightを解除
+map.on('popupopen', function(e) {
+  const el = e.popup.getElement();
+  if (!el) return;
+  const content = el.querySelector('.leaflet-popup-content');
+  if (content) {
+    content.style.maxHeight = '';
+    content.style.overflow = '';
   }
 });
-let urgentGroup = L.layerGroup();  // 今日・明日ピン（クラスターしない）
-map.addLayer(clusterGroup);
-map.addLayer(urgentGroup);
+let comfortGroup = L.layerGroup();
 let currentMode = 'comfort';
 
 function initVenues() {
@@ -412,6 +371,8 @@ function initVenues() {
     .then(data => {
       VENUES = data;
       applyFilters();
+      const ls = document.getElementById("loading-screen");
+      if(ls) ls.style.display="none";
     })
     .catch(() => {
       document.getElementById('count-total').textContent = '読込エラー';
@@ -466,8 +427,17 @@ function applyFilters() {
   const dateFilter = document.getElementById('date-filter').value;
   const areaFilter = document.getElementById('area-filter').value;
 
+  // モードに応じてアクティブレイヤーを切替
+  const activeGroup = currentMode === 'comfort' ? comfortGroup : clusterGroup;
   clusterGroup.clearLayers();
-  urgentGroup.clearLayers();
+  comfortGroup.clearLayers();
+  if (currentMode === 'comfort') {
+    if (map.hasLayer(clusterGroup)) map.removeLayer(clusterGroup);
+    if (!map.hasLayer(comfortGroup)) map.addLayer(comfortGroup);
+  } else {
+    if (map.hasLayer(comfortGroup)) map.removeLayer(comfortGroup);
+    if (!map.hasLayer(clusterGroup)) map.addLayer(clusterGroup);
+  }
   window._markers = {};
 
   let count = 0;
@@ -476,11 +446,9 @@ function applyFilters() {
 
     const label = getDateLabel(v.next_date);
 
-    // モード判定（⚠️warn_location は常時表示）
-    if (!v.warn_location) {
-      if (currentMode === 'comfort' && label === 'none') return;
-      if (currentMode === 'comfort' && label === 'other') return;
-    }
+    // モード判定
+    if (currentMode === 'comfort' && label === 'none') return;
+    if (currentMode === 'comfort' && label === 'other') return;
 
     // 日付フィルター
     if (dateFilter !== 'all' && label !== dateFilter) return;
@@ -488,19 +456,10 @@ function applyFilters() {
     // エリアフィルター
     if (areaFilter !== 'all' && v.prefecture !== areaFilter) return;
 
-    const marker = L.marker([v.lat, v.lng], {
-      icon: makeIcon(v),
-      dateLabel: label
-    }).bindPopup(buildPopup(v), { maxWidth: 300 });
+    const marker = L.marker([v.lat, v.lng], { icon: makeIcon(v) })
+      .bindPopup(buildPopup(v), { maxWidth: 300 });
 
-    // Phase 6-F: 快適モードは today/tomorrow を urgentGroup（クラスターしない）
-    //            探索モードは全ピンを urgentGroup（クラスターなし）
-    if (currentMode === 'explore' || label === 'today' || label === 'tomorrow') {
-      urgentGroup.addLayer(marker);
-    } else {
-      clusterGroup.addLayer(marker);
-    }
-
+    activeGroup.addLayer(marker);
     window._markers[v.id] = marker;
     count++;
   });
@@ -585,6 +544,7 @@ function openShareBar() {
 
 openShareBar();
 
+// ===== 免責同意（1日1回） =====
 function showDisclaimerIfNeeded() {
   const today = new Date().toISOString().slice(0, 10);
   const agreed = localStorage.getItem('disclaimer_agreed');
