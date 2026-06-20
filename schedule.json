@@ -60,6 +60,18 @@
     "longitude": 139.6435416423446
   },
   {
+    "id": 1783,
+    "meeting_name": "かずさ例会",
+    "next_date": "2026-06-21",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第3日曜",
+    "address": "千葉県君津市久保２丁目１３−２",
+    "prefecture": "千葉県",
+    "latitude": 35.330471,
+    "longitude": 139.901428
+  },
+  {
     "id": 15,
     "meeting_name": "西武断酒会　若葉会",
     "next_date": "2026-06-21",
@@ -214,6 +226,18 @@
     "prefecture": "大阪府",
     "latitude": 34.866047,
     "longitude": 135.574692
+  },
+  {
+    "id": 1785,
+    "meeting_name": "八千代例会",
+    "next_date": "2026-06-22",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第4月曜",
+    "address": "千葉県八千代市大和田２５０−１",
+    "prefecture": "千葉県",
+    "latitude": 35.713902,
+    "longitude": 140.104538
   },
   {
     "id": 2,
@@ -1752,18 +1776,6 @@
     "longitude": 135.629181
   },
   {
-    "id": 260,
-    "meeting_name": "千葉例会",
-    "next_date": "2026-06-26",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "recurrence": "第3・第4金曜",
-    "address": "〒263-0034 千葉県千葉市稲毛区稲毛１丁目１０−１７",
-    "prefecture": "千葉県",
-    "latitude": 35.6365597,
-    "longitude": 140.0834126
-  },
-  {
     "id": 1726,
     "meeting_name": "洛南",
     "next_date": "2026-06-26",
@@ -2172,6 +2184,30 @@
     "longitude": 139.8731574
   },
   {
+    "id": 1784,
+    "meeting_name": "やちまた例会",
+    "next_date": "2026-06-27",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3・第4土曜",
+    "address": "千葉県八街市八街ほ−７９６−１",
+    "prefecture": "千葉県",
+    "latitude": 35.657684,
+    "longitude": 140.306793
+  },
+  {
+    "id": 1787,
+    "meeting_name": "習志野例会",
+    "next_date": "2026-06-27",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第4土曜",
+    "address": "千葉県習志野市本大久保３丁目８−１９",
+    "prefecture": "千葉県",
+    "latitude": 35.685467,
+    "longitude": 140.047119
+  },
+  {
     "id": 4,
     "meeting_name": "台東断酒会　例会",
     "next_date": "2026-06-27",
@@ -2556,6 +2592,18 @@
     "longitude": 138.24231
   },
   {
+    "id": 254,
+    "meeting_name": "一日研修会",
+    "next_date": "2026-06-28",
+    "start_time": "10:00",
+    "end_time": "15:30",
+    "recurrence": "第1・第4日曜",
+    "address": "〒272-0021 千葉県市川市八幡４丁目２−１",
+    "prefecture": "千葉県",
+    "latitude": 35.7241234,
+    "longitude": 139.9307643
+  },
+  {
     "id": 21,
     "meeting_name": "京王断酒会　例会",
     "next_date": "2026-06-28",
@@ -2734,6 +2782,18 @@
     "prefecture": "神奈川県",
     "latitude": 35.4684095,
     "longitude": 139.6207449
+  },
+  {
+    "id": 1789,
+    "meeting_name": "豊友会",
+    "next_date": "2026-07-01",
+    "start_time": "14:00",
+    "end_time": "20:30",
+    "recurrence": "第1・第5水曜",
+    "address": "千葉県鎌ケ谷市初富８０８−５４",
+    "prefecture": "千葉県",
+    "latitude": 35.779415,
+    "longitude": 140.015228
   },
   {
     "id": 255,
@@ -3228,6 +3288,18 @@
     "longitude": 139.59864
   },
   {
+    "id": 256,
+    "meeting_name": "アメシスト",
+    "next_date": "2026-07-04",
+    "start_time": "12:30",
+    "end_time": "14:00",
+    "recurrence": "第1土曜",
+    "address": "〒274-0825 千葉県船橋市前原西２丁目２１−２１",
+    "prefecture": "千葉県",
+    "latitude": 35.6927812,
+    "longitude": 140.0227357
+  },
+  {
     "id": 123,
     "meeting_name": "逗子本部例会",
     "next_date": "2026-07-04",
@@ -3269,7 +3341,7 @@
     "next_date": "2026-07-04",
     "start_time": "14:15",
     "end_time": "16:15",
-    "recurrence": "第1土曜",
+    "recurrence": "第1・第2土曜",
     "address": "〒274-0825 千葉県船橋市前原西２丁目２１−２１",
     "prefecture": "千葉県",
     "latitude": 35.6927812,
@@ -3286,18 +3358,6 @@
     "prefecture": "神奈川県",
     "latitude": 35.3979389,
     "longitude": 139.5326778
-  },
-  {
-    "id": 256,
-    "meeting_name": "アメシスト",
-    "next_date": "2026-07-04",
-    "start_time": "16:30",
-    "end_time": "17:30",
-    "recurrence": "第1土曜",
-    "address": "〒274-0825 千葉県船橋市前原西２丁目２１−２１",
-    "prefecture": "千葉県",
-    "latitude": 35.6927812,
-    "longitude": 140.0227357
   },
   {
     "id": 254,
@@ -3708,6 +3768,18 @@
     "longitude": 139.4109623
   },
   {
+    "id": 1786,
+    "meeting_name": "我孫子例会",
+    "next_date": "2026-07-06",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1・第3月曜",
+    "address": "千葉県我孫子市柴崎台２丁目１５−８",
+    "prefecture": "千葉県",
+    "latitude": 35.875736,
+    "longitude": 140.043671
+  },
+  {
     "id": 27,
     "meeting_name": "文京断酒会　例会",
     "next_date": "2026-07-06",
@@ -3773,7 +3845,7 @@
     "next_date": "2026-07-07",
     "start_time": "14:00",
     "end_time": "16:00",
-    "recurrence": "第1火曜",
+    "recurrence": "第1・第2火曜",
     "address": "〒277-0004 千葉県柏市柏下６５−１−６５−１",
     "prefecture": "千葉県",
     "latitude": 35.8669173,
@@ -4236,18 +4308,6 @@
     "longitude": 138.934601
   },
   {
-    "id": 254,
-    "meeting_name": "酒なし新年会",
-    "next_date": "2026-07-11",
-    "start_time": "13:00",
-    "end_time": "15:30",
-    "recurrence": "第2土曜",
-    "address": "〒272-0021 千葉県市川市八幡４丁目２−１",
-    "prefecture": "千葉県",
-    "latitude": 35.7241234,
-    "longitude": 139.9307643
-  },
-  {
     "id": 1763,
     "meeting_name": "(本部)",
     "next_date": "2026-07-11",
@@ -4608,6 +4668,18 @@
     "longitude": 138.931442
   },
   {
+    "id": 254,
+    "meeting_name": "酒なし新年会",
+    "next_date": "2026-07-13",
+    "start_time": "13:00",
+    "end_time": "15:30",
+    "recurrence": "第2月曜",
+    "address": "〒272-0021 千葉県市川市八幡４丁目２−１",
+    "prefecture": "千葉県",
+    "latitude": 35.7241234,
+    "longitude": 139.9307643
+  },
+  {
     "id": 1031,
     "meeting_name": "高槻市断酒会昼例会",
     "next_date": "2026-07-13",
@@ -4618,6 +4690,18 @@
     "prefecture": "大阪府",
     "latitude": 34.830853,
     "longitude": 135.595123
+  },
+  {
+    "id": 1790,
+    "meeting_name": "断酒学級",
+    "next_date": "2026-07-13",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第2・第3月曜",
+    "address": "千葉県館山市北条１０９３−１",
+    "prefecture": "千葉県",
+    "latitude": 34.995293,
+    "longitude": 139.87236
   },
   {
     "id": 126,
@@ -5196,6 +5280,18 @@
     "longitude": 139.1012093
   },
   {
+    "id": 1788,
+    "meeting_name": "船橋北病院院内断酒会",
+    "next_date": "2026-07-18",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "recurrence": "第3土曜",
+    "address": "千葉県船橋市金堀町８０８−５４",
+    "prefecture": "千葉県",
+    "latitude": 35.751694,
+    "longitude": 140.0737
+  },
+  {
     "id": 1782,
     "meeting_name": "品川断酒OLM",
     "next_date": "2026-07-18",
@@ -5530,5 +5626,17 @@
     "prefecture": "東京都",
     "latitude": 35.6764225,
     "longitude": 139.650027
+  },
+  {
+    "id": 260,
+    "meeting_name": "千葉例会",
+    "next_date": "2026-07-31",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第5金曜",
+    "address": "〒263-0034 千葉県千葉市稲毛区稲毛１丁目１０−１７",
+    "prefecture": "千葉県",
+    "latitude": 35.6365597,
+    "longitude": 140.0834126
   }
 ]
