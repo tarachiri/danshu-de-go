@@ -584,3 +584,18 @@ function openShareBar() {
 }
 
 openShareBar();
+
+function showDisclaimerIfNeeded() {
+  const today = new Date().toISOString().slice(0, 10);
+  const agreed = localStorage.getItem('disclaimer_agreed');
+  if (agreed === today) return;
+  const overlay = document.getElementById('disclaimer-overlay');
+  if (overlay) overlay.style.display = 'flex';
+}
+
+function agreeDisclaimer() {
+  const today = new Date().toISOString().slice(0, 10);
+  localStorage.setItem('disclaimer_agreed', today);
+  const overlay = document.getElementById('disclaimer-overlay');
+  if (overlay) overlay.style.display = 'none';
+}
