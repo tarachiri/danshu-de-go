@@ -1,13 +1,20 @@
 {
-  "generated_at": "2026-06-20T18:06:51+09:00",
+  "generated_at": "2026-06-20T18:27:41+09:00",
   "count": 3,
   "items": [
     {
       "pref": "静岡県",
       "org": "静岡県断酒会",
       "title": "「岐阜県断酒連合会 一泊研修会」のご案内",
-      "date": null,
+      "date": "2026-08-31",
       "url": "https://www.sdansyu.org/news/4023"
+    },
+    {
+      "pref": "静岡県",
+      "org": "静岡県断酒会",
+      "title": "「山梨県断酒会 一泊研修会」のご案内",
+      "date": "2026-07-04",
+      "url": "https://www.sdansyu.org/news/3886"
     },
     {
       "pref": "静岡県",
@@ -15,13 +22,6 @@
       "title": "「静岡市アルコール問題市民講座」のご案内",
       "date": null,
       "url": "https://www.sdansyu.org/news/4020"
-    },
-    {
-      "pref": "静岡県",
-      "org": "静岡県断酒会",
-      "title": "「山梨県断酒会 一泊研修会」のご案内",
-      "date": null,
-      "url": "https://www.sdansyu.org/news/3886"
     }
   ]
 }
