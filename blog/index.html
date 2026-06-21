@@ -48,11 +48,11 @@ footer a{color:var(--accent);text-decoration:none}
 </footer>
 <script>
 const POSTS=[
-{file:"posts/001.md",title:"find_venue_idとの戦い〜東京97.1%達成の裏側〜",date:"2026-06-21",tags:["開発","バグ修正","東京","千葉"]},
+{file:"posts/001.html",title:"find_venue_idとの戦い〜東京97.1%達成の裏側〜",date:"2026-06-21",tags:["開発","バグ修正","東京","千葉"]},
 ];
 const list=document.getElementById('list');
 list.innerHTML=POSTS.map(p=>
-'<li class="item"><div class="date">'+p.date+'</div><div class="title"><a href="post.html?f='+p.file+'">'+p.title+'</a></div><div class="tags">'+p.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div></li>'
+'<li class="item"><div class="date">'+p.date+'</div><div class="title"><a href="'+p.file+'">'+p.title+'</a></div><div class="tags">'+p.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div></li>'
 ).join('');
 </script>
 </body>
