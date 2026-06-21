@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開発ノート | 断酒でGO!!</title>
+<link rel="icon" href="../icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1a1a2e;--surface:#16213e;--deep:#0f3460;--accent:#e94560;--text:#e8e8f0;--muted:#a0a0b0;--border:rgba(233,69,96,0.2);--code-bg:#0d1b2a}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;line-height:1.8}
+header{background:linear-gradient(135deg,var(--surface),var(--deep));border-bottom:2px solid var(--accent);padding:24px 20px 20px}
+.inner{max-width:720px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:16px}
+.back:hover{color:var(--accent)}
+.label{font-size:12px;color:var(--accent);letter-spacing:2px}
+article{max-width:720px;margin:48px auto;padding:0 20px 80px}
+article h1{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:12px;border-bottom:2px solid var(--accent);padding-bottom:12px}
+article h2{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:500;color:var(--accent);margin:40px 0 16px}
+article p{margin-bottom:16px;font-size:15px}
+article strong{color:var(--accent);font-weight:500}
+article code{background:var(--code-bg);color:#7ec8e3;padding:2px 6px;border-radius:4px;font-size:13px;font-family:monospace}
+article pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:20px 0}
+article pre code{background:none;padding:0;color:#7ec8e3;font-size:13px;line-height:1.6}
+article table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+article th{background:var(--deep);color:var(--accent);padding:10px 14px;text-align:left;border-bottom:2px solid var(--accent)}
+article td{padding:10px 14px;border-bottom:1px solid var(--border)}
+article blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:20px 0;color:var(--muted);font-style:italic;background:var(--surface);border-radius:0 8px 8px 0}
+article hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+article ul,article ol{padding-left:24px;margin-bottom:16px}
+article li{margin-bottom:6px;font-size:15px}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<div class="inner">
+<a href="index.html" class="back">← 開発ノート一覧</a>
+<div class="label">📓 開発ノート</div>
+</div>
+</header>
+<article id="content">
+<p style="color:#a0a0b0;text-align:center;padding:60px 0">読み込み中...</p>
+</article>
+<footer>
+<p><a href="../">断酒でGO!!</a> — 日本全国の断酒会を一つに。心の連鎖握手。</p>
+<p style="margin-top:8px">© 断酒でGO!! / かもちゃん</p>
+</footer>
+<script>
+const params=new URLSearchParams(location.search);
+const file=params.get('f');
+if(!file||!file.startsWith('posts/')||!file.endsWith('.md')){
+  document.getElementById('content').innerHTML='<p style="color:#e94560;text-align:center;padding:60px 0">記事が見つかりません。</p>';
+}else{
+  fetch(file)
+    .then(r=>r.ok?r.text():Promise.reject(r.status))
+    .then(md=>{
+      const body=md.replace(/^---[\s\S]*?---\n/,'');
+      document.getElementById('content').innerHTML=marked.parse(body);
+      const h1=document.querySelector('article h1');
+      if(h1)document.title=h1.textContent+' | 断酒でGO!! 開発ノート';
+    })
+    .catch(()=>{
+      document.getElementById('content').innerHTML='<p style="color:#e94560;text-align:center;padding:60px 0">読み込みに失敗しました。</p>';
+    });
+}
+</script>
+</body>
+</html>

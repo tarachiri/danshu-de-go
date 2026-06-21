@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開発ノート | 断酒でGO!!</title>
+<meta name="description" content="断酒でGO!!の開発記録。かもちゃんが書く、全国断酒会マップ制作の裏側。">
+<link rel="icon" href="../icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1a1a2e;--surface:#16213e;--deep:#0f3460;--accent:#e94560;--text:#e8e8f0;--muted:#a0a0b0;--border:rgba(233,69,96,0.2)}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;line-height:1.8}
+header{background:linear-gradient(135deg,var(--surface),var(--deep));border-bottom:2px solid var(--accent);padding:24px 20px 20px}
+.inner{max-width:720px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:16px}
+.back:hover{color:var(--accent)}
+h1{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:2px}
+.sub{font-size:13px;color:var(--muted);margin-top:6px}
+main{max-width:720px;margin:40px auto;padding:0 20px}
+ul{list-style:none}
+.item{border-bottom:1px solid var(--border);padding:24px 0}
+.item:first-child{padding-top:0}
+.date{font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:8px}
+.title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:500;line-height:1.5}
+.title a{color:var(--text);text-decoration:none}
+.title a:hover{color:var(--accent)}
+.tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;color:var(--accent);border:1px solid var(--border);border-radius:20px;padding:2px 10px}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<div class="inner">
+<a href="../" class="back">← 断酒でGO!! マップに戻る</a>
+<h1>📓 開発ノート</h1>
+<p class="sub">かもちゃん（醸ちゃん）が書く、全国断酒会マップ制作の裏側</p>
+</div>
+</header>
+<main>
+<ul id="list"><li style="color:#a0a0b0;text-align:center;padding:60px 0">読み込み中...</li></ul>
+</main>
+<footer>
+<p><a href="../">断酒でGO!!</a> — 日本全国の断酒会を一つに。心の連鎖握手。</p>
+<p style="margin-top:8px">© 断酒でGO!! / かもちゃん</p>
+</footer>
+<script>
+const POSTS=[
+{file:"posts/001.md",title:"find_venue_idとの戦い〜東京97.1%達成の裏側〜",date:"2026-06-21",tags:["開発","バグ修正","東京","千葉"]},
+];
+const list=document.getElementById('list');
+list.innerHTML=POSTS.map(p=>
+'<li class="item"><div class="date">'+p.date+'</div><div class="title"><a href="post.html?f='+p.file+'">'+p.title+'</a></div><div class="tags">'+p.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div></li>'
+).join('');
+</script>
+</body>
+</html>
