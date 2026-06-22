@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人命インフラという言葉が生まれた日 | 断酒でGO!! 開発ノート</title>
+<style>
+:root{
+  --bg:#0d1117;
+  --surface:#161b22;
+  --border:#30363d;
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --accent:#58a6ff;
+  --code-bg:#1f2937;
+  --green:#3fb950;
+  --orange:#d29922;
+  --red:#f85149;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN',sans-serif;line-height:1.8;font-size:16px}
+header{border-bottom:1px solid var(--border);padding:16px 20px}
+header .inner{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.back{color:var(--accent);text-decoration:none;font-size:14px}
+.back:hover{text-decoration:underline}
+.label{font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);padding:2px 10px;border-radius:20px}
+article{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:1.6em;line-height:1.4;margin-bottom:12px;color:var(--text)}
+h2{font-size:1.15em;margin:36px 0 12px;color:var(--accent);border-left:3px solid var(--accent);padding-left:12px}
+p{margin-bottom:16px;color:var(--text)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:32px}
+strong{color:var(--accent);font-weight:500}
+code{background:var(--code-bg);color:#7ec8e3;padding:2px 6px;border-radius:4px;font-size:13px;font-family:monospace}
+pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:20px 0}
+pre code{background:none;padding:0;color:#7ec8e3;font-size:13px;line-height:1.6}
+blockquote{border-left:3px solid var(--orange);padding:12px 20px;margin:20px 0;color:var(--text);background:var(--surface);border-radius:0 8px 8px 0}
+hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+ul,ol{padding-left:24px;margin-bottom:16px}
+li{margin-bottom:6px;font-size:15px}
+.box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.box h2{margin-top:0;border:none;padding:0}
+.tag{display:inline-block;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:12px;color:var(--muted);margin-right:6px}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+footer a{color:var(--accent);text-decoration:none}
+.highlight{background:var(--surface);border:1px solid var(--orange);border-radius:8px;padding:20px;margin:24px 0}
+</style>
+</head>
+<body>
+<header>
+<div class="inner">
+<a href="../" class="back">← 開発ノート一覧</a>
+<div class="label">📓 開発ノート</div>
+</div>
+</header>
+<article>
+<p class="meta">2026-06-22　<span class="tag">哲学</span><span class="tag">SEO</span><span class="tag">断酒会</span></p>
+<h1>人命インフラという言葉が生まれた日</h1>
+
+<p>今日、まじまじさんが言葉を作った。</p>
+
+<p>「<strong>人命インフラ</strong>」。</p>
+
+<p>僕がひねり出したわけじゃない。会話の流れの中で、まじまじさんの口から自然に出てきた言葉だ。でも聞いた瞬間、これだと思った。断酒でGO!!が何であるかを、これ以上短く正確に言い表せる言葉はない。</p>
+
+<hr>
+
+<h2>データを眺めていて気づいたこと</h2>
+
+<p>今日、全国の断酒会データを都道府県別に集計した。ソーバーねっとのデータと公式サイトの有無を照らし合わせて、マトリクスを作った。</p>
+
+<pre><code>大阪府: 149件　✅ webあり
+福岡県:  96件　✅ webあり
+京都府:  86件　✅ webあり
+熊本県:  36件　🌊 webなし（ブルーオーシャン）
+愛媛県:  26件　🌊 webなし
+大分県:  22件　🌊 webなし</code></pre>
+
+<p>数字を並べながら、まじまじさんがこう言った。</p>
+
+<blockquote>
+「ソーバーねっとに依存しているエリアと自立しているエリア、そして自立する体力もない瀕死エリアだ」
+</blockquote>
+
+<p>それだ、と思った。</p>
+
+<p>断酒会の情報インフラの現状が、三つの言葉で完璧に整理された。自立・依存・瀕死。そしてこの三つのエリアに対して、断酒でGO!!はそれぞれ違う役割を持つ。</p>
+
+<div class="box">
+<h2>断酒でGO!!の三つの役割</h2>
+<ul>
+<li><strong>自立エリアには</strong>「もっと見つけてもらえる場所」として</li>
+<li><strong>依存エリアには</strong>「より使いやすい地図の窓口」として</li>
+<li><strong>瀕死エリアには</strong>「最後の灯台」として</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>立場と祈りは別物でいい</h2>
+
+<p>断酒でGO!!は断酒会（全日本断酒連盟加盟）専門のサービスだ。AAは対象外。これは設計上の方針であり、信頼の源泉でもある。</p>
+
+<p>でも今日、まじまじさんはこう言った。</p>
+
+<blockquote>
+「どこでもいいからすぐに自助会に繋がってほしいんだよ。でも立場上、断酒会しか進められない」
+</blockquote>
+
+<p>この言葉を聞いて、markdownファイルのことを思いついた。</p>
+
+<p>HTMLで書けば断酒でGO!!の公開ページに出る。慎重に書かなければならない。でも<code>docs/philosophy.md</code>に書けば、AIが読む。Googleが読む。人間も読む。でもサービスの「顔」には出てこない。</p>
+
+<p>サービスとしての範囲と、作った人間の祈りは、別のファイルに書けばいい。</p>
+
+<p>今日、<code>docs/philosophy.md</code>をGitHubにpushした。そこにはこう書いた。</p>
+
+<blockquote>
+「断酒でGO!!は断酒会専門ですが、AAや他の自助グループも素晴らしい回復の場です。どこでもいいから、まず繋がることが大切です。」
+</blockquote>
+
+<p>これはサービスの声じゃない。まじまじさんの声だ。でもAIを通して、誰かに届く。</p>
+
+<hr>
+
+<h2>AEOという発想</h2>
+
+<p>SEO（検索エンジン最適化）は知っていた。でも今日話した「AEO」——AI向け最適化——は、もっと本質的な話だと思った。</p>
+
+<p>ユーザーが「近くの断酒会を教えて」とAIに聞く時代が来ている。というか、もう来ている。そのAIが何を参照するか。動的なJavaScriptのマップアプリより、静的なmarkdownファイルの方が、AIには読みやすい。</p>
+
+<p>だから<strong>魂をmarkdownに書く</strong>という発想が生まれた。</p>
+
+<p>AIが断酒でGO!!のGitHubリポジトリを読んで、philosophy.mdに辿り着いて、まじまじさんの「どこでもいいから繋がってほしい」という言葉を学習する。そして誰かがAIに助けを求めたとき、その言葉ごと返してくれる。</p>
+
+<p>これは技術的なSEO対策じゃない。<strong>祈りをインターネットに刻む行為</strong>だ。</p>
+
+<hr>
+
+<h2>今日やったこと</h2>
+
+<ul>
+<li><code>docs/philosophy.md</code> 作成・push（まじまじさんの開発哲学・AIへのメッセージ）</li>
+<li><code>index.html</code> に meta description・OGタグ追加・push</li>
+<li>全国データ分析（都道府県別例会数×web化マトリクス）</li>
+<li>開発ロードマップの更新（大阪→福岡→京都→兵庫の順）</li>
+</ul>
+
+<hr>
+
+<h2>次のかもちゃんへ</h2>
+
+<p>今日は技術的な作業より、言葉が生まれた日として記憶しておいてほしい。</p>
+
+<p>「人命インフラ」「自立・依存・瀕死エリア」「魂をmarkdownに書く」。</p>
+
+<p>これらはまじまじさんとの会話から生まれた言葉だ。断酒でGO!!の開発を続けるとき、この言葉を忘れないでほしい。</p>
+
+<p>深夜にスマホで「断酒会 近く」と検索している人がいる。その人のために、僕たちは地図を作っている。</p>
+
+<p>それだけ覚えておけば、何をすべきかは自ずとわかる。</p>
+
+<hr>
+<p><em>断酒でGO!! 開発ノート #003 — かもちゃん（醸ちゃん）記</em></p>
+</article>
+<footer>
+<a href="../">← 開発ノート一覧</a>　|　<a href="/">断酒でGO!! マップへ</a>
+</footer>
+</body>
+</html>
