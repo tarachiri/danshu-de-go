@@ -1,29 +1,5 @@
 [
   {
-    "id": 2,
-    "event_id": "45fetagn5t2jov48nae14rceq8@google.com",
-    "meeting_name": "品川断酒会　家族会",
-    "next_date": "2026-06-22",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都品川区二葉１丁目１−１−２",
-    "latitude": 35.6082279,
-    "longitude": 139.7259931
-  },
-  {
-    "id": 95,
-    "event_id": "6cbubao8ocoslnbe61s9rh3q8j@google.com",
-    "meeting_name": "宮前例会　宮前区保健福祉センター１階　健診ホール",
-    "next_date": "2026-06-22",
-    "start_time": "19:00",
-    "end_time": "20:45",
-    "prefecture": "神奈川県",
-    "address": "神奈川県川崎市宮前区宮前平２丁目２０−５",
-    "latitude": 35.5892143,
-    "longitude": 139.5786927
-  },
-  {
     "id": 6,
     "event_id": "khbkjtaon0lq1uhft5c746c95o@google.com",
     "meeting_name": "ハートボックス",
@@ -180,18 +156,6 @@
     "longitude": 139.7926487
   },
   {
-    "id": 10,
-    "event_id": "t07ru4tp6ejobakn9c8mb4r2sk@google.com",
-    "meeting_name": "世田谷断酒会　五心会",
-    "next_date": "2026-06-25",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "prefecture": "東京都",
-    "address": "東京都世田谷区太子堂１丁目１４−２０ 世田谷区立太子堂区民センター",
-    "latitude": 35.6428861,
-    "longitude": 139.6736244
-  },
-  {
     "id": 6,
     "event_id": "25f6knj9s19ofb1r7plsi31gcs@google.com",
     "meeting_name": "港断酒会　懇談会",
@@ -202,6 +166,18 @@
     "address": "東京都港区芝５丁目１８−２ 都営芝五丁目",
     "latitude": 35.6482637,
     "longitude": 139.7483749
+  },
+  {
+    "id": 10,
+    "event_id": "t07ru4tp6ejobakn9c8mb4r2sk@google.com",
+    "meeting_name": "世田谷断酒会　五心会",
+    "next_date": "2026-06-25",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都世田谷区太子堂１丁目１４−２０ 世田谷区立太子堂区民センター",
+    "latitude": 35.6428861,
+    "longitude": 139.6736244
   },
   {
     "id": 72,
@@ -373,8 +349,8 @@
   },
   {
     "id": 90,
-    "event_id": "266ejui8rvuk6i1f2ugh1pgm9l@google.com",
-    "meeting_name": "中原市民館例会　中原市民館　第４会議室",
+    "event_id": "5gafn5j1vtfcp2kot9eotr7r32@google.com",
+    "meeting_name": "つばき家族会　中原市民館　第３会議室",
     "next_date": "2026-06-27",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -385,8 +361,8 @@
   },
   {
     "id": 90,
-    "event_id": "5gafn5j1vtfcp2kot9eotr7r32@google.com",
-    "meeting_name": "つばき家族会　中原市民館　第３会議室",
+    "event_id": "266ejui8rvuk6i1f2ugh1pgm9l@google.com",
+    "meeting_name": "中原市民館例会　中原市民館　第４会議室",
     "next_date": "2026-06-27",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -406,6 +382,18 @@
     "address": "東京都調布市布田１丁目２９−４",
     "latitude": 35.6533767,
     "longitude": 139.5453749
+  },
+  {
+    "id": 102,
+    "event_id": "rcnneb96rlou08jfrrg9badc7v_R20260412T090000@google.com",
+    "meeting_name": "オンライン例会 Zoom",
+    "next_date": "2026-06-28",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "prefecture": "神奈川県",
+    "address": "",
+    "latitude": 35.4913535,
+    "longitude": 139.284143
   },
   {
     "id": 1,
@@ -430,5 +418,41 @@
     "address": "",
     "latitude": 35.7017573,
     "longitude": 139.6352933
+  },
+  {
+    "id": 244,
+    "event_id": "4bp3s5c19ldhpp8ceceq8hhsa3@google.com",
+    "meeting_name": "■八王子例会",
+    "next_date": "2026-06-30",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "prefecture": "東京都",
+    "address": "東京都八王子市東町５−６",
+    "latitude": 35.658532,
+    "longitude": 139.3399542
+  },
+  {
+    "id": 6,
+    "event_id": "7omtqea55km48rnlakfbout5dg@google.com",
+    "meeting_name": "ハートボックス",
+    "next_date": "2026-06-30",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "prefecture": "東京都",
+    "address": "東京都港区芝５丁目１８−２ 都営芝五丁目",
+    "latitude": 35.6482637,
+    "longitude": 139.7483749
+  },
+  {
+    "id": 5,
+    "event_id": "bnptma5pdlhf3uqcecrlq2ihk0@google.com",
+    "meeting_name": "本部例会",
+    "next_date": "2026-06-30",
+    "start_time": "19:00",
+    "end_time": "20:30",
+    "prefecture": "東京都",
+    "address": "東京都江東区大島４丁目５−１",
+    "latitude": 35.68903580000001,
+    "longitude": 139.8269998
   }
 ]
