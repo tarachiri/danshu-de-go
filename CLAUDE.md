@@ -207,3 +207,9 @@ URL: https://dansyu-go.nukadokonokai.com/blog/
 ---
 
 *最終更新: 2026年6月22日*
+
+## エラーが起きたら
+docs/architecture.md を読む
+
+## エラーが起きたら
+docs/architecture.md を読む
