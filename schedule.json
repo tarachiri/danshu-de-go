@@ -3804,6 +3804,18 @@
     "longitude": 139.966278
   },
   {
+    "id": 1891,
+    "meeting_name": "下館例会",
+    "next_date": "2026-06-25",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "recurrence": "第1・第2・第3・第4・第5木曜",
+    "address": "〒308-0843 茨城県筑西市野殿１３７１",
+    "prefecture": "茨城県",
+    "latitude": 36.277996,
+    "longitude": 139.966278
+  },
+  {
     "id": 1725,
     "meeting_name": "南伏見",
     "next_date": "2026-06-25",
@@ -11760,6 +11772,18 @@
     "longitude": 130.697052
   },
   {
+    "id": 1888,
+    "meeting_name": "牛久弥生例会",
+    "next_date": "2026-07-07",
+    "start_time": "19:00",
+    "end_time": "20:00",
+    "recurrence": "第1火曜",
+    "address": "〒300-1211 茨城県牛久市柏田町１６０６−１",
+    "prefecture": "茨城県",
+    "latitude": 35.980801,
+    "longitude": 140.155136
+  },
+  {
     "id": 1759,
     "meeting_name": "(本部)",
     "next_date": "2026-07-07",
@@ -12550,6 +12574,18 @@
     "prefecture": "佐賀県",
     "latitude": 33.249241,
     "longitude": 130.280807
+  },
+  {
+    "id": 1890,
+    "meeting_name": "いしおか例会",
+    "next_date": "2026-07-11",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "recurrence": "第2土曜",
+    "address": "〒315-0112 茨城県石岡市部原７６０−１",
+    "prefecture": "茨城県",
+    "latitude": 36.265018,
+    "longitude": 140.221466
   },
   {
     "id": 1550,
@@ -14544,6 +14580,18 @@
     "longitude": 139.6736244
   },
   {
+    "id": 1887,
+    "meeting_name": "鹿嶋例会",
+    "next_date": "2026-07-17",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3金曜",
+    "address": "〒314-0031 茨城県鹿嶋市宮中４６３１−１",
+    "prefecture": "茨城県",
+    "latitude": 35.980331,
+    "longitude": 140.634476
+  },
+  {
     "id": 799,
     "meeting_name": "家族会",
     "next_date": "2026-07-17",
@@ -15478,6 +15526,18 @@
     "prefecture": "茨城県",
     "latitude": 36.067394,
     "longitude": 140.190018
+  },
+  {
+    "id": 1889,
+    "meeting_name": "牛久弥生例会",
+    "next_date": "2026-07-19",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "recurrence": "第3日曜",
+    "address": "〒300-1284 茨城県牛久市島田町２７００−１",
+    "prefecture": "茨城県",
+    "latitude": 35.959484,
+    "longitude": 140.228409
   },
   {
     "id": 1092,
