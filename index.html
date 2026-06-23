@@ -135,70 +135,39 @@
 <div id="header">
   <div id="top-bar">
     <span id="title">🏃 断酒でGO!!</span>
-    <select id="date-filter" onchange="applyFilters()">
+    <select id="date-filter" onchange="applyFilters()" style="display:none;">
       <option value="all">📅 全日付</option>
       <option value="today">今日</option>
       <option value="tomorrow">明日</option>
       <option value="dayafter">明後日</option>
     </select>
-    <select id="area-filter" onchange="applyFilters()">
+    <select id="area-filter" onchange="applyFilters()" style="display:none;">
       <option value="all">📍 全エリア</option>
       <option value="東京都">東京</option>
       <option value="神奈川県">神奈川</option>
       <option value="埼玉県">埼玉</option>
       <option value="千葉県">千葉</option>
     </select>
-    <button id="install-btn" onclick="showInstallGuide()" style="background:none;border:none;color:#fff;font-size: 25px;cursor:pointer;padding:4px;">📲</button>
+    <span id="total-count" style="color:#ffffff; font-size:18px; font-weight:bold; margin-left:auto;">全国 <span id="count-total-header">0</span> 例会</span>
+    <button id="install-btn" onclick="showInstallGuide()" style="background:none;border:none;color:#fff;font-size:25px;cursor:pointer;padding:4px;">📲</button>
   </div>
 </div>
 
 
-<div id="legend" style="background:#16213e; border-bottom:1px solid 
-#0f3460; overflow-x:auto; overflow-y:hidden; white-space:nowrap; 
--webkit-overflow-scrolling:touch; scrollbar-width:none;">
-  <div style="display:inline-flex; align-items:center; gap:10px; 
-padding:6px 12px; min-width:max-content;">
-    <span id="count-total" style="color:#ffffff; font-size: 20px; 
-flex-shrink:0;">全191件中0件</span>
+<div id="legend" style="background:#16213e; border-bottom:1px solid #0f3460; padding:6px 12px;">
+  <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
     <div class="legend-item" style="flex-shrink:0;">
-      <div class="legend-dot" 
-style="width:9px;height:9px;background:#C0392B;"></div>
-      <span style="font-size: 20px;">今日<span 
-id="count-today">0</span>件</span>
+      <div class="legend-dot" style="width:11px;height:11px;background:#C0392B;"></div>
+      <span style="font-size:20px;">今日<span id="count-today">0</span>件</span>
     </div>
     <div class="legend-item" style="flex-shrink:0;">
-      <div class="legend-dot" 
-style="width:9px;height:9px;background:#D35400;"></div>
-      <span style="font-size: 20px;">明日<span 
-id="count-tomorrow">0</span>件</span>
+      <div class="legend-dot" style="width:11px;height:11px;background:#D35400;"></div>
+      <span style="font-size:20px;">明日<span id="count-tomorrow">0</span>件</span>
     </div>
     <div class="legend-item" style="flex-shrink:0;">
-      <div class="legend-dot" 
-style="width:9px;height:9px;background:#E8857A;"></div>
-      <span style="font-size: 20px;">明後日<span 
-id="count-dayafter">0</span>件</span>
+      <div class="legend-dot" style="width:11px;height:11px;background:#F39C12;"></div>
+      <span style="font-size:20px;">明後日<span id="count-dayafter">0</span>件</span>
     </div>
-    <div style="width:1px; height:16px; background:#e94560; opacity:0.4; 
-flex-shrink:0;"></div>
-    <a id="share-x" href="#" target="_blank"
-       style="border:1px solid #1d9bf0; border-radius:7px; padding:3px 
-8px;
-              color:#1d9bf0; font-size: 15px; font-weight:bold;
-              text-decoration:none; flex-shrink:0;">𝕏</a>
-    <a id="share-line" href="#" target="_blank"
-       style="border:1px solid #06c755; border-radius:7px; padding:3px 
-8px;
-              color:#06c755; font-size: 15px; font-weight:bold;
-              text-decoration:none; flex-shrink:0;">LINE</a>
-    <a id="share-fb" href="#" target="_blank"
-       style="border:1px solid #1877f2; border-radius:7px; padding:3px 
-8px;
-              color:#1877f2; font-size: 15px; font-weight:bold;
-              text-decoration:none; flex-shrink:0;">f</a>
-    <button id="share-copy" onclick="copyShareUrl()"
-       style="border:1px solid #888; border-radius:7px; padding:3px 8px;
-              color:#aaa; font-size: 15px; cursor:pointer;
-              background:none; flex-shrink:0;">📋リンクコピー</button>
   </div>
 </div>
 

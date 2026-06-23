@@ -484,8 +484,8 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
   document.getElementById('count-tomorrow').textContent = tomorrowCount;
   document.getElementById('count-dayafter').textContent = dayafterCount;
   const totalMeetings = VENUES.reduce((sum, v) => sum + (v.meetings ? v.meetings.length : 0), 0);
-  document.getElementById('count-total').textContent =
-`全${totalMeetings}例会中${count}件`;
+  const headerEl = document.getElementById('count-total-header');
+  if (headerEl) headerEl.textContent = totalMeetings;
 }
 
 initVenues();
