@@ -11,7 +11,6 @@ function getTomorrowJST() {
   return jst.toISOString().split('T')[0];
 }
 
-L.control.zoom({position: 'bottomleft'}).addTo(map);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
@@ -496,6 +495,87 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
 
 initVenues();
 
+
+// ===== カスタム縦ズームスライダー =====
+(function initZoomSlider() {
+  const MIN_ZOOM = 5;
+  const MAX_ZOOM = 18;
+
+  const container = document.createElement('div');
+  container.id = 'zoom-slider-container';
+  container.style.cssText = `
+    position: fixed;
+    bottom: 140px;
+    right: 72px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  `;
+
+  const plusBtn = document.createElement('button');
+  plusBtn.innerHTML = '+';
+  plusBtn.style.cssText = `
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(26,26,46,0.85);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    line-height: 1;
+  `;
+  plusBtn.addEventListener('click', () => map.zoomIn());
+
+  const slider = document.createElement('input');
+  slider.type = 'range';
+  slider.id = 'zoom-slider';
+  slider.min = MIN_ZOOM;
+  slider.max = MAX_ZOOM;
+  slider.value = map.getZoom();
+  slider.style.cssText = `
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 32px;
+    height: 120px;
+    cursor: pointer;
+    accent-color: #C0392B;
+  `;
+
+  const minusBtn = document.createElement('button');
+  minusBtn.innerHTML = '−';
+  minusBtn.style.cssText = `
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(26,26,46,0.85);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    line-height: 1;
+  `;
+  minusBtn.addEventListener('click', () => map.zoomOut());
+
+  slider.addEventListener('input', () => {
+    map.setZoom(parseInt(slider.value));
+  });
+
+  map.on('zoomend', () => {
+    slider.value = map.getZoom();
+  });
+
+  container.appendChild(plusBtn);
+  container.appendChild(slider);
+  container.appendChild(minusBtn);
+  document.body.appendChild(container);
+})();
 
 // ===== ハンバーガーメニューボタン =====
 (function initMenuButton() {
