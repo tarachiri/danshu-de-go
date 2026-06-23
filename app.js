@@ -141,6 +141,11 @@ function buildPopup(v) {
     ? `<a href="${v.calendar_url}" target="_blank" class="popup-link" style="background:#27AE60;color:#fff">📅 公式<br>カレンダー</a>`
     : '';
 
+  // ── 公式サイトリンク（会場単位） ─────────────────
+  const officialLink = v.official_url
+    ? `<a href="${v.official_url}" target="_blank" rel="noopener" class="popup-link" style="background:#8E44AD;color:#fff">🌐 公式<br>サイト</a>`
+    : '';
+
   // ── Google Maps経路リンク（会場単位） ────────────
   const mapsQuery = encodeURIComponent(addr || v.facility_name || '');
   const mapsLink = mapsQuery
@@ -222,6 +227,7 @@ function buildPopup(v) {
       </div>
       <div class="popup-links" style="flex-shrink:0">
         ${calLink}
+        ${officialLink}
         ${mapsLink}
       </div>
     </div>
