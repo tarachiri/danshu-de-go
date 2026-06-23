@@ -31626,42 +31626,6 @@
     "recurrence": "第1土曜"
   },
   {
-    "id": 8,
-    "facility_name": "両国駅前会館",
-    "address": "両国駅前会館（ライオンズステーション南側１F）墨田区両国２丁目２０−１２ ライオンズステーションプラザ両国 (地図)",
-    "lat": 35.6953018,
-    "lng": 139.7926487,
-    "prefecture": "東京都",
-    "official_url": "https://www.tokyo-danshu.or.jp/index.html",
-    "calendar_url": "https://calendar.google.com/calendar/embed?src=do1bbtappflu5bk424ma9nj4gs%40group.calendar.google.com&mode=AGENDA",
-    "contact_phone": "",
-    "needs_verification": 0,
-    "meetings": [
-      {
-        "name": "墨田断酒会　第1例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      }
-    ],
-    "has_exception": false,
-    "exc_note": "",
-    "fallback_meeting_name": "",
-    "fallback_schedule": "",
-    "fallback_next_date": "",
-    "next_date": "",
-    "meeting_name": "墨田断酒会　第1例会",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "recurrence": ""
-  },
-  {
     "id": 9,
     "facility_name": "経堂地区会館",
     "address": "〒156-0052 東京都世田谷区経堂３丁目３７−１３",
@@ -32872,6 +32836,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "墨田断酒会　第1例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "18:30",
+        "end_time": "20:30",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -33832,6 +33808,42 @@
     "start_time": "",
     "end_time": "",
     "recurrence": ""
+  },
+  {
+    "id": 232,
+    "facility_name": "立川市 錦学習館",
+    "address": "〒190-0022 東京都立川市錦町３丁目１２−２５",
+    "lat": 35.6911739,
+    "lng": 139.4163691,
+    "prefecture": "東京都",
+    "official_url": "http://www.tama-danshurengou.jpn.org",
+    "calendar_url": "https://calendar.google.com/calendar/embed?src=tamadanshu%40gmail.com&mode=AGENDA",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "錦例会",
+        "day_of_week": "日",
+        "week_of_month": "4",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "recurrence": "第4日曜",
+        "next_date": "2026-06-28",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      }
+    ],
+    "has_exception": false,
+    "exc_note": "",
+    "fallback_meeting_name": "",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-06-28",
+    "meeting_name": "錦例会",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第4日曜"
   },
   {
     "id": 233,
