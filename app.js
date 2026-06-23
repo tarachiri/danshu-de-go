@@ -157,9 +157,9 @@ function buildPopup(v) {
       ? 'この例会は季節や天候により開催地が変わる場合があります。'
       : 'この例会の日程は変更になる場合があります。';
     const urlLine = url
-      ? `<a href="${url}" target="_blank" rel="noopener" class="verify-link">${url}</a>`
+      ? `<a href="${url}" target="_blank" rel="noopener" class="verify-link">公式サイト</a>`
       : '';
-    verifyNotice = `<div class="popup-verify">⚠️ ${msg}公式サイトでご確認ください。${urlLine ? '<br>' + urlLine : ''}</div>`;
+    verifyNotice = `<div class="popup-verify">⚠️ ${msg}${urlLine ? urlLine + 'で要確認' : '事前に確認を'}</div>`;
   }
 
   // ── 例会カード生成 ────────────────────────────────
