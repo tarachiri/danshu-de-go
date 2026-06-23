@@ -364,7 +364,8 @@ let comfortGroup = L.layerGroup();
 let currentMode = 'comfort';
 
 function initVenues() {
-  document.getElementById('count-total').textContent = '読込中...';
+  const totalEl = document.getElementById('count-total-header');
+  if (totalEl) totalEl.textContent = '...';
   fetch('venues.json?v=' + Date.now())
     .then(r => {
       const lm = r.headers.get('Last-Modified');
@@ -383,7 +384,8 @@ function initVenues() {
       if(ls) ls.style.display="none";
     })
     .catch(() => {
-      document.getElementById('count-total').textContent = '読込エラー';
+      const totalEl2 = document.getElementById('count-total-header');
+      if (totalEl2) totalEl2.textContent = '!';
     });
 }
 
