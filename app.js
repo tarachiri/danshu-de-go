@@ -483,8 +483,9 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
   document.getElementById('count-today').textContent = todayCount;
   document.getElementById('count-tomorrow').textContent = tomorrowCount;
   document.getElementById('count-dayafter').textContent = dayafterCount;
-  document.getElementById('count-total').textContent = 
-`全${VENUES.length}件中${count}件`;
+  const totalMeetings = VENUES.reduce((sum, v) => sum + (v.meetings ? v.meetings.length : 0), 0);
+  document.getElementById('count-total').textContent =
+`全${totalMeetings}例会中${count}件`;
 }
 
 initVenues();
