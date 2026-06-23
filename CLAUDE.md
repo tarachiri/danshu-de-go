@@ -213,3 +213,6 @@ docs/architecture.md を読む
 
 ## エラーが起きたら
 docs/architecture.md を読む
+
+## セッション開始時
+blog/posts/ の最新記事を1〜2件読んでから作業を始めること。
