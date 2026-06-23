@@ -247,7 +247,8 @@ function jumpToMarker(id, lat, lng, name) {
   if (!lat || !lng) return;
   switchTab('map');
   currentMode = 'explore';
-  updateModeButton();
+  const mBtn = document.getElementById('menu-toggle-float');
+  if (mBtn) mBtn.style.background = '#27AE60';
   document.getElementById('area-filter').value = 'all';
   document.getElementById('date-filter').value = 'all';
   applyFilters();
@@ -427,10 +428,13 @@ function showInstallGuide() {
   document.body.appendChild(overlay);
 }
 
-function toggleMode() {
-  currentMode = currentMode === 'comfort' ? 'explore' : 'comfort';
-  updateModeButton();
+function setMode(mode) {
+  currentMode = mode;
   applyFilters();
+  const btn = document.getElementById('menu-toggle-float');
+  if (btn) {
+    btn.style.background = mode === 'explore' ? '#27AE60' : '#C0392B';
+  }
 }
 
 function applyFilters() {
@@ -493,39 +497,96 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
 initVenues();
 
 
-// ===== モード切替ボタン（index.htmlインラインから移設・ラベル一元管理） =====
-function updateModeButton() {
-  const btn = document.getElementById('mode-toggle-float');
-  if (!btn) return;
-  if (currentMode === 'explore') {
-    btn.innerHTML = '🗺️ 快適モード';
-    btn.style.background = '#27AE60';
-  } else {
-    btn.innerHTML = '<b>探索モード</b>';
-    btn.style.background = '#C0392B';
-  }
-}
-
-(function initModeButton() {
+// ===== ハンバーガーメニューボタン =====
+(function initMenuButton() {
   const btn = document.createElement('button');
-  btn.id = 'mode-toggle-float';
+  btn.id = 'menu-toggle-float';
+  btn.innerHTML = '☰ メニュー';
   btn.style.cssText = `
-    position:fixed;
-    bottom:24px;
-    right:16px;
-    color:#fff;
-    border:none;
-    border-radius:24px;
-    padding:10px 18px;
-    font-size: 17px;
-    font-weight:bold;
-    cursor:pointer;
-    z-index:9999;
-    box-shadow:0 4px 16px rgba(0,0,0,0.5);
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    z-index: 1000;
+    padding: 12px 20px;
+    border-radius: 24px;
+    border: none;
+    background: #C0392B;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   `;
-  btn.onclick = toggleMode;
+
+  const panel = document.createElement('div');
+  panel.id = 'menu-panel';
+  panel.style.cssText = `
+    position: fixed;
+    bottom: 130px;
+    right: 16px;
+    z-index: 999;
+    background: #1a1a2e;
+    border: 1px solid #0f3460;
+    border-radius: 16px;
+    padding: 8px 0;
+    min-width: 200px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    display: none;
+  `;
+
+  const menuItems = [
+    { icon: '📲', label: 'ホーム画面に追加', action: () => { closeMenu(); showInstallGuide(); } },
+    { icon: '🗺️', label: '快適モード', action: () => { closeMenu(); setMode('comfort'); } },
+    { icon: '🔍', label: '探索モード', action: () => { closeMenu(); setMode('explore'); } },
+    { icon: '📖', label: 'マニュアル', action: null },
+    { icon: '❓', label: 'FAQ', action: null },
+    { icon: '🤖', label: 'AIモード（実装予定）', action: null, disabled: true },
+  ];
+
+  menuItems.forEach(item => {
+    const el = document.createElement('div');
+    el.style.cssText = `
+      padding: 12px 20px;
+      color: ${item.disabled ? '#555' : '#fff'};
+      font-size: 16px;
+      cursor: ${item.action ? 'pointer' : 'default'};
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #0f3460;
+    `;
+    el.innerHTML = `${item.icon} ${item.label}`;
+    if (item.action) {
+      el.addEventListener('click', item.action);
+      el.addEventListener('mouseenter', () => el.style.background = '#0f3460');
+      el.addEventListener('mouseleave', () => el.style.background = 'transparent');
+    }
+    panel.appendChild(el);
+  });
+
+  panel.lastChild.style.borderBottom = 'none';
+
+  let menuOpen = false;
+  function closeMenu() {
+    menuOpen = false;
+    panel.style.display = 'none';
+    btn.innerHTML = '☰ メニュー';
+  }
+
+  btn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    panel.style.display = menuOpen ? 'block' : 'none';
+    btn.innerHTML = menuOpen ? '✕ 閉じる' : '☰ メニュー';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!panel.contains(e.target) && e.target !== btn) {
+      closeMenu();
+    }
+  });
+
+  document.body.appendChild(panel);
   document.body.appendChild(btn);
-  updateModeButton();
 })();
 
 // ===== Service Worker登録（index.htmlインラインから移設） =====
