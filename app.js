@@ -505,8 +505,8 @@ initVenues();
   container.id = 'zoom-slider-container';
   container.style.cssText = `
     position: fixed;
-    bottom: 140px;
-    right: 72px;
+    bottom: 160px;
+    right: 16px;
     z-index: 1000;
     display: flex;
     flex-direction: column;
