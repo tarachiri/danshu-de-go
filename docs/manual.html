@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使い方ガイド | 断酒でGO!!</title>
+  <meta name="description" content="断酒でGO!!の使い方をかもちゃんが丁寧に説明します。全国の断酒会例会場を地図で探せるアプリです。">
+  <style>
+    :root {
+      --green: #2d7a4f;
+      --green-light: #e8f5ee;
+      --green-mid: #4a9e6e;
+      --accent: #f0a500;
+      --accent-light: #fff8e6;
+      --text: #1a1a1a;
+      --text-mid: #444;
+      --text-muted: #777;
+      --border: #d4e8db;
+      --bg: #f9fbf9;
+      --white: #fff;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 12px rgba(45,122,79,0.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* ヘッダー */
+    header {
+      background: var(--green);
+      color: var(--white);
+      padding: 0;
+    }
+
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .header-logo span {
+      color: var(--accent);
+    }
+
+    nav {
+      background: var(--green);
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-top: 16px;
+    }
+
+    .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 0;
+    }
+
+    .nav-inner a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 12px 16px;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .nav-inner a:hover,
+    .nav-inner a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* かもちゃんヒーロー */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      color: var(--white);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .kamo-icon {
+      font-size: 64px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* メインコンテンツ */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* かもちゃんふきだし */
+    .kamo-bubble {
+      background: var(--white);
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .kamo-bubble::before {
+      content: '🦆';
+      position: absolute;
+      top: -18px;
+      left: 20px;
+      font-size: 28px;
+    }
+
+    .kamo-bubble p {
+      color: var(--text-mid);
+      margin-top: 4px;
+    }
+
+    /* セクション */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .section p {
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+
+    /* アプリURL */
+    .app-url-box {
+      background: var(--green);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .app-url-box a {
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      word-break: break-all;
+    }
+
+    .app-url-box a:hover {
+      text-decoration: underline;
+    }
+
+    .app-url-label {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    /* PWAインストール手順 */
+    .install-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 560px) {
+      .install-grid { grid-template-columns: 1fr; }
+    }
+
+    .install-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .install-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .install-card ol {
+      padding-left: 18px;
+      color: var(--text-mid);
+      font-size: 14px;
+    }
+
+    .install-card li {
+      margin-bottom: 6px;
+    }
+
+    /* ヒントボックス */
+    .hint-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .hint-box strong {
+      color: #b07800;
+    }
+
+    /* ポップアップ説明テーブル */
+    .popup-demo {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 20px 0;
+    }
+
+    .popup-demo-header {
+      background: var(--green);
+      color: var(--white);
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .popup-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .popup-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .popup-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .popup-table td {
+      padding: 12px 16px;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    .popup-table td:first-child {
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 700;
+      white-space: nowrap;
+      width: 110px;
+    }
+
+    .popup-table td:last-child {
+      color: var(--text-mid);
+    }
+
+    /* 注意ボックス */
+    .caution-box {
+      background: var(--white);
+      border: 2px solid var(--green-mid);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 20px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .caution-box h4 {
+      color: var(--green);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .caution-box p {
+      color: var(--text-mid);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .caution-box p:last-child { margin-bottom: 0; }
+
+    /* シェアボックス */
+    .share-box {
+      background: linear-gradient(135deg, var(--green-light) 0%, var(--accent-light) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .share-box p {
+      color: var(--text-mid);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .share-btn {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .share-btn:hover {
+      background: var(--green-mid);
+      transform: translateY(-1px);
+    }
+
+    /* フッター */
+    footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-logo" href="/"><span>断酒でGO!!</span></a>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/">地図に戻る</a>
+      <a href="/manual.html" class="active">使い方ガイド</a>
+      <a href="/manual-kanjisan.html">例会を載せたい方へ</a>
+      <a href="/manual-rengokai.html">連合会・担当者の方へ</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <span class="kamo-icon">🦆</span>
+  <h1>使い方ガイド</h1>
+  <p>かもちゃんが断酒でGO!!の使い方をお伝えします！</p>
+</div>
+
+<main>
+
+  <!-- かもちゃん挨拶 -->
+  <div class="kamo-bubble">
+    <p>こんにちは！わたし、かもちゃんといいます。断酒でGO!!のアシスタントです。一緒に使い方を覚えていきましょう！😊</p>
+  </div>
+
+  <!-- セクション1: 断酒でGOとは -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🗺️</div>
+      <h2 class="section-title">断酒でGO!!ってなに？</h2>
+    </div>
+    <p>全国の断酒会例会場を地図で探せるアプリです。全日本断酒連盟に加入している断酒会の例会情報を集めて、地図上に表示しています。</p>
+    <p>断酒でGO!!は、断酒会という社会インフラを支えることを使命としています。</p>
+
+    <div class="hint-box">
+      <strong>こんなときに使ってみてね！</strong><br>
+      「今日はどこで例会やってるかな？」「明日出かけた帰りに寄れる例会場あるかな？」<br>
+      そんなときにパッと開いてみてください！
+    </div>
+  </div>
+
+  <!-- セクション2: まず開いてみよう -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📱</div>
+      <h2 class="section-title">まず開いてみよう！</h2>
+    </div>
+
+    <div class="app-url-box">
+      <div class="app-url-label">ブラウザでこちらを開いてね👇</div>
+      <a href="https://dansyu-go.nukadokonokai.com/" target="_blank" rel="noopener">
+        https://dansyu-go.nukadokonokai.com/
+      </a>
+    </div>
+
+    <p>スマホでもPCでもそのまま使えます。リンクを開いたら地図が出てきたかな？</p>
+
+    <h3 style="font-size:16px; color:var(--green); margin: 24px 0 12px; font-weight:700;">📲 ホーム画面に追加するともっと便利！</h3>
+    <p>アプリみたいに使えるようになるのはもちろん、キャッシュが増えて起動がどんどん早くなるよ！絶対試してほしい😊</p>
+
+    <div class="install-grid">
+      <div class="install-card">
+        <h4>🍎 iPhoneの場合</h4>
+        <ol>
+          <li>Safariで開く</li>
+          <li>下の共有ボタン（四角と矢印）をタップ</li>
+          <li>「ホーム画面に追加」を選ぶ</li>
+        </ol>
+      </div>
+      <div class="install-card">
+        <h4>🤖 Androidの場合</h4>
+        <ol>
+          <li>Chromeで開く</li>
+          <li>右上のメニュー（︙）をタップ</li>
+          <li>「ホーム画面に追加」を選ぶ</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション3: ピンをタップ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📍</div>
+      <h2 class="section-title">ピンをタップしてみよう！</h2>
+    </div>
+
+    <p>地図にカラフルなピン📍が見えるかな？タップすると例会場の情報が出てくるよ！</p>
+
+    <div class="hint-box">
+      <strong>数字のアイコンになってるところは？</strong><br>
+      例会場がたくさん集まってるエリアです。タップするとズームして個別のピンが現れるよ！
+    </div>
+
+    <h3 style="font-size:16px; color:var(--green); margin: 24px 0 12px; font-weight:700;">💬 ポップアップの見方</h3>
+
+    <div class="popup-demo">
+      <div class="popup-demo-header">📋 ポップアップ表示例</div>
+      <table class="popup-table">
+        <tr>
+          <td>例会場名</td>
+          <td>施設の名前</td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td>場所の確認に使ってね</td>
+        </tr>
+        <tr>
+          <td>例会情報</td>
+          <td>曜日・時間・会の名前</td>
+        </tr>
+        <tr>
+          <td>公式サイト</td>
+          <td>最新情報の確認はここをタップ</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="hint-box">
+      <strong>複数の例会が並んで表示されることもあるよ！</strong><br>
+      同じ会場でも曜日や時間が違う例会が開かれていることがあります。ポップアップに複数の例会が並んでいたら、都合のいい日程を選んでみてね！
+    </div>
+  </div>
+
+  <!-- セクション4: お出かけ前に -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚠️</div>
+      <h2 class="section-title">お出かけ前にひとこと！</h2>
+    </div>
+
+    <div class="caution-box">
+      <h4>📢 必ず公式サイトで確認してね</h4>
+      <p>掲載情報は各都道府県断酒連合会の公式サイトをもとに作成しています。</p>
+      <p>例会の日時・場所は変更になることがあるから、<strong>お出かけ前に必ず公式サイトで最新情報をご確認ください。</strong></p>
+      <p>かもちゃんも一生懸命情報を集めてるけど、公式サイトが一番確かな情報源だよ😊</p>
+    </div>
+  </div>
+
+  <!-- シェア -->
+  <div class="share-box">
+    <p>気に入ってもらえたら、ぜひ仲間に教えてあげてね！<br>例会場を探している誰かの力になるかもしれないから🌱</p>
+    <a class="share-btn" href="https://dansyu-go.nukadokonokai.com/" target="_blank" rel="noopener">
+      断酒でGO!!を開く 🗺️
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p>断酒でGO!! &copy; 2024 &nbsp;|&nbsp; <a href="https://dansyu-go.nukadokonokai.com/">アプリに戻る</a></p>
+  <p style="margin-top:6px; font-size:12px;">掲載情報は各都道府県断酒連合会の公式サイトをもとに作成しています</p>
+</footer>
+
+</body>
+</html>
