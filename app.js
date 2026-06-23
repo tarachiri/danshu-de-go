@@ -548,9 +548,12 @@ function copyShareUrl() {
 function openShareBar() {
   const t = encodeURIComponent(SITE_TEXT + SITE_URL);
   const u = encodeURIComponent(SITE_URL);
-  document.getElementById('share-x').onclick = () => window.open(`https://twitter.com/intent/tweet?text=${t}`, '_blank');
-  document.getElementById('share-line').onclick = () => window.open(`https://line.me/R/share?text=${encodeURIComponent(SITE_TEXT + SITE_URL)}`, '_blank');
-  document.getElementById('share-fb').onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${u}`, '_blank');
+  const sx = document.getElementById('share-x');
+  const sl = document.getElementById('share-line');
+  const sf = document.getElementById('share-fb');
+  if (sx) sx.onclick = () => window.open(`https://twitter.com/intent/tweet?text=${t}`, '_blank');
+  if (sl) sl.onclick = () => window.open(`https://line.me/R/share?text=${encodeURIComponent(SITE_TEXT + SITE_URL)}`, '_blank');
+  if (sf) sf.onclick = () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${u}`, '_blank');
 }
 
 openShareBar();
@@ -576,6 +579,8 @@ function renderNews() {
   if (_newsRendered) return;
   _newsRendered = true;
   const container = document.getElementById('news');
+  console.log('renderNews called', container);
+  if (!container) return;
   container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
   fetch('news.json?v=' + Date.now())
     .then(r => r.json())
