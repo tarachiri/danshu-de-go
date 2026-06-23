@@ -252,6 +252,18 @@
     "longitude": 134.358749
   },
   {
+    "id": 1893,
+    "meeting_name": "観音寺市中央公民館",
+    "next_date": "2026-06-23",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第4火曜",
+    "address": "〒768-0067 香川県観音寺市坂本町１丁目１−１",
+    "prefecture": "香川県",
+    "latitude": 34.127544,
+    "longitude": 133.66098
+  },
+  {
     "id": 820,
     "meeting_name": "例会",
     "next_date": "2026-06-23",
@@ -1524,6 +1536,18 @@
     "longitude": 134.014404
   },
   {
+    "id": 1371,
+    "meeting_name": "馬場病院",
+    "next_date": "2026-06-24",
+    "start_time": "13:30",
+    "end_time": "14:30",
+    "recurrence": "第4水曜",
+    "address": "香川県高松市郷東町580",
+    "prefecture": "香川県",
+    "latitude": 34.34874,
+    "longitude": 134.014404
+  },
+  {
     "id": 870,
     "meeting_name": "昼例会",
     "next_date": "2026-06-24",
@@ -1606,6 +1630,18 @@
     "prefecture": "滋賀県",
     "latitude": 34.997772,
     "longitude": 136.097076
+  },
+  {
+    "id": 1894,
+    "meeting_name": "三光病院例会場（初心例会）",
+    "next_date": "2026-06-24",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第4水曜",
+    "address": "〒761-0123 香川県高松市牟礼町原８８３−１",
+    "prefecture": "香川県",
+    "latitude": 34.331623,
+    "longitude": 134.151581
   },
   {
     "id": 1115,
@@ -4236,6 +4272,18 @@
     "longitude": 134.174911
   },
   {
+    "id": 1350,
+    "meeting_name": "志度公民館",
+    "next_date": "2026-06-26",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第4金曜",
+    "address": "香川県さぬき市志度３７８５−１０",
+    "prefecture": "香川県",
+    "latitude": 34.311432,
+    "longitude": 134.174911
+  },
+  {
     "id": 1726,
     "meeting_name": "例会",
     "next_date": "2026-06-26",
@@ -5722,6 +5770,18 @@
     "prefecture": "福岡県",
     "latitude": 33.55777,
     "longitude": 130.218674
+  },
+  {
+    "id": 1341,
+    "meeting_name": "三船病院",
+    "next_date": "2026-06-27",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第4土曜",
+    "address": "香川県丸亀市柞原町366",
+    "prefecture": "香川県",
+    "latitude": 34.26701,
+    "longitude": 133.804047
   },
   {
     "id": 1733,
@@ -7332,6 +7392,18 @@
     "longitude": 130.86116
   },
   {
+    "id": 1894,
+    "meeting_name": "三光病院（院内）",
+    "next_date": "2026-06-29",
+    "start_time": "13:15",
+    "end_time": "15:15",
+    "recurrence": "第1・第2・第3・第4・第5月曜",
+    "address": "〒761-0123 香川県高松市牟礼町原８８３−１",
+    "prefecture": "香川県",
+    "latitude": 34.331623,
+    "longitude": 134.151581
+  },
+  {
     "id": 1254,
     "meeting_name": "おかやまたけのこ会医療センター内例会",
     "next_date": "2026-06-29",
@@ -8698,6 +8770,18 @@
     "prefecture": "神奈川県",
     "latitude": 35.3979389,
     "longitude": 139.5326778
+  },
+  {
+    "id": 1342,
+    "meeting_name": "三豊総合病院（休会中）",
+    "next_date": "2026-07-02",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第1木曜",
+    "address": "香川県観音寺市豊浜町姫浜708",
+    "prefecture": "香川県",
+    "latitude": 34.081947,
+    "longitude": 133.642014
   },
   {
     "id": 1724,
@@ -12144,6 +12228,18 @@
     "longitude": 135.578201
   },
   {
+    "id": 1349,
+    "meeting_name": "坂出市勤労福祉センター",
+    "next_date": "2026-07-09",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第2木曜",
+    "address": "香川県坂出市寿町１丁目３−５",
+    "prefecture": "香川県",
+    "latitude": 34.313591,
+    "longitude": 133.849915
+  },
+  {
     "id": 842,
     "meeting_name": "家族会",
     "next_date": "2026-07-09",
@@ -12586,6 +12682,18 @@
     "prefecture": "茨城県",
     "latitude": 36.265018,
     "longitude": 140.221466
+  },
+  {
+    "id": 1897,
+    "meeting_name": "善通寺市総合会館",
+    "next_date": "2026-07-11",
+    "start_time": "13:30",
+    "end_time": "15:30",
+    "recurrence": "第2土曜",
+    "address": "〒765-0013 香川県善通寺市文京町２丁目１−４",
+    "prefecture": "香川県",
+    "latitude": 34.226688,
+    "longitude": 133.788513
   },
   {
     "id": 1550,
@@ -13644,6 +13752,18 @@
     "longitude": 135.73555
   },
   {
+    "id": 1892,
+    "meeting_name": "清水病院（休会中）",
+    "next_date": "2026-07-14",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第2火曜",
+    "address": "〒768-0040 香川県観音寺市柞田町甲 １４２５−１",
+    "prefecture": "香川県",
+    "latitude": 34.113583,
+    "longitude": 133.662186
+  },
+  {
     "id": 1223,
     "meeting_name": "協立病院　院内例会",
     "next_date": "2026-07-14",
@@ -13944,6 +14064,18 @@
     "longitude": 135.556351
   },
   {
+    "id": 1899,
+    "meeting_name": "こころの医療センター五色台（家族教室）",
+    "next_date": "2026-07-15",
+    "start_time": "16:00",
+    "end_time": "18:00",
+    "recurrence": "第3水曜",
+    "address": "〒762-0023 香川県坂出市加茂町９６３",
+    "prefecture": "香川県",
+    "latitude": 34.310749,
+    "longitude": 133.91272
+  },
+  {
     "id": 1346,
     "meeting_name": "例会",
     "next_date": "2026-07-15",
@@ -13951,6 +14083,18 @@
     "end_time": "20:00",
     "recurrence": "第3水曜",
     "address": "香川県三豊市山本町財田西154",
+    "prefecture": "香川県",
+    "latitude": 34.116432,
+    "longitude": 133.736526
+  },
+  {
+    "id": 1895,
+    "meeting_name": "山本町生涯学習センター（ふれあい公園）",
+    "next_date": "2026-07-15",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第3水曜",
+    "address": "〒768-0103 香川県三豊市山本町財田西１５４",
     "prefecture": "香川県",
     "latitude": 34.116432,
     "longitude": 133.736526
@@ -14302,6 +14446,18 @@
     "prefecture": "山口県",
     "latitude": 34.023552,
     "longitude": 130.92392
+  },
+  {
+    "id": 1896,
+    "meeting_name": "丸亀市ひまわりセンター",
+    "next_date": "2026-07-16",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第3木曜",
+    "address": "〒763-0034 香川県丸亀市大手町２丁目１−７",
+    "prefecture": "香川県",
+    "latitude": 34.288258,
+    "longitude": 133.799805
   },
   {
     "id": 1724,
@@ -14875,6 +15031,18 @@
     "end_time": "15:00",
     "recurrence": "第3土曜",
     "address": "香川県小豆郡土庄町淵崎甲１４００−１０",
+    "prefecture": "香川県",
+    "latitude": 34.486176,
+    "longitude": 134.188675
+  },
+  {
+    "id": 1898,
+    "meeting_name": "土庄町渕崎公民館",
+    "next_date": "2026-07-18",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "recurrence": "第3土曜",
+    "address": "〒761-4121 香川県小豆郡土庄町淵崎甲１４００−１０",
     "prefecture": "香川県",
     "latitude": 34.486176,
     "longitude": 134.188675
@@ -15938,6 +16106,18 @@
   {
     "id": 1358,
     "meeting_name": "香南例会",
+    "next_date": "2026-07-21",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "recurrence": "第3火曜",
+    "address": "香川県高松市香南町由佐1172",
+    "prefecture": "香川県",
+    "latitude": 34.240089,
+    "longitude": 134.012985
+  },
+  {
+    "id": 1358,
+    "meeting_name": "香南コミセン",
     "next_date": "2026-07-21",
     "start_time": "18:00",
     "end_time": "20:00",
