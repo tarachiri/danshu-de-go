@@ -683,6 +683,91 @@ function isPWA() {
     { icon: '🤖', label: 'AIモード（実装予定）', action: null, disabled: true },
   ];
 
+  // SNSシェアバー（最上部）
+  const shareBar = document.createElement('div');
+  shareBar.style.cssText = `
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #0f3460;
+  `;
+
+  const shareButtons = [
+    {
+      label: '𝕏',
+      title: 'Xでシェア',
+      color: '#000000',
+      action: () => {
+        const t = encodeURIComponent(SITE_TEXT + SITE_URL);
+        window.open(`https://twitter.com/intent/tweet?text=${t}`, '_blank');
+        closeMenu();
+      }
+    },
+    {
+      label: 'f',
+      title: 'Facebookでシェア',
+      color: '#1877F2',
+      action: () => {
+        const u = encodeURIComponent(SITE_URL);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${u}`, '_blank');
+        closeMenu();
+      }
+    },
+    {
+      label: 'LINE',
+      title: 'LINEでシェア',
+      color: '#06C755',
+      action: () => {
+        window.open(`https://line.me/R/share?text=${encodeURIComponent(SITE_TEXT + SITE_URL)}`, '_blank');
+        closeMenu();
+      }
+    },
+    {
+      id: 'menu-share-copy',
+      label: '🔗',
+      title: 'リンクをコピー',
+      color: '#7F8C8D',
+      action: () => {
+        navigator.clipboard.writeText(SITE_TEXT + SITE_URL).then(() => {
+          const btn = document.getElementById('menu-share-copy');
+          if (btn) {
+            const orig = btn.textContent;
+            btn.textContent = '✅';
+            btn.style.background = '#27AE60';
+            setTimeout(() => {
+              btn.textContent = orig;
+              btn.style.background = '#7F8C8D';
+            }, 2000);
+          }
+        });
+      }
+    },
+  ];
+
+  shareButtons.forEach(sb => {
+    const btn = document.createElement('button');
+    if (sb.id) btn.id = sb.id;
+    btn.textContent = sb.label;
+    btn.title = sb.title;
+    btn.style.cssText = `
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: ${sb.color};
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    `;
+    btn.addEventListener('click', sb.action);
+    shareBar.appendChild(btn);
+  });
+
+  panel.appendChild(shareBar);
+
   menuItems.forEach(item => {
     const el = document.createElement('div');
     el.style.cssText = `
