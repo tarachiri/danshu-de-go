@@ -390,40 +390,95 @@ function initVenues() {
 }
 
 function showInstallGuide() {
-  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const isAndroid = /android/i.test(navigator.userAgent);
+  const ua = navigator.userAgent.toLowerCase();
+  const isIOS = /iphone|ipad|ipod/.test(ua);
+  const isAndroid = /android/.test(ua);
+  const isChrome = /chrome/.test(ua) && !/edg/.test(ua);
+  const isSafari = /safari/.test(ua) && !/chrome/.test(ua);
+  const isFirefox = /firefox/.test(ua);
+  const isEdge = /edg/.test(ua);
+  const isLine = /line/.test(ua);
+
   const overlay = document.createElement('div');
   overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:flex-end;';
+
   const modal = document.createElement('div');
-  modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;';
-  if(isIOS){
-    modal.innerHTML = `
-      <div style="font-size: 20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size: 18px;line-height:2;color:#ccc;">
+  modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:80vh;overflow-y:auto;';
+
+  const closeBtn = `<button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size:18px;font-weight:bold;">閉じる</button>`;
+
+  let content = '';
+
+  if (isLine) {
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:16px;line-height:2;color:#ccc;">
+        LINEブラウザではホーム画面への追加ができません。<br>
+        右上の <b style="color:#fff;">「…」→「ブラウザで開く」</b> をタップしてから追加してください。
+      </div>
+    `;
+  } else if (isIOS && isSafari) {
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:18px;line-height:2;color:#ccc;">
         ① 下のメニューバーの <b style="color:#fff;">「共有」</b> をタップ<br>
         ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択<br>
         ③ 右上の <b style="color:#fff;">「追加」</b> をタップ
       </div>
-      <button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size: 19px;font-weight:bold;">閉じる</button>
     `;
-  } else if(isAndroid){
-    modal.innerHTML = `
-      <div style="font-size: 20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size: 18px;line-height:2;color:#ccc;">
-        ① ブラウザ右上の <b style="color:#fff;">メニュー（⋮）</b> をタップ<br>
+  } else if (isIOS && isChrome) {
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:18px;line-height:2;color:#ccc;">
+        ① 右下の <b style="color:#fff;">「…」</b> をタップ<br>
         ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択
       </div>
-      <button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size: 19px;font-weight:bold;">閉じる</button>
+      <div style="font-size:13px;color:#888;margin-top:8px;">
+        ※ iOS版Chromeは機能が制限される場合があります。Safariでの追加を推奨します。
+      </div>
+    `;
+  } else if (isAndroid && isChrome) {
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:18px;line-height:2;color:#ccc;">
+        ① ブラウザ右上の <b style="color:#fff;">「⋮」</b> をタップ<br>
+        ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択
+      </div>
+      <div style="font-size:13px;color:#888;margin-top:8px;">
+        ※ アドレスバーに「インストール」アイコンが表示される場合はそちらからも追加できます。
+      </div>
+    `;
+  } else if (isAndroid && isFirefox) {
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:18px;line-height:2;color:#ccc;">
+        ① ブラウザ右上の <b style="color:#fff;">「⋮」</b> をタップ<br>
+        ② <b style="color:#fff;">「ページのショートカット」</b> を選択<br>
+        ③ <b style="color:#fff;">「ホーム画面に追加」</b> をタップ
+      </div>
+    `;
+  } else if (isEdge) {
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:18px;line-height:2;color:#ccc;">
+        ① ブラウザ右下の <b style="color:#fff;">「…」</b> をタップ<br>
+        ② <b style="color:#fff;">「電話に追加」</b> を選択
+      </div>
     `;
   } else {
-    modal.innerHTML = `
-      <div style="font-size: 20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size: 18px;color:#ccc;">スマートフォンでアクセスしてホーム画面に追加してください！</div>
-      <button onclick="this.closest('div[style*=fixed]').remove()" style="margin-top:16px;width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size: 19px;font-weight:bold;">閉じる</button>
+    content = `
+      <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
+      <div style="font-size:18px;line-height:2;color:#ccc;">
+        お使いのブラウザのメニューから<br>
+        <b style="color:#fff;">「ホーム画面に追加」</b> または<br>
+        <b style="color:#fff;">「アプリをインストール」</b> を選択してください。
+      </div>
     `;
   }
+
+  modal.innerHTML = content + closeBtn;
   overlay.appendChild(modal);
-  overlay.onclick = function(e) { if(e.target === overlay) overlay.remove(); };
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
   document.body.appendChild(overlay);
 }
 
@@ -507,7 +562,7 @@ initVenues();
     position: fixed;
     bottom: 160px;
     right: 16px;
-    z-index: 1000;
+    z-index: 500;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -577,6 +632,11 @@ initVenues();
   document.body.appendChild(container);
 })();
 
+function isPWA() {
+  return window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone === true;
+}
+
 // ===== ハンバーガーメニューボタン =====
 (function initMenuButton() {
   const btn = document.createElement('button');
@@ -615,7 +675,7 @@ initVenues();
   `;
 
   const menuItems = [
-    { icon: '📲', label: 'ホーム画面に追加', action: () => { closeMenu(); showInstallGuide(); } },
+    ...(!isPWA() ? [{ icon: '📲', label: 'ホーム画面に追加', action: () => { closeMenu(); showInstallGuide(); } }] : []),
     { icon: '🗺️', label: '快適モード', action: () => { closeMenu(); setMode('comfort'); } },
     { icon: '🔍', label: '探索モード', action: () => { closeMenu(); setMode('explore'); } },
     { icon: '📖', label: 'マニュアル', action: null },
