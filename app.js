@@ -685,7 +685,7 @@ function isPWA() {
     { icon: '🗺️', label: '快適モード', action: () => { closeMenu(); setMode('comfort'); } },
     { icon: '🔍', label: '探索モード', action: () => { closeMenu(); setMode('explore'); } },
     { icon: '📖', label: 'マニュアル', action: () => { closeMenu(); window.open('docs/manual.html', '_blank'); } },
-    { icon: '❓', label: 'FAQ', action: null },
+    { icon: '❓', label: 'FAQ', action: () => { closeMenu(); window.open('docs/faq.html', '_blank'); } },
     { icon: '🤖', label: 'AIモード（実装予定）', action: null, disabled: true },
   ];
 
