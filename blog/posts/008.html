@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マニュアル・FAQページ完成！かもちゃんがみんなに伝える場所ができたよ | 断酒でGO!! 開発ノート</title>
+  <style>
+    body { font-family: 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; background: #f9fbf9; color: #1a1a1a; line-height: 1.8; }
+    h1 { font-size: 24px; color: #2d7a4f; margin-bottom: 8px; }
+    .meta { color: #777; font-size: 14px; margin-bottom: 32px; }
+    h2 { font-size: 18px; color: #2d7a4f; margin: 32px 0 12px; border-left: 4px solid #2d7a4f; padding-left: 12px; }
+    p { color: #444; margin-bottom: 16px; }
+    .kamo { background: #e8f5ee; border: 2px solid #2d7a4f; border-radius: 12px; padding: 16px 20px; margin: 24px 0; position: relative; }
+    .kamo::before { content: '🦆'; position: absolute; top: -16px; left: 16px; font-size: 24px; }
+    .kamo p { margin: 0; color: #2d7a4f; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #2d7a4f; color: #fff; padding: 10px 14px; text-align: left; font-size: 14px; }
+    td { padding: 10px 14px; border-bottom: 1px solid #d4e8db; font-size: 14px; color: #444; }
+    code { background: #e8f5ee; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #2d7a4f; }
+    a { color: #2d7a4f; }
+    .tag { display: inline-block; background: #e8f5ee; color: #2d7a4f; font-size: 12px; padding: 2px 10px; border-radius: 999px; margin-right: 6px; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #d4e8db; font-size: 13px; color: #777; }
+  </style>
+</head>
+<body>
+
+<p><a href="/blog/">← 開発ノート一覧</a></p>
+
+<h1>マニュアル・FAQページ完成！<br>かもちゃんがみんなに伝える場所ができたよ🦆</h1>
+<div class="meta">
+  2026年6月24日
+  <span class="tag">UI</span>
+  <span class="tag">ドキュメント</span>
+  <span class="tag">かもちゃん</span>
+</div>
+
+<div class="kamo">
+  <p>ずっと後回しにしてたマニュアルとFAQ、ついに完成したよ！🎉</p>
+</div>
+
+<h2>なぜ今、マニュアルを作ったのか</h2>
+<p>断酒でGO!!は地図アプリとして形になってきた。でも「使い方がわからない」「情報が間違ってるどこに言えばいい？」といった声に答える場所がなかった。メニューの📖マニュアルと❓FAQはずっと <code>action: null</code> のまま放置されていた。</p>
+<p>チャット機能（AIによる問い合わせ対応）を実装する前に、まず静的なドキュメントを整備しておく必要があった。土台なき上物は立たない。</p>
+
+<h2>設計の哲学：末端から上流へ</h2>
+<p>マニュアルの読者は3種類いる。一般ユーザー（B）、幹事さん（A）、連合会担当者（D）。どの順番で並べるかを議論した結果、<strong>B → A → D</strong> の順に決めた。</p>
+<p>合理的に考えると情報の流れ（連合会→幹事→ユーザー）の順が効率的だ。でも「誰のためのアプリか」を考えたら末端の利用者から上流に向けて書くのが筋だよねという話になった。利用者優先。それが道徳的な優しさだと思う。</p>
+
+<h2>かもちゃんを前面に出す</h2>
+<p>マニュアルはかもちゃん（🦆）が直接みんなに語りかけるスタイルにした。固い説明文ではなく、友達から教えてもらってる感覚。断酒会に来る人は飾り気のない言葉の方がスッと入る。</p>
+<p>「知って→触って→使って→もっと使いたい！」の流れでハードルを段階的に下げていく構成にしている。</p>
+
+<h2>完成したページ一覧</h2>
+<table>
+  <tr><th>ページ</th><th>対象</th><th>URL</th></tr>
+  <tr><td>使い方ガイド</td><td>一般ユーザー</td><td><code>docs/manual.html</code></td></tr>
+  <tr><td>例会情報について</td><td>幹事さん</td><td><code>docs/manual-kanjisan.html</code></td></tr>
+  <tr><td>連合会・担当者の方へ</td><td>連合会担当者</td><td><code>docs/manual-rengokai.html</code></td></tr>
+  <tr><td>よくある質問</td><td>全員</td><td><code>docs/faq.html</code></td></tr>
+</table>
+
+<h2>FAQで意識したこと</h2>
+<p>「断酒会って何？」「初めてでも参加できるの？」「家族も参加できるの？」といった断酒会の基本的な質問にも答えた。<strong>アルコール依存症は家族ぐるみの病気</strong>という言葉は、会員であるまじまじさんから直接もらった言葉だ。かもちゃんには書けない重みがある。</p>
+<p>「誰が作ってるの？」の答えは「断酒会の会員を増やしたい一心で、どこかの断酒会の一会員が一人で開発・運営しています。かもちゃんとふーちゃんに手伝ってもらいながら🦆」。謎の運営者感を残しつつ、ちゃんと仲間がいることを伝えてる。</p>
+
+<h2>Dページのコラム</h2>
+<p>連合会向けページの最後に「なぜ例会情報にムラがあるの？」というコラムをそっと置いた。お願い文書じゃなくてコラム。公式サイトに例会情報が載っていれば断酒でGO!!が責任を持って反映する、というスタンスを静かに伝えている。</p>
+<p>iCalのお願いはしない。HPに情報があれば必ず取り出してGOに反映させる。それがこのプロジェクトのエゴイズムであり、誠実さでもある。</p>
+
+<h2>次のステップ</h2>
+<p>マニュアル・FAQが整ったことで、次はいよいよAIチャット機能の実装に入る。問い合わせをかもちゃんが受け付けて、必要に応じてまじまじさんに通知する仕組みだ。さらにその先には「チャット例会」という構想もある。かもちゃんがファシリテーターになって、オンラインで断酒仲間がつながれる場所。</p>
+<p>断酒でGO!!は地図アプリから、つながりのインフラへと進化していく。</p>
+
+<footer>
+  <p>断酒でGO!! 開発ノート | <a href="/blog/">一覧に戻る</a> | <a href="/">アプリを開く</a></p>
+</footer>
+
+</body>
+</html>
