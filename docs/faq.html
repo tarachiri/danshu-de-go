@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>よくある質問 | 断酒でGO!!</title>
+  <meta name="description" content="断酒でGO!!についてよくある質問をかもちゃんがお答えします。">
+  <style>
+    :root {
+      --green: #2d7a4f;
+      --green-light: #e8f5ee;
+      --green-mid: #4a9e6e;
+      --accent: #f0a500;
+      --accent-light: #fff8e6;
+      --text: #1a1a1a;
+      --text-mid: #444;
+      --text-muted: #777;
+      --border: #d4e8db;
+      --bg: #f9fbf9;
+      --white: #fff;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 12px rgba(45,122,79,0.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    header { background: var(--green); color: var(--white); padding: 0; }
+
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 24px 0;
+    }
+
+    .header-logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .header-logo span { color: var(--accent); }
+
+    nav { background: var(--green); border-top: 1px solid rgba(255,255,255,0.15); margin-top: 16px; }
+
+    .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-inner a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 12px 16px;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .nav-inner a:hover, .nav-inner a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      color: var(--white);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .kamo-icon {
+      font-size: 64px;
+      display: block;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .hero p { font-size: 15px; color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto; }
+
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .kamo-bubble {
+      background: var(--white);
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .kamo-bubble::before {
+      content: '🦆';
+      position: absolute;
+      top: -18px;
+      left: 20px;
+      font-size: 28px;
+    }
+
+    .kamo-bubble p { color: var(--text-mid); margin-top: 4px; }
+
+    /* カテゴリラベル */
+    .category-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 40px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .category-label span {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* FAQ アコーディオン */
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+
+    .faq-q:hover { background: var(--green-light); }
+
+    .faq-q-badge {
+      background: var(--green);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .faq-q-text { flex: 1; }
+
+    .faq-arrow {
+      color: var(--green);
+      font-size: 18px;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      margin-top: 2px;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      display: none;
+      padding: 0 20px 18px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item.open .faq-a { display: block; }
+
+    .faq-a-inner {
+      display: flex;
+      gap: 12px;
+      padding-top: 16px;
+    }
+
+    .faq-a-badge {
+      background: var(--accent);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      height: fit-content;
+      margin-top: 2px;
+    }
+
+    .faq-a-text {
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .faq-a-text a {
+      color: var(--green);
+      text-decoration: underline;
+    }
+
+    footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-logo" href="/"><span>断酒でGO!!</span></a>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/">地図に戻る</a>
+      <a href="manual.html">使い方ガイド</a>
+      <a href="manual-kanjisan.html">例会情報について</a>
+      <a href="manual-rengokai.html">連合会・担当者の方へ</a>
+      <a href="faq.html" class="active">よくある質問</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <span class="kamo-icon">🦆</span>
+  <h1>よくある質問</h1>
+  <p>みんなからよく聞かれることに、かもちゃんがお答えします！</p>
+</div>
+
+<main>
+
+  <div class="kamo-bubble">
+    <p>気になることがあったら、まずここを見てみてね！それでも解決しなかったらお問い合わせから聞いてください😊</p>
+  </div>
+
+  <!-- 使い方 -->
+  <div class="category-label">
+    <span>📱 使い方について</span>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">近くの例会場が見つからない</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">地図を少し広げてみてね。地図上の数字のアイコンをタップするとエリアが拡大されて、個別のピンが現れるよ。それでも見つからない場合は、お住まいの都道府県の公式サイトに例会情報が掲載されていない可能性があります。断酒でGO!!は公式サイトの情報をもとにしているため、掲載がない地域は表示できないことがあります。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">ピンが多すぎて選びにくい</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">数字のアイコンをタップすると地図がズームして、ピンが広がって見やすくなるよ！都市部は例会場が集中しているので、2〜3回タップして拡大してみてね。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">ホーム画面に追加できない</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">iPhoneはSafari、AndroidはChromeから開いてね。他のブラウザだと「ホーム画面に追加」が表示されないことがあるよ。<a href="manual.html">使い方ガイド</a>に手順を載せてあるので参考にしてみてください！</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">快適モード・探索モードって何が違うの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">快適モードは地図の動きがスムーズで、日常的に近くの例会場を探すのに向いてるよ。探索モードは地図を広く動かして、遠い地域の例会場も探しやすくなってるよ。旅先や引っ越し先を探すときに使ってみてね！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 情報について -->
+  <div class="category-label">
+    <span>📋 掲載情報について</span>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">例会の情報が古い・間違っている</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">お知らせいただきありがとうございます！断酒でGO!!で修正できるものはすぐに対応します。ただし、公式サイト自体の情報が古い場合は、所属の都道府県断酒連合会へのご連絡をお願いすることがあります。<a href="manual-kanjisan.html">例会情報について</a>のページも参考にしてみてね。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">載っていない例会がある</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">断酒でGO!!は各都道府県断酒連合会の公式サイトをもとに情報を収集しています。公式サイトに掲載されていない例会は、残念ながら断酒でGO!!にも表示できません。所属の連合会に公式サイトへの掲載をお願いしてみてください！</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">情報はどこから取ってるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">全日本断酒連盟に加入している各都道府県断酒連合会の公式サイトから収集しています。情報は定期的に更新していますが、お出かけ前には必ず公式サイトで最新情報をご確認ください。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 断酒会について -->
+  <div class="category-label">
+    <span>🌱 断酒会について</span>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">断酒会って何？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">断酒会は、お酒をやめたい人・やめた人が集まって体験談を語り合う自助グループです。全日本断酒連盟に加入している団体で、全国各地で例会（集まり）が開かれています。医療機関や行政とも連携しており、長い歴史と実績を持つ回復の場です。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">初めてでも参加できるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">はい、大丈夫です！初めての方も温かく迎えてもらえます。「お酒をやめたい」という気持ちがあれば、断酒歴は関係ないよ。最初は聞くだけでも全然OK。まずは一歩、足を踏み出してみてね🌱</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">参加費はかかるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">例会によって異なりますが、会費は少額または無料のところがほとんどです。詳しくは各例会場の公式サイトやポップアップに表示されている連絡先でご確認ください。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">家族も参加できるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">多くの断酒会では家族の参加も歓迎しています。家族会を別に開いているところもあります。本人だけでなく、ご家族の回復も断酒会は大切にしています。詳しくは各例会場にお問い合わせください。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- アプリについて -->
+  <div class="category-label">
+    <span>🦆 アプリについて</span>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">無料で使えるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">完全無料です！登録も不要、広告もありません。断酒会という社会インフラを支えることが断酒でGO!!の使命なので、ずっと無料で使えるよ😊</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">個人情報は収集してるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">収集していません。アカウント登録も不要、位置情報の取得もしていません。安心して使ってね😊</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span class="faq-q-badge">Q</span>
+      <span class="faq-q-text">誰が作ってるの？</span>
+      <span class="faq-arrow">▼</span>
+    </button>
+    <div class="faq-a">
+      <div class="faq-a-inner">
+        <span class="faq-a-badge">A</span>
+        <div class="faq-a-text">断酒会を応援したい有志が個人で開発・運営しています。かもちゃんがお手伝いしてるよ🦆 断酒会という大切な場所を、もっと多くの人に届けたいという思いで作っています。</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>断酒でGO!! &copy; 2024 &nbsp;|&nbsp; <a href="/">アプリに戻る</a></p>
+  <p style="margin-top:6px; font-size:12px;">掲載情報は各都道府県断酒連合会の公式サイトをもとに作成しています</p>
+</footer>
+
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
