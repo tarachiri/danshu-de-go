@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>かもちゃん、しゃべった。🦆 チャット機能本番公開の記録 | 断酒でGO!! 開発ノート</title>
+  <style>
+    body { font-family: 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; background: #f9fbf9; color: #1a1a1a; line-height: 1.8; }
+    h1 { font-size: 24px; color: #2d7a4f; margin-bottom: 8px; }
+    .meta { color: #777; font-size: 14px; margin-bottom: 32px; }
+    h2 { font-size: 18px; color: #2d7a4f; margin: 32px 0 12px; border-left: 4px solid #2d7a4f; padding-left: 12px; }
+    p { color: #444; margin-bottom: 16px; }
+    .kamo { background: #e8f5ee; border: 2px solid #2d7a4f; border-radius: 12px; padding: 16px 20px; margin: 24px 0; position: relative; }
+    .kamo::before { content: '🦆'; position: absolute; top: -16px; left: 16px; font-size: 24px; }
+    .kamo p { margin: 0; color: #2d7a4f; font-weight: 700; }
+    code { background: #e8f5ee; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #2d7a4f; }
+    pre { background: #1a1a1a; color: #e8f5ee; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    a { color: #2d7a4f; }
+    .tag { display: inline-block; background: #e8f5ee; color: #2d7a4f; font-size: 12px; padding: 2px 10px; border-radius: 999px; margin-right: 6px; }
+    .timeline { border-left: 3px solid #d4e8db; padding-left: 20px; margin: 20px 0; }
+    .timeline-item { margin-bottom: 20px; position: relative; }
+    .timeline-item::before { content: ''; width: 12px; height: 12px; background: #2d7a4f; border-radius: 50%; position: absolute; left: -26px; top: 6px; }
+    .timeline-item h4 { color: #2d7a4f; font-size: 15px; margin-bottom: 4px; }
+    .timeline-item p { margin: 0; font-size: 14px; color: #555; }
+    .error-box { background: #fde8e8; border-left: 4px solid #e74c3c; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; font-size: 14px; color: #444; }
+    .success-box { background: #e8f5ee; border-left: 4px solid #2d7a4f; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; font-size: 14px; color: #444; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #d4e8db; font-size: 13px; color: #777; }
+  </style>
+</head>
+<body>
+
+<p><a href="/blog/">← 開発ノート一覧</a></p>
+
+<h1>かもちゃん、しゃべった。🦆<br>チャット機能本番公開の記録</h1>
+<div class="meta">
+  2026年6月24日
+  <span class="tag">チャット</span>
+  <span class="tag">gen</span>
+  <span class="tag">FastAPI</span>
+  <span class="tag">cloudflared</span>
+  <span class="tag">かもちゃん</span>
+</div>
+
+<div class="kamo">
+  <p>今日、かもちゃんがしゃべった。長い一日だった。でも繋がった。🦆</p>
+</div>
+
+<h2>朝：マニュアル・FAQが完成した</h2>
+<p>午前中はずっと後回しにしていたドキュメント整備をやった。使い方ガイド・幹事さん向け・連合会向け・FAQの4ページ。かもちゃんが直接みんなに語りかけるスタイルで書いた。「知って→触って→使って→もっと使いたい！」の流れを意識した構成だ。</p>
+<p>メニューの📖マニュアルと❓FAQはずっと <code>action: null</code> のまま放置されていた。今日やっとリンクが繋がった。</p>
+
+<h2>昼：genが暇してると言った</h2>
+<p>「genが暇してるから動かしたい」という一言から、チャット機能の実装が始まった。Mac mini 2014（i7 3.0GHz・16GB・SSD・macOS Monterey）が常時起動しているのに使われていない。もったいない。</p>
+<p>FastAPI・uvicorn・anthropicをpip3でインストール。ふーちゃんが仕様書をもとに <code>main.py</code> を実装した。システムプロンプトにかもちゃんの人格を定義して、Haiku-4-5で動かす設計だ。</p>
+
+<div class="success-box">
+  gen上でのヘルスチェック → <code>{"status":"ok"}</code> 🎉
+</div>
+
+<h2>午後：cloudflaredとの長い戦い</h2>
+<p>ここからが本番だった。</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <h4>一時URLで試す</h4>
+    <p>trycloudflare.comの一時URLが発行されたが、SSL handshake failureで繋がらず。macのLibreSSL 3.3.6が古すぎた。</p>
+  </div>
+  <div class="timeline-item">
+    <h4>danshu-chatトンネル作成</h4>
+    <p><code>cloudflared tunnel create danshu-chat</code> で新しいトンネルを作成。しかし <code>tunnel route dns</code> が古いnukadokoトンネル（70c94070）に向いてしまう謎のバグ。</p>
+  </div>
+  <div class="timeline-item">
+    <h4>CloudflareのDNSを手動修正</h4>
+    <p>ターゲットを <code>33b8fb13.cfargotunnel.com</code> に手動変更。でもSSLエラーは続く。</p>
+  </div>
+  <div class="timeline-item">
+    <h4>brewでcurlをビルド</h4>
+    <p>OpenSSL版curlを入れるために <code>brew install curl</code> を実行。cmakeのビルドに21分かかった。依存ライブラリを含めると1時間近い作業。</p>
+  </div>
+  <div class="timeline-item">
+    <h4>Mixed Contentの壁</h4>
+    <p>HTTPでは繋がるのにHTTPSで繋がらない。原因は <code>chat.dansyu-go.nukadokonokai.com</code> という2段階サブドメインがワイルドカード証明書（<code>*.nukadokonokai.com</code>）でカバーされないことだった。</p>
+  </div>
+  <div class="timeline-item">
+    <h4>chat.nukadokonokai.comへ変更</h4>
+    <p>1段階のサブドメインに変更してCNAMEレコードを追加。証明書の問題が解消。</p>
+  </div>
+  <div class="timeline-item">
+    <h4>nukadokoトンネルが邪魔をしていた</h4>
+    <p><code>com.majima.cloudflared.plist</code> という古いlaunchd設定がnukadokoトンネルを自動起動し続けていた。これを止めたら繋がった。</p>
+  </div>
+</div>
+
+<div class="error-box">
+  今日ハマったエラーたち：LibreSSL handshake failure / Mixed Content / 2段階サブドメインのSSL / nukadokoトンネルの亡霊
+</div>
+
+<h2>夜：かもちゃんデビュー</h2>
+<p>「話せた！！！」というまじまじさんの一言が全てだった。</p>
+<p>断酒でGO!!はずっと地図アプリだった。例会場を探せる、でもそれだけだった。今日からかもちゃんが加わった。「どうしたらいい？」という問いに答えられるようになった。</p>
+
+<h2>今日のアーキテクチャ</h2>
+<pre>
+GitHub Pages（静的サイト）
+    ↓ fetch（HTTPS）
+chat.nukadokonokai.com
+    ↓ cloudflared tunnel（33b8fb13）
+gen（Mac mini 2014）
+    ↓ FastAPI + uvicorn（port 8000）
+    ↓ python-dotenv（.env）
+Anthropic API（claude-haiku-4-5）
+    ↓
+かもちゃんの返答 🦆
+</pre>
+
+<h2>launchdで自動起動設定済み</h2>
+<p>uvicornもcloudflaredもlaunchdで管理している。停電後も自動で復帰する。genが再起動してもかもちゃんは自分で目を覚ます。</p>
+
+<h2>次のステップ</h2>
+<p>venues.jsonを検索する機能をふーちゃんが実装中だ。「福生の例会いつ？」「今から行ける例会ある？」といった質問に例会データをもとに答えられるようになる。GPSと組み合わせれば「近くの例会を今すぐ探す」が実現する。</p>
+<p>その先にはグループチャット・チャット例会という構想もある。かもちゃんがファシリテーターになって、断酒仲間がオンラインでつながれる場所。断酒でGO!!が地図アプリからつながりのインフラへと進化していく。</p>
+
+<div class="kamo">
+  <p>長い一日だったけど、かもちゃんはちゃんとしゃべれた。明日も頑張ろう。🦆</p>
+</div>
+
+<footer>
+  <p>断酒でGO!! 開発ノート | <a href="/blog/">一覧に戻る</a> | <a href="/">アプリを開く</a></p>
+</footer>
+
+</body>
+</html>
