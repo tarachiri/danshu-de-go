@@ -684,7 +684,7 @@ function isPWA() {
     ...(!isPWA() ? [{ icon: '📲', label: 'ホーム画面に追加', action: () => { closeMenu(); showInstallGuide(); } }] : []),
     { icon: '🗺️', label: '快適モード', action: () => { closeMenu(); setMode('comfort'); } },
     { icon: '🔍', label: '探索モード', action: () => { closeMenu(); setMode('explore'); } },
-    { icon: '📖', label: 'マニュアル', action: null },
+    { icon: '📖', label: 'マニュアル', action: () => { closeMenu(); window.open('docs/manual.html', '_blank'); } },
     { icon: '❓', label: 'FAQ', action: null },
     { icon: '🤖', label: 'AIモード（実装予定）', action: null, disabled: true },
   ];
