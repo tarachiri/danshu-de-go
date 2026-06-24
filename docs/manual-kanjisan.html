@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>例会情報について | 断酒でGO!!</title>
+  <meta name="description" content="例会情報の掲載・修正について。断酒でGO!!への情報の載り方や、お問い合わせ方法をご説明します。">
+  <style>
+    :root {
+      --green: #2d7a4f;
+      --green-light: #e8f5ee;
+      --green-mid: #4a9e6e;
+      --accent: #f0a500;
+      --accent-light: #fff8e6;
+      --text: #1a1a1a;
+      --text-mid: #444;
+      --text-muted: #777;
+      --border: #d4e8db;
+      --bg: #f9fbf9;
+      --white: #fff;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 2px 12px rgba(45,122,79,0.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    header { background: var(--green); color: var(--white); padding: 0; }
+
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 24px 0;
+    }
+
+    .header-logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .header-logo span { color: var(--accent); }
+
+    nav { background: var(--green); border-top: 1px solid rgba(255,255,255,0.15); margin-top: 16px; }
+
+    .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-inner a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      padding: 12px 16px;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .nav-inner a:hover, .nav-inner a.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      color: var(--white);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .kamo-icon {
+      font-size: 64px;
+      display: block;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .hero p { font-size: 15px; color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto; }
+
+    main { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .kamo-bubble {
+      background: var(--white);
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .kamo-bubble::before {
+      content: '🦆';
+      position: absolute;
+      top: -18px;
+      left: 20px;
+      font-size: 28px;
+    }
+
+    .kamo-bubble p { color: var(--text-mid); margin-top: 4px; }
+
+    .section { margin-bottom: 48px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .section-title { font-size: 20px; font-weight: 700; color: var(--green); }
+
+    .section p { color: var(--text-mid); margin-bottom: 12px; }
+
+    .hint-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text-mid);
+    }
+
+    .hint-box strong { color: #b07800; }
+
+    /* できること・できないこと */
+    .can-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 560px) { .can-grid { grid-template-columns: 1fr; } }
+
+    .can-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .can-card.yes { border-top: 4px solid var(--green); }
+    .can-card.no { border-top: 4px solid #e74c3c; }
+
+    .can-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .can-card.yes h4 { color: var(--green); }
+    .can-card.no h4 { color: #e74c3c; }
+
+    .can-card ul {
+      padding-left: 18px;
+      color: var(--text-mid);
+      font-size: 14px;
+    }
+
+    .can-card li { margin-bottom: 8px; }
+
+    /* 問い合わせボックス */
+    .contact-box {
+      background: var(--green);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      color: var(--white);
+      margin: 20px 0;
+    }
+
+    .contact-box h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-box p {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--text);
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .contact-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .coming-soon {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-logo" href="/"><span>断酒でGO!!</span></a>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/">地図に戻る</a>
+      <a href="docs/manual.html">使い方ガイド</a>
+      <a href="docs/manual-kanjisan.html" class="active">例会情報について</a>
+      <a href="docs/manual-rengokai.html">連合会・担当者の方へ</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <span class="kamo-icon">🦆</span>
+  <h1>例会情報について</h1>
+  <p>情報の載り方・修正の仕方をかもちゃんが説明します</p>
+</div>
+
+<main>
+
+  <div class="kamo-bubble">
+    <p>断酒でGO!!に例会情報を載せたい！情報が古い！そんなときはこのページを読んでみてね😊</p>
+  </div>
+
+  <!-- セクション1: どうやって載るの？ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <h2 class="section-title">どうやって情報が載るの？</h2>
+    </div>
+    <p>断酒でGO!!は、各都道府県断酒連合会の<strong>公式サイト</strong>をもとに例会情報を収集しています。</p>
+    <p>公式サイトに例会情報が掲載されていれば、かもちゃんが責任を持って地図に反映します！</p>
+
+    <div class="hint-box">
+      <strong>つまり…</strong><br>
+      公式サイトに載っている例会 → 断酒でGO!!に表示されます<br>
+      公式サイトに載っていない例会 → 断酒でGO!!には表示できません
+    </div>
+  </div>
+
+  <!-- セクション2: できること・できないこと -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <h2 class="section-title">断酒でGO!!で直せることと、直せないこと</h2>
+    </div>
+    <p>お問い合わせの前に確認してみてね！</p>
+
+    <div class="can-grid">
+      <div class="can-card yes">
+        <h4>✅ 断酒でGO!!で対応できること</h4>
+        <ul>
+          <li>例会場の名前の表示ミス</li>
+          <li>例会場の住所・地図上の位置のずれ</li>
+          <li>例会の曜日・時間の表示ミス</li>
+          <li>地図への表示・非表示</li>
+        </ul>
+      </div>
+      <div class="can-card no">
+        <h4>❌ 断酒会に直接ご連絡ください</h4>
+        <ul>
+          <li>例会の新設・廃止</li>
+          <li>会の名前の変更</li>
+          <li>公式サイト自体の情報が古い場合</li>
+          <li>例会への参加・見学のご相談</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hint-box">
+      <strong>迷ったら？</strong><br>
+      まずお問い合わせフォームから教えてね！かもちゃんが確認して、断酒会への連絡が必要な場合はお知らせします😊
+    </div>
+  </div>
+
+  <!-- セクション3: お問い合わせ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <h2 class="section-title">お問い合わせ</h2>
+    </div>
+    <p>例会情報の間違いや、地図への反映についてはこちらからお気軽にどうぞ！</p>
+
+    <div class="contact-box">
+      <h4>💬 かもちゃんに話しかけてみて！</h4>
+      <p>AIチャットでお問い合わせを受け付けます。<br>内容を確認して、できる限り対応するね😊</p>
+      <span class="coming-soon">🚧 準備中 もうすぐ使えるよ！</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>断酒でGO!! &copy; 2024 &nbsp;|&nbsp; <a href="/">アプリに戻る</a></p>
+  <p style="margin-top:6px; font-size:12px;">掲載情報は各都道府県断酒連合会の公式サイトをもとに作成しています</p>
+</footer>
+
+</body>
+</html>
