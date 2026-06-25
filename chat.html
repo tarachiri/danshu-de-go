@@ -404,8 +404,11 @@
     const now = new Date();
     const jst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
     const days = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+    const daysShort = ['日','月','火','水','木','金','土'];
     const todayStr = days[jst.getDay()];
+    const todayShort = daysShort[jst.getDay()];
     const tomorrowStr = days[(jst.getDay() + 1) % 7];
+    const tomorrowShort = daysShort[(jst.getDay() + 1) % 7];
     const currentTime = jst.getHours() * 100 + jst.getMinutes();
 
     let filtered = [];
@@ -415,6 +418,12 @@
     const isTomorrow = query.includes('明日') || query === tomorrowStr;
     const isNow = query.includes('今から') || query.includes('今すぐ');
     const dayMatch = days.find(d => query.includes(d));
+    const dayMatchShort = dayMatch ? daysShort[days.indexOf(dayMatch)] : null;
+
+    // day_of_weekが短縮形か長形かを判定して比較
+    function matchDay(meetingDay, full, short) {
+      return meetingDay === full || meetingDay === short;
+    }
 
     venuesData.forEach(venue => {
       if (!venue.meetings) return;
@@ -423,16 +432,16 @@
         const meetingDay = meeting.day_of_week || '';
 
         if (isNow) {
-          if (meetingDay === todayStr) {
+          if (matchDay(meetingDay, todayStr, todayShort)) {
             const t = meeting.start_time ? parseInt(meeting.start_time.replace(':', '')) : 0;
             if (t > currentTime) match = true;
           }
         } else if (isToday) {
-          if (meetingDay === todayStr) match = true;
+          if (matchDay(meetingDay, todayStr, todayShort)) match = true;
         } else if (isTomorrow) {
-          if (meetingDay === tomorrowStr) match = true;
+          if (matchDay(meetingDay, tomorrowStr, tomorrowShort)) match = true;
         } else if (dayMatch) {
-          if (meetingDay === dayMatch) match = true;
+          if (matchDay(meetingDay, dayMatch, dayMatchShort)) match = true;
         } else {
           // 地名検索
           const addr = (venue.address || '') + (venue.name || '');
