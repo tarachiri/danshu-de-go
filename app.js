@@ -1,4 +1,5 @@
-const map = window._leafletMap = L.map('map', {zoomControl: false}).setView([35.68, 139.60], 9);
+const map = window._leafletMap = L.map("map", {zoomControl: false}).setView([35.68, 139.60], 9);
+map.locate({setView: true, maxZoom: 12});
 // JSTで今日の日付文字列を返すヘルパー
 function getTodayJST() {
   const now = new Date();
