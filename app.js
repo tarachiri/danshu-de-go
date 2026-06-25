@@ -286,9 +286,9 @@ function jumpToMarker(id, lat, lng, name) {
 function switchTab(tab) {
   // ボトムナビのactive更新
   document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
-  const tabMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news' };
-  if (tabMap[tab]) {
-    const btn = document.getElementById(tabMap[tab]);
+  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news' };
+  if (bottomBtnMap[tab]) {
+    const btn = document.getElementById(bottomBtnMap[tab]);
     if (btn) btn.classList.add('active');
   }
   const mapEl = document.getElementById('map');
