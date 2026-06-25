@@ -20,16 +20,10 @@
       --radius: 16px;
       --radius-sm: 8px;
       --shadow: 0 2px 12px rgba(45,122,79,0.10);
-      --bubble-user: #2d7a4f;
-      --bubble-kamo: #fff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
+    html, body { height: 100%; overflow: hidden; }
 
     body {
       font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
@@ -38,9 +32,9 @@
       display: flex;
       flex-direction: column;
       height: 100dvh;
+      font-size: 20px;
     }
 
-    /* ヘッダー */
     header {
       background: var(--green);
       color: #fff;
@@ -52,28 +46,22 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
-    .header-kamo {
-      font-size: 28px;
-      animation: float 3s ease-in-out infinite;
-    }
+    .header-kamo { font-size: 28px; animation: float 3s ease-in-out infinite; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-4px); }
     }
 
-    .header-info h1 {
-      font-size: 16px;
-      font-weight: 700;
-    }
+    .header-info h1 { font-size: 17px; font-weight: 700; }
+    .header-info p { font-size: 12px; color: rgba(255,255,255,0.75); }
 
-    .header-info p {
-      font-size: 12px;
-      color: rgba(255,255,255,0.75);
-    }
+    .header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+    .gps-indicator { font-size: 18px; opacity: 0.4; transition: opacity 0.3s; }
+    .gps-indicator.active { opacity: 1; }
 
     .header-back {
-      margin-left: auto;
       color: rgba(255,255,255,0.85);
       text-decoration: none;
       font-size: 13px;
@@ -82,7 +70,6 @@
       border-radius: 999px;
     }
 
-    /* チャットエリア */
     .chat-area {
       flex: 1;
       overflow-y: auto;
@@ -93,12 +80,11 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* メッセージ */
     .message {
       display: flex;
       align-items: flex-end;
       gap: 8px;
-      max-width: 85%;
+      max-width: 88%;
       animation: fadeIn 0.2s ease;
     }
 
@@ -107,32 +93,22 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .message.kamo {
-      align-self: flex-start;
-    }
+    .message.kamo { align-self: flex-start; }
+    .message.user { align-self: flex-end; flex-direction: row-reverse; }
 
-    .message.user {
-      align-self: flex-end;
-      flex-direction: row-reverse;
-    }
-
-    .message-avatar {
-      font-size: 24px;
-      flex-shrink: 0;
-      margin-bottom: 2px;
-    }
+    .message-avatar { font-size: 24px; flex-shrink: 0; margin-bottom: 2px; }
 
     .message-bubble {
-      padding: 10px 14px;
+      padding: 12px 16px;
       border-radius: var(--radius);
-      font-size: 15px;
+      font-size: 20px;
       line-height: 1.7;
       white-space: pre-wrap;
       word-break: break-word;
     }
 
     .message.kamo .message-bubble {
-      background: var(--bubble-kamo);
+      background: var(--white);
       color: var(--text);
       border: 1px solid var(--border);
       border-bottom-left-radius: 4px;
@@ -140,12 +116,70 @@
     }
 
     .message.user .message-bubble {
-      background: var(--bubble-user);
+      background: var(--green);
       color: #fff;
       border-bottom-right-radius: 4px;
     }
 
-    /* タイピングインジケーター */
+    /* 例会カード */
+    .venue-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-top: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .venue-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .venue-card p {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin-bottom: 2px;
+    }
+
+    .venue-card a {
+      font-size: 13px;
+      color: var(--green);
+    }
+
+    /* 選択肢 */
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-self: flex-start;
+      max-width: 92%;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .choice-btn {
+      background: var(--white);
+      border: 2px solid var(--green);
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: var(--green);
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      transition: background 0.15s, color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .choice-btn:active, .choice-btn:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    /* タイピング */
     .typing {
       display: flex;
       align-items: center;
@@ -154,8 +188,7 @@
     }
 
     .typing span {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       background: var(--text-muted);
       border-radius: 50%;
       animation: bounce 1.2s infinite;
@@ -186,12 +219,12 @@
       border: 1.5px solid var(--border);
       border-radius: 20px;
       padding: 10px 16px;
-      font-size: 15px;
+      font-size: 20px;
       font-family: inherit;
       resize: none;
       outline: none;
       max-height: 120px;
-      min-height: 44px;
+      min-height: 48px;
       line-height: 1.5;
       color: var(--text);
       background: var(--bg);
@@ -199,22 +232,16 @@
       -webkit-appearance: none;
     }
 
-    textarea:focus {
-      border-color: var(--green);
-    }
-
-    textarea::placeholder {
-      color: var(--text-muted);
-    }
+    textarea:focus { border-color: var(--green); }
+    textarea::placeholder { color: var(--text-muted); }
 
     .send-btn {
-      width: 44px;
-      height: 44px;
+      width: 48px; height: 48px;
       background: var(--green);
       border: none;
       border-radius: 50%;
       color: #fff;
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
       flex-shrink: 0;
       display: flex;
@@ -228,24 +255,14 @@
     .send-btn:active { transform: scale(0.92); }
     .send-btn:disabled { background: var(--border); cursor: not-allowed; }
 
-    /* ヒント */
-    .hint {
-      text-align: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      padding: 4px 0 0;
-    }
-
-    /* 注意書き */
     .notice {
       background: var(--green-light);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 10px 14px;
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-mid);
       text-align: center;
-      margin: 0 4px;
     }
   </style>
 </head>
@@ -257,7 +274,10 @@
     <h1>かもちゃんに相談する</h1>
     <p>断酒でGO!!のアシスタント</p>
   </div>
-  <a class="header-back" href="/">地図に戻る</a>
+  <div class="header-right">
+    <span class="gps-indicator" id="gpsIndicator" title="位置情報">📍</span>
+    <a class="header-back" href="/">地図に戻る</a>
+  </div>
 </header>
 
 <div class="chat-area" id="chatArea">
@@ -265,82 +285,300 @@
     例会情報の確認・アプリの使い方など、お気軽にどうぞ😊<br>
     医療的なご相談は専門家にご相談ください。
   </div>
-
-  <div class="message kamo">
-    <div class="message-avatar">🦆</div>
-    <div class="message-bubble">こんにちは！かもちゃんです😊
-断酒でGO!!についての質問や、例会情報の間違いなど、なんでも気軽に話しかけてね！</div>
-  </div>
 </div>
 
 <div class="input-area">
-  <textarea
-    id="input"
-    placeholder="メッセージを入力..."
-    rows="1"
-    aria-label="メッセージ入力"
-  ></textarea>
-  <button class="send-btn" id="sendBtn" aria-label="送信">
-    ↑
-  </button>
+  <textarea id="input" placeholder="メッセージを入力..." rows="1" aria-label="メッセージ入力"></textarea>
+  <button class="send-btn" id="sendBtn" aria-label="送信">↑</button>
 </div>
 
 <script>
   const API_URL = 'https://chat.nukadokonokai.com';
+  const QA_URL = 'qa.json';
+  const VENUES_URL = 'venues.json';
+
   const chatArea = document.getElementById('chatArea');
   const input = document.getElementById('input');
   const sendBtn = document.getElementById('sendBtn');
-  let history = [];
+  const gpsIndicator = document.getElementById('gpsIndicator');
+
+  let qaData = null;
+  let venuesData = null;
+  let currentNode = 'start';
+  let pendingInputNext = null;
+  let pendingInputData = null;
+  let apiHistory = [];
   let isLoading = false;
+  let userLat = null;
+  let userLng = null;
 
-  // テキストエリア自動リサイズ
-  input.addEventListener('input', () => {
-    input.style.height = 'auto';
-    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
-  });
+  // 起動時
+  async function init() {
+    initGPS();
+    await Promise.all([loadQA(), loadVenues()]);
+    processNode('start');
+  }
 
-  // Enterで送信、Shift+Enterで改行
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      send();
+  // GPS
+  function initGPS() {
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        userLat = pos.coords.latitude;
+        userLng = pos.coords.longitude;
+        gpsIndicator.classList.add('active');
+        gpsIndicator.title = '位置情報取得済み';
+      },
+      () => { gpsIndicator.title = '位置情報が取得できませんでした'; },
+      { timeout: 10000, maximumAge: 60000 }
+    );
+  }
+
+  // QA読み込み
+  async function loadQA() {
+    try {
+      const res = await fetch(QA_URL);
+      qaData = await res.json();
+    } catch(e) { console.error('QA読み込み失敗', e); }
+  }
+
+  // venues読み込み
+  async function loadVenues() {
+    try {
+      const res = await fetch(VENUES_URL);
+      venuesData = await res.json();
+    } catch(e) { console.error('venues読み込み失敗', e); }
+  }
+
+  // ノード処理
+  async function processNode(nodeId, inputText, extraData) {
+    if (!qaData) return;
+    const node = qaData.nodes[nodeId];
+    if (!node) return;
+
+    currentNode = nodeId;
+
+    // 既存の選択肢を削除
+    removeChoices();
+
+    switch(node.type) {
+      case 'choices':
+        addKamoMessage(node.message);
+        showChoices(node.choices);
+        break;
+
+      case 'answer':
+        addKamoMessage(node.message);
+        if (node.next) setTimeout(() => processNode(node.next), 600);
+        break;
+
+      case 'input':
+        pendingInputNext = node.next;
+        addKamoMessage(node.message);
+        input.focus();
+        break;
+
+      case 'venue_search':
+        let query = node.query;
+        if (query === '{{input}}') query = inputText || '';
+        if (query === '{{data}}') query = extraData || '';
+        addKamoMessage(node.message || `「${query}」で例会を探してるね！`);
+        searchVenues(query);
+        if (node.next) setTimeout(() => processNode(node.next), 800);
+        break;
+
+      case 'api':
+        await callAPI(inputText, node.system);
+        if (node.next) setTimeout(() => processNode(node.next), 400);
+        break;
     }
-  });
+  }
 
-  sendBtn.addEventListener('click', send);
+  // venues検索
+  function searchVenues(query) {
+    if (!venuesData) {
+      addKamoMessage('例会データを読み込み中だよ、少し待ってね😊');
+      return;
+    }
 
-  function addMessage(role, text) {
+    const now = new Date();
+    const jst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+    const days = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
+    const todayStr = days[jst.getDay()];
+    const tomorrowStr = days[(jst.getDay() + 1) % 7];
+    const currentTime = jst.getHours() * 100 + jst.getMinutes();
+
+    let filtered = [];
+
+    // 日時キーワード検出
+    const isToday = query.includes('今日') || query === todayStr;
+    const isTomorrow = query.includes('明日') || query === tomorrowStr;
+    const isNow = query.includes('今から') || query.includes('今すぐ');
+    const dayMatch = days.find(d => query.includes(d));
+
+    venuesData.forEach(venue => {
+      if (!venue.meetings) return;
+      venue.meetings.forEach(meeting => {
+        let match = false;
+        const meetingDay = meeting.day_of_week || '';
+
+        if (isNow) {
+          if (meetingDay === todayStr) {
+            const t = meeting.start_time ? parseInt(meeting.start_time.replace(':', '')) : 0;
+            if (t > currentTime) match = true;
+          }
+        } else if (isToday) {
+          if (meetingDay === todayStr) match = true;
+        } else if (isTomorrow) {
+          if (meetingDay === tomorrowStr) match = true;
+        } else if (dayMatch) {
+          if (meetingDay === dayMatch) match = true;
+        } else {
+          // 地名検索
+          const addr = (venue.address || '') + (venue.name || '');
+          const q = query.replace(/[市区町村郡]+$/, '');
+          if (addr.includes(query) || addr.includes(q)) match = true;
+        }
+
+        if (match) {
+          filtered.push({
+            venue,
+            meeting,
+            distance: userLat ? haversine(userLat, userLng, venue.lat, venue.lng) : null
+          });
+        }
+      });
+    });
+
+    // GPS近い順ソート
+    if (userLat && filtered.length > 0) {
+      filtered.sort((a, b) => (a.distance || 999) - (b.distance || 999));
+    }
+
+    // 最大3件
+    filtered = filtered.slice(0, 3);
+
+    if (filtered.length === 0) {
+      addKamoMessage('ごめんね、条件に合う例会が見つからなかったよ😢 地名や曜日を変えて試してみてね！');
+      return;
+    }
+
     const div = document.createElement('div');
-    div.className = `message ${role}`;
+    div.className = 'message kamo';
+    let html = '<div class="message-avatar">🦆</div><div class="message-bubble">';
+    html += `${filtered.length}件見つかったよ！`;
 
-    if (role === 'kamo') {
-      div.innerHTML = `
-        <div class="message-avatar">🦆</div>
-        <div class="message-bubble">${escapeHtml(text)}</div>
-      `;
-    } else {
-      div.innerHTML = `
-        <div class="message-bubble">${escapeHtml(text)}</div>
-      `;
-    }
+    filtered.forEach(({venue, meeting, distance}) => {
+      html += `<div class="venue-card">`;
+      html += `<h4>${venue.name || ''}</h4>`;
+      html += `<p>📍 ${venue.address || ''}</p>`;
+      if (distance !== null) html += `<p>🚶 約${distance.toFixed(1)}km</p>`;
+      html += `<p>📅 ${meeting.day_of_week || ''} ${meeting.start_time || ''} ${meeting.name || ''}</p>`;
+      if (meeting.url) html += `<a href="${meeting.url}" target="_blank" rel="noopener">🔗 公式サイト</a>`;
+      html += `</div>`;
+    });
 
+    html += '<p style="font-size:13px;color:#888;margin-top:8px;">お出かけ前に必ず公式サイトで最新情報をご確認ください</p>';
+    html += '</div>';
+    div.innerHTML = html;
     chatArea.appendChild(div);
     scrollToBottom();
-    return div;
+  }
+
+  // ハバーサイン公式
+  function haversine(lat1, lng1, lat2, lng2) {
+    if (!lat2 || !lng2) return 999;
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) ** 2 + Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) * Math.sin(dLng/2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+  // Anthropic API呼び出し
+  async function callAPI(userText, systemPrompt) {
+    isLoading = true;
+    sendBtn.disabled = true;
+    showTyping();
+
+    if (userText) {
+      apiHistory.push({ role: 'user', content: userText });
+    }
+
+    try {
+      const res = await fetch(`${API_URL}/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: userText || '',
+          history: apiHistory.slice(-6),
+          lat: userLat,
+          lng: userLng
+        })
+      });
+
+      hideTyping();
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      addKamoMessage(data.reply);
+      apiHistory.push({ role: 'assistant', content: data.reply });
+
+    } catch(e) {
+      hideTyping();
+      addKamoMessage('ごめんね、うまく繋がらなかったみたい😢 もう一度試してみてね。');
+    } finally {
+      isLoading = false;
+      sendBtn.disabled = false;
+    }
+  }
+
+  // 選択肢表示
+  function showChoices(choices) {
+    const div = document.createElement('div');
+    div.className = 'choices';
+    div.id = 'choicesArea';
+    choices.forEach((c, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = c.label;
+      btn.addEventListener('click', () => {
+        removeChoices();
+        addUserMessage(c.label);
+        processNode(c.next, c.label, c.data);
+      });
+      div.appendChild(btn);
+    });
+    chatArea.appendChild(div);
+    scrollToBottom();
+  }
+
+  function removeChoices() {
+    const old = document.getElementById('choicesArea');
+    if (old) old.remove();
+  }
+
+  // メッセージ追加
+  function addKamoMessage(text) {
+    const div = document.createElement('div');
+    div.className = 'message kamo';
+    div.innerHTML = `<div class="message-avatar">🦆</div><div class="message-bubble">${escapeHtml(text)}</div>`;
+    chatArea.appendChild(div);
+    scrollToBottom();
+  }
+
+  function addUserMessage(text) {
+    const div = document.createElement('div');
+    div.className = 'message user';
+    div.innerHTML = `<div class="message-bubble">${escapeHtml(text)}</div>`;
+    chatArea.appendChild(div);
+    scrollToBottom();
   }
 
   function showTyping() {
     const div = document.createElement('div');
     div.className = 'message kamo';
     div.id = 'typing';
-    div.innerHTML = `
-      <div class="message-avatar">🦆</div>
-      <div class="message-bubble">
-        <div class="typing">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    `;
+    div.innerHTML = `<div class="message-avatar">🦆</div><div class="message-bubble"><div class="typing"><span></span><span></span><span></span></div></div>`;
     chatArea.appendChild(div);
     scrollToBottom();
   }
@@ -350,9 +588,7 @@
     if (t) t.remove();
   }
 
-  function scrollToBottom() {
-    chatArea.scrollTop = chatArea.scrollHeight;
-  }
+  function scrollToBottom() { chatArea.scrollTop = chatArea.scrollHeight; }
 
   function escapeHtml(text) {
     return text
@@ -362,47 +598,43 @@
       .replace(/\n/g, '<br>');
   }
 
-  async function send() {
+  // 入力処理
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleInput();
+    }
+  });
+
+  sendBtn.addEventListener('click', handleInput);
+
+  function handleInput() {
     const text = input.value.trim();
     if (!text || isLoading) return;
-
     input.value = '';
     input.style.height = 'auto';
-    isLoading = true;
-    sendBtn.disabled = true;
 
-    addMessage('user', text);
-    history.push({ role: 'user', content: text });
+    removeChoices();
+    addUserMessage(text);
 
-    showTyping();
-
-    try {
-      const res = await fetch(`${API_URL}/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, history: history.slice(-10) })
+    if (pendingInputNext) {
+      const next = pendingInputNext;
+      pendingInputNext = null;
+      processNode(next, text);
+    } else {
+      // 自由入力→API
+      callAPI(text, null).then(() => {
+        setTimeout(() => processNode('chat_more'), 400);
       });
-
-      hideTyping();
-
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-      const data = await res.json();
-      const reply = data.reply;
-
-      addMessage('kamo', reply);
-      history.push({ role: 'assistant', content: reply });
-
-    } catch (err) {
-      hideTyping();
-      addMessage('kamo', 'ごめんね、うまく繋がらなかったみたい😢 もう一度試してみてね。');
-      console.error(err);
-    } finally {
-      isLoading = false;
-      sendBtn.disabled = false;
-      input.focus();
     }
   }
+
+  init();
 </script>
 
 </body>

@@ -1,0 +1,269 @@
+{
+  "version": "1.0",
+  "nodes": {
+
+    "start": {
+      "type": "choices",
+      "message": "こんにちは！かもちゃんです😊 何をお手伝いしようか？",
+      "choices": [
+        { "label": "1️⃣ 例会を探す", "next": "search" },
+        { "label": "2️⃣ アプリの使い方", "next": "howto" },
+        { "label": "3️⃣ 断酒会について", "next": "about" },
+        { "label": "4️⃣ 情報の修正・追加", "next": "report" },
+        { "label": "5️⃣ 雑談する", "next": "chat" }
+      ]
+    },
+
+    "search": {
+      "type": "choices",
+      "message": "どうやって探す？",
+      "choices": [
+        { "label": "1️⃣ 今日の例会を探す", "next": "search_today" },
+        { "label": "2️⃣ 明日の例会を探す", "next": "search_tomorrow" },
+        { "label": "3️⃣ 今から行ける例会", "next": "search_now" },
+        { "label": "4️⃣ 地名で探す", "next": "search_place" },
+        { "label": "5️⃣ 曜日で探す", "next": "search_day" }
+      ]
+    },
+
+    "search_today": {
+      "type": "venue_search",
+      "query": "今日",
+      "message": "今日の例会を探してるね！位置情報を使って近い順に表示するよ😊",
+      "next": "search_done"
+    },
+
+    "search_tomorrow": {
+      "type": "venue_search",
+      "query": "明日",
+      "message": "明日の例会を探してるね！近い順に表示するよ😊",
+      "next": "search_done"
+    },
+
+    "search_now": {
+      "type": "venue_search",
+      "query": "今から",
+      "message": "今から行ける例会を探してるね！現在時刻より後に始まる例会を表示するよ😊",
+      "next": "search_done"
+    },
+
+    "search_place": {
+      "type": "input",
+      "message": "どの地名で探す？市区町村名を入力してね！（例：福生、新宿、大阪市）",
+      "next": "search_place_result"
+    },
+
+    "search_place_result": {
+      "type": "venue_search",
+      "query": "{{input}}",
+      "next": "search_done"
+    },
+
+    "search_day": {
+      "type": "choices",
+      "message": "何曜日？",
+      "choices": [
+        { "label": "月曜日", "next": "search_day_result", "data": "月曜日" },
+        { "label": "火曜日", "next": "search_day_result", "data": "火曜日" },
+        { "label": "水曜日", "next": "search_day_result", "data": "水曜日" },
+        { "label": "木曜日", "next": "search_day_result", "data": "木曜日" },
+        { "label": "金曜日", "next": "search_day_result", "data": "金曜日" },
+        { "label": "土曜日", "next": "search_day_result", "data": "土曜日" },
+        { "label": "日曜日", "next": "search_day_result", "data": "日曜日" }
+      ]
+    },
+
+    "search_day_result": {
+      "type": "venue_search",
+      "query": "{{data}}",
+      "next": "search_done"
+    },
+
+    "search_done": {
+      "type": "choices",
+      "message": "他にも何かある？",
+      "choices": [
+        { "label": "1️⃣ もう一度探す", "next": "search" },
+        { "label": "2️⃣ 最初に戻る", "next": "start" },
+        { "label": "3️⃣ 雑談する", "next": "chat" }
+      ]
+    },
+
+    "howto": {
+      "type": "choices",
+      "message": "使い方のどれが知りたい？",
+      "choices": [
+        { "label": "1️⃣ 地図の開き方", "next": "howto_open" },
+        { "label": "2️⃣ ピンの見方", "next": "howto_pin" },
+        { "label": "3️⃣ ホーム画面に追加したい", "next": "howto_pwa" },
+        { "label": "4️⃣ 快適モード・探索モードの違い", "next": "howto_mode" }
+      ]
+    },
+
+    "howto_open": {
+      "type": "answer",
+      "message": "ブラウザで https://dansyu-go.nukadokonokai.com/ を開くだけ！スマホでもPCでもそのまま使えるよ😊",
+      "next": "howto_more"
+    },
+
+    "howto_pin": {
+      "type": "answer",
+      "message": "地図上のカラフルなピン📍をタップすると例会場の情報が出てくるよ！数字のアイコンは例会場がたくさん集まってるエリア。タップすると拡大されて個別のピンが現れるよ！同じ会場で複数の例会が並んで表示されることもあるから都合のいい日程を選んでね😊",
+      "next": "howto_more"
+    },
+
+    "howto_pwa": {
+      "type": "choices",
+      "message": "iPhoneとAndroid、どっち？",
+      "choices": [
+        { "label": "🍎 iPhone", "next": "howto_pwa_ios" },
+        { "label": "🤖 Android", "next": "howto_pwa_android" }
+      ]
+    },
+
+    "howto_pwa_ios": {
+      "type": "answer",
+      "message": "①Safariで https://dansyu-go.nukadokonokai.com/ を開く\n②下の共有ボタン（四角と矢印）をタップ\n③「ホーム画面に追加」を選ぶ\n\nアプリみたいに使えるようになるよ！キャッシュが増えて起動も速くなる😊",
+      "next": "howto_more"
+    },
+
+    "howto_pwa_android": {
+      "type": "answer",
+      "message": "①Chromeで https://dansyu-go.nukadokonokai.com/ を開く\n②右上のメニュー（︙）をタップ\n③「ホーム画面に追加」を選ぶ\n\nアプリみたいに使えるようになるよ！キャッシュが増えて起動も速くなる😊",
+      "next": "howto_more"
+    },
+
+    "howto_mode": {
+      "type": "answer",
+      "message": "快適モード：地図の動きがスムーズで日常的に近くの例会場を探すのに向いてるよ。\n探索モード：地図を広く動かして遠い地域の例会場も探しやすい。旅先や引っ越し先を探すときに便利😊",
+      "next": "howto_more"
+    },
+
+    "howto_more": {
+      "type": "choices",
+      "message": "他にも知りたいことある？",
+      "choices": [
+        { "label": "1️⃣ 使い方をもっと見る", "next": "howto" },
+        { "label": "2️⃣ 例会を探す", "next": "search" },
+        { "label": "3️⃣ 最初に戻る", "next": "start" }
+      ]
+    },
+
+    "about": {
+      "type": "choices",
+      "message": "断酒会についてどれが知りたい？",
+      "choices": [
+        { "label": "1️⃣ 断酒会って何？", "next": "about_what" },
+        { "label": "2️⃣ 初めてでも参加できる？", "next": "about_first" },
+        { "label": "3️⃣ 参加費はかかる？", "next": "about_fee" },
+        { "label": "4️⃣ 家族も参加できる？", "next": "about_family" }
+      ]
+    },
+
+    "about_what": {
+      "type": "answer",
+      "message": "断酒会は、お酒をやめたい・やめ続けたいと思っている人たちが集まって体験談・酒害体験を語る自助グループだよ。「言いっぱなし・聞きっぱなし」が基本のスタイルで、批判や評価はなし。ただ語って、ただ聞く。それだけでいいんだよ😊\n\n全日本断酒連盟に加入しており、医療機関や行政とも連携。60年を超える長い歴史と実績を持つ回復の場です。",
+      "next": "about_more"
+    },
+
+    "about_first": {
+      "type": "answer",
+      "message": "大丈夫！初めての方も温かく迎えてもらえるよ😊 「お酒をやめたい」という気持ちがあれば断酒歴は関係ない。最初は聞くだけでも全然OK。まずは一歩、足を踏み出してみてね🌱",
+      "next": "about_more"
+    },
+
+    "about_fee": {
+      "type": "answer",
+      "message": "断酒会に入会すると会費がかかるよ。多くの場合、入会金1,000円・月会費1,500円程度、例会参加のたびに100円が運営資金になってるところが多い。お酒を飲んでいたころの酒代に比べれば、ほんの僅かな金額だよ😊 詳しくは各例会場にご確認ください。",
+      "next": "about_more"
+    },
+
+    "about_family": {
+      "type": "answer",
+      "message": "アルコール依存症は家族ぐるみの病気です。依存症者本人はもちろん、家族の方ももちろん参加できるよ。家族会はもちろん、通常の断酒例会にも安心して参加いただけます。不安や質問があれば気軽に各地の断酒会・例会責任者にご連絡してみてね🌱",
+      "next": "about_more"
+    },
+
+    "about_more": {
+      "type": "choices",
+      "message": "他にも知りたいことある？",
+      "choices": [
+        { "label": "1️⃣ 断酒会についてもっと聞く", "next": "about" },
+        { "label": "2️⃣ 例会を探す", "next": "search" },
+        { "label": "3️⃣ 最初に戻る", "next": "start" }
+      ]
+    },
+
+    "report": {
+      "type": "choices",
+      "message": "どんなことを教えてくれる？",
+      "choices": [
+        { "label": "1️⃣ 情報が古い・間違っている", "next": "report_wrong" },
+        { "label": "2️⃣ 載っていない例会がある", "next": "report_missing" },
+        { "label": "3️⃣ 新しい例会を載せたい", "next": "report_new" }
+      ]
+    },
+
+    "report_wrong": {
+      "type": "answer",
+      "message": "教えてくれてありがとう！断酒でGO!!で修正できるものはすぐに対応するよ😊\n\nどの例会場の、どんな情報が間違っているか、具体的に教えてもらえると助かる！",
+      "next": "report_input"
+    },
+
+    "report_missing": {
+      "type": "answer",
+      "message": "各都道府県の断酒会公式サイトをもとに情報収集してるよ。システムの都合で取得できていない例会があるかも😢\n\nどの例会場が載っていないか教えてもらえたら優先して対応するよ！",
+      "next": "report_input"
+    },
+
+    "report_new": {
+      "type": "answer",
+      "message": "掲載ありがとう！断酒でGO!!は公式サイトに載っている情報をもとにしてるから、まず所属の都道府県断酒連合会の公式サイトへの掲載をお願いしてみてね。公式サイトに載れば断酒でGO!!にも反映されるよ😊",
+      "next": "report_input"
+    },
+
+    "report_input": {
+      "type": "input",
+      "message": "詳しい内容を教えてね！（例会場名・場所・どんな情報が違うか）",
+      "next": "report_chat"
+    },
+
+    "report_chat": {
+      "type": "api",
+      "system": "あなたはかもちゃんです。ユーザーから例会情報の修正・追加依頼を受けています。内容を丁寧に確認して、お礼を伝えてください。",
+      "next": "report_done"
+    },
+
+    "report_done": {
+      "type": "choices",
+      "message": "他にも何かある？",
+      "choices": [
+        { "label": "1️⃣ 別の修正を伝える", "next": "report" },
+        { "label": "2️⃣ 最初に戻る", "next": "start" }
+      ]
+    },
+
+    "chat": {
+      "type": "input",
+      "message": "なんでも話しかけてね！かもちゃんが聞くよ😊",
+      "next": "chat_api"
+    },
+
+    "chat_api": {
+      "type": "api",
+      "system": "あなたはかもちゃんです。断酒でGO!!のアシスタントです。ユーザーと気軽に雑談してください。",
+      "next": "chat_more"
+    },
+
+    "chat_more": {
+      "type": "choices",
+      "message": "続けて話す？",
+      "choices": [
+        { "label": "1️⃣ 続けて話す", "next": "chat" },
+        { "label": "2️⃣ 例会を探す", "next": "search" },
+        { "label": "3️⃣ 最初に戻る", "next": "start" }
+      ]
+    }
+
+  }
+}
