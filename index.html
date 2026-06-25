@@ -131,12 +131,27 @@
 })();
 </script>
 
+
 <div id="header">
   <div id="top-bar">
     <span id="title">🏃 断酒でGO!!</span>
+    <select id="date-filter" onchange="applyFilters()" style="display:none;">
+      <option value="all">📅 全日付</option>
+      <option value="today">今日</option>
+      <option value="tomorrow">明日</option>
+      <option value="dayafter">明後日</option>
+    </select>
+    <select id="area-filter" onchange="applyFilters()" style="display:none;">
+      <option value="all">📍 全エリア</option>
+      <option value="東京都">東京</option>
+      <option value="神奈川県">神奈川</option>
+      <option value="埼玉県">埼玉</option>
+      <option value="千葉県">千葉</option>
+    </select>
     <span id="total-count" style="color:#ffffff; font-size:15px; font-weight:bold; margin-left:auto;">全<span id="count-total-header">0</span>例会・今日<span id="count-today-header">0</span>件</span>
   </div>
 </div>
+
 
 <div id="legend" style="background:#16213e; border-bottom:1px solid #0f3460; padding:6px 12px;">
   <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
@@ -155,10 +170,6 @@
   </div>
 </div>
 
-<div id="schedule"></div>
-<div id="news" style="display:none;padding:12px;max-height:calc(100vh - 120px);overflow-y:auto;"></div>
-<div id="footer" style="background:#16213e;padding:4px 16px;font-size:15px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">© 
-2026 ぬか床の会 | <a href="blog/" style="color:#e94560;text-decoration:none;">📓 開発ノート</a> | <span id="footer-updated"></span></div>
 
 <div id="bottom-nav">
   <button class="bottom-btn active" id="tab-map" onclick="switchTab('map')">
@@ -178,7 +189,13 @@
     <span class="bottom-label">かもちゃん</span>
   </button>
 </div>
+
 <div id="loading-screen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.2rem;color:#555;"><div style="font-size:3rem;margin-bottom:1rem;">📍</div><div>例会情報を読み込み中...</div><div style="font-size:0.85rem;margin-top:0.5rem;color:#aaa;">断酒でGO</div></div><div id="map"></div>
+<div id="schedule"></div>
+<div id="news" style="display:none;padding:12px;max-height:calc(100vh - 120px);overflow-y:auto;"></div>
+<div id="footer" style="background:#16213e;padding:4px 
+16px;font-size: 15px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">© 
+2026 ぬか床の会 | <a href="blog/" style="color:#e94560;text-decoration:none;">📓 開発ノート</a> | <span id="footer-updated"></span></div>
 <script src="app.js"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }
