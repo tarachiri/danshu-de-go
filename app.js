@@ -522,8 +522,8 @@ function setMode(mode) {
 }
 
 function applyFilters() {
-  const dateFilter = document.getElementById('date-filter').value;
-  const areaFilter = document.getElementById('area-filter').value;
+  const dateFilter = document.getElementById('date-filter')?.value || 'all';
+  const areaFilter = document.getElementById('area-filter')?.value || 'all';
 
   // モードに応じてアクティブレイヤーを切替
   const activeGroup = currentMode === 'comfort' ? comfortGroup : clusterGroup;
