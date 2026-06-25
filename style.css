@@ -308,3 +308,70 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   right: 2px !important;
   color: #333 !important;
 }
+
+/* ボトムナビ */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #16213e;
+  border-top: 1px solid #0f3460;
+  display: flex;
+  align-items: stretch;
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  font-family: inherit;
+  gap: 2px;
+  transition: color 0.2s, background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  padding: 6px 0;
+}
+
+.bottom-btn.active {
+  color: #e94560;
+}
+
+.bottom-btn:active {
+  background: rgba(255,255,255,0.08);
+}
+
+.bottom-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.bottom-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 旧タブバー非表示 */
+#tab-bar { display: none !important; }
+
+/* フローティングメニューボタン非表示 */
+#menu-toggle-float { display: none !important; }
+#menu-panel { bottom: 65px !important; }
+
+/* コンテンツエリアのボトム余白 */
+#map { padding-bottom: 60px; }
+#schedule-view { padding-bottom: 60px; }
+#news-view { padding-bottom: 60px; }
+
+/* 日程タブの日付文字を白に */
+.sch-date-header { color: #ffffff !important; }
+.sch-date-today { color: #e94560 !important; }

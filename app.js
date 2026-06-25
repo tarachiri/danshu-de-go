@@ -284,6 +284,13 @@ function jumpToMarker(id, lat, lng, name) {
 
 // タブ切替
 function switchTab(tab) {
+  // ボトムナビのactive更新
+  document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
+  const tabMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news' };
+  if (tabMap[tab]) {
+    const btn = document.getElementById(tabMap[tab]);
+    if (btn) btn.classList.add('active');
+  }
   const mapEl = document.getElementById('map');
   const schEl = document.getElementById('schedule');
   const newsEl = document.getElementById('news');
@@ -548,6 +555,8 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
     else if(l==='dayafter') dayafterCount++;
   });
   document.getElementById('count-today').textContent = todayCount;
+  const todayHeaderEl = document.getElementById('count-today-header');
+  if (todayHeaderEl) todayHeaderEl.textContent = todayCount;
   document.getElementById('count-tomorrow').textContent = tomorrowCount;
   document.getElementById('count-dayafter').textContent = dayafterCount;
   const totalMeetings = VENUES.reduce((sum, v) => sum + (v.meetings ? v.meetings.length : 0), 0);
