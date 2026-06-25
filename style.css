@@ -413,3 +413,9 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 
 /* ヘッダー1行に */
 #total-count { white-space: nowrap; font-size: 13px !important; }
+
+/* Leaflet帰属を完全に下に */
+.leaflet-bottom.leaflet-right { bottom: 62px !important; }
+.leaflet-bottom.leaflet-left { bottom: 62px !important; }
+/* 位置情報マーカーアイコン非表示 */
+.leaflet-control-locate { display: none !important; }
