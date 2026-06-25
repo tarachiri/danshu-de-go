@@ -111,7 +111,7 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   .sch-time-start { font-size: 18px; font-weight: bold; color: #fff; line-height: 1; }
   .sch-time-end { font-size: 14px; color: #888; margin-top: 2px; }
   .sch-info { flex: 1; min-width: 0; }
-  .sch-name { font-size: 18px; font-weight: bold; color: #e94560; margin-bottom: 3px; }
+  .sch-name { font-size: 18px; font-weight: bold; color: #ffffff; margin-bottom: 3px; }
   .sch-loc { font-size: 14px; color: #a0a0b0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sch-pref-badge { font-size: 13px; padding: 2px 6px; border-radius: 3px; flex-shrink: 0; font-weight: bold; }
   .pref-tokyo { background: #1a3a5c; color: #5ab4ff; }

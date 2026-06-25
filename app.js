@@ -928,3 +928,20 @@ function renderNews() {
       container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込みエラー</div>';
     });
 }
+
+// かもちゃんパネル
+function openKamo() {
+  let panel = document.getElementById('kamo-panel');
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'kamo-panel';
+    panel.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:60px;z-index:999;background:#fff;display:flex;flex-direction:column;';
+    panel.innerHTML = '<iframe src="chat.html" style="flex:1;border:none;width:100%;height:100%;"></iframe>';
+    document.body.appendChild(panel);
+  } else {
+    panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+  }
+  // ボトムナビのactive更新
+  document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('bottom-kamo').classList.add('active');
+}
