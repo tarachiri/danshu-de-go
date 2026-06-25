@@ -451,7 +451,7 @@ function addUserMessage(text) {
   div.className = 'message user';
   div.innerHTML = '<div class="message-bubble">' + esc(text) + '</div>';
   chatArea.appendChild(div);
-  scrollToBottom();
+  div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function showTyping() {
@@ -470,7 +470,7 @@ function hideTyping() {
 
 function scrollToBottom() {
   var last = chatArea.lastElementChild;
-  if (last) last.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (last) last.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function esc(text) {
