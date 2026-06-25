@@ -215,7 +215,7 @@ function processNode(nodeId, inputText, extraData) {
   removeChoices();
 
   if (node.type === 'choices') {
-    addKamoMessage(node.message);
+    if (node.message) addKamoMessage(node.message);
     showChoices(node.choices);
 
   } else if (node.type === 'answer') {
