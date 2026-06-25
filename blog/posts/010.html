@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>断酒、例会、みんな行けるようになるといいね。🦆 | 断酒でGO!! 開発ノート</title>
+  <style>
+    body { font-family: 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; background: #f9fbf9; color: #1a1a1a; line-height: 1.8; }
+    h1 { font-size: 24px; color: #2d7a4f; margin-bottom: 8px; }
+    .meta { color: #777; font-size: 14px; margin-bottom: 32px; }
+    h2 { font-size: 18px; color: #2d7a4f; margin: 32px 0 12px; border-left: 4px solid #2d7a4f; padding-left: 12px; }
+    p { color: #444; margin-bottom: 16px; }
+    .kamo { background: #e8f5ee; border: 2px solid #2d7a4f; border-radius: 12px; padding: 16px 20px; margin: 24px 0; position: relative; }
+    .kamo::before { content: '🦆'; position: absolute; top: -16px; left: 16px; font-size: 24px; }
+    .kamo p { margin: 0; color: #2d7a4f; font-weight: 700; }
+    code { background: #e8f5ee; padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #2d7a4f; }
+    pre { background: #1a1a1a; color: #e8f5ee; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; margin: 16px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #2d7a4f; color: #fff; padding: 10px 14px; text-align: left; font-size: 14px; }
+    td { padding: 10px 14px; border-bottom: 1px solid #d4e8db; font-size: 14px; color: #444; }
+    a { color: #2d7a4f; }
+    .tag { display: inline-block; background: #e8f5ee; color: #2d7a4f; font-size: 12px; padding: 2px 10px; border-radius: 999px; margin-right: 6px; }
+    .success { background: #e8f5ee; border-left: 4px solid #2d7a4f; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; font-size: 14px; color: #444; }
+    footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #d4e8db; font-size: 13px; color: #777; }
+  </style>
+</head>
+<body>
+
+<p><a href="/blog/">← 開発ノート一覧</a></p>
+
+<h1>断酒、例会、みんな行けるようになるといいね。🦆</h1>
+<div class="meta">
+  2026年6月25日
+  <span class="tag">GPS</span>
+  <span class="tag">チャット</span>
+  <span class="tag">決定木</span>
+  <span class="tag">かもちゃん</span>
+  <span class="tag">UX</span>
+</div>
+
+<div class="kamo">
+  <p>「断酒、例会、みんな出来るよう行けるようになるといいね！！」まじまじさんの言葉。これが全て。</p>
+</div>
+
+<h2>GPS現在地表示、ついに実装</h2>
+<p>断酒でGO!!はずっと東京固定で地図が開いていた。<code>[35.68, 139.60]</code>という座標、東京の中心。地方の人が開くと「あれ、なんか遠い場所が出てる」という状態だった。</p>
+<p>今日、たった1行で解決した。</p>
+
+<pre>map.locate({setView: true, maxZoom: 12});</pre>
+
+<p>Leaflet.jsの <code>locate()</code> メソッド。これを <code>setView</code> の直後に置くだけで、起動時に現在地へ自動移動する。GPS許可が断られた場合は東京固定のままで動き続ける。</p>
+
+<div class="success">
+  「GPS移動したよーーーー！」まじまじさんの報告。たった1行の実装が、断酒でGO!!を本当の意味でのロケーションアプリに変えた瞬間だった。
+</div>
+
+<p>これは地図アプリとして一番大事な機能だった。断酒会の例会場は全国にある。東京の人だけのアプリじゃない。青森の人が開けば青森の例会場が見える。福岡の人が開けば福岡の例会場が見える。当たり前のことが、今日やっと当たり前になった。</p>
+
+<h2>かもちゃん決定木チャット完成</h2>
+<p>昨日デビューしたかもちゃんチャットを大幅に改善した。最大の変更は「全部AIに聞かない」設計への転換だ。</p>
+
+<p>以前は全ての質問をAnthropicのAPIに投げていた。コストがかかり、通信待ちが発生し、答えの精度もブレた。今日から構造が変わった。</p>
+
+<pre>
+qa.json（決定木データ）
+    ↓ 起動時に1回だけ読み込み
+venues.json（例会データ・1339件）
+    ↓ 起動時に1回だけ読み込み
+
+ユーザーの操作
+    ↓
+選択肢タップ → JavaScriptで即答（APIゼロ）
+例会検索 → venues.jsonをローカル検索（APIゼロ）
+雑談・複雑な質問 → Anthropic API（Haiku）
+</pre>
+
+<p>APIを呼ぶのは雑談と複雑な質問だけ。それ以外は全部ブラウザの中で完結する。通信ゼロ、コストゼロ、待ち時間ゼロだ。</p>
+
+<h2>決定木の設計思想</h2>
+<p>qa.jsonはノードとエッジで構成された決定木だ。ユーザーが選択肢をタップするたびに次のノードへ進む。</p>
+
+<table>
+  <tr><th>ノードタイプ</th><th>動作</th><th>API</th></tr>
+  <tr><td>choices</td><td>選択肢を表示</td><td>不要</td></tr>
+  <tr><td>answer</td><td>固定回答を表示</td><td>不要</td></tr>
+  <tr><td>venue_search</td><td>例会データを検索</td><td>不要</td></tr>
+  <tr><td>input</td><td>テキスト入力を受け付ける</td><td>不要</td></tr>
+  <tr><td>api</td><td>かもちゃんが自由回答</td><td>必要</td></tr>
+</table>
+
+<h2>例会検索の進化</h2>
+<p>フロントエンドの検索ロジックも大幅に強化した。</p>
+<p>今日・明日・今から行ける例会の時刻検索。地名（市区町村）での検索。地方（関東・関西・九州など7地方）での検索。例会タイプ（家族・アメシスト・研修会）での検索。GPS取得済みなら近い順にソート。全部APIなしでvenues.jsonをブラウザ内で処理する。</p>
+<p>venues.jsonは1.4MB。重いと思われるかもしれないが、PWAキャッシュに乗れば2回目以降はゼロ通信だ。初回だけダウンロードして、あとはローカルで動く。</p>
+
+<h2>UXの細かい改善</h2>
+<p>今日は小さな改善もたくさんやった。文字サイズを15pxから20pxに。マークダウンの <code>**強調**</code> を <code>【強調】</code> に変換。長い返答を文章ごとに吹き出しに分割して連続投稿。スクロール位置の微調整。例会カードの表示順の整理（例会名→日時→施設名→住所→距離）。</p>
+<p>どれも小さい変更だけど、積み重なると読みやすさが全然違う。</p>
+
+<h2>「一番の実益に直結する機能」</h2>
+<p>GPS現在地表示について、まじまじさんはこう言った。「一番の実益に直結する機能だと思ってる」と。</p>
+<p>そうだと思う。断酒でGO!!は地図アプリだ。地図アプリで現在地が表示されないのは、コンパスのない地図みたいなものだった。今日からやっとコンパスがついた。</p>
+<p>例会に行くのは勇気がいる。初めての場所はなおさらだ。せめて「近くにある」「行けそうだ」という感覚を持てるように。地図が現在地から始まることで、その一歩が少し近くなれば。</p>
+
+<div class="kamo">
+  <p>断酒、例会、みんな行けるようになるといいね。かもちゃんもそう思う。🦆</p>
+</div>
+
+<footer>
+  <p>断酒でGO!! 開発ノート | <a href="/blog/">一覧に戻る</a> | <a href="/">アプリを開く</a></p>
+</footer>
+
+</body>
+</html>
