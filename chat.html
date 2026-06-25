@@ -422,11 +422,28 @@ function removeChoices() {
 }
 
 function addKamoMessage(text) {
-  var div = document.createElement('div');
-  div.className = 'message kamo';
-  div.innerHTML = '<div class="message-avatar">🦆</div><div class="message-bubble">' + esc(text) + '</div>';
-  chatArea.appendChild(div);
-  scrollToBottom();
+  // **→【】変換
+  text = text.replace(/\*\*([^*]+)\*\*/g, '【$1】');
+  // 。や改行で文章を分割
+  var parts = text.split(/(?<=。)|(?<=！)|(?<=？)\n|\n\n+/).map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 0; });
+  if (parts.length <= 1) {
+    var div = document.createElement('div');
+    div.className = 'message kamo';
+    div.innerHTML = '<div class="message-avatar">🦆</div><div class="message-bubble">' + esc(text) + '</div>';
+    chatArea.appendChild(div);
+    scrollToBottom();
+  } else {
+    parts.forEach(function(part, idx) {
+      setTimeout(function() {
+        var div = document.createElement('div');
+        div.className = 'message kamo';
+        var avatar = idx === 0 ? '<div class="message-avatar">🦆</div>' : '<div class="message-avatar" style="opacity:0">🦆</div>';
+        div.innerHTML = avatar + '<div class="message-bubble">' + esc(part) + '</div>';
+        chatArea.appendChild(div);
+        scrollToBottom();
+      }, idx * 300);
+    });
+  }
 }
 
 function addUserMessage(text) {
@@ -451,11 +468,16 @@ function hideTyping() {
   if (t) t.remove();
 }
 
-function scrollToBottom() { chatArea.scrollTop = chatArea.scrollHeight; }
+function scrollToBottom() {
+  var last = chatArea.lastElementChild;
+  if (last) last.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 function esc(text) {
   return String(text)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*([^*]+)\*\*/g,'【$1】')
+    .replace(/\n/g,'<br>');
 }
 
 inputEl.addEventListener('input', function() {
