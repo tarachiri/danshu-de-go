@@ -406,3 +406,10 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   -webkit-tap-highlight-color: transparent;
 }
 .locate-btn:active { background: #f0f0f0; }
+
+/* Leaflet帰属テキストをボトムナビの上に */
+.leaflet-bottom { bottom: 65px !important; }
+.leaflet-control-zoom { bottom: 70px !important; }
+
+/* ヘッダー1行に */
+#total-count { white-space: nowrap; font-size: 13px !important; }
