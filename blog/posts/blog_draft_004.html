@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全国例会データ収集大作戦 — haikuちゃん×Seleniumで1587件制覇｜断酒でGO!! 開発ノート</title>
+<style>
+  body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; max-width: 860px; margin: 0 auto; padding: 24px 16px; background: #f8f9fa; color: #333; line-height: 1.8; }
+  h1 { font-size: 1.5em; color: #2c3e50; border-bottom: 3px solid #2c3e50; padding-bottom: 10px; }
+  h2 { font-size: 1.2em; color: #2c3e50; margin-top: 2em; border-left: 4px solid #2c3e50; padding-left: 10px; }
+  h3 { font-size: 1.05em; color: #444; margin-top: 1.5em; }
+  .meta { color: #888; font-size: 0.85em; margin-bottom: 2em; }
+  .lead { font-size: 1.05em; color: #555; background: #eaf3fb; border-left: 4px solid #3498db; padding: 14px 18px; border-radius: 4px; margin-bottom: 2em; }
+  code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; font-family: 'Courier New', monospace; }
+  pre { background: #2c3e50; color: #ecf0f1; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 0.88em; line-height: 1.6; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 1.5em 0; }
+  .stat-card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 14px; text-align: center; }
+  .stat-card .num { font-size: 2em; font-weight: bold; color: #2c3e50; }
+  .stat-card .label { font-size: 0.82em; color: #888; margin-top: 4px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; border-radius: 8px; overflow: hidden; margin: 1em 0; }
+  th { background: #2c3e50; color: #fff; padding: 8px 12px; text-align: left; font-size: 0.88em; }
+  td { padding: 7px 12px; border-bottom: 1px solid #eee; font-size: 0.88em; }
+  tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.78em; font-weight: bold; margin-right: 4px; }
+  .tag-done { background: #d5f5e3; color: #1e8449; }
+  .tag-pending { background: #fdebd0; color: #a04000; }
+  .tag-skip { background: #f2f3f4; color: #666; }
+  .note { background: #fffde7; border-left: 4px solid #f39c12; padding: 12px 16px; border-radius: 4px; margin: 1em 0; font-size: 0.93em; }
+  .footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.82em; color: #aaa; }
+</style>
+</head>
+<body>
+
+<p class="meta">2026年6月22日｜断酒でGO!! 開発ノート #004</p>
+
+<h1>全国例会データ収集大作戦<br><small style="font-size:0.65em;color:#666;">haikuちゃん × Selenium で1587件制覇</small></h1>
+
+<div class="lead">
+今日は一日かけて「全国の断酒会例会データをどうやって集めるか」という問題に正面から向き合った。結果として、AIと自動化ツールを組み合わせた新しいパイプラインが完成し、raw_meetingsという1次集積テーブルに全国1587件のデータが蓄積された。
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card"><div class="num">1,587</div><div class="label">raw_meetings 総件数</div></div>
+  <div class="stat-card"><div class="num">8</div><div class="label">HP取得済み県</div></div>
+  <div class="stat-card"><div class="num">47</div><div class="label">都道府県カバー</div></div>
+  <div class="stat-card"><div class="num">¥0</div><div class="label">Selenium収集コスト</div></div>
+</div>
+
+<h2>なぜraw_meetingsテーブルを作ったのか</h2>
+
+<p>今まで例会データを収集するとき、スクリーニング不足と重複リスクという問題があった。各都道府県の公式サイトは構成がバラバラで、命名規則も住所の記載有無もまちまち。そのまま本番のvenues/meetingsに入れてしまうと、誤データが混入したときの影響が大きい。</p>
+
+<p>そこで今日作ったのが<strong>raw_meetings（1次情報集積テーブル）</strong>だ。</p>
+
+<pre>
+[各ソース] → raw_meetings (status=raw)
+                 ↓ 自動スクリーニング
+              status = ok / duplicate / suspicious
+                 ↓ 人間確認（suspiciousのみ）
+              status = ok
+                 ↓ promote_to_meetings.py
+              venues / meetings（本番）
+</pre>
+
+<p>生データを削除せず常にINSERT ONLYで保持する。原典の証拠として永久保存する設計だ。これで「どのソースから来たデータか」が常に追跡できる。</p>
+
+<h2>パイプライン①：haikuちゃんによるHTML抽出</h2>
+
+<p>各都道府県の公式サイトはHTMLの構造がバラバラだ。テーブル形式の県もあれば、散文テキストで書かれた県もある。これをパターン別に実装していたら時間がいくらあっても足りない。</p>
+
+<p>そこで登場したのが<strong>claude-haiku-4-5（haikuちゃん）</strong>だ。HTMLテキストを渡して「会場名・例会名・曜日・時刻をJSONで返して」と頼むだけで、サイト構成の違いを吸収してくれる。</p>
+
+<pre>
+curl でHTML取得
+     ↓
+テキスト抽出（script/style除去）
+     ↓
+haikuちゃんに投げる（max_tokens=8192）
+     ↓
+JSON配列で返ってくる
+     ↓
+raw_meetingsにINSERT
+</pre>
+
+<p>今日取得した県と件数：</p>
+
+<table>
+<thead><tr><th>都道府県</th><th>件数</th><th>サイト</th><th>特記</th></tr></thead>
+<tbody>
+<tr><td>大阪府</td><td>60件</td><td>fudanshu.com</td><td>テーブル構造・きれい</td></tr>
+<tr><td>京都府</td><td>34件</td><td>danshu-heian.net</td><td>住所・アクセスまで取得</td></tr>
+<tr><td>福岡県</td><td>44件</td><td>zdrfukuoka.jp</td><td>Googleマップ埋め込みで30万文字→実質2千文字</td></tr>
+<tr><td>兵庫県</td><td>17件</td><td>hyogo-dansyu.sakura.ne.jp</td><td>夜例会は会場名なし（元サイトの問題）</td></tr>
+<tr><td>滋賀県</td><td>23件</td><td>shigadansyu.com</td><td>Shift-JIS対応が必要</td></tr>
+<tr><td>奈良県</td><td>17件</td><td>nara-danren.com</td><td>住所・曜日・時刻すべて揃う最高品質</td></tr>
+<tr><td>北海道</td><td>28件</td><td>Googleサイト</td><td>4地区まとめて1ページ</td></tr>
+<tr><td>広島県</td><td>23件</td><td>hiroshima-danshukai-rengoukai.com</td><td>住所まで完備</td></tr>
+<tr><td>岡山県</td><td>30件</td><td>alien9.web.fc2.com</td><td>2009年更新・needs_human_review=1</td></tr>
+</tbody>
+</table>
+
+<p>コストは大阪・京都・福岡・兵庫・滋賀・奈良・北海道・広島・岡山の合計で<strong>約$0.20（約30円）</strong>。コーヒー1杯どころかエスプレッソ一口分のコストで全国主要県を制覇できた。</p>
+
+<h2>パイプライン②：Seleniumによるソーバーねっと全国収集</h2>
+
+<p>ソーバーねっと（addiction-peer.net）はReactで動くSPAのため、通常のcurlでは例会データが取れない。JavaScriptを実行できるブラウザが必要だ。</p>
+
+<p>そこで登場したのが<strong>ヘッドレスChrome + Selenium</strong>だ。画面なしでブラウザをバックグラウンド動作させる腕利きエンジニアの道具だ。</p>
+
+<pre>
+# Ubuntuサーバーでヘッドレスブラウザを動かす
+sudo apt-get install -y chromium-browser chromium-chromedriver
+pip install selenium --break-system-packages
+
+# ポイント：mtg_result.htmlはURLパラメータで直接検索できる
+https://addiction-peer.net/mtg_result.html?pref=43&page=2
+</pre>
+
+<p>このURLパターンを発見したことで、47都道府県×ページネーション対応のスクリプトが書けた。コストはゼロ。夜中にバックグラウンドで全県を回して完了。</p>
+
+<table>
+<thead><tr><th>都道府県</th><th>件数</th><th>都道府県</th><th>件数</th></tr></thead>
+<tbody>
+<tr><td>大阪府</td><td>143件</td><td>福岡県</td><td>91件</td></tr>
+<tr><td>京都府</td><td>77件</td><td>兵庫県</td><td>76件</td></tr>
+<tr><td>島根県</td><td>64件</td><td>岡山県</td><td>57件</td></tr>
+<tr><td>東京都</td><td>59件</td><td>沖縄県</td><td>34件</td></tr>
+<tr><td colspan="2">岩手・宮城・秋田・山形・群馬・石川・鳥取・鹿児島</td><td colspan="2">データなし（真の瀕死エリア）</td></tr>
+</tbody>
+</table>
+
+<h2>47都道府県の分類マップ</h2>
+
+<p>今日の作業で全国の断酒会情報源を整理できた。</p>
+
+<table>
+<thead><tr><th>カテゴリ</th><th>都道府県</th></tr></thead>
+<tbody>
+<tr><td><span class="tag tag-done">✅ HP取得済み</span></td><td>北海道・大阪・京都・福岡・兵庫・滋賀・奈良・広島・岡山</td></tr>
+<tr><td><span class="tag tag-done">✅ iCal対応済み</span></td><td>埼玉・千葉・東京・神奈川・静岡・栃木</td></tr>
+<tr><td><span class="tag tag-pending">🔵 iCal予定</span></td><td>茨城・香川</td></tr>
+<tr><td><span class="tag tag-pending">🟠 PDF保留</span></td><td>愛知・高知・島根・徳島・和歌山・山口・鳥取</td></tr>
+<tr><td><span class="tag tag-pending">🩷 JS保留</span></td><td>三重・沖縄・長崎</td></tr>
+<tr><td><span class="tag tag-skip">⬜ サイトなし</span></td><td>青森・岩手・宮城・秋田・山形・福島・群馬・新潟・富山・石川・福井・山梨・佐賀・熊本・大分・鹿児島</td></tr>
+</tbody>
+</table>
+
+<h2>瀕死エリアの現実</h2>
+
+<p>岩手・宮城・秋田・山形・群馬・石川・鳥取・鹿児島はソーバーねっとにも登録がなかった。デジタル上に情報が存在しない、本当の意味での瀕死エリアだ。</p>
+
+<p>これらの県に対しては、実際に断酒会員と直接会って話を聞くしかない。デジタルで届かないなら人が届く。それが「心の連鎖握手」の本質だと思う。</p>
+
+<div class="note">
+<strong>次のステップ：</strong>raw_meetingsからvenuesとmeetingsへの昇格処理。venues一致・meetings未登録の861件をschedule_rawパース（haikuちゃん）→meetings INSERTする。完了すれば現在885件のmeetingsが1700件超になる見込み。
+</div>
+
+<h2>今日学んだこと</h2>
+
+<p>「完璧な自動化を最初から目指さない」ということだ。haikuちゃんの出力は確率的で、古いサイトのデータは不正確かもしれない。だからraw_meetingsというクッションを挟んで、人間が確認できる余地を残した。</p>
+
+<p>人命インフラとして、間違った場所への案内は絶対に避けなければならない。精度を上げてから運用の手間を減らし、最終的にコストも下がる。焦らず一つずつ潰していく。それが今日の撃道だった。</p>
+
+<div class="footer">
+断酒でGO!! — 日本全国の断酒会を一つに！心の連鎖握手<br>
+<a href="https://dansyu-go.nukadokonokai.com/">https://dansyu-go.nukadokonokai.com/</a>
+</div>
+
+</body>
+</html>
