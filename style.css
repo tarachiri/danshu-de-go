@@ -368,7 +368,7 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 #menu-panel { bottom: 65px !important; }
 
 /* コンテンツエリアのボトム余白 */
-#map { padding-bottom: 60px; }
+#map { height: calc(100dvh - 60px) !important; }
 #schedule-view { padding-bottom: 60px; }
 #news-view { padding-bottom: 60px; }
 
