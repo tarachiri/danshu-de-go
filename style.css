@@ -322,6 +322,7 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   align-items: stretch;
   z-index: 1000;
   padding-bottom: env(safe-area-inset-bottom);
+  align-items: flex-start;
 }
 
 .bottom-btn {
@@ -337,6 +338,7 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   font-family: inherit;
   gap: 2px;
   transition: color 0.2s, background 0.2s;
+  height: 60px;
   -webkit-tap-highlight-color: transparent;
   padding: 6px 0;
 }
