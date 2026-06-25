@@ -16,6 +16,7 @@ var LocateControl = L.Control.extend({
 });
 new LocateControl({position:"topright"}).addTo(map);
 
+window.setSplashProgress && window.setSplashProgress(10, '地図を初期化中...');
 // JSTで今日の日付文字列を返すヘルパー
 function getTodayJST() {
   const now = new Date();
@@ -396,6 +397,7 @@ let currentMode = 'comfort';
 function initVenues() {
   const totalEl = document.getElementById('count-total-header');
   if (totalEl) totalEl.textContent = '...';
+  window.setSplashProgress && window.setSplashProgress(30, '例会情報を取得中...');
   fetch('venues.json?v=' + Date.now())
     .then(r => {
       const lm = r.headers.get('Last-Modified');
@@ -409,11 +411,15 @@ function initVenues() {
     })
     .then(data => {
       VENUES = data;
+      window.setSplashProgress && window.setSplashProgress(80, 'データを解析中...');
       applyFilters();
-      const ls = document.getElementById("loading-screen");
-      if(ls) ls.style.display="none";
+      window.setSplashProgress && window.setSplashProgress(100, '準備完了！');
     })
-    .catch(() => {
+    .catch((err) => {
+      console.error('venues.json fetch失敗:', err);
+      window.setSplashProgress && window.setSplashProgress(100, '⚠️ 読み込み失敗');
+      const el = document.getElementById('splash-overlay');
+      if (el) el.onclick = () => location.reload();
       const totalEl2 = document.getElementById('count-total-header');
       if (totalEl2) totalEl2.textContent = '!';
     });

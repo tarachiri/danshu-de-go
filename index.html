@@ -26,51 +26,83 @@
 </head>
 <body>
 
-<!-- 免責同意オーバーレイ（1日1回） -->
-<div id="disclaimer-overlay" style="display:none;">
-  <div id="disclaimer-box">
-    <h2>ご利用にあたって</h2>
-    <p>📅 定期スケジュールを表示しています</p>
-    <p>⚠️ 日程・会場は変更の場合があります。必ず公式サイトか責任者に確認してから行ってください</p>
-    <p>📍 表示される地図・住所は実際の会場と異なる場合があります</p>
-    <p class="disclaimer-confirm">必ず公式サイトで日程をご確認ください</p>
-    <button id="disclaimer-btn" onclick="agreeDisclaimer()">同意して始める</button>
-  </div>
-</div>
-
-<!-- スプラッシュオーバーレイ -->
-<div id="splash-overlay" onclick="this.classList.add('fade-out'); setTimeout(()=>this.remove(),600)">
+<!-- 統合スプラッシュ（ローディング＋免責同意） -->
+<div id="splash-overlay">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap');
     #splash-overlay {
       position: fixed; inset: 0;
       width: 100vw; height: 100dvh;
       background: #1a1a2e;
-      z-index: 9999;
+      z-index: 10000;
       display: flex; flex-direction: column;
       align-items: center; justify-content: flex-start; gap: 8px;
       padding: 5vh 32px 3vh;
-      cursor: pointer;
       transition: opacity 0.6s ease;
       overflow: hidden;
     }
     #splash-overlay.fade-out { opacity: 0; pointer-events: none; }
     .sp-top { display:flex; flex-direction:column; align-items:center; }
-    .sp-deco { width:1px; height:24px; background:linear-gradient(to bottom,transparent,rgba(180,140,80,0.6)); margin-bottom:20px; }
     .sp-kana { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
     .sp-title { font-family:'Noto Serif JP',serif; font-size:38px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
     .sp-sub { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:20px; }
     .sp-runner { font-size:40px; line-height:1; margin-bottom:8px; }
     .sp-tagline { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; color:rgba(240,232,208,0.4); letter-spacing:.22em; text-align:center; line-height:1.9; }
-    .sp-divider { width:48px; height:1px; background:rgba(180,140,80,0.3); }
-    .sp-qr { display:flex; flex-direction:column; align-items:center; gap:12px; }
+    .sp-divider { width:48px; height:1px; background:rgba(180,140,80,0.3); margin: 8px 0; }
+
+    /* プログレスエリア */
+    .sp-progress-area {
+      width: 100%; max-width: 320px;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+    }
+    .sp-status {
+      font-family:'Noto Sans JP',sans-serif;
+      font-size: 12px; font-weight: 300;
+      color: rgba(180,140,80,0.8);
+      letter-spacing: .15em; height: 18px;
+      transition: all 0.3s ease;
+    }
+    .sp-progress-track {
+      width: 100%; height: 3px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px; overflow: hidden;
+    }
+    .sp-progress-bar {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, rgba(180,140,80,0.5), rgba(180,140,80,1));
+      border-radius: 2px; transition: width 0.4s ease;
+    }
+    .sp-percent {
+      font-family:'Noto Sans JP',sans-serif;
+      font-size: 11px; font-weight: 300;
+      color: rgba(240,232,208,0.3); letter-spacing: .1em;
+    }
+
+    /* QR */
+    .sp-qr { display:flex; flex-direction:column; align-items:center; gap:8px; }
     .sp-qr-frame { background:#f0e8d0; border-radius:12px; padding:8px; }
     .sp-qr-label { font-family:'Noto Sans JP',sans-serif; font-size:12px; font-weight:300; color:rgba(240,232,208,0.35); letter-spacing:.3em; text-align:center; }
+
+    /* 同意エリア（ローディング完了後に出現） */
+    #sp-agree-area {
+      display: none; flex-direction: column;
+      align-items: center; gap: 12px;
+      width: 100%; max-width: 320px;
+    }
+    #sp-agree-area.visible { display: flex; }
+    .sp-disclaimer-text {
+      font-family:'Noto Sans JP',sans-serif;
+      font-size: 11px; font-weight: 300;
+      color: rgba(240,232,208,0.4);
+      text-align: center; line-height: 1.8; letter-spacing: .05em;
+    }
+    .sp-disclaimer-text b { color: rgba(240,232,208,0.7); }
     .sp-btn {
       position:relative; width:280px; padding:18px 0; border-radius:50px;
       border:1.5px solid rgba(180,140,80,0.7); background:rgba(180,140,80,0.1);
       display:flex; align-items:center; justify-content:center; gap:10px;
-      overflow:hidden;
+      overflow:hidden; cursor: pointer;
     }
     .sp-btn::before {
       content:''; position:absolute; inset:0; border-radius:50px;
@@ -81,10 +113,12 @@
     .sp-btn-text { font-family:'Noto Serif JP',serif; font-size:17px; font-weight:500; color:#f0e8d0; letter-spacing:.22em; }
     .sp-btn-arrow { font-size:18px; color:rgba(180,140,80,0.9); animation:sp-nudge 1.8s ease-in-out infinite; }
     @keyframes sp-nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
-    .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; }
+
+    .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:auto; }
     .sp-org { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.2); letter-spacing:.3em; }
     .sp-ver { font-family:'Noto Sans JP',sans-serif; font-size:9px; font-weight:300; color:rgba(180,140,80,0.35); letter-spacing:.2em; }
   </style>
+
   <div class="sp-top">
     <p class="sp-kana">断酒支援 · 全国例会場マップ</p>
     <div class="sp-title">断酒でGO</div>
@@ -92,36 +126,52 @@
     <div class="sp-runner">🏃</div>
     <p class="sp-tagline">全国の断酒会例会場を<br>ひとつの地図に</p>
   </div>
+
   <div class="sp-divider"></div>
+
+  <!-- プログレスバー -->
+  <div class="sp-progress-area">
+    <div class="sp-status" id="sp-status">起動中...</div>
+    <div class="sp-progress-track">
+      <div class="sp-progress-bar" id="sp-progress-bar"></div>
+    </div>
+    <div class="sp-percent" id="sp-percent">0%</div>
+  </div>
+
+  <div class="sp-divider"></div>
+
   <div class="sp-qr">
-    <div class="sp-qr-frame"><canvas id="sp-qr-canvas" width="120" height="120"></canvas></div>
+    <div class="sp-qr-frame"><canvas id="sp-qr-canvas" width="100" height="100"></canvas></div>
     <p class="sp-qr-label">読み取って今すぐ開く</p>
-    <p style="
-      font-size: 0.75em;
-      color: #7F8C8D;
-      text-align: center;
-      margin-top: 8px;
-      line-height: 1.4;
-    ">
-      ⚠️ 日程・会場は変更の場合があります
-    </p>
   </div>
-  <div class="sp-btn">
-    <span class="sp-btn-text">タッチして開始！</span>
-    <span class="sp-btn-arrow">→</span>
+
+  <!-- 読み込み完了後に出現する同意エリア -->
+  <div id="sp-agree-area">
+    <div class="sp-disclaimer-text">
+      📅 定期スケジュールを表示しています<br>
+      <b>⚠️ 日程・会場は変更の場合があります</b><br>
+      必ず公式サイトか責任者に確認してから行ってください
+    </div>
+    <div class="sp-btn" onclick="splashAgree()">
+      <span class="sp-btn-text">同意して始める</span>
+      <span class="sp-btn-arrow">→</span>
+    </div>
   </div>
+
   <div class="sp-bottom">
     <p class="sp-org">ぬか床の会</p>
-    <p class="sp-ver">V 5.0 4</p>
+    <p class="sp-ver">V 5.1</p>
   </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
+// QRコード生成
 (function(){
   var d=document.createElement('div');
   d.style.cssText='visibility:hidden;position:absolute;';
   document.body.appendChild(d);
-  new QRCode(d,{text:'https://dansyu-go.nukadokonokai.com/',width:120,height:120,colorDark:'#1a1a2e',colorLight:'#f0e8d0',correctLevel:QRCode.CorrectLevel.M});
+  new QRCode(d,{text:'https://dansyu-go.nukadokonokai.com/',width:100,height:100,colorDark:'#1a1a2e',colorLight:'#f0e8d0',correctLevel:QRCode.CorrectLevel.M});
   setTimeout(function(){
     var c=d.querySelector('canvas');
     var t=document.getElementById('sp-qr-canvas');
@@ -129,7 +179,46 @@
     document.body.removeChild(d);
   },300);
 })();
+
+// プログレス更新関数（app.jsから呼ばれる）
+window.setSplashProgress = function(percent, statusText) {
+  const bar = document.getElementById('sp-progress-bar');
+  const pct = document.getElementById('sp-percent');
+  const st  = document.getElementById('sp-status');
+  if (bar) bar.style.width = percent + '%';
+  if (pct) pct.textContent = percent + '%';
+  if (st && statusText) st.textContent = statusText;
+
+  if (percent >= 100) {
+    const today = new Date().toISOString().slice(0, 10);
+    const agreed = localStorage.getItem('disclaimer_agreed');
+    if (agreed === today) {
+      // 同意済み → 自動フェードアウト
+      setTimeout(splashClose, 800);
+    } else {
+      // 未同意 → 同意ボタン表示
+      const agreeArea = document.getElementById('sp-agree-area');
+      if (agreeArea) agreeArea.classList.add('visible');
+    }
+  }
+};
+
+// 同意ボタン押下
+function splashAgree() {
+  const today = new Date().toISOString().slice(0, 10);
+  localStorage.setItem('disclaimer_agreed', today);
+  splashClose();
+}
+
+// スプラッシュを閉じる
+function splashClose() {
+  const el = document.getElementById('splash-overlay');
+  if (!el) return;
+  el.classList.add('fade-out');
+  setTimeout(() => el.remove(), 600);
+}
 </script>
+
 
 <div id="header">
   <div id="top-bar">
@@ -155,12 +244,6 @@
   </div>
 </div>
 
-<div id="loading-screen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.2rem;color:#555;"><div style="font-size:3rem;margin-bottom:1rem;">📍</div><div>例会情報を読み込み中...</div><div style="font-size:0.85rem;margin-top:0.5rem;color:#aaa;">断酒でGO</div></div><div id="map"></div>
-<div id="schedule"></div>
-<div id="news" style="display:none;padding:12px;max-height:calc(100vh - 120px);overflow-y:auto;"></div>
-<div id="footer" style="background:#16213e;padding:4px 16px;font-size:15px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">© 
-2026 ぬか床の会 | <a href="blog/" style="color:#e94560;text-decoration:none;">📓 開発ノート</a> | <span id="footer-updated"></span></div>
-
 <div id="bottom-nav">
   <button class="bottom-btn active" id="tab-map" onclick="switchTab('map')">
     <span class="bottom-icon">🗺️</span>
@@ -179,10 +262,15 @@
     <span class="bottom-label">かもちゃん</span>
   </button>
 </div>
+
+<div id="map"></div>
+<div id="schedule"></div>
+<div id="news" style="display:none;padding:12px;max-height:calc(100vh - 120px);overflow-y:auto;"></div>
+<div id="footer" style="background:#16213e;padding:4px 16px;font-size:15px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">©
+2026 ぬか床の会 | <a href="blog/" style="color:#e94560;text-decoration:none;">📓 開発ノート</a> | <span id="footer-updated"></span></div>
 <script src="app.js"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }
-showDisclaimerIfNeeded();
 </script>
 </body>
 </html>
