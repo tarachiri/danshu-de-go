@@ -383,7 +383,7 @@
         if (query === '{{input}}') query = inputText || '';
         if (query === '{{data}}') query = extraData || '';
         addKamoMessage(node.message || `「${query}」で例会を探してるね！`);
-        searchVenues(query);
+        searchVenues(query, node.filter);
         if (node.next) setTimeout(() => processNode(node.next), 800);
         break;
 
@@ -394,8 +394,26 @@
     }
   }
 
+  // 地方マップ
+  const REGIONS = {
+    '北海道': ['北海道'],
+    '東北': ['青森県','岩手県','宮城県','秋田県','山形県','福島県'],
+    '関東': ['東京都','神奈川県','埼玉県','千葉県','茨城県','栃木県','群馬県'],
+    '中部': ['新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県'],
+    '関西': ['大阪府','京都府','兵庫県','奈良県','滋賀県','和歌山県','三重県'],
+    '中国四国': ['広島県','岡山県','山口県','島根県','鳥取県','愛媛県','香川県','徳島県','高知県'],
+    '九州': ['福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県']
+  };
+
+  // タイプキーワードマップ
+  const TYPE_KEYWORDS = {
+    '家族': ['家族'],
+    'アメシスト': ['アメシスト'],
+    '研修': ['研修','セミナー','一泊']
+  };
+
   // venues検索
-  function searchVenues(query) {
+  function searchVenues(query, filter) {
     if (!venuesData) {
       addKamoMessage('例会データを読み込み中だよ、少し待ってね😊');
       return;
@@ -413,25 +431,40 @@
 
     let filtered = [];
 
-    // 日時キーワード検出
     const isToday = query.includes('今日') || query === todayStr;
     const isTomorrow = query.includes('明日') || query === tomorrowStr;
     const isNow = query.includes('今から') || query.includes('今すぐ');
     const dayMatch = days.find(d => query.includes(d));
     const dayMatchShort = dayMatch ? daysShort[days.indexOf(dayMatch)] : null;
 
-    // day_of_weekが短縮形か長形かを判定して比較
+    // 地方判定
+    const regionPrefs = REGIONS[query] || null;
+
+    // タイプキーワード判定
+    const typeKeywords = filter === 'type' ? (TYPE_KEYWORDS[query] || [query]) : null;
+
     function matchDay(meetingDay, full, short) {
       return meetingDay === full || meetingDay === short;
     }
 
     venuesData.forEach(venue => {
       if (!venue.meetings) return;
+
+      // 地方フィルター
+      if (regionPrefs) {
+        const addr = venue.address || '';
+        if (!regionPrefs.some(pref => addr.includes(pref))) return;
+      }
+
       venue.meetings.forEach(meeting => {
         let match = false;
         const meetingDay = meeting.day_of_week || '';
+        const meetingName = meeting.name || '';
 
-        if (isNow) {
+        // タイプフィルター
+        if (typeKeywords) {
+          if (typeKeywords.some(k => meetingName.includes(k))) match = true;
+        } else if (isNow) {
           if (matchDay(meetingDay, todayStr, todayShort)) {
             const t = meeting.start_time ? parseInt(meeting.start_time.replace(':', '')) : 0;
             if (t > currentTime) match = true;
@@ -442,7 +475,23 @@
           if (matchDay(meetingDay, tomorrowStr, tomorrowShort)) match = true;
         } else if (dayMatch) {
           if (matchDay(meetingDay, dayMatch, dayMatchShort)) match = true;
+        } else if (regionPrefs) {
+          match = true;
         } else {
+          const addr = (venue.address || '') + (venue.name || '');
+          const q = query.replace(/[市区町村郡]+$/, '');
+          if (addr.includes(query) || addr.includes(q)) match = true;
+        }
+
+        if (match) {
+          filtered.push({
+            venue,
+            meeting,
+            distance: userLat ? haversine(userLat, userLng, venue.lat, venue.lng) : null
+          });
+        }
+      });
+    });
           // 地名検索
           const addr = (venue.address || '') + (venue.name || '');
           const q = query.replace(/[市区町村郡]+$/, '');

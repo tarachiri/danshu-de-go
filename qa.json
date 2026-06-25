@@ -21,9 +21,50 @@
         { "label": "1️⃣ 今日の例会を探す", "next": "search_today" },
         { "label": "2️⃣ 明日の例会を探す", "next": "search_tomorrow" },
         { "label": "3️⃣ 今から行ける例会", "next": "search_now" },
-        { "label": "4️⃣ 地名で探す", "next": "search_place" },
-        { "label": "5️⃣ 曜日で探す", "next": "search_day" }
+        { "label": "4️⃣ 地名・地方で探す", "next": "search_area" },
+        { "label": "5️⃣ 曜日で探す", "next": "search_day" },
+        { "label": "6️⃣ 例会タイプで探す", "next": "search_type" }
       ]
+    },
+
+    "search_area": {
+      "type": "choices",
+      "message": "どうやって探す？",
+      "choices": [
+        { "label": "🔤 市区町村名で入力", "next": "search_place" },
+        { "label": "🗾 地方から選ぶ", "next": "search_region" }
+      ]
+    },
+
+    "search_region": {
+      "type": "choices",
+      "message": "どの地方？",
+      "choices": [
+        { "label": "北海道", "next": "search_place_result", "data": "北海道" },
+        { "label": "東北", "next": "search_place_result", "data": "東北" },
+        { "label": "関東", "next": "search_place_result", "data": "関東" },
+        { "label": "中部", "next": "search_place_result", "data": "中部" },
+        { "label": "関西", "next": "search_place_result", "data": "関西" },
+        { "label": "中国・四国", "next": "search_place_result", "data": "中国四国" },
+        { "label": "九州・沖縄", "next": "search_place_result", "data": "九州" }
+      ]
+    },
+
+    "search_type": {
+      "type": "choices",
+      "message": "どの例会タイプを探す？",
+      "choices": [
+        { "label": "👨‍👩‍👧 家族例会", "next": "search_type_result", "data": "家族" },
+        { "label": "💜 アメシスト", "next": "search_type_result", "data": "アメシスト" },
+        { "label": "📚 セミナー・研修会", "next": "search_type_result", "data": "研修" }
+      ]
+    },
+
+    "search_type_result": {
+      "type": "venue_search",
+      "query": "{{data}}",
+      "filter": "type",
+      "next": "search_done"
     },
 
     "search_today": {
