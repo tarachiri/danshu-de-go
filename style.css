@@ -375,3 +375,34 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 /* 日程タブの日付文字を白に */
 .sch-date-header { color: #ffffff !important; }
 .sch-date-today { color: #e94560 !important; }
+
+.locate-btn {
+  width: 36px; height: 36px;
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+.locate-btn:active { background: #f0f0f0; }
+
+
+/* 位置情報ボタン */
+.locate-btn {
+  width: 36px; height: 36px;
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+  -webkit-tap-highlight-color: transparent;
+}
+.locate-btn:active { background: #f0f0f0; }

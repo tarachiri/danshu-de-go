@@ -1,5 +1,21 @@
 const map = window._leafletMap = L.map("map", {zoomControl: false}).setView([35.68, 139.60], 9);
-map.locate({setView: true, maxZoom: 12});
+map.locate({setView: true, maxZoom: 10});
+
+// 現在地ボタン
+var LocateControl = L.Control.extend({
+  onAdd: function() {
+    var b = L.DomUtil.create("button","locate-btn");
+    b.innerHTML = "📍";
+    b.title = "現在地へ";
+    L.DomEvent.on(b,"click",function(e){
+      L.DomEvent.stopPropagation(e);
+      map.locate({setView:true,maxZoom:12});
+    });
+    return b;
+  }
+});
+new LocateControl({position:"topright"}).addTo(map);
+
 // JSTで今日の日付文字列を返すヘルパー
 function getTodayJST() {
   const now = new Date();
