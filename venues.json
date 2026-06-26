@@ -837,7 +837,7 @@
         "start_time": "18:40",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -848,7 +848,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 18:40～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:40",
     "end_time": "20:40",
@@ -1311,7 +1311,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -1322,7 +1322,7 @@
     "fallback_meeting_name": "合同例会",
     "fallback_schedule": "奇数月 第1 水曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "東支部例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -1511,7 +1511,7 @@
         "start_time": "19:15",
         "end_time": "20:30",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -1522,7 +1522,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:15～20:30 毎週 不定期 09:00～09:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:15",
     "end_time": "20:30",
@@ -1941,7 +1941,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -1964,7 +1964,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -2238,7 +2238,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -2250,7 +2250,7 @@
         "start_time": "19:00:00",
         "end_time": "21:00:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -2273,7 +2273,7 @@
     "fallback_meeting_name": "宇治支部家族会",
     "fallback_schedule": "第3 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -2334,19 +2334,7 @@
         "start_time": "18:40",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "左京",
-        "day_of_week": "金",
-        "week_of_month": "毎週",
-        "start_time": "18:40:00",
-        "end_time": "20:40:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -2362,6 +2350,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "左京",
+        "day_of_week": "金",
+        "week_of_month": "毎週",
+        "start_time": "18:40:00",
+        "end_time": "20:40:00",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -2369,7 +2369,7 @@
     "fallback_meeting_name": "左京支部家族会",
     "fallback_schedule": "第1 金曜日 18:40～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:40",
     "end_time": "20:40",
@@ -2861,7 +2861,7 @@
         "start_time": "18:40",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -2884,7 +2884,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 18:40～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:40",
     "end_time": "20:40",
@@ -3476,7 +3476,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -3487,7 +3487,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -4323,7 +4323,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4335,7 +4335,7 @@
         "start_time": "18:30:00",
         "end_time": "20:30:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4346,7 +4346,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:30",
     "end_time": "20:30",
@@ -4371,7 +4371,7 @@
         "start_time": "18:30",
         "end_time": "20:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4383,7 +4383,7 @@
         "start_time": "18:30:00",
         "end_time": "20:00:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4394,7 +4394,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:30",
     "end_time": "20:00",
@@ -4419,7 +4419,7 @@
         "start_time": "19:15",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4431,7 +4431,7 @@
         "start_time": "19:15:00",
         "end_time": "20:45:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4442,7 +4442,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:15",
     "end_time": "20:45",
@@ -4911,7 +4911,7 @@
         "start_time": "10:00",
         "end_time": "12:00",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -4934,7 +4934,7 @@
     "fallback_meeting_name": "肥前精神医療センター院内例会",
     "fallback_schedule": "第2 日曜日 14:00～16:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "肥前精神医療センター院内家族会",
     "start_time": "10:00",
     "end_time": "12:00",
@@ -5220,7 +5220,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -5231,7 +5231,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第2･4 金曜日 19:00～20:45 祝日除く",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -5388,7 +5388,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -5399,7 +5399,7 @@
     "fallback_meeting_name": "和田山例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "和田山例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -5424,7 +5424,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -5435,7 +5435,7 @@
     "fallback_meeting_name": "豊岡例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00 祝日除く",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "豊岡例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -5850,7 +5850,7 @@
         "start_time": "18:45",
         "end_time": "20:15",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -5861,7 +5861,7 @@
     "fallback_meeting_name": "丹波篠山支部例会　毎週金曜日",
     "fallback_schedule": "第1･2･3･4･5 金曜日 18:45～20:15 開場17:45　駐車場あり",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "丹波篠山支部例会　毎週金曜日",
     "start_time": "18:45",
     "end_time": "20:15",
@@ -6391,18 +6391,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "神戸支部例会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "三宮支部例会",
         "day_of_week": "火",
         "week_of_month": "1,2,3,4,5",
@@ -6413,6 +6401,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "神戸支部例会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4,5",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第1・第2・第3・第4・第5金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -6420,11 +6420,11 @@
     "fallback_meeting_name": "神戸支部例会",
     "fallback_schedule": "毎週 金曜日 19:00～20:45 祝日除く",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "神戸支部例会",
+    "next_date": "2026-06-30",
+    "meeting_name": "三宮支部例会",
     "start_time": "19:00",
-    "end_time": "20:45",
-    "recurrence": "第1・第2・第3・第4・第5金曜"
+    "end_time": "21:00",
+    "recurrence": "第1・第2・第3・第4・第5火曜"
   },
   {
     "id": 1084,
@@ -6621,7 +6621,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6633,7 +6633,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6644,7 +6644,7 @@
     "fallback_meeting_name": "明石支部例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "明石支部例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -6728,7 +6728,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6739,7 +6739,7 @@
     "fallback_meeting_name": "洲本例会",
     "fallback_schedule": "第2･4 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "洲本例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -6800,7 +6800,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6823,7 +6823,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -6888,18 +6888,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "中央支部例会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "家族例会",
         "day_of_week": "水",
         "week_of_month": "1,3",
@@ -6907,6 +6895,18 @@
         "end_time": "15:30",
         "recurrence": "第1・第3水曜",
         "next_date": "2026-07-01",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "中央支部例会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4,5",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第1・第2・第3・第4・第5金曜",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6929,11 +6929,11 @@
     "fallback_meeting_name": "中央支部例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "中央支部例会",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第1・第2・第3・第4・第5金曜"
+    "next_date": "2026-07-01",
+    "meeting_name": "家族例会",
+    "start_time": "13:15",
+    "end_time": "15:30",
+    "recurrence": "第1・第3水曜"
   },
   {
     "id": 1099,
@@ -6977,7 +6977,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -6988,7 +6988,7 @@
     "fallback_meeting_name": "東神戸支部例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "東神戸支部例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -7403,7 +7403,7 @@
         "start_time": "18:45",
         "end_time": "20:30",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -7414,7 +7414,7 @@
     "fallback_meeting_name": "一宮例会",
     "fallback_schedule": "毎週 金曜日 18:45～20:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "一宮例会",
     "start_time": "18:45",
     "end_time": "20:30",
@@ -8038,7 +8038,7 @@
         "start_time": "18:30",
         "end_time": "",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -8049,7 +8049,7 @@
     "fallback_meeting_name": "小樽断酒会",
     "fallback_schedule": "1･2･3･4･5･6･7･8･9･10･11･12月 第1･2･3･4･5 金曜日 18:30～20:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:30",
     "end_time": "",
@@ -8503,13 +8503,13 @@
         "end_time": "20:30",
         "recurrence": "第3・第4土曜",
         "next_date": "2026-06-27",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
+        "has_exception": true,
+        "exc_type": "cancel",
+        "exc_note": "▼中止▼野田例会"
       }
     ],
-    "has_exception": false,
-    "exc_note": "",
+    "has_exception": true,
+    "exc_note": "▼中止▼野田例会",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8533,12 +8533,12 @@
     "meetings": [
       {
         "name": "千葉例会",
-        "day_of_week": "金",
-        "week_of_month": "3,4",
+        "day_of_week": "",
+        "week_of_month": "",
         "start_time": "18:30",
         "end_time": "20:30",
-        "recurrence": "第3・第4金曜",
-        "next_date": "2026-06-26",
+        "recurrence": "",
+        "next_date": "",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -8549,11 +8549,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "",
     "meeting_name": "千葉例会",
     "start_time": "18:30",
     "end_time": "20:30",
-    "recurrence": "第3・第4金曜"
+    "recurrence": ""
   },
   {
     "id": 1783,
@@ -8731,13 +8731,13 @@
         "end_time": "20:30",
         "recurrence": "第4土曜",
         "next_date": "2026-06-27",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
+        "has_exception": true,
+        "exc_type": "cancel",
+        "exc_note": "▼中止▼習志野例会"
       }
     ],
-    "has_exception": false,
-    "exc_note": "",
+    "has_exception": true,
+    "exc_note": "▼中止▼習志野例会",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8874,7 +8874,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -8885,7 +8885,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "流山例会",
     "start_time": "18:30",
     "end_time": "20:30",
@@ -9215,6 +9215,18 @@
     "needs_verification": 0,
     "meetings": [
       {
+        "name": "野田例会",
+        "day_of_week": "土",
+        "week_of_month": "3,4",
+        "start_time": "18:30",
+        "end_time": "20:30",
+        "recurrence": "第3・第4土曜",
+        "next_date": "2026-06-27",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "関宿例会",
         "day_of_week": "日",
         "week_of_month": "1,4",
@@ -9244,11 +9256,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-28",
-    "meeting_name": "関宿例会",
-    "start_time": "13:00",
-    "end_time": "15:30",
-    "recurrence": "第1・第4日曜"
+    "next_date": "2026-06-27",
+    "meeting_name": "野田例会",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第3・第4土曜"
   },
   {
     "id": 1136,
@@ -9364,7 +9376,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -9387,7 +9399,7 @@
     "fallback_meeting_name": "南支部例会",
     "fallback_schedule": "第1･2･4･5 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "南支部例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -9686,7 +9698,7 @@
         "start_time": "19:00",
         "end_time": "20:30",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -9697,7 +9709,7 @@
     "fallback_meeting_name": "野上支部例会",
     "fallback_schedule": "毎週 金曜日 19:00～20:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "野上支部例会",
     "start_time": "19:00",
     "end_time": "20:30",
@@ -9794,7 +9806,7 @@
         "start_time": "19:30",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -9805,7 +9817,7 @@
     "fallback_meeting_name": "橋本支部例会",
     "fallback_schedule": "毎週 金曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "橋本支部例会",
     "start_time": "19:30",
     "end_time": "21:00",
@@ -9895,18 +9907,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "田辺西支部例会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "19:30",
-        "end_time": "21:00",
-        "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "田辺東支部例会",
         "day_of_week": "木",
         "week_of_month": "1,2,3,4,5",
@@ -9914,6 +9914,18 @@
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5木曜",
         "next_date": "2026-07-02",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "田辺西支部例会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4,5",
+        "start_time": "19:30",
+        "end_time": "21:00",
+        "recurrence": "第1・第2・第3・第4・第5金曜",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -9936,11 +9948,11 @@
     "fallback_meeting_name": "田辺東支部例会",
     "fallback_schedule": "毎週 木曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "田辺西支部例会",
+    "next_date": "2026-07-02",
+    "meeting_name": "田辺東支部例会",
     "start_time": "19:30",
     "end_time": "21:00",
-    "recurrence": "第1・第2・第3・第4・第5金曜"
+    "recurrence": "第1・第2・第3・第4・第5木曜"
   },
   {
     "id": 1155,
@@ -10135,10 +10147,10 @@
       {
         "name": "本部例会 こころの広場",
         "day_of_week": "木",
-        "week_of_month": "1,2,3",
+        "week_of_month": "",
         "start_time": "13:00",
         "end_time": "15:30",
-        "recurrence": "第1・第2・第3木曜",
+        "recurrence": "毎週木曜",
         "next_date": "2026-07-02",
         "has_exception": false,
         "exc_type": "",
@@ -10240,18 +10252,6 @@
     "contact_phone": "",
     "needs_verification": 0,
     "meetings": [
-      {
-        "name": "シングル例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
       {
         "name": "浦和例会",
         "day_of_week": "土",
@@ -10359,6 +10359,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "シングル例会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -10366,11 +10378,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "シングル例会",
+    "next_date": "2026-07-04",
+    "meeting_name": "浦和例会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第4金曜"
+    "recurrence": "第1土曜"
   },
   {
     "id": 128,
@@ -10619,7 +10631,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -10642,7 +10654,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "シングル例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -13115,7 +13127,7 @@
         "start_time": "19:30",
         "end_time": "21:30",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -13138,7 +13150,7 @@
     "fallback_meeting_name": "大分断酒会 家族会",
     "fallback_schedule": "第1･3 金曜日 19:30～21:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "大分断酒会 例会",
     "start_time": "19:30",
     "end_time": "21:30",
@@ -13664,7 +13676,7 @@
         "start_time": "19:30",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -13675,7 +13687,7 @@
     "fallback_meeting_name": "杵築断酒会 例会",
     "fallback_schedule": "毎週 金曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "杵築断酒会 例会",
     "start_time": "19:30",
     "end_time": "21:00",
@@ -14005,24 +14017,24 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "東",
-        "day_of_week": "金",
-        "week_of_month": "毎週",
-        "start_time": "19:00:00",
-        "end_time": "20:45:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "東支部例会",
         "day_of_week": "金",
         "week_of_month": "1,3,5",
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第3・第5金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "東",
+        "day_of_week": "金",
+        "week_of_month": "毎週",
+        "start_time": "19:00:00",
+        "end_time": "20:45:00",
+        "recurrence": "毎週金曜",
         "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
@@ -14046,11 +14058,11 @@
     "fallback_meeting_name": "東支部例会",
     "fallback_schedule": "第1･3･5 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "東",
-    "start_time": "19:00:00",
-    "end_time": "20:45:00",
-    "recurrence": "毎週金曜"
+    "next_date": "2026-07-03",
+    "meeting_name": "東支部例会",
+    "start_time": "19:00",
+    "end_time": "20:45",
+    "recurrence": "第1・第3・第5金曜"
   },
   {
     "id": 906,
@@ -14094,7 +14106,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -14105,7 +14117,7 @@
     "fallback_meeting_name": "西支部例会",
     "fallback_schedule": "第2･4 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "西支部例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -14291,18 +14303,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "昼例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "13:30",
-        "end_time": "15:30",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "吹田支部例会",
         "day_of_week": "土",
         "week_of_month": "3",
@@ -14313,6 +14313,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "昼例会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "13:30",
+        "end_time": "15:30",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -14320,11 +14332,11 @@
     "fallback_meeting_name": "吹田支部例会",
     "fallback_schedule": "第3 土曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "昼例会",
-    "start_time": "13:30",
-    "end_time": "15:30",
-    "recurrence": "第4金曜"
+    "next_date": "2026-07-18",
+    "meeting_name": "吹田支部例会",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "recurrence": "第3土曜"
   },
   {
     "id": 913,
@@ -14557,7 +14569,7 @@
         "start_time": "18:40",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -14568,7 +14580,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第1･2･3･4 金曜日 18:40～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:40",
     "end_time": "20:40",
@@ -14928,7 +14940,7 @@
         "start_time": "18:40",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -14939,7 +14951,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 18:40～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:40",
     "end_time": "20:40",
@@ -14964,7 +14976,7 @@
         "start_time": "18:40",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -14975,7 +14987,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 18:40～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:40",
     "end_time": "20:40",
@@ -15132,7 +15144,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -15143,7 +15155,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第1･2･3･4 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -15348,7 +15360,7 @@
         "start_time": "19:00",
         "end_time": "20:30",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -15359,7 +15371,7 @@
     "fallback_meeting_name": "平野南例会",
     "fallback_schedule": "毎週 金曜日 19:00～20:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "平野南例会",
     "start_time": "19:00",
     "end_time": "20:30",
@@ -15804,7 +15816,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -15815,7 +15827,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -16080,7 +16092,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -16091,7 +16103,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第1･2･3･4 金曜日 19:00～20:45 祝日除く",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -16198,7 +16210,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -16209,7 +16221,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -16270,7 +16282,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -16281,7 +16293,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第1･2･3･4 金曜日 19:00～20:45 祝日除く",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -16580,7 +16592,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -16591,7 +16603,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第2･3･4･5 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -16694,24 +16706,24 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "蛍池支部例会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "豊中市断酒会　昼例会",
         "day_of_week": "金",
         "week_of_month": "1",
         "start_time": "14:00",
         "end_time": "16:00",
         "recurrence": "第1金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "蛍池支部例会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第1・第2・第3・第4金曜",
         "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
@@ -16723,11 +16735,11 @@
     "fallback_meeting_name": "蛍池支部例会",
     "fallback_schedule": "第1･2･3･4 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "蛍池支部例会",
-    "start_time": "19:00",
-    "end_time": "20:45",
-    "recurrence": "第1・第2・第3・第4金曜"
+    "next_date": "2026-07-03",
+    "meeting_name": "豊中市断酒会　昼例会",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第1金曜"
   },
   {
     "id": 979,
@@ -17145,30 +17157,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "布施支部例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "布施",
-        "day_of_week": "金",
-        "week_of_month": "毎週",
-        "start_time": "19:00:00",
-        "end_time": "20:45:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "昼例会",
         "day_of_week": "水",
         "week_of_month": "1,2,3,4,5",
@@ -17191,6 +17179,30 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "布施",
+        "day_of_week": "金",
+        "week_of_month": "毎週",
+        "start_time": "19:00:00",
+        "end_time": "20:45:00",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "布施支部例会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -17198,11 +17210,11 @@
     "fallback_meeting_name": "布施支部例会",
     "fallback_schedule": "第4 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "布施支部例会",
-    "start_time": "19:00",
-    "end_time": "20:45",
-    "recurrence": "第4金曜"
+    "next_date": "2026-07-01",
+    "meeting_name": "昼例会",
+    "start_time": "14:30",
+    "end_time": "15:30",
+    "recurrence": "第1・第2・第3・第4・第5水曜"
   },
   {
     "id": 992,
@@ -17307,7 +17319,7 @@
         "start_time": "19:00",
         "end_time": "20:40",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -17318,7 +17330,7 @@
     "fallback_meeting_name": "枚岡支部例会",
     "fallback_schedule": "第1･2･3･4 金曜日 19:00～20:40",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "枚岡支部例会",
     "start_time": "19:00",
     "end_time": "20:40",
@@ -17618,7 +17630,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -17630,7 +17642,7 @@
         "start_time": "19:00:00",
         "end_time": "20:30:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -17641,7 +17653,7 @@
     "fallback_meeting_name": "長尾支部例会",
     "fallback_schedule": "毎週 金曜日 19:00～20:45 祝日除く",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "長尾支部例会",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -17702,7 +17714,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -17713,7 +17725,7 @@
     "fallback_meeting_name": "本部例会",
     "fallback_schedule": "第2･4 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "本部例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -18890,18 +18902,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "家族会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "18:30",
-        "end_time": "20:00",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "南支部例会",
         "day_of_week": "土",
         "week_of_month": "2,3,4,5",
@@ -18924,6 +18924,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "家族会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "18:30",
+        "end_time": "20:00",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -18931,11 +18943,11 @@
     "fallback_meeting_name": "北園支部例会",
     "fallback_schedule": "毎週 月曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "家族会",
-    "start_time": "18:30",
-    "end_time": "20:00",
-    "recurrence": "第4金曜"
+    "next_date": "2026-06-27",
+    "meeting_name": "南支部例会",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "recurrence": "第2・第3・第4・第5土曜"
   },
   {
     "id": 1035,
@@ -19094,7 +19106,7 @@
         "start_time": "14:30",
         "end_time": "16:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -19106,7 +19118,7 @@
         "start_time": "14:30:00",
         "end_time": "16:00:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -19117,7 +19129,7 @@
     "fallback_meeting_name": "金曜例会",
     "fallback_schedule": "毎週 金曜日 14:30～16:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "金曜例会",
     "start_time": "14:30",
     "end_time": "16:00",
@@ -19220,30 +19232,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "おはよう例会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "10:00",
-        "end_time": "11:30",
-        "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "おはよう例会",
-        "day_of_week": "金",
-        "week_of_month": "毎週",
-        "start_time": "10:00:00",
-        "end_time": "11:30:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "こんにちは例会",
         "day_of_week": "土",
         "week_of_month": "2,4",
@@ -19266,6 +19254,30 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "おはよう例会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4,5",
+        "start_time": "10:00",
+        "end_time": "11:30",
+        "recurrence": "第1・第2・第3・第4・第5金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "おはよう例会",
+        "day_of_week": "金",
+        "week_of_month": "毎週",
+        "start_time": "10:00:00",
+        "end_time": "11:30:00",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -19273,11 +19285,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "おはよう例会",
-    "start_time": "10:00",
-    "end_time": "11:30",
-    "recurrence": "第1・第2・第3・第4・第5金曜"
+    "next_date": "2026-06-27",
+    "meeting_name": "こんにちは例会",
+    "start_time": "14:00",
+    "end_time": "15:45",
+    "recurrence": "第2・第4土曜"
   },
   {
     "id": 1733,
@@ -19394,7 +19406,7 @@
         "start_time": "19:00:00",
         "end_time": "20:45:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -19405,7 +19417,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "平野南",
     "start_time": "19:00:00",
     "end_time": "20:45:00",
@@ -19646,7 +19658,7 @@
         "start_time": "19:00:00",
         "end_time": "20:45:00",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -19657,7 +19669,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "住吉断酒会",
     "start_time": "19:00:00",
     "end_time": "20:45:00",
@@ -19682,7 +19694,7 @@
         "start_time": "19:00:00",
         "end_time": "20:45:00",
         "recurrence": "第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -19693,7 +19705,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "中央断酒会",
     "start_time": "19:00:00",
     "end_time": "20:45:00",
@@ -19838,7 +19850,7 @@
         "start_time": "13:30:00",
         "end_time": "15:30:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -19849,7 +19861,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "吹田市断酒会昼例会",
     "start_time": "13:30:00",
     "end_time": "15:30:00",
@@ -20090,7 +20102,7 @@
         "start_time": "19:00:00",
         "end_time": "20:45:00",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -20101,7 +20113,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "蛍池",
     "start_time": "19:00:00",
     "end_time": "20:45:00",
@@ -20270,7 +20282,7 @@
         "start_time": "19:00:00",
         "end_time": "20:45:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -20281,7 +20293,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "(例会)",
     "start_time": "19:00:00",
     "end_time": "20:45:00",
@@ -20402,7 +20414,7 @@
         "start_time": "19:00:00",
         "end_time": "21:00:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -20413,7 +20425,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "(例会)",
     "start_time": "19:00:00",
     "end_time": "21:00:00",
@@ -20966,7 +20978,7 @@
         "start_time": "19:00:00",
         "end_time": "20:40:00",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -20977,7 +20989,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "枚岡",
     "start_time": "19:00:00",
     "end_time": "20:40:00",
@@ -21002,7 +21014,7 @@
         "start_time": "18:40:00",
         "end_time": "20:40:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -21013,7 +21025,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "堺市鳳断酒会",
     "start_time": "18:40:00",
     "end_time": "20:40:00",
@@ -21038,7 +21050,7 @@
         "start_time": "18:40:00",
         "end_time": "20:40:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -21049,7 +21061,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "堺市宿院断酒会",
     "start_time": "18:40:00",
     "end_time": "20:40:00",
@@ -21646,7 +21658,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -21657,7 +21669,7 @@
     "fallback_meeting_name": "王寺支部",
     "fallback_schedule": "毎週 金曜日 19:00～20:45",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "王寺支部",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -21682,7 +21694,7 @@
         "start_time": "19:30",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -21693,7 +21705,7 @@
     "fallback_meeting_name": "生駒例会",
     "fallback_schedule": "毎週 金曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "生駒例会",
     "start_time": "19:30",
     "end_time": "21:00",
@@ -22184,7 +22196,7 @@
         "start_time": "19:30",
         "end_time": "21:00",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -22195,7 +22207,7 @@
     "fallback_meeting_name": "日向支部例会",
     "fallback_schedule": "第2･4 金曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "日向支部例会",
     "start_time": "19:30",
     "end_time": "21:00",
@@ -22493,7 +22505,7 @@
         "start_time": "19:30",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -22504,7 +22516,7 @@
     "fallback_meeting_name": "清武例会",
     "fallback_schedule": "第4 金曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "清武例会",
     "start_time": "19:30",
     "end_time": "21:00",
@@ -23457,7 +23469,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -23468,7 +23480,7 @@
     "fallback_meeting_name": "室積コミュニティーセンター 例会",
     "fallback_schedule": "第4 金曜日 19:00～21:00 電話：0833-78-0267",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "室積コミュニティーセンター 例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -24749,7 +24761,7 @@
         "start_time": "13:30",
         "end_time": "15:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -24760,7 +24772,7 @@
     "fallback_meeting_name": "慈圭病院　院内例会",
     "fallback_schedule": "毎週 金曜日 13:30～15:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "慈圭病院　院内例会",
     "start_time": "13:30",
     "end_time": "15:00",
@@ -25322,7 +25334,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -25333,7 +25345,7 @@
     "fallback_meeting_name": "吉永会場",
     "fallback_schedule": "第2･4 金曜日 18:30～20:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "吉永会場",
     "start_time": "18:30",
     "end_time": "20:30",
@@ -26549,7 +26561,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -26560,7 +26572,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第2･4 金曜日 18:30～20:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "高梁支部",
     "start_time": "18:30",
     "end_time": "20:30",
@@ -26800,7 +26812,7 @@
         "start_time": "19:30",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -26811,7 +26823,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第4 金曜日 19:30～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "例会",
     "start_time": "19:30",
     "end_time": "21:00",
@@ -27124,7 +27136,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -27135,7 +27147,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第4 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -27520,7 +27532,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -27531,7 +27543,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第4 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -27782,7 +27794,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -27793,7 +27805,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第4 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -29172,7 +29184,7 @@
         "start_time": "18:00",
         "end_time": "20:00",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -29183,7 +29195,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第2･4 金曜日 18:00～20:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "例会",
     "start_time": "18:00",
     "end_time": "20:00",
@@ -30179,7 +30191,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -30190,7 +30202,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -30382,7 +30394,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -30393,7 +30405,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "第1･4 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -31424,18 +31436,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "小牧(初例会)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "小牧(昼)",
         "day_of_week": "土",
         "week_of_month": "",
@@ -31506,6 +31506,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "小牧(初例会)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -31513,11 +31525,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "小牧(初例会)",
-    "start_time": "19:00",
-    "end_time": "20:45",
-    "recurrence": "毎週金曜"
+    "next_date": "2026-06-27",
+    "meeting_name": "小牧(昼)",
+    "start_time": "10:00",
+    "end_time": "12:00",
+    "recurrence": "毎週土曜"
   },
   {
     "id": 1920,
@@ -31605,24 +31617,24 @@
     "meetings": [
       {
         "name": "尾張瀬戸(定例)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "尾張瀬戸(定例)",
         "day_of_week": "木",
         "week_of_month": "",
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "毎週木曜",
         "next_date": "2026-07-02",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "尾張瀬戸(定例)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -31633,11 +31645,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-02",
     "meeting_name": "尾張瀬戸(定例)",
     "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "毎週金曜"
+    "end_time": "20:45",
+    "recurrence": "毎週木曜"
   },
   {
     "id": 1922,
@@ -31694,7 +31706,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -31705,7 +31717,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "尾北(岩倉)",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -31855,18 +31867,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "愛西(月末)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "愛西(年末)",
         "day_of_week": "土",
         "week_of_month": "",
@@ -31997,6 +31997,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "愛西(月末)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -32004,11 +32016,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "愛西(月末)",
-    "start_time": "19:00",
+    "next_date": "2026-06-27",
+    "meeting_name": "愛西(年末)",
+    "start_time": "13:00",
     "end_time": "21:00",
-    "recurrence": "毎週金曜"
+    "recurrence": "毎週土曜"
   },
   {
     "id": 1928,
@@ -32538,24 +32550,24 @@
     "meetings": [
       {
         "name": "はまゆう(定例)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "はまゆう(定例)",
         "day_of_week": "日",
         "week_of_month": "",
         "start_time": "13:00",
         "end_time": "16:00",
         "recurrence": "毎週日曜",
         "next_date": "2026-06-28",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "はまゆう(定例)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -32566,11 +32578,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-06-28",
     "meeting_name": "はまゆう(定例)",
-    "start_time": "19:00",
-    "end_time": "20:45",
-    "recurrence": "毎週金曜"
+    "start_time": "13:00",
+    "end_time": "16:00",
+    "recurrence": "毎週日曜"
   },
   {
     "id": 1937,
@@ -32669,30 +32681,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "尾北(布袋)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "尾北(布袋)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "20:00",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "尾北(布袋　学習)",
         "day_of_week": "土",
         "week_of_month": "",
@@ -32739,6 +32727,30 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "尾北(布袋)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "尾北(布袋)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:00",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -32746,11 +32758,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "尾北(布袋)",
+    "next_date": "2026-06-27",
+    "meeting_name": "尾北(布袋　学習)",
     "start_time": "19:00",
     "end_time": "20:45",
-    "recurrence": "毎週金曜"
+    "recurrence": "毎週土曜"
   },
   {
     "id": 1939,
@@ -33233,18 +33245,6 @@
     "meetings": [
       {
         "name": "豊川(定例)",
-        "day_of_week": "金",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "豊川(定例)",
         "day_of_week": "日",
         "week_of_month": "",
         "start_time": "19:00",
@@ -33266,6 +33266,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "豊川(定例)",
+        "day_of_week": "金",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "毎週金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -33273,11 +33285,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-06-28",
     "meeting_name": "豊川(定例)",
     "start_time": "19:00",
     "end_time": "20:45",
-    "recurrence": "毎週金曜"
+    "recurrence": "毎週日曜"
   },
   {
     "id": 1949,
@@ -33477,7 +33489,7 @@
         "start_time": "19:00",
         "end_time": "20:45",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -33488,7 +33500,7 @@
     "fallback_meeting_name": "ミーティング",
     "fallback_schedule": "1･2･3･4･5･6･7･8･9･10･11･12月 毎週 金曜日 19:00～20:45 駐車場有り。初めての方は先に電話連絡をしてからお越し下さい。 1月21日～2月13日の間施設閉鎖のため金曜日例会を中止します。",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "ミーティング",
     "start_time": "19:00",
     "end_time": "20:45",
@@ -34268,12 +34280,12 @@
     "meetings": [
       {
         "name": "ハートボックス",
-        "day_of_week": "金",
-        "week_of_month": "4",
+        "day_of_week": "火",
+        "week_of_month": "",
         "start_time": "13:30",
         "end_time": "15:30",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "recurrence": "毎週火曜",
+        "next_date": "2026-06-30",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -34344,11 +34356,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-06-30",
     "meeting_name": "ハートボックス",
     "start_time": "13:30",
     "end_time": "15:30",
-    "recurrence": "第4金曜"
+    "recurrence": "毎週火曜"
   },
   {
     "id": 7,
@@ -34410,30 +34422,6 @@
     "contact_phone": "",
     "needs_verification": 0,
     "meetings": [
-      {
-        "name": "福生例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "14:00",
-        "end_time": "16:00",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "連合合同例会",
-        "day_of_week": "金",
-        "week_of_month": "4,5",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
       {
         "name": "中野断酒会　例会",
         "day_of_week": "木",
@@ -34579,6 +34567,18 @@
         "exc_note": ""
       },
       {
+        "name": "福生例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "荒川断酒会　例会",
         "day_of_week": "",
         "week_of_month": "",
@@ -34613,6 +34613,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "連合合同例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -34620,11 +34632,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "福生例会",
-    "start_time": "14:00",
-    "end_time": "16:00",
-    "recurrence": "第4金曜"
+    "next_date": "2026-07-02",
+    "meeting_name": "中野断酒会　例会",
+    "start_time": "18:30",
+    "end_time": "20:30",
+    "recurrence": "第1・第2木曜"
   },
   {
     "id": 10,
@@ -35389,7 +35401,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -35436,7 +35448,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "大田断酒会",
     "start_time": "18:30",
     "end_time": "20:30",
@@ -37053,7 +37065,7 @@
         "start_time": "14:00",
         "end_time": "16:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -37064,7 +37076,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "福生例会",
     "start_time": "14:00",
     "end_time": "16:00",
@@ -37273,18 +37285,6 @@
     "needs_verification": 0,
     "meetings": [
       {
-        "name": "連合本部例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "多摩本部例会",
         "day_of_week": "日",
         "week_of_month": "1",
@@ -37295,6 +37295,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "連合本部例会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -37302,11 +37314,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "連合本部例会",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第4金曜"
+    "next_date": "2026-07-05",
+    "meeting_name": "多摩本部例会",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "recurrence": "第1日曜"
   },
   {
     "id": 403,
@@ -37849,18 +37861,6 @@
     "needs_verification": 0,
     "meetings": [
       {
-        "name": "江東断酒オンライン例会",
-        "day_of_week": "金",
-        "week_of_month": "2,4",
-        "start_time": "21:30",
-        "end_time": "23:00",
-        "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "京王断酒会　京王OLM",
         "day_of_week": "土",
         "week_of_month": "4",
@@ -37868,6 +37868,18 @@
         "end_time": "17:30",
         "recurrence": "第4土曜",
         "next_date": "2026-06-27",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "江東断酒オンライン例会",
+        "day_of_week": "金",
+        "week_of_month": "2,4",
+        "start_time": "21:30",
+        "end_time": "23:00",
+        "recurrence": "第2・第4金曜",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -37890,11 +37902,11 @@
     "fallback_meeting_name": "オンライン例会",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "江東断酒オンライン例会",
-    "start_time": "21:30",
-    "end_time": "23:00",
-    "recurrence": "第2・第4金曜"
+    "next_date": "2026-06-27",
+    "meeting_name": "京王断酒会　京王OLM",
+    "start_time": "15:00",
+    "end_time": "17:30",
+    "recurrence": "第4土曜"
   },
   {
     "id": 1866,
@@ -38188,7 +38200,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "毎週金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -38200,7 +38212,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -38211,7 +38223,7 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "北部断酒会 那須塩原支部例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -38678,7 +38690,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -38689,7 +38701,7 @@
     "fallback_meeting_name": "具志川断酒会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "具志川断酒会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -38822,7 +38834,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -38833,7 +38845,7 @@
     "fallback_meeting_name": "宮古断酒会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "宮古断酒会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -38911,18 +38923,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "浦添断酒会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "浦添断酒新生会",
         "day_of_week": "月",
         "week_of_month": "1,2,3,4,5",
@@ -38933,6 +38933,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "浦添断酒会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4,5",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第1・第2・第3・第4・第5金曜",
+        "next_date": "2026-07-03",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -38940,11 +38952,11 @@
     "fallback_meeting_name": "浦添断酒会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "浦添断酒会",
+    "next_date": "2026-06-29",
+    "meeting_name": "浦添断酒新生会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第1・第2・第3・第4・第5金曜"
+    "recurrence": "第1・第2・第3・第4・第5月曜"
   },
   {
     "id": 1634,
@@ -39286,7 +39298,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -39309,7 +39321,7 @@
     "fallback_meeting_name": "豊見城断酒会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "豊見城断酒会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -39888,7 +39900,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -39911,7 +39923,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -40068,7 +40080,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -40080,7 +40092,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -40091,7 +40103,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -40236,7 +40248,7 @@
         "start_time": "18:50",
         "end_time": "20:50",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -40259,7 +40271,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 18:50～20:50",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "18:50",
     "end_time": "20:50",
@@ -40755,7 +40767,7 @@
         "start_time": "13:30",
         "end_time": "15:00",
         "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -40766,7 +40778,7 @@
     "fallback_meeting_name": "例会",
     "fallback_schedule": "毎週 金曜日 13:30～15:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "例会",
     "start_time": "13:30",
     "end_time": "15:00",
@@ -42001,18 +42013,6 @@
     "needs_verification": 0,
     "meetings": [
       {
-        "name": "横浜酒害相談：１２階セルフヘルプ第２相談室",
-        "day_of_week": "金",
-        "week_of_month": "2,3,4",
-        "start_time": "13:00",
-        "end_time": "15:00",
-        "recurrence": "第2・第3・第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "アメシスト例会",
         "day_of_week": "土",
         "week_of_month": "4,5",
@@ -42056,6 +42056,18 @@
         "end_time": "14:30",
         "recurrence": "第1・第2・第3水曜",
         "next_date": "2026-07-01",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "横浜酒害相談：１２階セルフヘルプ第２相談室",
+        "day_of_week": "金",
+        "week_of_month": "2,3,4",
+        "start_time": "13:00",
+        "end_time": "15:00",
+        "recurrence": "第2・第3・第4金曜",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -42114,11 +42126,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "横浜酒害相談：１２階セルフヘルプ第２相談室",
+    "next_date": "2026-06-27",
+    "meeting_name": "アメシスト例会",
     "start_time": "13:00",
     "end_time": "15:00",
-    "recurrence": "第2・第3・第4金曜"
+    "recurrence": "第4・第5土曜"
   },
   {
     "id": 72,
@@ -42356,6 +42368,18 @@
     "needs_verification": 0,
     "meetings": [
       {
+        "name": "例会",
+        "day_of_week": "土",
+        "week_of_month": "1,3,4",
+        "start_time": "18:45",
+        "end_time": "20:30",
+        "recurrence": "第1・第3・第4土曜",
+        "next_date": "2026-06-27",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "合同例会",
         "day_of_week": "水",
         "week_of_month": "1,3,5",
@@ -42458,18 +42482,6 @@
         "start_time": "14:15",
         "end_time": "15:45",
         "recurrence": "第1土曜",
-        "next_date": "2026-07-04",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "例会",
-        "day_of_week": "土",
-        "week_of_month": "1,3",
-        "start_time": "18:45",
-        "end_time": "20:30",
-        "recurrence": "第1・第3土曜",
         "next_date": "2026-07-04",
         "has_exception": false,
         "exc_type": "",
@@ -42649,11 +42661,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-07-01",
-    "meeting_name": "合同例会",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第1・第3・第5水曜"
+    "next_date": "2026-06-27",
+    "meeting_name": "例会",
+    "start_time": "18:45",
+    "end_time": "20:30",
+    "recurrence": "第1・第3・第4土曜"
   },
   {
     "id": 81,
@@ -42773,30 +42785,6 @@
     "needs_verification": 0,
     "meetings": [
       {
-        "name": "多摩市民館例会　多摩市民館　第５会議室",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "多摩市民館例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "中原市民館例会　中原市民館　第４会議室",
         "day_of_week": "土",
         "week_of_month": "4",
@@ -42869,6 +42857,30 @@
         "exc_note": ""
       },
       {
+        "name": "多摩市民館例会　多摩市民館　第５会議室",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "多摩市民館例会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "川崎例会",
         "day_of_week": "",
         "week_of_month": "",
@@ -42886,11 +42898,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "多摩市民館例会　多摩市民館　第５会議室",
+    "next_date": "2026-06-27",
+    "meeting_name": "中原市民館例会　中原市民館　第４会議室",
     "start_time": "19:00",
     "end_time": "20:45",
-    "recurrence": "第4金曜"
+    "recurrence": "第4土曜"
   },
   {
     "id": 90,
@@ -43568,10 +43580,10 @@
       {
         "name": "葉山例会",
         "day_of_week": "月",
-        "week_of_month": "1,4",
+        "week_of_month": "1",
         "start_time": "19:00",
         "end_time": "20:00",
-        "recurrence": "第1・第4月曜",
+        "recurrence": "第1月曜",
         "next_date": "2026-07-06",
         "has_exception": false,
         "exc_type": "",
@@ -43611,7 +43623,7 @@
     "meeting_name": "葉山例会",
     "start_time": "19:00",
     "end_time": "20:00",
-    "recurrence": "第1・第4月曜"
+    "recurrence": "第1月曜"
   },
   {
     "id": 120,
@@ -44270,6 +44282,18 @@
         "exc_note": ""
       },
       {
+        "name": "北九州月例会",
+        "day_of_week": "日",
+        "week_of_month": "4",
+        "start_time": "13:00",
+        "end_time": "15:00",
+        "recurrence": "第4日曜",
+        "next_date": "2026-06-28",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "小倉断酒友の会 例会",
         "day_of_week": "日",
         "week_of_month": "2",
@@ -44306,18 +44330,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "横代例会",
-        "day_of_week": "金",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第1・第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "三郎丸例会",
         "day_of_week": "火",
         "week_of_month": "1,2,3,4,5",
@@ -44325,6 +44337,18 @@
         "end_time": "21:00",
         "recurrence": "第1・第2・第3・第4・第5火曜",
         "next_date": "2026-06-30",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "横代例会",
+        "day_of_week": "金",
+        "week_of_month": "1,2,3,4,5",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第1・第2・第3・第4・第5金曜",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -44347,11 +44371,11 @@
     "fallback_meeting_name": "今町 家族会",
     "fallback_schedule": "第2 水曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "横代例会",
+    "next_date": "2026-06-30",
+    "meeting_name": "三郎丸例会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第1・第2・第3・第4・第5金曜"
+    "recurrence": "第1・第2・第3・第4・第5火曜"
   },
   {
     "id": 1419,
@@ -44402,12 +44426,12 @@
       },
       {
         "name": "さわら",
-        "day_of_week": "",
-        "week_of_month": "",
+        "day_of_week": "水",
+        "week_of_month": "3",
         "start_time": "19:00",
         "end_time": "21:00",
-        "recurrence": "",
-        "next_date": "",
+        "recurrence": "第3水曜",
+        "next_date": "2026-07-15",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -44573,7 +44597,7 @@
         "start_time": "19:00",
         "end_time": "21:00",
         "recurrence": "第2・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -44584,7 +44608,7 @@
     "fallback_meeting_name": "久留米断酒友の会",
     "fallback_schedule": "第2･4 金曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-10",
     "meeting_name": "久留米断酒友の会",
     "start_time": "19:00",
     "end_time": "21:00",
@@ -44716,7 +44740,7 @@
         "start_time": "18:30",
         "end_time": "",
         "recurrence": "第1・第2・第3・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -44728,7 +44752,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "recurrence": "第2・第3・第4・第5金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-10",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -44739,7 +44763,7 @@
     "fallback_meeting_name": "八幡支部 例会",
     "fallback_schedule": "第2･3･4･5 金曜日 18:30～20:30",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "定例会",
     "start_time": "18:30",
     "end_time": "",
@@ -44916,11 +44940,11 @@
       {
         "name": "南福岡",
         "day_of_week": "土",
-        "week_of_month": "2",
+        "week_of_month": "-1",
         "start_time": "19:00",
         "end_time": "21:00",
-        "recurrence": "第2土曜",
-        "next_date": "2026-07-11",
+        "recurrence": "毎週土曜",
+        "next_date": "2026-06-27",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -44943,11 +44967,11 @@
     "fallback_meeting_name": "南福岡断酒友の会（夜間例会）",
     "fallback_schedule": "第2･4 土曜日 19:00～21:00",
     "fallback_next_date": "",
-    "next_date": "2026-07-11",
+    "next_date": "2026-06-27",
     "meeting_name": "南福岡",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第2土曜"
+    "recurrence": "毎週土曜"
   },
   {
     "id": 1435,
@@ -45140,18 +45164,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "城南",
-        "day_of_week": "火",
-        "week_of_month": "1",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第1火曜",
-        "next_date": "2026-07-07",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "城南断酒友の会",
         "day_of_week": "火",
         "week_of_month": "1,3",
@@ -45159,6 +45171,18 @@
         "end_time": "21:00",
         "recurrence": "第1・第3火曜",
         "next_date": "2026-07-07",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "城南",
+        "day_of_week": "火",
+        "week_of_month": "3",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第3火曜",
+        "next_date": "2026-07-21",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -45170,10 +45194,10 @@
     "fallback_schedule": "第1･3 火曜日 19:00～21:00",
     "fallback_next_date": "",
     "next_date": "2026-07-07",
-    "meeting_name": "城南",
+    "meeting_name": "城南断酒友の会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第1火曜"
+    "recurrence": "第1・第3火曜"
   },
   {
     "id": 1441,
@@ -46476,11 +46500,11 @@
       {
         "name": "行橋",
         "day_of_week": "月",
-        "week_of_month": "4",
+        "week_of_month": "3",
         "start_time": "19:00",
         "end_time": "21:00",
-        "recurrence": "第4月曜",
-        "next_date": "2026-07-27",
+        "recurrence": "第3月曜",
+        "next_date": "2026-07-20",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -47611,11 +47635,11 @@
       {
         "name": "東福岡",
         "day_of_week": "木",
-        "week_of_month": "1",
+        "week_of_month": "3",
         "start_time": "19:00",
         "end_time": "21:00",
-        "recurrence": "第1木曜",
-        "next_date": "2026-07-02",
+        "recurrence": "第3木曜",
+        "next_date": "2026-07-16",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -47645,18 +47669,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "福岡中央",
-        "day_of_week": "火",
-        "week_of_month": "2",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第2火曜",
-        "next_date": "2026-07-14",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "サブグループシングル福岡",
         "day_of_week": "日",
         "week_of_month": "3",
@@ -47667,6 +47679,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "福岡中央",
+        "day_of_week": "火",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第4火曜",
+        "next_date": "2026-07-28",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -47674,11 +47698,11 @@
     "fallback_meeting_name": "サブグループ・シングル",
     "fallback_schedule": "偶数月 第3 日曜日 13:00～15:00",
     "fallback_next_date": "",
-    "next_date": "2026-07-14",
-    "meeting_name": "福岡中央",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第2火曜"
+    "next_date": "2026-07-19",
+    "meeting_name": "サブグループシングル福岡",
+    "start_time": "22:00",
+    "end_time": "00:00",
+    "recurrence": "第3日曜"
   },
   {
     "id": 705,
@@ -48090,11 +48114,11 @@
       {
         "name": "鹿嶋例会",
         "day_of_week": "金",
-        "week_of_month": "3",
+        "week_of_month": "1",
         "start_time": "18:30",
         "end_time": "20:30",
-        "recurrence": "第3金曜",
-        "next_date": "2026-07-17",
+        "recurrence": "第1金曜",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -48105,11 +48129,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-07-17",
+    "next_date": "2026-07-03",
     "meeting_name": "鹿嶋例会",
     "start_time": "18:30",
     "end_time": "20:30",
-    "recurrence": "第3金曜"
+    "recurrence": "第1金曜"
   },
   {
     "id": 1888,
@@ -49423,18 +49447,6 @@
     "needs_verification": 1,
     "meetings": [
       {
-        "name": "昼例会",
-        "day_of_week": "金",
-        "week_of_month": "3,4",
-        "start_time": "13:30:00",
-        "end_time": "15:00:00",
-        "recurrence": "第3・第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "第5例会家族会",
         "day_of_week": "火",
         "week_of_month": "5",
@@ -49471,6 +49483,18 @@
         "exc_note": ""
       },
       {
+        "name": "昼例会",
+        "day_of_week": "金",
+        "week_of_month": "3,4",
+        "start_time": "13:30:00",
+        "end_time": "15:00:00",
+        "recurrence": "第3・第4金曜",
+        "next_date": "2026-07-17",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "土曜ﾌｫｰﾗﾑ",
         "day_of_week": "土",
         "week_of_month": "3",
@@ -49488,11 +49512,11 @@
     "fallback_meeting_name": "榛南",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
-    "meeting_name": "昼例会",
-    "start_time": "13:30:00",
-    "end_time": "15:00:00",
-    "recurrence": "第3・第4金曜"
+    "next_date": "2026-06-30",
+    "meeting_name": "第5例会家族会",
+    "start_time": "19:30:00",
+    "end_time": "",
+    "recurrence": "第5火曜"
   },
   {
     "id": 1666,
@@ -50221,7 +50245,7 @@
         "start_time": "19:00:00",
         "end_time": "",
         "recurrence": "第1・第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-03",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -50232,7 +50256,7 @@
     "fallback_meeting_name": "三島",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "定例会",
     "start_time": "19:00:00",
     "end_time": "",
@@ -51583,18 +51607,6 @@
       {
         "name": "ミーティング",
         "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "13:00",
-        "end_time": "14:30",
-        "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "ミーティング",
-        "day_of_week": "金",
         "week_of_month": "1",
         "start_time": "12:30",
         "end_time": "13:45",
@@ -51627,6 +51639,18 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "name": "ミーティング",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "13:00",
+        "end_time": "14:30",
+        "recurrence": "第4金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -51634,11 +51658,11 @@
     "fallback_meeting_name": "ミーティング",
     "fallback_schedule": "第1 金曜日 14:00～15:30 オープン 第3 木曜日 15:10～16:10 オープン 16:15〜16:50　フェローシップタイム",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-03",
     "meeting_name": "ミーティング",
-    "start_time": "13:00",
-    "end_time": "14:30",
-    "recurrence": "第4金曜"
+    "start_time": "12:30",
+    "end_time": "13:45",
+    "recurrence": "第1金曜"
   },
   {
     "id": 1338,
@@ -52000,7 +52024,7 @@
         "start_time": "18:00",
         "end_time": "20:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -52012,7 +52036,7 @@
         "start_time": "18:00",
         "end_time": "20:00",
         "recurrence": "第4金曜",
-        "next_date": "2026-06-26",
+        "next_date": "2026-07-24",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -52023,7 +52047,7 @@
     "fallback_meeting_name": "志度例会",
     "fallback_schedule": "第4 金曜日 18:00～20:00",
     "fallback_next_date": "",
-    "next_date": "2026-06-26",
+    "next_date": "2026-07-24",
     "meeting_name": "志度例会",
     "start_time": "18:00",
     "end_time": "20:00",
@@ -52632,11 +52656,11 @@
       {
         "name": "馬場病院",
         "day_of_week": "水",
-        "week_of_month": "4",
+        "week_of_month": "2",
         "start_time": "13:30",
         "end_time": "14:30",
-        "recurrence": "第4水曜",
-        "next_date": "2026-07-22",
+        "recurrence": "第2水曜",
+        "next_date": "2026-07-08",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -52745,6 +52769,18 @@
         "end_time": "15:15",
         "recurrence": "第1・第2・第3・第4・第5月曜",
         "next_date": "2026-06-29",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "三光病院例会場（総合例会）",
+        "day_of_week": "水",
+        "week_of_month": "2",
+        "start_time": "18:00",
+        "end_time": "20:00",
+        "recurrence": "第2水曜",
+        "next_date": "2026-07-08",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
