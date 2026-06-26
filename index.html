@@ -194,14 +194,9 @@ window.setSplashProgress = function(percent, statusText) {
   if (percent >= 100) {
     const today = new Date().toISOString().slice(0, 10);
     const agreed = localStorage.getItem('disclaimer_agreed');
-    if (agreed === today) {
-      // 同意済み → 自動フェードアウト
-      setTimeout(splashClose, 800);
-    } else {
-      // 未同意 → 同意ボタン表示
-      const agreeArea = document.getElementById('sp-agree-area');
-      if (agreeArea) agreeArea.classList.add('visible');
-    }
+    // 毎回同意ボタンを表示
+    const agreeArea = document.getElementById('sp-agree-area');
+    if (agreeArea) agreeArea.classList.add('visible');
   }
 };
 
