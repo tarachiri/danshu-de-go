@@ -1048,42 +1048,7 @@ function agreeDisclaimer() {
   if (overlay) overlay.style.display = 'none';
 }
 
-let _newsRendered = false;
-function renderNews() {
-  if (_newsRendered) return;
-  _newsRendered = true;
-  const container = document.getElementById('news');
-  console.log('renderNews called', container);
-  if (!container) return;
-  container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
-  fetch('news.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(data => {
-      if (!data.items || data.items.length === 0) {
-        container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">お知らせはありません</div>';
-        return;
-      }
-      const updated = data.generated_at ? data.generated_at.slice(0,10) : '';
-      let html = `<div style="font-size:11px;color:#a0a0b0;text-align:right;margin-bottom:8px;">更新: ${updated}</div>`;
-      let lastPref = '';
-      for (const item of data.items) {
-        if (item.pref !== lastPref) {
-          html += `<div style="font-size:11px;font-weight:600;color:#888;letter-spacing:.08em;margin:12px 0 4px;">${item.pref}</div>`;
-          lastPref = item.pref;
-        }
-        const dateStr = item.date || '';
-        html += `<a href="${item.url}" target="_blank" rel="noopener" style="display:block;background:#fff;border-radius:10px;padding:10px 12px;margin-bottom:6px;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.08);">
-          <div style="font-size:11px;color:#a0a0b0;margin-bottom:3px;">${dateStr} ${item.org}</div>
-          <div style="font-size:13px;color:#1a1a2e;font-weight:500;line-height:1.4;">${item.title}</div>
-          <div style="font-size:11px;color:#C0392B;margin-top:4px;">公式サイトで確認 →</div>
-        </a>`;
-      }
-      container.innerHTML = html;
-    })
-    .catch(() => {
-      container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込みエラー</div>';
-    });
-}
+
 
 // かもちゃんパネル
 function openKamo() {
