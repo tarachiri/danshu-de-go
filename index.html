@@ -37,7 +37,7 @@
       z-index: 10000;
       display: flex; flex-direction: column;
       align-items: center; justify-content: flex-start; gap: 8px;
-      padding: 5vh 32px 100px;
+      padding: 5vh 32px 3vh;
       transition: opacity 0.6s ease;
       overflow: hidden;
     }
@@ -54,7 +54,7 @@
     .sp-progress-area {
       width: 100%; max-width: 320px;
       display: flex; flex-direction: column;
-      align-items: center; gap: 8px;
+      align-items: center; gap: 4px;
     }
     .sp-status {
       font-family:'Noto Sans JP',sans-serif;
@@ -89,6 +89,7 @@
       display: none; flex-direction: column;
       align-items: center; gap: 12px;
       width: 100%; max-width: 320px;
+      margin-top: auto;
     }
     #sp-agree-area.visible { display: flex; }
     .sp-disclaimer-text {
@@ -99,11 +100,10 @@
     }
     .sp-disclaimer-text b { color: rgba(240,232,208,0.7); }
     .sp-btn {
-      position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
-      width:calc(100% - 48px); max-width:400px; padding:18px 0; border-radius:50px;
+      position:relative; width:100%; padding:18px 0; border-radius:50px;
       border:1.5px solid rgba(180,140,80,0.7); background:rgba(180,140,80,0.1);
       display:flex; align-items:center; justify-content:center; gap:10px;
-      overflow:hidden; cursor: pointer; z-index:10;
+      overflow:hidden; cursor: pointer;
     }
     .sp-btn::before {
       content:''; position:absolute; inset:0; border-radius:50px;
@@ -115,7 +115,7 @@
     .sp-btn-arrow { font-size:18px; color:rgba(180,140,80,0.9); animation:sp-nudge 1.8s ease-in-out infinite; }
     @keyframes sp-nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 
-    .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:auto; }
+    .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; }
     .sp-org { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.2); letter-spacing:.3em; }
     .sp-ver { font-family:'Noto Sans JP',sans-serif; font-size:9px; font-weight:300; color:rgba(180,140,80,0.35); letter-spacing:.2em; }
   </style>
