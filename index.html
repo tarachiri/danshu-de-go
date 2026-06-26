@@ -37,7 +37,7 @@
       z-index: 10000;
       display: flex; flex-direction: column;
       align-items: center; justify-content: flex-start; gap: 8px;
-      padding: 5vh 32px 3vh;
+      padding: 5vh 32px 100px;
       transition: opacity 0.6s ease;
       overflow: hidden;
     }
@@ -99,10 +99,11 @@
     }
     .sp-disclaimer-text b { color: rgba(240,232,208,0.7); }
     .sp-btn {
-      position:relative; width:280px; padding:18px 0; border-radius:50px;
+      position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+      width:calc(100% - 48px); max-width:400px; padding:18px 0; border-radius:50px;
       border:1.5px solid rgba(180,140,80,0.7); background:rgba(180,140,80,0.1);
       display:flex; align-items:center; justify-content:center; gap:10px;
-      overflow:hidden; cursor: pointer;
+      overflow:hidden; cursor: pointer; z-index:10;
     }
     .sp-btn::before {
       content:''; position:absolute; inset:0; border-radius:50px;
