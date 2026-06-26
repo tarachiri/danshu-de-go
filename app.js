@@ -335,10 +335,36 @@ function switchTab(tab) {
   }
 }
 
-const DATE_LABELS_SCH = { "2026-06-08":"6月8日（月）","2026-06-09":"6月9日（火）","2026-06-10":"6月10日（水）","2026-06-11":"6月11日（木）","2026-06-12":"6月12日（金）" };
-const PREF_LABEL_SCH = { tokyo:"東京", saitama:"埼玉", kanagawa:"神奈川", chiba:"千葉" };
-const PREF_CLASS_SCH = { tokyo:"pref-tokyo", saitama:"pref-saitama", kanagawa:"pref-kanagawa", chiba:"pref-chiba" };
 const SCH_TODAY = getTodayJST();
+
+// 都道府県バッジ色（背景色, 文字色）
+const PREF_BADGE_COLORS = {
+  '北海道':['#1a3a5c','#5ab4ff'], '青森県':['#1a3a4c','#5ac4ff'], '岩手県':['#1a4a3c','#5ad4af'],
+  '宮城県':['#1a3a2c','#5ad4bf'], '秋田県':['#2a3a1c','#8ad46f'], '山形県':['#3a3a1c','#c4d45f'],
+  '福島県':['#3a2a1c','#d4a45f'], '茨城県':['#2a1a3c','#a07fe0'], '栃木県':['#3a1a2a','#e07fa0'],
+  '群馬県':['#3a2a00','#ffc844'], '埼玉県':['#3a2a00','#ffc844'], '千葉県':['#3a1a2a','#ff88bb'],
+  '東京都':['#1a3a5c','#5ab4ff'], '神奈川県':['#0a3a1a','#44cc88'], '新潟県':['#2a3a2a','#88cc88'],
+  '富山県':['#1a3a3a','#44cccc'], '石川県':['#2a2a3a','#8888ff'], '福井県':['#3a1a3a','#cc44cc'],
+  '山梨県':['#3a3a1a','#cccc44'], '長野県':['#1a4a2a','#44cc88'], '岐阜県':['#2a3a1a','#88cc44'],
+  '静岡県':['#3a1a1a','#cc6644'], '愛知県':['#1a2a3a','#4488cc'], '三重県':['#2a1a3a','#8844cc'],
+  '滋賀県':['#1a3a2a','#44cc88'], '京都府':['#3a1a1a','#cc4444'], '大阪府':['#3a2a1a','#cc8844'],
+  '兵庫県':['#1a2a2a','#44aaaa'], '奈良県':['#3a3a1a','#aaaa44'], '和歌山県':['#3a1a2a','#cc4488'],
+  '鳥取県':['#1a3a3a','#44cccc'], '島根県':['#2a3a2a','#66cc66'], '岡山県':['#3a2a2a','#cc8866'],
+  '広島県':['#2a1a2a','#aa44aa'], '山口県':['#1a2a3a','#4488aa'], '徳島県':['#3a1a1a','#dd5533'],
+  '香川県':['#2a3a1a','#88cc44'], '愛媛県':['#3a2a1a','#ccaa44'], '高知県':['#1a3a1a','#44cc44'],
+  '福岡県':['#1a1a3a','#4444cc'], '佐賀県':['#2a1a3a','#8844bb'], '長崎県':['#3a1a2a','#cc5588'],
+  '熊本県':['#3a2a1a','#cc9944'], '大分県':['#1a3a2a','#44cc99'], '宮崎県':['#2a3a1a','#88cc55'],
+  '鹿児島県':['#3a1a1a','#cc5544'], '沖縄県':['#1a3a3a','#44cccc'],
+};
+
+function getPrefBadgeStyle(pref) {
+  const c = PREF_BADGE_COLORS[pref] || ['#2a2a2a','#aaaaaa'];
+  return `background:${c[0]};color:${c[1]};`;
+}
+
+function getPrefBadgeLabel(pref) {
+  return pref.replace(/[都道府県]$/, '');
+}
 
 let _schRendered = false;
 function renderSchedule() {
@@ -362,9 +388,8 @@ function renderSchedule() {
     const label = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date + 'T00:00:00+09:00').getDay()] + '）';
     html += `<div class="sch-date-header"><span>${label}</span>${isToday?'<span class="sch-date-today">今日</span>':''}<span class="sch-date-count">${evs.length}件</span></div>`;
     evs.forEach(e => {
-      const pref = e.prefecture === '東京都' ? 'tokyo' : e.prefecture === '埼玉県' ? 'saitama' : e.prefecture === '神奈川県' ? 'kanagawa' : 'chiba';
       const clickAttr = (e.latitude && e.longitude) ? ` onclick="jumpToMarker(${e.id}, ${e.latitude}, ${e.longitude}, '${(e.meeting_name || '').replace(/['"]/g, '')}')" style="cursor:pointer;"` : '';
-      html += `<div class="sch-card"${clickAttr}><div class="sch-time"><div class="sch-time-start">${e.start_time||''}</div><div class="sch-time-end" style="font-size:14px;color:#888;">${e.end_time||''}</div></div><div class="sch-info"><div class="sch-name">${e.meeting_name}</div><div class="sch-loc">📍 ${e.address||''}</div></div><span class="sch-pref-badge ${PREF_CLASS_SCH[pref]}">${PREF_LABEL_SCH[pref]}</span></div>`;
+      html += `<div class="sch-card"${clickAttr}><div class="sch-time"><div class="sch-time-start">${e.start_time||''}</div><div class="sch-time-end" style="font-size:14px;color:#888;">${e.end_time||''}</div></div><div class="sch-info"><div class="sch-name">${e.meeting_name}</div><div class="sch-loc">📍 ${e.address||''}</div></div><span class="sch-pref-badge" style="${getPrefBadgeStyle(e.prefecture)}">${getPrefBadgeLabel(e.prefecture)}</span></div>`;
     });
   });
   container.innerHTML = html;
