@@ -1,6 +1,42 @@
 const map = window._leafletMap = L.map("map", {zoomControl: false}).setView([35.68, 139.60], 9);
 map.locate({setView: true, maxZoom: 10});
 
+// GPS取得成功時 → 都道府県をGSI APIで逆ジオコーディング → エリア自動選択
+map.on('locationfound', function(e) {
+  const lat = e.latlng.lat;
+  const lng = e.latlng.lng;
+  fetch(`https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=${lat}&lon=${lng}`)
+    .then(r => r.json())
+    .then(data => {
+      const muniCd = data.results && data.results.muniCd;
+      if (!muniCd) return;
+      const prefCode = muniCd.substring(0, 2);
+      const PREF_CODE_MAP = {
+        '01':'北海道','02':'青森県','03':'岩手県','04':'宮城県','05':'秋田県',
+        '06':'山形県','07':'福島県','08':'茨城県','09':'栃木県','10':'群馬県',
+        '11':'埼玉県','12':'千葉県','13':'東京都','14':'神奈川県','15':'新潟県',
+        '16':'富山県','17':'石川県','18':'福井県','19':'山梨県','20':'長野県',
+        '21':'岐阜県','22':'静岡県','23':'愛知県','24':'三重県','25':'滋賀県',
+        '26':'京都府','27':'大阪府','28':'兵庫県','29':'奈良県','30':'和歌山県',
+        '31':'鳥取県','32':'島根県','33':'岡山県','34':'広島県','35':'山口県',
+        '36':'徳島県','37':'香川県','38':'愛媛県','39':'高知県','40':'福岡県',
+        '41':'佐賀県','42':'長崎県','43':'熊本県','44':'大分県','45':'宮崎県',
+        '46':'鹿児島県','47':'沖縄県'
+      };
+      const pref = PREF_CODE_MAP[prefCode];
+      if (!pref) return;
+      const area = AREA_MAP[pref] || 'all';
+      _schAreaFilter = area;
+      const sel = document.getElementById('sch-area-filter');
+      if (sel) sel.value = area;
+      _schRendered = false;
+      if (document.getElementById('schedule').style.display !== 'none') {
+        renderSchedule();
+      }
+    })
+    .catch(() => {});
+});
+
 // 現在地ボタン
 var LocateControl = L.Control.extend({
   onAdd: function() {
@@ -337,6 +373,39 @@ function switchTab(tab) {
 
 const SCH_TODAY = getTodayJST();
 
+// エリア定義
+const AREA_MAP = {
+  '北海道': '北海道',
+  '青森県': '東北', '岩手県': '東北', '宮城県': '東北',
+  '秋田県': '東北', '山形県': '東北', '福島県': '東北',
+  '茨城県': '関東', '栃木県': '関東', '群馬県': '関東',
+  '埼玉県': '関東', '千葉県': '関東', '東京都': '関東',
+  '神奈川県': '関東', '山梨県': '関東',
+  '新潟県': '北陸・甲信越', '富山県': '北陸・甲信越',
+  '石川県': '北陸・甲信越', '福井県': '北陸・甲信越',
+  '長野県': '北陸・甲信越',
+  '静岡県': '東海', '愛知県': '東海', '岐阜県': '東海',
+  '三重県': '東海',
+  '滋賀県': '近畿', '京都府': '近畿', '大阪府': '近畿',
+  '兵庫県': '近畿', '奈良県': '近畿', '和歌山県': '近畿',
+  '鳥取県': '中国', '島根県': '中国', '岡山県': '中国',
+  '広島県': '中国', '山口県': '中国',
+  '徳島県': '四国', '香川県': '四国', '愛媛県': '四国',
+  '高知県': '四国',
+  '福岡県': '九州・沖縄', '佐賀県': '九州・沖縄',
+  '長崎県': '九州・沖縄', '熊本県': '九州・沖縄',
+  '大分県': '九州・沖縄', '宮崎県': '九州・沖縄',
+  '鹿児島県': '九州・沖縄', '沖縄県': '九州・沖縄',
+};
+
+const AREA_LIST = [
+  '北海道', '東北', '関東', '北陸・甲信越',
+  '東海', '近畿', '中国', '四国', '九州・沖縄'
+];
+
+// 現在選択中のエリア（'all'=全国）
+let _schAreaFilter = 'all';
+
 // 都道府県バッジ色（背景色, 文字色）
 const PREF_BADGE_COLORS = {
   '北海道':['#1a3a5c','#5ab4ff'], '青森県':['#1a3a4c','#5ac4ff'], '岩手県':['#1a4a3c','#5ad4af'],
@@ -371,30 +440,86 @@ function renderSchedule() {
   if (_schRendered) return;
   _schRendered = true;
   const container = document.getElementById('schedule');
-  container.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
+
+  // エリアフィルターUI
+  const filterBar = document.createElement('div');
+  filterBar.style.cssText = 'display:flex;align-items:center;gap:8px;padding:10px 12px;background:#1a1a2e;position:sticky;top:0;z-index:10;border-bottom:1px solid #0f3460;';
+
+  const label = document.createElement('span');
+  label.textContent = '📍';
+  label.style.fontSize = '18px';
+
+  const sel = document.createElement('select');
+  sel.id = 'sch-area-filter';
+  sel.style.cssText = 'flex:1;padding:8px 12px;border-radius:8px;border:1px solid #0f3460;background:#0f3460;color:#fff;font-size:15px;';
+
+  const optAll = document.createElement('option');
+  optAll.value = 'all';
+  optAll.textContent = '🗾 全国';
+  sel.appendChild(optAll);
+
+  AREA_LIST.forEach(area => {
+    const opt = document.createElement('option');
+    opt.value = area;
+    opt.textContent = area;
+    sel.appendChild(opt);
+  });
+
+  sel.value = _schAreaFilter;
+  sel.addEventListener('change', () => {
+    _schAreaFilter = sel.value;
+    _schRendered = false;
+    renderSchedule();
+  });
+
+  filterBar.appendChild(label);
+  filterBar.appendChild(sel);
+  container.innerHTML = '';
+  container.appendChild(filterBar);
+
+  const listEl = document.createElement('div');
+  listEl.style.cssText = 'padding:0 0 80px 0;';
+  container.appendChild(listEl);
+
+  listEl.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
+
   fetch('schedule.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
+      const filtered = _schAreaFilter === 'all'
+        ? data
+        : data.filter(e => AREA_MAP[e.prefecture] === _schAreaFilter);
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">この地域の例会情報はありません</div>';
+        return;
+      }
+
       const byDate = {};
-      data.forEach(e => {
+      filtered.forEach(e => {
         const d = e.next_date;
         if (!byDate[d]) byDate[d] = [];
         byDate[d].push(e);
       });
-  let html = '';
-  Object.keys(byDate).sort().forEach(date => {
-    const evs = byDate[date];
-    const isToday = date === SCH_TODAY;
-    const label = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date + 'T00:00:00+09:00').getDay()] + '）';
-    html += `<div class="sch-date-header"><span>${label}</span>${isToday?'<span class="sch-date-today">今日</span>':''}<span class="sch-date-count">${evs.length}件</span></div>`;
-    evs.forEach(e => {
-      const clickAttr = (e.latitude && e.longitude) ? ` onclick="jumpToMarker(${e.id}, ${e.latitude}, ${e.longitude}, '${(e.meeting_name || '').replace(/['"]/g, '')}')" style="cursor:pointer;"` : '';
-      html += `<div class="sch-card"${clickAttr}><div class="sch-time"><div class="sch-time-start">${e.start_time||''}</div><div class="sch-time-end" style="font-size:14px;color:#888;">${e.end_time||''}</div></div><div class="sch-info"><div class="sch-name">${e.meeting_name}</div><div class="sch-loc">📍 ${e.address||''}</div></div><span class="sch-pref-badge" style="${getPrefBadgeStyle(e.prefecture)}">${getPrefBadgeLabel(e.prefecture)}</span></div>`;
-    });
-  });
-  container.innerHTML = html;
+
+      let html = '';
+      Object.keys(byDate).sort().forEach(date => {
+        const evs = byDate[date];
+        const isToday = date === SCH_TODAY;
+        const dateLabel = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date + 'T00:00:00+09:00').getDay()] + '）';
+        html += `<div class="sch-date-header"><span>${dateLabel}</span>${isToday ? '<span class="sch-date-today">今日</span>' : ''}<span class="sch-date-count">${evs.length}件</span></div>`;
+        evs.forEach(e => {
+          const clickAttr = (e.latitude && e.longitude)
+            ? ` onclick="jumpToMarker(${e.id}, ${e.latitude}, ${e.longitude}, '${(e.meeting_name || '').replace(/['"]/g, '')}')" style="cursor:pointer;"`
+            : '';
+          html += `<div class="sch-card"${clickAttr}><div class="sch-time"><div class="sch-time-start">${e.start_time || ''}</div><div class="sch-time-end" style="font-size:14px;color:#888;">${e.end_time || ''}</div></div><div class="sch-info"><div class="sch-name">${e.meeting_name}</div><div class="sch-loc">📍 ${e.address || ''}</div></div><span class="sch-pref-badge" style="${getPrefBadgeStyle(e.prefecture)}">${getPrefBadgeLabel(e.prefecture)}</span></div>`;
+        });
+      });
+      listEl.innerHTML = html;
     })
-    .catch(() => { container.innerHTML = '<div style="color:#e94560;text-align:center;padding:32px;">取得エラー</div>'; });
+    .catch(() => {
+      listEl.innerHTML = '<div style="color:#e94560;text-align:center;padding:32px;">取得エラー</div>';
+    });
 }
 
 let VENUES = [];
