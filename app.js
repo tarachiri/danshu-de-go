@@ -1077,24 +1077,22 @@ let _newsEventsData = null; // ソートトグル用キャッシュ
 function toggleNewsSort() {
   const sortBtn = document.getElementById('news-sort-btn');
   const list = document.getElementById('news-events-list');
-  alert('sortBtn:' + (sortBtn ? 'あり' : 'なし') + ' list:' + (list ? 'あり' : 'なし') + ' data:' + (_newsEventsData ? _newsEventsData.length + '件' : 'null'));
   if (!sortBtn || !list) return;
   const isDateOrder = sortBtn.dataset.sort === 'date';
   if (isDateOrder) {
     sortBtn.dataset.sort = '';
     sortBtn.querySelector('.sort-icon').textContent = '↓';
     sortBtn.querySelector('.sort-label').textContent = '新着順';
-    list.innerHTML = _newsEventsData.map(buildEventCard).join('');
+    list.innerHTML = [..._newsEventsData].reverse().map(buildEventCard).join('');
   } else {
     sortBtn.dataset.sort = 'date';
     sortBtn.querySelector('.sort-icon').textContent = '↑';
     sortBtn.querySelector('.sort-label').textContent = '開催日順';
-    const sorted = [..._newsEventsData].sort((a, b) => {
+    list.innerHTML = [..._newsEventsData].sort((a, b) => {
       const da = a.date_from || a.date || '';
       const db = b.date_from || b.date || '';
       return da.localeCompare(db);
-    });
-    list.innerHTML = sorted.map(buildEventCard).join('');
+    }).map(buildEventCard).join('');
   }
 }
 
