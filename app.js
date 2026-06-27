@@ -1075,6 +1075,7 @@ function openKamo() {
 let _newsEventsData = null; // ソートトグル用キャッシュ
 
 function toggleNewsSort() {
+  alert('タップされました');
   const sortBtn = document.getElementById('news-sort-btn');
   const list = document.getElementById('news-events-list');
   if (!sortBtn || !list) return;
