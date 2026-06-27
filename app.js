@@ -1075,9 +1075,9 @@ function openKamo() {
 let _newsEventsData = null; // ソートトグル用キャッシュ
 
 function toggleNewsSort() {
-  alert('タップされました');
   const sortBtn = document.getElementById('news-sort-btn');
   const list = document.getElementById('news-events-list');
+  alert('sortBtn:' + (sortBtn ? 'あり' : 'なし') + ' list:' + (list ? 'あり' : 'なし') + ' data:' + (_newsEventsData ? _newsEventsData.length + '件' : 'null'));
   if (!sortBtn || !list) return;
   const isDateOrder = sortBtn.dataset.sort === 'date';
   if (isDateOrder) {
