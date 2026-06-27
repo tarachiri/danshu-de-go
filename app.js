@@ -1096,9 +1096,9 @@ async function loadNewsTab() {
     if (_newsEventsData.length > 0) {
       html += `<div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #ddd; padding-right:12px;">
   <h2 class="news-section-title" style="border-top:none; flex:1;">📅 イベント・行事</h2>
-  <button id="news-sort-btn" style="display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-secondary); background:var(--surface-2); border:0.5px solid var(--border-strong); border-radius:20px; padding:5px 12px; cursor:pointer; white-space:nowrap;">
-    <i class="ti ti-arrow-down"></i>
-    <span>新着順</span>
+  <button id="news-sort-btn" style="display:flex; align-items:center; gap:5px; font-size:12px; color:#555; background:#fff; border:1px solid #ccc; border-radius:20px; padding:5px 12px; cursor:pointer; white-space:nowrap; flex-shrink:0;">
+    <span class="sort-icon">↓</span>
+    <span class="sort-label">新着順</span>
   </button>
 </div>`;
       html += '<div id="news-events-list">';
@@ -1152,14 +1152,14 @@ async function loadNewsTab() {
         if (isDateOrder) {
           // 開催日順 → 新着順（元の並び）
           sortBtn.dataset.sort = '';
-          sortBtn.querySelector('i').className = 'ti ti-arrow-down';
-          sortBtn.querySelector('span').textContent = '新着順';
+          sortBtn.querySelector('.sort-icon').textContent = '↓';
+          sortBtn.querySelector('.sort-label').textContent = '新着順';
           list.innerHTML = _newsEventsData.map(buildEventCard).join('');
         } else {
           // 新着順 → 開催日順（date_from 昇順）
           sortBtn.dataset.sort = 'date';
-          sortBtn.querySelector('i').className = 'ti ti-arrow-up';
-          sortBtn.querySelector('span').textContent = '開催日順';
+          sortBtn.querySelector('.sort-icon').textContent = '↑';
+          sortBtn.querySelector('.sort-label').textContent = '開催日順';
           const sorted = [..._newsEventsData].sort((a, b) => {
             const da = a.date_from || a.date || '';
             const db = b.date_from || b.date || '';
