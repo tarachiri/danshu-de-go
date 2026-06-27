@@ -1072,30 +1072,6 @@ function openKamo() {
 // ============================================================
 
 // ─── お知らせタブ 読み込み ───────────────────────────────
-let _newsEventsData = null; // ソートトグル用キャッシュ
-
-function toggleNewsSort() {
-  const sortBtn = document.getElementById('news-sort-btn');
-  const list = document.getElementById('news-events-list');
-  if (!sortBtn || !list) return;
-  const isDateOrder = sortBtn.dataset.sort === 'date';
-  if (isDateOrder) {
-    sortBtn.dataset.sort = '';
-    sortBtn.querySelector('.sort-icon').textContent = '↓';
-    sortBtn.querySelector('.sort-label').textContent = '新着順';
-    list.innerHTML = [..._newsEventsData].reverse().map(buildEventCard).join('');
-  } else {
-    sortBtn.dataset.sort = 'date';
-    sortBtn.querySelector('.sort-icon').textContent = '↑';
-    sortBtn.querySelector('.sort-label').textContent = '開催日順';
-    list.innerHTML = [..._newsEventsData].sort((a, b) => {
-      const da = a.date_from || a.date || '';
-      const db = b.date_from || b.date || '';
-      return da.localeCompare(db);
-    }).map(buildEventCard).join('');
-  }
-}
-
 async function loadNewsTab() {
   const container = document.getElementById('news');
   if (!container) return;
@@ -1114,20 +1090,12 @@ async function loadNewsTab() {
     let html = '';
 
     // ── イベント・行事セクション ──────────────────────────
-    _newsEventsData = data.events || [];
-    if (_newsEventsData.length > 0) {
-      html += `<div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid #ddd; padding-right:12px;">
-  <h2 class="news-section-title" style="border-top:none; flex:1;">📅 イベント・行事</h2>
-  <button id="news-sort-btn" type="button" onclick="toggleNewsSort()" style="display:flex; align-items:center; gap:5px; font-size:12px; color:#555; background:#fff; border:1px solid #ccc; border-radius:20px; padding:5px 12px; cursor:pointer; white-space:nowrap; flex-shrink:0; touch-action:manipulation;">
-    <span class="sort-icon">↓</span>
-    <span class="sort-label">新着順</span>
-  </button>
-</div>`;
-      html += '<div id="news-events-list">';
-      for (const ev of _newsEventsData) {
+    const events = (data.events || []);
+    if (events.length > 0) {
+      html += '<h2 class="news-section-title">📅 イベント・行事</h2>';
+      for (const ev of events) {
         html += buildEventCard(ev);
       }
-      html += '</div>';
     }
 
     // ── PDF資料セクション ────────────────────────────────
@@ -1162,7 +1130,6 @@ async function loadNewsTab() {
 
     container.innerHTML = html;
     container.dataset.loaded = '1';
-
 
   } catch (e) {
     console.error('loadNewsTab error:', e);
