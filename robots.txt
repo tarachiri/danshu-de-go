@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dansyu-go.nukadokonokai.com/sitemap.xml
