@@ -199,7 +199,7 @@ const Schedule = {
               <span style="margin-left:8px;">${pref}</span>
               <span class="sch-date-count" style="margin-left:auto;">${prefData.length}件</span>
             </summary>
-            <div class="sch-adj-body">${this._buildDateHtml(prefData)}</div>
+            <div class="sch-adj-body">${this._buildDateHtml(prefData, 7)}</div>
           </details>`;
       });
     }
@@ -207,7 +207,7 @@ const Schedule = {
     listEl.innerHTML = html;
   },
 
-  _buildDateHtml(data) {
+  _buildDateHtml(data, maxDays = 10) {
     const today = getTodayJST();
     const byDate = {};
     data.forEach(e => {
@@ -217,7 +217,10 @@ const Schedule = {
     });
 
     let html = '';
+    let dayCount = 0;
     Object.keys(byDate).sort().forEach(date => {
+      if (dayCount >= maxDays) return;
+      dayCount++;
       const evs = byDate[date];
       const isToday = date === today;
       const dateLabel = date.replace(/^\d{4}-/, '').replace('-', '/') +
