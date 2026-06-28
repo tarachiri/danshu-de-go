@@ -25,9 +25,7 @@ map.on('locationfound', function(e) {
       };
       const pref = PREF_CODE_MAP[prefCode];
       if (!pref) return;
-      const area = AREA_MAP[pref] || 'all';
       Schedule.setFilter(pref);
-    }
     })
     .catch(() => {});
 });
