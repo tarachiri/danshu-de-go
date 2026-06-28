@@ -1090,7 +1090,7 @@ async function loadNewsTab() {
     let html = '';
 
     // ── イベント・行事セクション ──────────────────────────
-    const events = (data.events || []);
+    const events = (data.events || []).sort((a, b) => (b.date_from || '').localeCompare(a.date_from || ''));
     if (events.length > 0) {
       html += '<h2 class="news-section-title">📅 イベント・行事</h2>';
       for (const ev of events) {
@@ -1099,7 +1099,7 @@ async function loadNewsTab() {
     }
 
     // ── PDF資料セクション ────────────────────────────────
-    const pdfs = (data.pdfs || []);
+    const pdfs = (data.pdfs || []).sort((a, b) => (b.found_at || '').localeCompare(a.found_at || ''));
     if (pdfs.length > 0) {
       html += '<h2 class="news-section-title">📄 PDF資料・お知らせ</h2>';
       for (const pdf of pdfs) {
@@ -1108,7 +1108,7 @@ async function loadNewsTab() {
     }
 
     // ── 最新ニュース（RSS）セクション ────────────────────
-    const news = (data.news || []);
+    const news = (data.news || []).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     if (news.length > 0) {
       html += '<h2 class="news-section-title">📢 各断酒会からの新着情報</h2>';
       for (const n of news) {
