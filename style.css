@@ -543,3 +543,39 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   padding: 16px 0 8px;
   margin: 0;
 }
+
+/* 近隣都道府県 折りたたみ */
+.sch-section-header {
+  padding: 10px 14px 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #a0a0b0;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #0f3460;
+}
+.sch-adj-details {
+  border-bottom: 1px solid #0f3460;
+}
+.sch-adj-summary {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;
+  color: #ccc;
+  font-size: 15px;
+}
+.sch-adj-summary::-webkit-details-marker { display: none; }
+.sch-adj-summary::before {
+  content: '▶';
+  font-size: 11px;
+  margin-right: 8px;
+  color: #888;
+  transition: transform 0.2s;
+}
+details[open] .sch-adj-summary::before {
+  transform: rotate(90deg);
+}
+.sch-adj-body {
+  background: #12122a;
+}

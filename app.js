@@ -26,13 +26,8 @@ map.on('locationfound', function(e) {
       const pref = PREF_CODE_MAP[prefCode];
       if (!pref) return;
       const area = AREA_MAP[pref] || 'all';
-      _schAreaFilter = area;
-      const sel = document.getElementById('sch-area-filter');
-      if (sel) sel.value = area;
-      _schRendered = false;
-      if (document.getElementById('schedule').style.display !== 'none') {
-        renderSchedule();
-      }
+      Schedule.setFilter(pref);
+    }
     })
     .catch(() => {});
 });
@@ -363,15 +358,13 @@ function switchTab(tab) {
   } else if (tab === 'schedule') {
     schEl.style.display = 'block';
     tabSch.classList.add('active');
-    renderSchedule();
+    Schedule.render();
   } else if (tab === 'news') {
     if (newsEl) newsEl.style.display = 'block';
     if (tabNews) tabNews.classList.add('active');
     loadNewsTab();
   }
 }
-
-const SCH_TODAY = getTodayJST();
 
 // エリア定義
 const AREA_MAP = {
@@ -398,129 +391,7 @@ const AREA_MAP = {
   '鹿児島県': '九州・沖縄', '沖縄県': '九州・沖縄',
 };
 
-const AREA_LIST = [
-  '北海道', '東北', '関東', '北陸・甲信越',
-  '東海', '近畿', '中国', '四国', '九州・沖縄'
-];
 
-// 現在選択中のエリア（'all'=全国）
-let _schAreaFilter = 'all';
-
-// 都道府県バッジ色（背景色, 文字色）
-const PREF_BADGE_COLORS = {
-  '北海道':['#1a3a5c','#5ab4ff'], '青森県':['#1a3a4c','#5ac4ff'], '岩手県':['#1a4a3c','#5ad4af'],
-  '宮城県':['#1a3a2c','#5ad4bf'], '秋田県':['#2a3a1c','#8ad46f'], '山形県':['#3a3a1c','#c4d45f'],
-  '福島県':['#3a2a1c','#d4a45f'], '茨城県':['#2a1a3c','#a07fe0'], '栃木県':['#3a1a2a','#e07fa0'],
-  '群馬県':['#3a2a00','#ffc844'], '埼玉県':['#3a2a00','#ffc844'], '千葉県':['#3a1a2a','#ff88bb'],
-  '東京都':['#1a3a5c','#5ab4ff'], '神奈川県':['#0a3a1a','#44cc88'], '新潟県':['#2a3a2a','#88cc88'],
-  '富山県':['#1a3a3a','#44cccc'], '石川県':['#2a2a3a','#8888ff'], '福井県':['#3a1a3a','#cc44cc'],
-  '山梨県':['#3a3a1a','#cccc44'], '長野県':['#1a4a2a','#44cc88'], '岐阜県':['#2a3a1a','#88cc44'],
-  '静岡県':['#3a1a1a','#cc6644'], '愛知県':['#1a2a3a','#4488cc'], '三重県':['#2a1a3a','#8844cc'],
-  '滋賀県':['#1a3a2a','#44cc88'], '京都府':['#3a1a1a','#cc4444'], '大阪府':['#3a2a1a','#cc8844'],
-  '兵庫県':['#1a2a2a','#44aaaa'], '奈良県':['#3a3a1a','#aaaa44'], '和歌山県':['#3a1a2a','#cc4488'],
-  '鳥取県':['#1a3a3a','#44cccc'], '島根県':['#2a3a2a','#66cc66'], '岡山県':['#3a2a2a','#cc8866'],
-  '広島県':['#2a1a2a','#aa44aa'], '山口県':['#1a2a3a','#4488aa'], '徳島県':['#3a1a1a','#dd5533'],
-  '香川県':['#2a3a1a','#88cc44'], '愛媛県':['#3a2a1a','#ccaa44'], '高知県':['#1a3a1a','#44cc44'],
-  '福岡県':['#1a1a3a','#4444cc'], '佐賀県':['#2a1a3a','#8844bb'], '長崎県':['#3a1a2a','#cc5588'],
-  '熊本県':['#3a2a1a','#cc9944'], '大分県':['#1a3a2a','#44cc99'], '宮崎県':['#2a3a1a','#88cc55'],
-  '鹿児島県':['#3a1a1a','#cc5544'], '沖縄県':['#1a3a3a','#44cccc'],
-};
-
-function getPrefBadgeStyle(pref) {
-  const c = PREF_BADGE_COLORS[pref] || ['#2a2a2a','#aaaaaa'];
-  return `background:${c[0]};color:${c[1]};`;
-}
-
-function getPrefBadgeLabel(pref) {
-  return pref.replace(/[都道府県]$/, '');
-}
-
-let _schRendered = false;
-function renderSchedule() {
-  if (_schRendered) return;
-  _schRendered = true;
-  const container = document.getElementById('schedule');
-
-  // エリアフィルターUI
-  const filterBar = document.createElement('div');
-  filterBar.style.cssText = 'display:flex;align-items:center;gap:8px;padding:10px 12px;background:#1a1a2e;position:sticky;top:0;z-index:10;border-bottom:1px solid #0f3460;';
-
-  const label = document.createElement('span');
-  label.textContent = '📍';
-  label.style.fontSize = '18px';
-
-  const sel = document.createElement('select');
-  sel.id = 'sch-area-filter';
-  sel.style.cssText = 'flex:1;padding:8px 12px;border-radius:8px;border:1px solid #0f3460;background:#0f3460;color:#fff;font-size:15px;';
-
-  const optAll = document.createElement('option');
-  optAll.value = 'all';
-  optAll.textContent = '🗾 全国';
-  sel.appendChild(optAll);
-
-  AREA_LIST.forEach(area => {
-    const opt = document.createElement('option');
-    opt.value = area;
-    opt.textContent = area;
-    sel.appendChild(opt);
-  });
-
-  sel.value = _schAreaFilter;
-  sel.addEventListener('change', () => {
-    _schAreaFilter = sel.value;
-    _schRendered = false;
-    renderSchedule();
-  });
-
-  filterBar.appendChild(label);
-  filterBar.appendChild(sel);
-  container.innerHTML = '';
-  container.appendChild(filterBar);
-
-  const listEl = document.createElement('div');
-  listEl.style.cssText = 'padding:0 0 80px 0;';
-  container.appendChild(listEl);
-
-  listEl.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
-
-  fetch('schedule.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(data => {
-      const filtered = _schAreaFilter === 'all'
-        ? data
-        : data.filter(e => AREA_MAP[e.prefecture] === _schAreaFilter);
-
-      if (filtered.length === 0) {
-        listEl.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">この地域の例会情報はありません</div>';
-        return;
-      }
-
-      const byDate = {};
-      filtered.forEach(e => {
-        const d = e.next_date;
-        if (!byDate[d]) byDate[d] = [];
-        byDate[d].push(e);
-      });
-
-      let html = '';
-      Object.keys(byDate).sort().forEach(date => {
-        const evs = byDate[date];
-        const isToday = date === SCH_TODAY;
-        const dateLabel = date.replace(/^\d{4}-/, '').replace('-', '/') + '（' + ['日','月','火','水','木','金','土'][new Date(date + 'T00:00:00+09:00').getDay()] + '）';
-        html += `<div class="sch-date-header"><span>${dateLabel}</span>${isToday ? '<span class="sch-date-today">今日</span>' : ''}<span class="sch-date-count">${evs.length}件</span></div>`;
-        evs.forEach(e => {
-          const clickAttr = (e.latitude && e.longitude)
-            ? ` onclick="jumpToMarker(${e.id}, ${e.latitude}, ${e.longitude}, '${(e.meeting_name || '').replace(/['"]/g, '')}')" style="cursor:pointer;"`
-            : '';
-          html += `<div class="sch-card"${clickAttr}><div class="sch-time"><div class="sch-time-start">${e.start_time || ''}</div><div class="sch-time-end" style="font-size:14px;color:#888;">${e.end_time || ''}</div></div><div class="sch-info"><div class="sch-name">${e.meeting_name}</div><div class="sch-loc">📍 ${e.address || ''}</div></div><span class="sch-pref-badge" style="${getPrefBadgeStyle(e.prefecture)}">${getPrefBadgeLabel(e.prefecture)}</span></div>`;
-        });
-      });
-      listEl.innerHTML = html;
-    })
-    .catch(() => {
-      listEl.innerHTML = '<div style="color:#e94560;text-align:center;padding:32px;">取得エラー</div>';
-    });
-}
 
 let VENUES = [];
 let clusterGroup = L.markerClusterGroup({
