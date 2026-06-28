@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-28 schedule.js分離・RAG基盤構築 | 断酒でGO!! 開発ノート</title>
+<style>
+  :root {
+    --bg: #0f0f1a;
+    --surface: #1a1a2e;
+    --border: #0f3460;
+    --accent: #4a9eff;
+    --green: #44cc88;
+    --amber: #ffcc44;
+    --red: #e94560;
+    --text: #e0e0f0;
+    --muted: #a0a0b0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+    line-height: 1.8;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  header {
+    border-left: 4px solid var(--accent);
+    padding-left: 20px;
+    margin-bottom: 40px;
+  }
+  header .date {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  header .tagline {
+    font-size: 14px;
+    color: var(--accent);
+  }
+  .catchcopy {
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .catchcopy h2 {
+    font-size: 22px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .catchcopy p {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  h2 {
+    font-size: 18px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 15px;
+    color: var(--amber);
+    margin: 20px 0 10px;
+  }
+  p { margin-bottom: 12px; color: var(--text); }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  .badge-green  { background: #1a3a2a; color: var(--green); border: 1px solid var(--green); }
+  .badge-amber  { background: #3a2a00; color: var(--amber); border: 1px solid var(--amber); }
+  .badge-red    { background: #3a1a1a; color: var(--red);   border: 1px solid var(--red); }
+  .badge-blue   { background: #1a2a3a; color: var(--accent); border: 1px solid var(--accent); }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h4 {
+    font-size: 14px;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  code {
+    background: #0a0a1a;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+    color: #88ccff;
+    display: block;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 12px 0;
+  }
+  .flow {
+    background: #0a0a1a;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+    color: #88ccff;
+    white-space: pre;
+    line-height: 1.6;
+  }
+  .result-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-icon { font-size: 20px; }
+  .result-text { flex: 1; }
+  .result-text .title { font-size: 14px; font-weight: bold; }
+  .result-text .sub { font-size: 12px; color: var(--muted); }
+  .lesson {
+    background: #1a2a1a;
+    border-left: 3px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+  }
+  .lesson p { margin: 0; font-size: 14px; }
+  .warning {
+    background: #2a1a00;
+    border-left: 3px solid var(--amber);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+  }
+  .warning p { margin: 0; font-size: 14px; color: var(--amber); }
+  .next-card {
+    background: var(--surface);
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .next-card .num {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--green);
+    margin-right: 12px;
+  }
+  .next-card .label { font-size: 15px; font-weight: bold; }
+  .next-card .desc { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .tag {
+    display: inline-block;
+    background: #1a1a3a;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    margin: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="date">2026年06月28日（日）</div>
+  <h1>schedule.js分離 &amp; RAG基盤構築</h1>
+  <div class="tagline">断酒でGO!! 開発ノート #011</div>
+</header>
+
+<div class="catchcopy">
+  <h2>🦆 今日いける例会が30秒でわかる</h2>
+  <p>マップアプリ断酒でGO!! — 全ての設計はここへ収束する</p>
+</div>
+
+<section>
+  <h2>🎯 今日やったこと</h2>
+
+  <div class="card">
+    <h4>① かもちゃんに開発ノートリンク追加</h4>
+    <p>ウェルカムメッセージ末尾に <code style="display:inline;padding:2px 6px;">📓 開発ノート</code> リンクを追加。フッターがボトムナビに置き換わったことで消えていた導線を回復。</p>
+    <span class="badge badge-green">✅ 完了</span>
+    <code>sed -i '' 's|医療的なご相談は専門家にご相談ください。|...|' chat.html</code>
+  </div>
+
+  <div class="card">
+    <h4>② schedule.js 分離（名前空間パターン第1弾）</h4>
+    <p>app.jsから日程タブ関連コード（約150行）を <code style="display:inline;padding:2px 6px;">schedule.js</code> に分離。<code style="display:inline;padding:2px 6px;">Schedule</code> オブジェクトで名前空間化。</p>
+    <span class="badge badge-green">✅ 完了</span>
+    <code>const Schedule = {
+  _prefFilter: 'all',
+  _rendered: false,
+  _data: null,
+  setFilter(pref) { ... },  // GPS・セレクトから呼ぶ
+  render() { ... },         // タブ切替から呼ぶ
+  reset() { ... },
+};</code>
+    <div class="lesson">
+      <p>💡 教訓：関数削除前は <code style="display:inline;padding:2px 6px;">grep -rn "関数名" ./ </code> で全ファイル横断確認。<code style="display:inline;padding:2px 6px;">getPrefBadgeStyle</code> の削除漏れでSyntaxErrorが発生した。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>③ 日程タブ 都道府県フィルタ＋近隣折りたたみ表示</h4>
+    <p>エリア9地域フィルタ → 都道府県47フィルタに改修。GPSで自動選択。近隣都道府県はdetails/summaryで折りたたみ表示。表示件数を自都道府県10日・近隣7日に制限。</p>
+    <span class="badge badge-green">✅ 完了</span>
+    <div class="flow">GPS取得 → 都道府県自動選択
+  ↓
+┌─ 東京都の例会（10日分）─┐
+│ 06/28（日）3件           │
+│ 06/29（月）1件           │
+└──────────────────────────┘
+┌─ 近隣の例会 ─────────────┐
+│ ▶ 神奈川県（23件）       │ ← 折りたたみ
+│ ▶ 埼玉県（18件）         │
+└──────────────────────────┘</div>
+  </div>
+
+  <div class="card">
+    <h4>④ RAG基盤構築（gen）</h4>
+    <p>nomic-embed-textでvenues.json 1390件をベクトル化。SQLiteに保存。187秒で完了（予測35分を大幅に下回った）。</p>
+    <span class="badge badge-green">✅ 完了</span>
+
+    <h4 style="margin-top:16px;">速度比較</h4>
+    <div class="result-row">
+      <div class="result-icon">⚡</div>
+      <div class="result-text">
+        <div class="title">nomic-embed-text（ベクトル化）</div>
+        <div class="sub">1.5秒 — 検索クエリのベクトル化</div>
+      </div>
+      <span class="badge badge-green">採用</span>
+    </div>
+    <div class="result-row">
+      <div class="result-icon">🔍</div>
+      <div class="result-text">
+        <div class="title">SQLiteコサイン類似度検索</div>
+        <div class="sub">0.01秒 — 1390件から上位N件抽出</div>
+      </div>
+      <span class="badge badge-green">採用</span>
+    </div>
+    <div class="result-row">
+      <div class="result-icon">🤖</div>
+      <div class="result-text">
+        <div class="title">Claude Haiku（回答生成）</div>
+        <div class="sub">1.4秒 — 今日の日付＋会場データで自然な回答</div>
+      </div>
+      <span class="badge badge-green">採用</span>
+    </div>
+    <div class="result-row">
+      <div class="result-icon">🐌</div>
+      <div class="result-text">
+        <div class="title">qwen2.5:7b（地名抽出）</div>
+        <div class="sub">14秒 — チャットには遅すぎる</div>
+      </div>
+      <span class="badge badge-amber">夜間バッチ用に温存</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>⑤ rag.py 検索エンジン作成</h4>
+    <p>距離×曜日×意味検索のハイブリッド検索エンジン。</p>
+    <span class="badge badge-green">✅ 完了</span>
+    <div class="flow">「今週立川あたりで開催している例会」
+        ↓ distance_mode=True
+  0.6km 立川市 柴崎学習館  → 木曜19:00 日曜14:00
+  0.8km 立川市 錦学習館    → 日曜14:00
+  1.1km 立川市社会福祉協議会 → 日曜13:00 水曜13:00</div>
+
+    <h4 style="margin-top:16px;">検索モード</h4>
+    <p><span class="tag">曜日モード</span> 今日・明日・明後日・曜日指定 → 該当曜日でフィルタ＋距離ソート</p>
+    <p><span class="tag">距離モード</span> 今週・来週 → 曜日問わず近い順</p>
+    <p><span class="tag">フォールバック</span> 15km以内に0件 → 30km以内で近い順</p>
+  </div>
+</section>
+
+<section>
+  <h2>⚠️ 発見した課題</h2>
+
+  <div class="warning">
+    <p>🔴 東京都のday_of_week欠損問題</p>
+  </div>
+  <p>東京都204件中77件（38%）しか曜日データがない。iCalから取得していない例会は曜日未設定のまま。これがRAG検索精度低下の根本原因。</p>
+  <code>東京都の例会: 204件
+曜日あり:      77件（38%）
+曜日なし:     127件（62%）← 曜日フィルタで全部弾かれる</code>
+
+  <div class="warning">
+    <p>🟡 tama_danshu_ical.pyがcronに未登録</p>
+  </div>
+  <p>多摩地区（立川含む）のiCalスクリプトが毎日実行されていない。次回cronに追加する。</p>
+</section>
+
+<section>
+  <h2>💡 設計思想の確認</h2>
+
+  <div class="catchcopy" style="margin-bottom:20px;">
+    <h2 style="font-size:18px;">4タブ、全部同じゴールへの4つの道</h2>
+  </div>
+
+  <div class="flow">🗺️ マップタブ    → 地図で視覚的に今日の例会を確認
+📅 日程タブ    → 近隣都道府県の例会を日付順に確認
+📢 新着タブ    → 例会変更・中止をいち早くキャッチ
+🤖 かもちゃん  → 話しかけるだけで今日の例会が出る
+
+       ↓ 全部ここへ収束 ↓
+
+  「今日いける例会が30秒でわかる」</div>
+
+  <h3>かもちゃん 完成形の導線</h3>
+  <div class="flow">① 例会を探す　タップ
+      ↓
+📍 GPS取得（自動）
+      ↓
+【今日・あなたの周辺の例会】
+
+─ 今日（木曜）─────────────
+🏠 立川断酒会（0.8km）19:00〜
+🏠 錦断酒会（1.2km）19:00〜
+
+[明日も見る] [今週見る] [場所を変える]</div>
+
+  <p>タップ2回・30秒以内で今日の例会が出る。自由入力ゼロ。かもちゃんがエスコートしてくれる設計。</p>
+</section>
+
+<section>
+  <h2>🔧 app.js分割ロードマップ</h2>
+  <p>バグの解析をやりやすくするためにapp.jsを機能ごとに分割中。触るついでに分離する「撃道スタイル」で進める。</p>
+  <div class="result-row">
+    <div class="result-icon">✅</div>
+    <div class="result-text">
+      <div class="title">schedule.js</div>
+      <div class="sub">日程タブ — 今日完了</div>
+    </div>
+  </div>
+  <div class="result-row">
+    <div class="result-icon">⏳</div>
+    <div class="result-text">
+      <div class="title">news.js</div>
+      <div class="sub">新着タブ — 新着タブ改修のとき</div>
+    </div>
+  </div>
+  <div class="result-row">
+    <div class="result-icon">⏳</div>
+    <div class="result-text">
+      <div class="title">map.js</div>
+      <div class="sub">マップ機能 — マップ触るとき</div>
+    </div>
+  </div>
+  <div class="result-row">
+    <div class="result-icon">⏳</div>
+    <div class="result-text">
+      <div class="title">chat.js</div>
+      <div class="sub">かもちゃん連携 — かもちゃん改修のとき</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>🎯 次回やること</h2>
+
+  <div class="next-card">
+    <span class="num">①</span>
+    <span class="label">tama_danshu_ical.pyをcronに追加</span>
+    <div class="desc">多摩地区の曜日データを埋める → RAG精度向上</div>
+  </div>
+
+  <div class="next-card">
+    <span class="num">②</span>
+    <span class="label">main.pyにrag.py組み込み</span>
+    <div class="desc">かもちゃんチャットでRAG検索を実際に使えるように</div>
+  </div>
+
+  <div class="next-card">
+    <span class="num">③</span>
+    <span class="label">qa.json「例会を探す」フロー改修</span>
+    <div class="desc">GPS取得→RAG検索→今日の例会を即表示。タップ2回で30秒以内</div>
+  </div>
+
+  <div class="next-card">
+    <span class="num">④</span>
+    <span class="label">新着タブ改修（news.js分離も同時に）</span>
+    <div class="desc">斯断酒会PDFリンク取得・スクレイピング30分ごと</div>
+  </div>
+</section>
+
+<footer>
+  <p>断酒でGO!! 開発ノート #011 | 2026-06-28</p>
+  <p style="margin-top:8px;">アルコール依存症からの回復を支援する例会情報インフラ</p>
+  <p style="margin-top:4px;">撃道 — 困難を引き受けて前進する</p>
+</footer>
+
+</body>
+</html>
