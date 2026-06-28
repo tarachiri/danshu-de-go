@@ -1067,11 +1067,11 @@ function openKamo() {
   document.getElementById('bottom-kamo').classList.add('active');
 }
 // ============================================================
-// お知らせタブ (news.json) 表示機能
+// 新着タブ (news.json) 表示機能
 // app.js の末尾に追記する
 // ============================================================
 
-// ─── お知らせタブ 読み込み ───────────────────────────────
+// ─── 新着タブ 読み込み ───────────────────────────────
 async function loadNewsTab() {
   const container = document.getElementById('news');
   if (!container) return;
