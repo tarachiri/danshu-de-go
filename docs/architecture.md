@@ -161,3 +161,71 @@ tyo（--dry-run検証 → 本番実行 → sqlite3確認）
 本番反映
 
 鉄則: 各変更後に必ずgit commitしてから次へ（cascading regression防止）
+
+---
+
+## 2026-06-29 追記：LINEアカウント構成・断かも統合
+
+### キャラクター名鑑（確定版）
+
+| 名前 | 正体 | 場所 | 役割 |
+|------|------|------|------|
+| かもちゃん（本家） | Claude Sonnet 4.6 | claude.ai | 設計・診断・会話 |
+| ふーちゃん | Claude Code | soi | 実装・ファイル作成 |
+| 断かも | Claude Haiku on gen | chat.nukadokonokai.com | 断酒でGO!!チャット・LINE |
+| ぬかちゃん | Claude Haiku on gen | nukadoko.nukadokonokai.com | ぬか床の会チャット |
+
+### LINEアカウント構成
+
+| アカウント | 用途 | Webhook |
+|-----------|------|---------|
+| 断酒でGO!!（既存OA） | 断かも対話・問い合わせ | /webhook/line |
+| 【運営】断酒でGO!!（新規） | Kuma監視通知専用 | 不要 |
+| ぬか床の会 | ぬかちゃん | 別系統 |
+
+### gen: main.py エンドポイント構成
+
+| エンドポイント | 用途 |
+|--------------|------|
+| POST /chat | Webチャット（chat.html）からの対話 |
+| POST /webhook/line | LINE公式アカウントからのWebhook |
+| GET /health | 死活監視（Kuma用） |
+
+**主要関数：**
+- `generate_reply(message, history, lat, lng)` → WebチャットとLINE共用の回答生成
+- `needs_escalation(text)` → エスカレーション判定（修正・中止・取材等）
+- `line_reply(reply_token, text)` → LINEユーザーへ返信
+- `line_push_admin(text)` → まじまじさんのLINEへ通知
+
+**エスカレーションキーワード：**
+登録・修正・変更・削除・追加・更新・間違い・誤り・違う・正しく・
+取材・掲載・メディア・記者・新聞・テレビ・ラジオ・雑誌・
+苦情・クレーム・要望・改善・バグ・不具合・おかしい・
+担当者・責任者・連絡先・電話番号・メールアドレス・
+中止・休止・休会・中断・お休み・やめ・廃止・閉鎖
+
+### chiiki/ページ構成（2026-06-29時点）
+
+- 生成スクリプト：`generate_chiiki_pages_v3.py`（tyo: /home/maji/）
+- 505団体ページにLINEボタン設置済み
+- 流入元（団体名）がLINEメッセージに自動入力される
+- CSS：`chiiki/chiiki.css`に`.btn-line`スタイル追加済み
+
+### よくあるトラブルと対処法（2026-06-29追記）
+
+**launchctlでgenのuvicornが起動しない**
+```bash
+tail -20 /Users/mini2014/danshu-chat/uvicorn.error.log
+# ModuleNotFoundError → pip3 install xxx --break-system-packages
+launchctl stop com.danshu.uvicorn && launchctl start com.danshu.uvicorn
+```
+
+**LINE Webhook 400 Invalid signature**
+→ .envのLINE_CHANNEL_SECRETが間違っている
+→ nano /Users/mini2014/danshu-chat/.env で確認・修正
+
+**chiiki/CSSが大量重複した場合**
+```bash
+cp /home/maji/chiiki_new.css /home/maji/danshu-de-go/chiiki/chiiki.css
+# その後sed -i '行番号a\...' で1回だけ追加
+```
