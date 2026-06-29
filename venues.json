@@ -19971,6 +19971,324 @@
     "recurrence": ""
   },
   {
+    "id": 2012,
+    "facility_name": "各務原病院西館1階",
+    "address": "各務原市東山",
+    "lat": 35.432365,
+    "lng": 136.88089,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "岐阜断酒新生会 例会",
+        "day_of_week": "金",
+        "week_of_month": "1,3,5",
+        "start_time": "19:00",
+        "end_time": "20:40",
+        "recurrence": "第1・第3・第5金曜",
+        "next_date": "2026-07-03"
+      }
+    ],
+    "fallback_meeting_name": "岐阜断酒新生会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-03",
+    "meeting_name": "岐阜断酒新生会 例会",
+    "start_time": "19:00",
+    "end_time": "20:40",
+    "recurrence": "第1・第3・第5金曜"
+  },
+  {
+    "id": 2013,
+    "facility_name": "東部コミュニティセンター",
+    "address": "岐阜市芥見",
+    "lat": 35.462425,
+    "lng": 136.855743,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "岐阜断酒新生会 例会",
+        "day_of_week": "日",
+        "week_of_month": "2,4",
+        "start_time": "13:00",
+        "end_time": "15:30",
+        "recurrence": "第2・第4日曜",
+        "next_date": "2026-07-12"
+      },
+      {
+        "name": "岐阜断酒新生会 家族会",
+        "day_of_week": "日",
+        "week_of_month": "4",
+        "start_time": "13:00",
+        "end_time": "15:30",
+        "recurrence": "第4日曜",
+        "next_date": "2026-07-26"
+      }
+    ],
+    "fallback_meeting_name": "岐阜断酒新生会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-12",
+    "meeting_name": "岐阜断酒新生会 例会",
+    "start_time": "13:00",
+    "end_time": "15:30",
+    "recurrence": "第2・第4日曜"
+  },
+  {
+    "id": 2014,
+    "facility_name": "大垣市総合福祉会館",
+    "address": "大垣市馬場町",
+    "lat": 35.357178,
+    "lng": 136.610672,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "西濃断酒会 例会",
+        "day_of_week": "水",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "毎週水曜",
+        "next_date": "2026-07-01"
+      },
+      {
+        "name": "西濃断酒会 家族会",
+        "day_of_week": "水",
+        "week_of_month": "4",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第4水曜",
+        "next_date": "2026-07-22"
+      }
+    ],
+    "fallback_meeting_name": "西濃断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-01",
+    "meeting_name": "西濃断酒会 例会",
+    "start_time": "19:00",
+    "end_time": "20:45",
+    "recurrence": "毎週水曜"
+  },
+  {
+    "id": 2015,
+    "facility_name": "養南病院",
+    "address": "海津市南濃町",
+    "lat": 35.187931,
+    "lng": 136.619553,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "西濃断酒会 例会",
+        "day_of_week": "日",
+        "week_of_month": "2,4",
+        "start_time": "15:00",
+        "end_time": "17:00",
+        "recurrence": "第2・第4日曜",
+        "next_date": "2026-07-12"
+      }
+    ],
+    "fallback_meeting_name": "西濃断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-12",
+    "meeting_name": "西濃断酒会 例会",
+    "start_time": "15:00",
+    "end_time": "17:00",
+    "recurrence": "第2・第4日曜"
+  },
+  {
+    "id": 2016,
+    "facility_name": "南部コミュニティ消防センター",
+    "address": "郡上市八幡町",
+    "lat": 35.759174,
+    "lng": 136.945831,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "中濃断酒会 例会",
+        "day_of_week": "日",
+        "week_of_month": "",
+        "start_time": "12:30",
+        "end_time": "13:30",
+        "recurrence": "毎週日曜",
+        "next_date": "2026-07-05"
+      }
+    ],
+    "fallback_meeting_name": "中濃断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-05",
+    "meeting_name": "中濃断酒会 例会",
+    "start_time": "12:30",
+    "end_time": "13:30",
+    "recurrence": "毎週日曜"
+  },
+  {
+    "id": 2017,
+    "facility_name": "ウエルフェア土岐",
+    "address": "土岐市下石町",
+    "lat": 35.321953,
+    "lng": 137.18631,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "中濃断酒会 例会",
+        "day_of_week": "火",
+        "week_of_month": "",
+        "start_time": "19:30",
+        "end_time": "21:00",
+        "recurrence": "毎週火曜",
+        "next_date": "2026-06-30"
+      }
+    ],
+    "fallback_meeting_name": "中濃断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-06-30",
+    "meeting_name": "中濃断酒会 例会",
+    "start_time": "19:30",
+    "end_time": "21:00",
+    "recurrence": "毎週火曜"
+  },
+  {
+    "id": 2018,
+    "facility_name": "恵那文化センター",
+    "address": "恵那市長島町",
+    "lat": 35.432339,
+    "lng": 137.400238,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "東濃東部断酒会 例会",
+        "day_of_week": "土",
+        "week_of_month": "",
+        "start_time": "19:00",
+        "end_time": "20:30",
+        "recurrence": "毎週土曜",
+        "next_date": "2026-07-04"
+      }
+    ],
+    "fallback_meeting_name": "東濃東部断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-04",
+    "meeting_name": "東濃東部断酒会 例会",
+    "start_time": "19:00",
+    "end_time": "20:30",
+    "recurrence": "毎週土曜"
+  },
+  {
+    "id": 2019,
+    "facility_name": "恵那市民会館",
+    "address": "恵那市長島町",
+    "lat": 35.432339,
+    "lng": 137.400238,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "東濃東部断酒会 例会",
+        "day_of_week": "日",
+        "week_of_month": "",
+        "start_time": "14:00",
+        "end_time": "15:00",
+        "recurrence": "毎週日曜",
+        "next_date": "2026-07-05"
+      }
+    ],
+    "fallback_meeting_name": "東濃東部断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-05",
+    "meeting_name": "東濃東部断酒会 例会",
+    "start_time": "14:00",
+    "end_time": "15:00",
+    "recurrence": "毎週日曜"
+  },
+  {
+    "id": 2020,
+    "facility_name": "高山市総合福祉センター",
+    "address": "高山市昭和町",
+    "lat": 36.140686,
+    "lng": 137.250137,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "飛騨高山断酒会 例会",
+        "day_of_week": "日",
+        "week_of_month": "3",
+        "start_time": "13:00",
+        "end_time": "15:00",
+        "recurrence": "第3日曜",
+        "next_date": "2026-07-19"
+      }
+    ],
+    "fallback_meeting_name": "飛騨高山断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-19",
+    "meeting_name": "飛騨高山断酒会 例会",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "recurrence": "第3日曜"
+  },
+  {
+    "id": 2021,
+    "facility_name": "小倉宅",
+    "address": "高山市国府町",
+    "lat": 36.189083,
+    "lng": 137.264389,
+    "prefecture": "岐阜県",
+    "official_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "meetings": [
+      {
+        "name": "飛騨高山断酒会 例会",
+        "day_of_week": "金",
+        "week_of_month": "1",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第1金曜",
+        "next_date": "2026-07-03"
+      }
+    ],
+    "fallback_meeting_name": "飛騨高山断酒会",
+    "fallback_schedule": "",
+    "fallback_next_date": "",
+    "next_date": "2026-07-03",
+    "meeting_name": "飛騨高山断酒会 例会",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "recurrence": "第1金曜"
+  },
+  {
     "id": 1220,
     "facility_name": "きらめきプラザ",
     "address": "岡山県岡山市北区南方２丁目１３−１",
