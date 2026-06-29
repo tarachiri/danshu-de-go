@@ -1,53 +1,392 @@
-/* 断酒でGO!! 地域ページ CSS */
+/* ============================================================
+   断酒でGO!! 地域ページ CSS v2
+   コンセプト：ネイビー×グレー、親しみやすくポップ
+   ターゲット：アルコールで困っている本人・家族
+              →「怖くない、話しかけていい場所」に見せる
+   ============================================================ */
+
 :root {
-  --primary: #2c5f8a;
-  --accent: #e85d04;
-  --bg: #f8f9fa;
-  --text: #333;
-  --border: #dee2e6;
+  /* カラーパレット */
+  --navy:      #1e3a5f;   /* メイン：深いネイビー */
+  --navy-mid:  #2d5986;   /* ナビ・ボタン */
+  --navy-light:#e8f0f8;   /* 背景アクセント */
+  --slate:     #5a7a9a;   /* サブテキスト */
+  --warm-gray: #f4f5f7;   /* ページ背景 */
+  --white:     #ffffff;
+  --border:    #dce4ed;
+
+  /* アクセント：やわらかいコーラル */
+  --coral:     #e07060;   /* CTAボタン・バッジ */
+  --coral-dark:#c55a4a;
+
+  /* テキスト */
+  --text:      #2c3e50;
+  --text-sub:  #6b7c93;
+
+  /* 角丸・シャドウ */
+  --radius:    10px;
+  --radius-sm: 6px;
+  --shadow:    0 2px 12px rgba(30,58,95,0.10);
+  --shadow-hover: 0 6px 20px rgba(30,58,95,0.16);
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
-  color: var(--text); background: var(--bg); line-height: 1.7; }
-.site-header { background: var(--primary); color: white; padding: 1rem 1.5rem;
-  display: flex; align-items: center; gap: 2rem; }
-.site-header .logo { color: white; text-decoration: none; font-size: 1.3rem; font-weight: bold; }
-.site-header nav a { color: rgba(255,255,255,0.85); text-decoration: none; margin-left: 1rem; }
-main { max-width: 860px; margin: 0 auto; padding: 1.5rem; }
-.breadcrumb { font-size: 0.85rem; color: #666; margin-bottom: 1.5rem; }
-.breadcrumb a { color: var(--primary); text-decoration: none; }
-h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 0.5rem; }
-h2 { font-size: 1.2rem; color: var(--primary); margin: 1.5rem 0 0.8rem;
-  padding-bottom: 0.3rem; border-bottom: 2px solid var(--primary); }
-.summary { font-size: 1.1rem; color: #555; margin-bottom: 1.5rem; }
-.org-badge { display: inline-block; background: var(--accent); color: white;
-  font-size: 0.8rem; padding: 0.2rem 0.7rem; border-radius: 3px; margin-bottom: 0.8rem; }
-.info-table { width: 100%; border-collapse: collapse; margin: 0.5rem 0 1rem; }
-.info-table th, .info-table td { padding: 0.6rem 0.8rem; border: 1px solid var(--border);
-  text-align: left; }
-.info-table th { background: #e9ecef; width: 30%; font-weight: bold; }
-.info-table a { color: var(--primary); }
-.btn-phone { display: inline-block; background: var(--accent); color: white;
-  padding: 0.7rem 1.5rem; border-radius: 5px; text-decoration: none;
-  font-size: 1.1rem; font-weight: bold; margin: 0.5rem 0; }
-.org-cards, .pref-cards, .block-cards { list-style: none; display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.8rem; margin: 0.5rem 0; }
-.org-card a, .pref-card a, .block-card a { display: block; background: white;
-  border: 1px solid var(--border); border-radius: 6px; padding: 1rem;
-  text-decoration: none; color: var(--text); transition: box-shadow 0.2s; }
-.org-card a:hover, .pref-card a:hover, .block-card a:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
-.org-name, .pref-name, .block-name { display: block; font-weight: bold;
-  color: var(--primary); margin-bottom: 0.3rem; }
-.org-area, .pref-count, .block-count { display: block; font-size: 0.85rem; color: #666; }
-section { margin-bottom: 2rem; }
-section p { margin-bottom: 0.8rem; }
-.back-links { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-.back-links a { color: var(--primary); text-decoration: none; }
-.site-footer { background: #343a40; color: #adb5bd; padding: 2rem 1.5rem;
-  text-align: center; font-size: 0.85rem; margin-top: 3rem; }
-.site-footer a { color: #adb5bd; }
+
+/* ============================================================
+   リセット・ベース
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+               'Hiragino Sans', 'Yu Gothic', sans-serif;
+  color: var(--text);
+  background: var(--warm-gray);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+a { color: var(--navy-mid); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============================================================
+   ヘッダー
+   ============================================================ */
+.site-header {
+  background: var(--navy);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .logo {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.site-header .logo::before {
+  content: '🦆';
+  font-size: 1.2rem;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.site-header nav a {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: background 0.2s;
+}
+
+.site-header nav a:hover {
+  background: rgba(255,255,255,0.15);
+  text-decoration: none;
+}
+
+/* ============================================================
+   メインコンテンツ
+   ============================================================ */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* ============================================================
+   パンくず
+   ============================================================ */
+.breadcrumb {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.breadcrumb a {
+  color: var(--slate);
+}
+
+.breadcrumb a:hover { color: var(--navy); }
+
+.breadcrumb span + span::before {
+  content: '›';
+  margin-right: 0.3rem;
+  color: var(--border);
+}
+
+/* ============================================================
+   ページヘッダー部
+   ============================================================ */
+.page-hero {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--navy-mid);
+}
+
+.org-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--navy-light);
+  color: var(--navy);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.org-badge::before { content: '✓'; }
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.org-pref {
+  color: var(--text-sub);
+  font-size: 0.95rem;
+}
+
+.summary {
+  color: var(--text-sub);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.summary strong {
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+/* ============================================================
+   セクションカード
+   ============================================================ */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1.1em;
+  background: var(--coral);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   情報テーブル
+   ============================================================ */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.info-table tr:last-child {
+  border-bottom: none;
+}
+
+.info-table th {
+  padding: 0.65rem 0.5rem 0.65rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  width: 28%;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.info-table td {
+  padding: 0.65rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  vertical-align: top;
+}
+
+.info-table a { color: var(--navy-mid); }
+
+/* ============================================================
+   電話ボタン（メインCTA）
+   ============================================================ */
+.btn-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--coral);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  transition: background 0.2s, transform 0.1s;
+  text-decoration: none;
+}
+
+.btn-phone:hover {
+  background: var(--coral-dark);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn-phone:active { transform: translateY(0); }
+
+/* ============================================================
+   リストカード（組織・都道府県・ブロック）
+   ============================================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.7rem;
+  list-style: none;
+}
+
+.card-grid li a {
+  display: block;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.card-grid li a:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--navy-mid);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.card-grid .item-name {
+  display: block;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.card-grid .item-sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+}
+
+/* ============================================================
+   本文テキスト
+   ============================================================ */
+.card p {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.8;
+}
+
+.card p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   戻るリンク
+   ============================================================ */
+.back-links {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.back-links a {
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.back-links a:hover { color: var(--navy); }
+
+/* ============================================================
+   フッター
+   ============================================================ */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.65);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  margin-top: 2rem;
+}
+
+.site-footer a {
+  color: rgba(255,255,255,0.8);
+}
+
 .site-footer p { margin-bottom: 0.4rem; }
+
+/* ============================================================
+   レスポンシブ
+   ============================================================ */
 @media (max-width: 600px) {
-  h1 { font-size: 1.4rem; }
-  .org-cards, .pref-cards, .block-cards { grid-template-columns: 1fr; }
+  h1 { font-size: 1.35rem; }
+  .page-hero { padding: 1.3rem 1.1rem; }
+  .card { padding: 1.1rem; }
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .site-header nav a { font-size: 0.78rem; padding: 0.35rem 0.7rem; }
+}
+
+@media (max-width: 380px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; transform: none !important; }
 }
