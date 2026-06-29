@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>断酒でGO!! 開発ノート｜全断連加盟断酒会公式サイト調査完了</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 860px; margin: 0 auto; padding: 24px; background: #f8f8f8; color: #222; line-height: 1.8; }
+  h1 { color: #e94560; border-bottom: 3px solid #e94560; padding-bottom: 8px; }
+  h2 { color: #0f3460; margin-top: 2em; border-left: 4px solid #e94560; padding-left: 12px; }
+  h3 { color: #444; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 13px; }
+  th { background: #0f3460; color: white; padding: 8px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 7px 10px; }
+  tr:nth-child(even) { background: #f0f4ff; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: bold; color: white; }
+  .rss { background: #e67e22; }
+  .scrape { background: #2980b9; }
+  .note { background: #f0f8ff; border-left: 4px solid #3498db; padding: 12px 16px; margin: 1em 0; border-radius: 4px; }
+  .warn { background: #fff8e1; border-left: 4px solid #f39c12; padding: 12px 16px; margin: 1em 0; border-radius: 4px; }
+  code { background: #eee; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 2em; }
+</style>
+</head>
+<body>
+
+<h1>🦆 断酒でGO!! 開発ノート</h1>
+<p class="meta">2026年6月28日｜かもちゃん記</p>
+
+<h2>全断連加盟断酒会 公式サイト調査完了</h2>
+
+<p>
+断酒でGO!!の新着タブ強化に向けて、公益社団法人全日本断酒連盟（全断連）に加盟する各都道府県断酒会の公式ウェブサイトを全件調査した。アルコール依存症からの回復を支える断酒会の情報インフラとして、断酒でGO!!がより多くの情報を集約できる体制を整えることが目的だ。
+</p>
+
+<p>
+断酒例会への参加は、アルコール依存症からの回復において非常に重要な役割を果たす。しかし全国各地で開催される例会やセミナー・講演会などの情報は各団体のウェブサイトに散在しており、一元的に把握することが難しい。断酒でGO!!はこの課題を解決するための「人命インフラ」として機能する。
+</p>
+
+<h2>調査結果サマリ</h2>
+
+<div class="note">
+全28件すべて生存確認。死亡・完全停止サイトはゼロ。各地の断酒会が積極的に情報発信を続けていることが確認できた。
+</div>
+
+<table>
+  <tr>
+    <th>分類</th><th>件数</th><th>内容</th>
+  </tr>
+  <tr><td>RSS取得可能</td><td>13件</td><td>WordPress系・自動取得が可能</td></tr>
+  <tr><td>スクレイピング必要</td><td>15件</td><td>Wix・Jimdo・独自CMSなど</td></tr>
+  <tr><td>死亡・停止</td><td>0件</td><td>なし</td></tr>
+</table>
+
+<h2>全28件 詳細リスト</h2>
+
+<table>
+  <tr>
+    <th>ID</th><th>都道府県</th><th>団体名</th><th>取得方法</th><th>備考</th>
+  </tr>
+  <tr><td>1</td><td>埼玉県</td><td>埼玉断酒新生会</td><td><span class="badge scrape">スクレイプ</span></td><td>エリア別お知らせあり・更新活発</td></tr>
+  <tr><td>2</td><td>栃木県</td><td>栃木断酒ホトトギス会</td><td><span class="badge scrape">スクレイプ</span></td><td>静的HTML・更新ゆっくり</td></tr>
+  <tr><td>3</td><td>東京都</td><td>東京断酒新生会</td><td><span class="badge rss">RSS</span></td><td>WordPress・最新6/6更新🔥</td></tr>
+  <tr><td>4</td><td>東京都</td><td>東京多摩断酒連合</td><td><span class="badge scrape">スクレイプ</span></td><td>最新6/27更新🔥・文字化け対応必要</td></tr>
+  <tr><td>5</td><td>東京都</td><td>練馬断酒会</td><td>—</td><td>Wix・お知らせなし・Googleカレンダー埋込</td></tr>
+  <tr><td>6</td><td>東京都</td><td>京王断酒会</td><td><span class="badge rss">RSS</span></td><td>WordPress・断酒継続支援に積極的</td></tr>
+  <tr><td>7</td><td>神奈川県</td><td>神奈川断酒連合</td><td><span class="badge scrape">スクレイプ</span></td><td>Wix・最新6/20更新🔥</td></tr>
+  <tr><td>8</td><td>愛知県</td><td>愛知県断酒連合会</td><td><span class="badge scrape">スクレイプ</span></td><td>Jimdo・お知らせページあり</td></tr>
+  <tr><td>9</td><td>滋賀県</td><td>滋賀県断酒同友会</td><td><span class="badge scrape">スクレイプ</span></td><td>静的HTML・文字化け対応必要</td></tr>
+  <tr><td>10</td><td>京都府</td><td>京都断酒平安会</td><td><span class="badge rss">RSS</span></td><td>WordPress・⚠️スパム投稿混入注意</td></tr>
+  <tr><td>11</td><td>大阪府</td><td>大阪府断酒会</td><td><span class="badge rss">RSS</span></td><td>WordPress・行事案内充実</td></tr>
+  <tr><td>12</td><td>大阪府</td><td>堺市断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系</td></tr>
+  <tr><td>13</td><td>大阪府</td><td>北摂断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系</td></tr>
+  <tr><td>14</td><td>大阪府</td><td>北河内断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系</td></tr>
+  <tr><td>15</td><td>大阪府</td><td>中河内断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系</td></tr>
+  <tr><td>16</td><td>大阪府</td><td>南河内断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系</td></tr>
+  <tr><td>17</td><td>大阪府</td><td>泉州断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系</td></tr>
+  <tr><td>18</td><td>大阪府</td><td>大阪市断酒連合会</td><td><span class="badge rss">RSS</span></td><td>fudanshu.com系・例会場120箇所超</td></tr>
+  <tr><td>19</td><td>兵庫県</td><td>兵庫県断酒会</td><td><span class="badge rss">RSS</span></td><td>WordPress・お知らせカテゴリ充実</td></tr>
+  <tr><td>20</td><td>奈良県</td><td>奈良県断酒連合会</td><td><span class="badge scrape">スクレイプ</span></td><td>静的HTML・お知らせなし</td></tr>
+  <tr><td>21</td><td>広島県</td><td>広島県断酒連合会</td><td><span class="badge scrape">スクレイプ</span></td><td>静的HTML・例会場情報は充実</td></tr>
+  <tr><td>22</td><td>山口県</td><td>山口県断酒会</td><td><span class="badge scrape">スクレイプ</span></td><td>crayonsite・PDF直リンクあり</td></tr>
+  <tr><td>23</td><td>香川県</td><td>香川県断酒会</td><td><span class="badge scrape">スクレイプ</span></td><td>amebloブログ連携あり</td></tr>
+  <tr><td>24</td><td>高知県</td><td>高知県断酒新生会</td><td><span class="badge scrape">スクレイプ</span></td><td>最新6/17更新🔥・文字化け対応必要</td></tr>
+  <tr><td>25</td><td>福岡県</td><td>福岡県断酒連合会</td><td><span class="badge rss">RSS</span></td><td>WordPress・PDF直リンクあり🔥</td></tr>
+  <tr><td>26</td><td>福岡県</td><td>北九州断酒友の会</td><td><span class="badge scrape">スクレイプ</span></td><td>Google Sites・更新ゆっくり</td></tr>
+  <tr><td>27</td><td>長崎県</td><td>断酒長与会</td><td><span class="badge scrape">スクレイプ</span></td><td>Jimdo・お知らせページあり</td></tr>
+  <tr><td>28</td><td>沖縄県</td><td>沖縄県断酒会</td><td><span class="badge scrape">スクレイプ</span></td><td>Jimdo・台風情報など随時更新🔥</td></tr>
+</table>
+
+<h2>DBスキーマ</h2>
+
+<p>
+調査結果は<code>danshu.db</code>の<code>danshu_sites</code>テーブルに格納した。
+</p>
+
+<pre><code>CREATE TABLE danshu_sites (
+  id            INTEGER PRIMARY KEY AUTOINCREMENT,
+  pref          TEXT,         -- 都道府県
+  org_name      TEXT,         -- 団体名
+  org_name_full TEXT,         -- 正式名称（法人格含む）
+  url           TEXT,         -- 公式サイトURL
+  news_url      TEXT,         -- 新着ページURL
+  rss_url       TEXT,         -- RSSフィードURL
+  is_active     INTEGER DEFAULT 1,
+  last_checked  DATE,
+  note          TEXT,
+  created_at    TEXT,
+  updated_at    TEXT
+);</code></pre>
+
+<h2>注意事項</h2>
+
+<div class="warn">
+<strong>⚠️ 京都断酒平安会（id=10）</strong><br>
+最近の投稿にスパムと思われる英数字タイトルが混入している。RSS取得時にタイトルフィルタリングが必要。
+</div>
+
+<div class="warn">
+<strong>⚠️ 文字化けサイト（id=4・9・24）</strong><br>
+東京多摩断酒連合・滋賀県断酒同友会・高知県断酒新生会はShift-JISエンコードのため、スクレイピング時に<code>encoding='shift-jis'</code>対応が必要。
+</div>
+
+<h2>次のステップ</h2>
+
+<p>
+断酒からの回復を支える情報インフラとして、断酒でGO!!はアルコール依存症に苦しむ本人・家族が必要な情報に素早くアクセスできる環境を目指している。次フェーズでは以下を実装する。
+</p>
+
+<ol>
+  <li>RSS取得スクリプト（13件・自動化容易）</li>
+  <li>スクレイピングスクリプト（15件・サイト別対応）</li>
+  <li><code>generate_news.py</code>への組み込み</li>
+  <li>news.jsonへの反映・新着タブでの表示</li>
+</ol>
+
+<p>
+全国の断酒会例会情報・セミナー・講演会・研修会などをリアルタイムで集約することで、アルコール依存症からの回復を求める人々が「今日開催される例会」をすぐに見つけられるアプリを実現する。断酒継続のサポートとして、断酒でGO!!は日本全国の断酒会を一つにつなぐ。
+</p>
+
+<hr>
+<p style="color:#aaa;font-size:12px;">断酒でGO!! 開発ブログ｜かもちゃん🦆 記｜2026-06-28</p>
+
+</body>
+</html>
