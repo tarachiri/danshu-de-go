@@ -1,0 +1,59 @@
+# nukadokonokai.com
+
+> 釀道師まじまじ（間島健太）の本拠地。発酵・撃道・依存症予防教育（SBIRTS）の三軸を統合した思想と実践の場。
+
+## 核心思想
+
+発酵と依存は表裏一体。どちらも「共生か暴走か」という同じ問いへの答え。
+腸が整い、魂が育まれた先に、はじめて依存と向き合える。
+
+三醸プロジェクト：
+- 発酵道（セロトニン）— 腸・食養・ぬか床
+- 撃道（ドーパミン）— 魂・行動・めんどくさい哲学
+- AIBIRTS（オキシトシン）— 絆・回復支援・AI活用
+
+## 運営者
+
+釀道師まじまじ（間島健太）
+- 8年以上の断酒歴
+- ぬか床の会 主宰（福生市登録・社会教育団体）会員約80名
+- LINE OpenChat「ぬか床の会」640名フォロワー
+- 第二種電気工事士・フライパン珈琲焙煎7年
+- 撃道：デカい・重い・古い・古い・うるさい・めんどくさいを哲学として実践
+
+## コンテンツ
+
+### ぬか床の会
+発酵コミュニティ。腸活・食養道・発酵レシピ・ぬか床管理の知識。
+四毒（砂糖・小麦粉・乳製品・精製油）五悪（簡単・便利・綺麗・長持ち・安い）の教義。
+
+### 撃道
+めんどくさい哲学。エスプレッソ道（ポンテベッキオエクスポート・Mazzer Robur・フライパン焙煎）。
+「めんどくさいを引き受けることで魂が育まれる」
+
+### 断酒でGO
+URL: https://dansyu-go.nukadokonokai.com/
+全国の断酒会・AA・NA例会をマップで探せるPWA。
+SBIRTS（スクリーニング・簡易介入・回復支援サービスへの紹介）を実装。
+かもちゃん（LINE bot AI）による ambient monitoring と回復支援。
+
+### AI三姉妹
+- ぬかちゃん（gemma2:2b + ChromaDB RAG）— 発酵知識特化
+- ふーちゃん（Claude Code on Mac mini 2014）— 開発支援
+- かもちゃん（Claude API LINE bot）— 断酒でGO回復支援
+
+### ホームサーバー構成
+- tyo（雀部・Mac mini Server 2011）— Ubuntu Server・本番稼働
+- gen（元柳斎・Mac mini 2014）— Ollama・ChromaDB・RAG
+- soi（砕蜂・MacBook Pro 2015）— 開発機
+
+## 外部リンク
+
+- X (Twitter): https://x.com/nukadokonokai
+- GitHub: https://github.com/tarachiri/danshu-de-go
+- 断酒でGO: https://dansyu-go.nukadokonokai.com/
+- LINE OpenChat: ぬか床の会
+
+## サイトマップ
+
+- https://nukadokonokai.com/ — トップページ・本拠地
