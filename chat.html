@@ -344,7 +344,7 @@ function searchVenues(query, filter) {
     var d = filtered[ri].distance;
     html += '<div class="venue-card">';
     html += '<h4>' + esc(m.name || '') + '</h4>';
-    html += '<p><strong>📅 ' + esc(m.day_of_week || '') + ' ' + esc(m.start_time || '') + '</strong></p>';
+    html += '<p><strong>📅 ' + esc(m.recurrence || m.day_of_week || '') + ' ' + esc(m.start_time || '') + '</strong></p>';
     html += '<p>🏢 ' + esc(v.name || '') + '</p>';
     html += '<p>📍 ' + esc(v.address || '') + '</p>';
     if (d !== null) html += '<p>🚶 約' + d.toFixed(1) + 'km</p>';
