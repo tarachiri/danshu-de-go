@@ -301,8 +301,10 @@ function jumpToMarker(id, lat, lng, name) {
   currentMode = 'explore';
   const mBtn = document.getElementById('menu-toggle-float');
   if (mBtn) mBtn.style.background = '#27AE60';
-  document.getElementById('area-filter').value = 'all';
-  document.getElementById('date-filter').value = 'all';
+  const areaFilter = document.getElementById('area-filter');
+  const dateFilter = document.getElementById('date-filter');
+  if (areaFilter) areaFilter.value = 'all';
+  if (dateFilter) dateFilter.value = 'all';
   applyFilters();
   setTimeout(() => {
     if (window._leafletMap) {
@@ -316,7 +318,7 @@ function jumpToMarker(id, lat, lng, name) {
             m.openPopup();
             const mapHeight = window._leafletMap.getSize().y;
             const markerPoint = window._leafletMap.latLngToContainerPoint([lat, lng]);
-            const targetY = mapHeight * 0.75;
+            const targetY = mapHeight * 0.65;
             const offset = markerPoint.y - targetY;
             window._leafletMap.panBy([0, offset]);
           });
@@ -438,8 +440,10 @@ function initVenues() {
     })
     .then(data => {
       VENUES = data;
+      window.VENUES = VENUES;
       window.setSplashProgress && window.setSplashProgress(80, 'データを解析中...');
       applyFilters();
+      jumpToVenueFromUrl();
       window.setSplashProgress && window.setSplashProgress(100, '準備完了！');
     })
     .catch((err) => {
@@ -450,6 +454,19 @@ function initVenues() {
       const totalEl2 = document.getElementById('count-total-header');
       if (totalEl2) totalEl2.textContent = '!';
     });
+}
+
+function jumpToVenueFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const venueId = params.get('venue') || params.get('pin') || params.get('id');
+  if (!venueId) return;
+
+  const venue = VENUES.find(v => String(v.id) === String(venueId));
+  if (!venue || !venue.lat || !venue.lng) return;
+
+  setTimeout(() => {
+    jumpToMarker(venue.id, venue.lat, venue.lng, venue.facility_name || venue.meeting_name || '');
+  }, 500);
 }
 
 function setMode(mode) {

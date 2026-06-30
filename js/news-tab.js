@@ -74,13 +74,14 @@ function buildEventCard(ev) {
   const badge = `<span class="news-badge news-badge-event">${ev.category || 'イベント'}</span>`;
   const pref  = ev.prefecture ? `<span class="news-pref">${ev.prefecture}</span>` : '';
   const venue = ev.venue ? `📍 ${ev.venue}` : '';
+  const jumpAttr = getNewsJumpAttr(ev);
 
   return `
-<div class="news-card">
+<div class="news-card"${jumpAttr}>
   <div class="news-card-header">
     ${badge}${pref}
   </div>
-  <a class="news-card-title" href="${ev.url}" target="_blank" rel="noopener">
+  <a class="news-card-title" href="${ev.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
     ${escapeHtml(ev.title)}
   </a>
   <div class="news-card-meta">
@@ -94,13 +95,14 @@ function buildPdfCard(pdf) {
   const badge = `<span class="news-badge news-badge-pdf">📄 PDF</span>`;
   const pref  = pdf.prefecture ? `<span class="news-pref">${pdf.prefecture}</span>` : '';
   const found = pdf.found_at ? `取得: ${formatNewsDate(pdf.found_at)}` : '';
+  const jumpAttr = getNewsJumpAttr(pdf);
 
   return `
-<div class="news-card news-card-pdf">
+<div class="news-card news-card-pdf"${jumpAttr}>
   <div class="news-card-header">
     ${badge}${pref}
   </div>
-  <a class="news-card-title" href="${pdf.url}" target="_blank" rel="noopener">
+  <a class="news-card-title" href="${pdf.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
     ${escapeHtml(pdf.title)}
   </a>
   <div class="news-card-meta">
@@ -113,19 +115,79 @@ function buildNewsCard(n) {
   const badge = `<span class="news-badge news-badge-news">🆕 新着</span>`;
   const pref  = n.prefecture ? `<span class="news-pref">${n.prefecture}</span>` : '';
   const date  = n.date ? `📅 ${formatNewsDate(n.date)}` : '';
+  const jumpAttr = getNewsJumpAttr(n);
 
   return `
-<div class="news-card">
+<div class="news-card"${jumpAttr}>
   <div class="news-card-header">
     ${badge}${pref}
   </div>
-  <a class="news-card-title" href="${n.url}" target="_blank" rel="noopener">
+  <a class="news-card-title" href="${n.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
     ${escapeHtml(n.title)}
   </a>
   <div class="news-card-meta">
     🏢 ${escapeHtml(n.org || '')}　${date}
   </div>
 </div>`;
+}
+
+function getNewsJumpAttr(item) {
+  const venue = findRelatedVenue(item);
+  if (!venue || !venue.lat || !venue.lng) return '';
+  const name = escapeJsString(venue.facility_name || venue.meeting_name || item.title || '');
+  return ` onclick="jumpToMarker(${Number(venue.id)}, ${Number(venue.lat)}, ${Number(venue.lng)}, '${name}')" style="cursor:pointer;"`;
+}
+
+function findRelatedVenue(item) {
+  if (!window.VENUES || !Array.isArray(window.VENUES)) return null;
+
+  const text = normalizeNewsText([
+    item.title,
+    item.venue,
+    item.org,
+  ].filter(Boolean).join(' '));
+  if (!text) return null;
+
+  const pref = item.prefecture || '';
+  const candidates = window.VENUES
+    .filter(v => !pref || v.prefecture === pref)
+    .filter(v => normalizeNewsText(v.facility_name || '') !== 'オンライン')
+    .map(v => {
+      const terms = [];
+      if (v.facility_name) terms.push(v.facility_name);
+      if (v.meeting_name) terms.push(v.meeting_name);
+      (v.meetings || []).forEach(m => {
+        if (m.name) terms.push(m.name);
+      });
+
+      let score = 0;
+      terms.forEach(term => {
+        const t = normalizeNewsText(term);
+        if (t.length < 3) return;
+        if (text.includes(t)) score = Math.max(score, t.length);
+      });
+      return { venue: v, score };
+    })
+    .filter(x => x.score >= 5)
+    .sort((a, b) => b.score - a.score);
+
+  if (candidates.length === 0) return null;
+  if (candidates.length > 1 && candidates[0].score === candidates[1].score) return null;
+  return candidates[0].venue;
+}
+
+function normalizeNewsText(str) {
+  return String(str || '')
+    .toLowerCase()
+    .replace(/[　\\s]+/g, '')
+    .replace(/[「」『』（）()【】\\[\\]・,，.。:：~〜\\-ー]/g, '');
+}
+
+function escapeJsString(str) {
+  return String(str || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/\\n/g, ' ');
 }
 
 function formatNewsDate(dateStr) {
