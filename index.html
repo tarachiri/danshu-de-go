@@ -239,6 +239,24 @@ function splashClose() {
       <span style="font-size:20px;">明後日<span id="count-dayafter">0</span>件</span>
     </div>
   </div>
+  <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:6px;">
+    <a id="share-x" href="#" target="_blank" rel="noopener"
+       style="border:1px solid #1d9bf0; border-radius:7px; padding:3px 10px;
+              color:#1d9bf0; font-size:13px; font-weight:bold;
+              text-decoration:none; flex-shrink:0;">𝕏</a>
+    <a id="share-line" href="#" target="_blank" rel="noopener"
+       style="border:1px solid #06c755; border-radius:7px; padding:3px 10px;
+              color:#06c755; font-size:13px; font-weight:bold;
+              text-decoration:none; flex-shrink:0;">LINE</a>
+    <a id="share-fb" href="#" target="_blank" rel="noopener"
+       style="border:1px solid #1877f2; border-radius:7px; padding:3px 10px;
+              color:#1877f2; font-size:13px; font-weight:bold;
+              text-decoration:none; flex-shrink:0;">f</a>
+    <button id="share-copy" onclick="copyShareUrl()"
+       style="border:1px solid #888; border-radius:7px; padding:3px 10px;
+              color:#aaa; font-size:13px; cursor:pointer;
+              background:none; flex-shrink:0;">🔗 コピー</button>
+  </div>
 </div>
 
 <div id="bottom-nav">

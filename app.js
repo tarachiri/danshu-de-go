@@ -652,3 +652,40 @@ function openKamo() {
   panel.innerHTML = '<iframe src="chat.html" style="flex:1;border:none;width:100%;height:100%;"></iframe>';
   panel.dataset.loaded = '1';
 }
+
+// ===== SNSシェア・リンクコピー =====
+const SITE_URL = 'https://dansyu-go.nukadokonokai.com';
+const SITE_TEXT = '🏃断酒でGO！今日・明日の断酒例会場をすぐ探せるマップ\n';
+
+function setupShareLinks() {
+  const t = encodeURIComponent(SITE_TEXT + SITE_URL);
+  const u = encodeURIComponent(SITE_URL);
+  const xEl = document.getElementById('share-x');
+  const lineEl = document.getElementById('share-line');
+  const fbEl = document.getElementById('share-fb');
+  if (xEl) xEl.href = `https://twitter.com/intent/tweet?text=${t}`;
+  if (lineEl) lineEl.href = `https://social-plugins.line.me/lineit/share?url=${u}`;
+  if (fbEl) fbEl.href = `https://www.facebook.com/sharer/sharer.php?u=${u}`;
+}
+
+function copyShareUrl() {
+  navigator.clipboard.writeText(SITE_TEXT + SITE_URL).then(() => {
+    const btn = document.getElementById('share-copy');
+    if (!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = '✅ コピー済み';
+    btn.style.color = '#27AE60';
+    btn.style.borderColor = '#27AE60';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.color = '#aaa';
+      btn.style.borderColor = '#888';
+    }, 2000);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupShareLinks);
+} else {
+  setupShareLinks();
+}
