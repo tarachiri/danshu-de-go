@@ -332,7 +332,7 @@ function jumpToMarker(id, lat, lng, name) {
 function switchTab(tab) {
   // ボトムナビのactive更新
   document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
-  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news' };
+  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news', 'kamo': 'bottom-kamo' };
   if (bottomBtnMap[tab]) {
     const btn = document.getElementById(bottomBtnMap[tab]);
     if (btn) btn.classList.add('active');
@@ -340,15 +340,19 @@ function switchTab(tab) {
   const mapEl = document.getElementById('map');
   const schEl = document.getElementById('schedule');
   const newsEl = document.getElementById('news');
+  const kamoEl = document.getElementById('kamo');
   const tabMap = document.getElementById('tab-map');
   const tabSch = document.getElementById('tab-schedule');
   const tabNews = document.getElementById('tab-news');
+  const tabKamo = document.getElementById('bottom-kamo');
   mapEl.style.display = 'none';
   schEl.style.display = 'none';
   if (newsEl) newsEl.style.display = 'none';
+  if (kamoEl) kamoEl.style.display = 'none';
   tabMap.classList.remove('active');
   tabSch.classList.remove('active');
   if (tabNews) tabNews.classList.remove('active');
+  if (tabKamo) tabKamo.classList.remove('active');
   if (tab === 'map') {
     mapEl.style.display = '';
     tabMap.classList.add('active');
@@ -361,6 +365,10 @@ function switchTab(tab) {
     if (newsEl) newsEl.style.display = 'block';
     if (tabNews) tabNews.classList.add('active');
     loadNewsTab();
+  } else if (tab === 'kamo') {
+    openKamo();
+    if (kamoEl) kamoEl.style.display = 'flex';
+    if (tabKamo) tabKamo.classList.add('active');
   }
 }
 
@@ -921,17 +929,9 @@ function agreeDisclaimer() {
 
 // かもちゃんパネル
 function openKamo() {
-  let panel = document.getElementById('kamo-panel');
-  if (!panel) {
-    panel = document.createElement('div');
-    panel.id = 'kamo-panel';
-    panel.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:60px;z-index:999;background:#fff;display:flex;flex-direction:column;';
-    panel.innerHTML = '<iframe src="chat.html" style="flex:1;border:none;width:100%;height:100%;"></iframe>';
-    document.body.appendChild(panel);
-  } else {
-    panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
-  }
-  // ボトムナビのactive更新
-  document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('bottom-kamo').classList.add('active');
+  const panel = document.getElementById('kamo');
+  if (!panel || panel.dataset.loaded === '1') return;
+  panel.style.cssText = 'display:flex;position:fixed;top:0;left:0;right:0;bottom:60px;z-index:999;background:#fff;flex-direction:column;';
+  panel.innerHTML = '<iframe src="chat.html" style="flex:1;border:none;width:100%;height:100%;"></iframe>';
+  panel.dataset.loaded = '1';
 }

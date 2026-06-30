@@ -254,7 +254,7 @@ function splashClose() {
     <span class="bottom-icon">📢</span>
     <span class="bottom-label">新着</span>
   </button>
-  <button class="bottom-btn" id="bottom-kamo" onclick="openKamo()">
+  <button class="bottom-btn" id="bottom-kamo" onclick="switchTab('kamo')">
     <span class="bottom-icon">🤖</span>
     <span class="bottom-label">かもちゃん</span>
   </button>
@@ -263,6 +263,7 @@ function splashClose() {
 <div id="map"></div>
 <div id="schedule"></div>
 <div id="news" style="display:none;padding:12px;max-height:calc(100vh - 120px);overflow-y:auto;"></div>
+<div id="kamo" style="display:none;"></div>
 <div id="footer" style="background:#16213e;padding:4px 16px;font-size:15px;color:#a0a0b0;text-align:center;border-top:1px solid #0f3460;">©
 2026 ぬか床の会 | <a href="blog/" style="color:#e94560;text-decoration:none;">📓 開発ノート</a> | <span id="footer-updated"></span></div>
 <script src="schedule.js"></script>
