@@ -51,8 +51,61 @@
 - crontab内に `~` が残っていないことを確認済み。
 - 変更対象はcronの2行のみ。
 
+### 第2フェーズ実施内容
+
+`gen` のチャットAPIで `venues.json` 取得時にキャッシュ避けを追加した。
+
+対象ファイル:
+
+```text
+gen:/Users/mini2014/danshu-chat/main.py
+```
+
+変更内容:
+
+- `fetch_venues()` で `venues.json` のURLに `?v=YYYYMMDDHHMMSS` を付けるように変更。
+- 回答ロジックや再読み込み時刻は変更していない。
+
+バックアップ:
+
+```text
+gen:/Users/mini2014/danshu-chat/main.py.bak-20260630-cachebuster
+```
+
+確認結果:
+
+- `python3 -m py_compile main.py` 成功。
+- `launchctl stop/start com.danshu.uvicorn` で再起動。
+- `http://127.0.0.1:8000/health` が `{"status":"ok","venues_loaded":1394}` を返した。
+
+### 第3フェーズ実施内容
+
+`gen` の `venues.json` 自動再読み込み時刻を `4:00` から `5:30` に変更した。
+
+理由:
+
+- `tyo` の `generate_map_v6.py` による `venues.json` / `schedule.json` 生成・pushは毎朝 `5:00`。
+- `gen` が `4:00` に読むと、前日分の `venues.json` を読み続ける可能性があった。
+
+対象ファイル:
+
+```text
+gen:/Users/mini2014/danshu-chat/main.py
+```
+
+バックアップ:
+
+```text
+gen:/Users/mini2014/danshu-chat/main.py.bak-20260630-reload-time
+```
+
+確認結果:
+
+- `python3 -m py_compile main.py` 成功。
+- `launchctl stop/start com.danshu.uvicorn` で再起動。
+- `http://127.0.0.1:8000/health` が `{"status":"ok","venues_loaded":1394}` を返した。
+- `uvicorn.log` に次回再読み込み `07/01 05:30` が出力された。
+
 ### 次に安全にできる候補
 
-1. `gen` の `fetch_venues()` にキャッシュ避けのクエリを追加する。
-2. `gen` の再読み込み時刻を `4:00` から `5:30` へ変更する。
-3. `gen` の `/health` に `last_loaded_at`、`last_load_ok`、`source_url`、`last_error` を追加する。
+1. `gen` の `/health` に `last_loaded_at`、`last_load_ok`、`source_url`、`last_error` を追加する。
