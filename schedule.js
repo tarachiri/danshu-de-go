@@ -231,17 +231,43 @@ const Schedule = {
     return html;
   },
 
+  _formatTime(t) {
+    if (!t) return '';
+    const s = String(t).trim();
+    return s.length >= 5 ? s.slice(0, 5) : s;
+  },
+
+  _formatCardDateTime(e) {
+    const start = this._formatTime(e.start_time);
+    const end = this._formatTime(e.end_time);
+    const timeStr = start ? (end ? `${start}〜${end}` : start) : '';
+
+    let dateStr = '';
+    if (e.next_date) {
+      dateStr = typeof formatDate === 'function'
+        ? formatDate(e.next_date)
+        : e.next_date.replace(/^\d{4}-/, '').replace('-', '/');
+    }
+
+    if (dateStr && timeStr) return `📅 ${dateStr} ${timeStr}`;
+    if (dateStr) return `📅 ${dateStr}`;
+    if (timeStr) return `🕐 ${timeStr}`;
+    return '';
+  },
+
   _buildCard(e) {
     const clickAttr = (e.latitude && e.longitude)
       ? ` onclick="jumpToMarker(${e.id}, ${e.latitude}, ${e.longitude}, '${(e.meeting_name || '').replace(/['"]/g, '')}')" style="cursor:pointer;"`
       : '';
+    const dateTimeStr = this._formatCardDateTime(e);
     return `<div class="sch-card"${clickAttr}>
       <div class="sch-time">
-        <div class="sch-time-start">${e.start_time || ''}</div>
-        <div class="sch-time-end" style="font-size:14px;color:#888;">${e.end_time || ''}</div>
+        <div class="sch-time-start">${this._formatTime(e.start_time)}</div>
+        <div class="sch-time-end">${this._formatTime(e.end_time)}</div>
       </div>
       <div class="sch-info">
         <div class="sch-name">${e.meeting_name}</div>
+        ${dateTimeStr ? `<div class="sch-datetime">${dateTimeStr}</div>` : ''}
         <div class="sch-loc">📍 ${e.address || ''}</div>
       </div>
       <span class="sch-pref-badge" style="${getPrefBadgeStyle(e.prefecture)}">${getPrefBadgeLabel(e.prefecture)}</span>
