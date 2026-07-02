@@ -103,10 +103,9 @@ venue_id更新前に旧レコード削除が必要な場合あり。
 ```
 2:00  DBバックアップ
 3:00  全都道府県コレクター（danshu_collector_v4.py）
-3:25  generate_news.py
-3:30  generate_map_v6.py + git push
-3:45  schedule.json更新
-4:00〜4:20  iCal更新（埼玉・東京新生会・多摩・千葉・神奈川）
+3:25  generate_news.py + news.json push
+4:00〜4:40  iCal更新（埼玉・東京新生会・多摩・千葉・神奈川・愛知・福岡・茨城・香川）
+5:00  generate_map_v6.py + git push（venues.json・schedule.jsonを一括生成）
 毎週月曜6:00  mirror更新（栃木スクレイプ）
 毎月1日・16日  静岡・京都PDF
 ```
