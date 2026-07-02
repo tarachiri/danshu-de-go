@@ -81,7 +81,7 @@ function buildEventCard(ev) {
   <div class="news-card-header">
     ${badge}${pref}
   </div>
-  <a class="news-card-title" href="${ev.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+  <a class="news-card-title" href="${escapeHtmlAttr(ev.url || '#')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
     ${escapeHtml(ev.title)}
   </a>
   <div class="news-card-meta">
@@ -102,7 +102,7 @@ function buildPdfCard(pdf) {
   <div class="news-card-header">
     ${badge}${pref}
   </div>
-  <a class="news-card-title" href="${pdf.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+  <a class="news-card-title" href="${escapeHtmlAttr(pdf.url || '#')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
     ${escapeHtml(pdf.title)}
   </a>
   <div class="news-card-meta">
@@ -122,7 +122,7 @@ function buildNewsCard(n) {
   <div class="news-card-header">
     ${badge}${pref}
   </div>
-  <a class="news-card-title" href="${n.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+  <a class="news-card-title" href="${escapeHtmlAttr(n.url || '#')}" target="_blank" rel="noopener" onclick="event.stopPropagation()">
     ${escapeHtml(n.title)}
   </a>
   <div class="news-card-meta">
@@ -206,4 +206,8 @@ function escapeHtml(str) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+function escapeHtmlAttr(str) {
+  return escapeHtml(str).replace(/'/g, '&#39;');
 }
