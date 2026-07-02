@@ -132,13 +132,13 @@
     "longitude": 133.916702
   },
   {
-    "id": 1493,
+    "id": 1453,
     "meeting_name": "新門司病院週例会",
     "next_date": "2026-07-02",
     "start_time": "13:45",
     "end_time": "15:45",
     "recurrence": "第1・第2・第3・第4・第5木曜",
-    "address": "北九州市門司区猿喰615",
+    "address": "福岡県北九州市門司区猿喰６１５",
     "prefecture": "福岡県",
     "latitude": 33.896404,
     "longitude": 130.97551
@@ -1093,23 +1093,23 @@
   },
   {
     "id": 1459,
-    "meeting_name": "定例会",
+    "meeting_name": "東福岡",
     "next_date": "2026-07-02",
     "start_time": "19:00",
-    "end_time": "",
-    "recurrence": "第1・第3木曜",
+    "end_time": "21:00",
+    "recurrence": "第1木曜",
     "address": "福岡県糟屋郡粕屋町駕与丁１丁目６−１",
     "prefecture": "福岡県",
     "latitude": 33.609837,
     "longitude": 130.479294
   },
   {
-    "id": 1508,
-    "meeting_name": "東福岡",
+    "id": 1459,
+    "meeting_name": "定例会",
     "next_date": "2026-07-02",
     "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第1木曜",
+    "end_time": "",
+    "recurrence": "第1・第3木曜",
     "address": "福岡県糟屋郡粕屋町駕与丁１丁目６−１",
     "prefecture": "福岡県",
     "latitude": 33.609837,
@@ -3060,7 +3060,7 @@
     "longitude": 136.715866
   },
   {
-    "id": 1508,
+    "id": 1459,
     "meeting_name": "福岡アメシスト",
     "next_date": "2026-07-04",
     "start_time": "13:00",
@@ -4752,7 +4752,7 @@
     "longitude": 135.312454
   },
   {
-    "id": 1017,
+    "id": 1015,
     "meeting_name": "茨木市断酒会茨木支部例会",
     "next_date": "2026-07-04",
     "start_time": "19:00:00",
@@ -5640,13 +5640,13 @@
     "longitude": 130.86116
   },
   {
-    "id": 1493,
+    "id": 1453,
     "meeting_name": "新門司病院月例会",
     "next_date": "2026-07-05",
     "start_time": "13:45",
     "end_time": "15:45",
     "recurrence": "第1日曜",
-    "address": "北九州市門司区猿喰615",
+    "address": "福岡県北九州市門司区猿喰６１５",
     "prefecture": "福岡県",
     "latitude": 33.896404,
     "longitude": 130.97551
@@ -6336,13 +6336,13 @@
     "longitude": 135.693954
   },
   {
-    "id": 898,
+    "id": 867,
     "meeting_name": "長岡京",
     "next_date": "2026-07-06",
     "start_time": "18:50:00",
     "end_time": "20:50:00",
     "recurrence": "第1・第2・第3・第4月曜",
-    "address": "京都府長岡京市開田3丁目10-16",
+    "address": "長岡京市開田3丁目10－16",
     "prefecture": "京都府",
     "latitude": 34.923702,
     "longitude": 135.693954
@@ -8172,7 +8172,7 @@
     "longitude": 137.877655
   },
   {
-    "id": 878,
+    "id": 849,
     "meeting_name": "大久保",
     "next_date": "2026-07-07",
     "start_time": "19:00:00",
@@ -9948,6 +9948,18 @@
     "longitude": 133.573364
   },
   {
+    "id": 901,
+    "meeting_name": "(例会)",
+    "next_date": "2026-07-08",
+    "start_time": "19:00:00",
+    "end_time": "20:50:00",
+    "recurrence": "毎週水曜",
+    "address": "大阪府泉大津市東雲町9-15",
+    "prefecture": "大阪府",
+    "latitude": 34.50523,
+    "longitude": 135.4104
+  },
+  {
     "id": 991,
     "meeting_name": "布施西",
     "next_date": "2026-07-08",
@@ -9970,18 +9982,6 @@
     "prefecture": "大阪府",
     "latitude": 34.699844,
     "longitude": 135.605728
-  },
-  {
-    "id": 1012,
-    "meeting_name": "(例会)",
-    "next_date": "2026-07-08",
-    "start_time": "19:00:00",
-    "end_time": "20:50:00",
-    "recurrence": "毎週水曜",
-    "address": "大阪府泉大津市東雲町9-15",
-    "prefecture": "大阪府",
-    "latitude": 34.50523,
-    "longitude": 135.4104
   },
   {
     "id": 1013,
@@ -11029,7 +11029,7 @@
   },
   {
     "id": 1426,
-    "meeting_name": "筑後地区協議会（昼例会）",
+    "meeting_name": "筑後地区協議会昼例会",
     "next_date": "2026-07-11",
     "start_time": "13:00",
     "end_time": "15:00",
@@ -11040,13 +11040,13 @@
     "longitude": 130.521423
   },
   {
-    "id": 1468,
-    "meeting_name": "筑後地区協議会昼例会",
+    "id": 1426,
+    "meeting_name": "筑後地区協議会（昼例会）",
     "next_date": "2026-07-11",
     "start_time": "13:00",
     "end_time": "15:00",
     "recurrence": "第2土曜",
-    "address": "福岡県久留米市諏訪野町 1830-6",
+    "address": "福岡県久留米市諏訪野町1830−6",
     "prefecture": "福岡県",
     "latitude": 33.306896,
     "longitude": 130.521423
@@ -11473,24 +11473,24 @@
   },
   {
     "id": 1424,
-    "meeting_name": "南福岡断酒友の会（夜間例会）",
+    "meeting_name": "南福岡",
     "next_date": "2026-07-11",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第2・第4土曜",
+    "recurrence": "第2土曜",
     "address": "福岡県福岡市南区塩原２丁目８−２",
     "prefecture": "福岡県",
     "latitude": 33.565971,
     "longitude": 130.423935
   },
   {
-    "id": 1434,
-    "meeting_name": "南福岡",
+    "id": 1424,
+    "meeting_name": "南福岡断酒友の会（夜間例会）",
     "next_date": "2026-07-11",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第2土曜",
-    "address": "福岡県福岡市南区塩原 2-8-2",
+    "recurrence": "第2・第4土曜",
+    "address": "福岡県福岡市南区塩原２丁目８−２",
     "prefecture": "福岡県",
     "latitude": 33.565971,
     "longitude": 130.423935
@@ -12768,18 +12768,6 @@
     "longitude": 139.7915
   },
   {
-    "id": 1815,
-    "meeting_name": "越谷例会",
-    "next_date": "2026-07-14",
-    "start_time": "18:30",
-    "end_time": "20:30",
-    "recurrence": "第2・第4火曜",
-    "address": "埼玉県越谷市越ヶ谷4-1-1",
-    "prefecture": "埼玉県",
-    "latitude": 35.889099,
-    "longitude": 139.791641
-  },
-  {
     "id": 1223,
     "meeting_name": "協立病院　院内例会",
     "next_date": "2026-07-14",
@@ -12984,13 +12972,13 @@
     "longitude": 130.446594
   },
   {
-    "id": 1467,
+    "id": 1509,
     "meeting_name": "定例会",
     "next_date": "2026-07-14",
     "start_time": "19:00",
     "end_time": "",
     "recurrence": "第2・第4火曜",
-    "address": "福岡県福岡市中央区荒戸 3-3-39",
+    "address": "福岡市中央区荒戸3-3-39",
     "prefecture": "福岡県",
     "latitude": 33.592846,
     "longitude": 130.373093
@@ -13198,18 +13186,6 @@
     "prefecture": "埼玉県",
     "latitude": 35.8574923,
     "longitude": 139.6496729
-  },
-  {
-    "id": 1802,
-    "meeting_name": "埼玉中央【浦和昼例会】",
-    "next_date": "2026-07-15",
-    "start_time": "13:30",
-    "end_time": "15:00",
-    "recurrence": "第3水曜",
-    "address": "埼玉県さいたま市浦和区常盤９丁目３０−２２",
-    "prefecture": "埼玉県",
-    "latitude": 35.871349,
-    "longitude": 139.642914
   },
   {
     "id": 1213,
@@ -13728,7 +13704,7 @@
     "longitude": 135.7651265
   },
   {
-    "id": 1012,
+    "id": 901,
     "meeting_name": "(本部)",
     "next_date": "2026-07-15",
     "start_time": "19:00:00",
@@ -14448,6 +14424,18 @@
     "longitude": 139.1012093
   },
   {
+    "id": 251,
+    "meeting_name": "上野原例会",
+    "next_date": "2026-07-18",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "recurrence": "第3土曜",
+    "address": "〒409-0112 山梨県上野原市上野原３８３２",
+    "prefecture": "山梨県",
+    "latitude": 35.6300547,
+    "longitude": 139.1081617
+  },
+  {
     "id": 742,
     "meeting_name": "上野原例会",
     "next_date": "2026-07-18",
@@ -15096,13 +15084,13 @@
     "longitude": 139.8269998
   },
   {
-    "id": 1434,
+    "id": 1424,
     "meeting_name": "福岡月例会",
     "next_date": "2026-07-19",
     "start_time": "10:00",
     "end_time": "12:00",
     "recurrence": "第3日曜",
-    "address": "福岡県福岡市南区塩原 2-8-2",
+    "address": "福岡県福岡市南区塩原２丁目８−２",
     "prefecture": "福岡県",
     "latitude": 33.565971,
     "longitude": 130.423935
@@ -16092,6 +16080,18 @@
     "longitude": 133.082214
   },
   {
+    "id": 1426,
+    "meeting_name": "久留米市",
+    "next_date": "2026-07-22",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "recurrence": "第4水曜",
+    "address": "福岡県久留米市諏訪野町1830−6",
+    "prefecture": "福岡県",
+    "latitude": 33.306896,
+    "longitude": 130.521423
+  },
+  {
     "id": 1442,
     "meeting_name": "大野城",
     "next_date": "2026-07-22",
@@ -16102,18 +16102,6 @@
     "prefecture": "福岡県",
     "latitude": 33.53545,
     "longitude": 130.479828
-  },
-  {
-    "id": 1468,
-    "meeting_name": "久留米市",
-    "next_date": "2026-07-22",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第4水曜",
-    "address": "福岡県久留米市諏訪野町 1830-6",
-    "prefecture": "福岡県",
-    "latitude": 33.306896,
-    "longitude": 130.521423
   },
   {
     "id": 950,
