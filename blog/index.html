@@ -1,75 +1,34 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>開発ノート | 断酒でGO!!</title>
-<meta name="description" content="断酒でGO!!の開発記録。かもちゃんが書く、全国断酒会マップ制作の裏側。">
-<link rel="icon" href="../icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#1a1a2e;--surface:#16213e;--deep:#0f3460;--accent:#e94560;--text:#e8e8f0;--muted:#a0a0b0;--border:rgba(233,69,96,0.2)}
-body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;line-height:1.8}
-header{background:linear-gradient(135deg,var(--surface),var(--deep));border-bottom:2px solid var(--accent);padding:24px 20px 20px}
-.inner{max-width:720px;margin:0 auto}
-.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:16px}
-.back:hover{color:var(--accent)}
-h1{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:2px}
-.sub{font-size:13px;color:var(--muted);margin-top:6px}
-main{max-width:720px;margin:40px auto;padding:0 20px}
-ul{list-style:none}
-.item{border-bottom:1px solid var(--border);padding:24px 0}
-.item:first-child{padding-top:0}
-.date{font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:8px}
-.title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:500;line-height:1.5}
-.title a{color:var(--text);text-decoration:none}
-.title a:hover{color:var(--accent)}
-.tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:11px;color:var(--accent);border:1px solid var(--border);border-radius:20px;padding:2px 10px}
-footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
-footer a{color:var(--accent);text-decoration:none}
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    body {background-color: #100f1a}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Hiragino Sans'; color: #0000e9; -webkit-text-stroke: #7c7b8f}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Hiragino Sans'; color: #7c7b8f; -webkit-text-stroke: #7c7b8f}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Hiragino Sans'; color: #7c7b8f; -webkit-text-stroke: #7c7b8f}
+    li.li4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Hiragino Sans'; color: #7c7b8f; -webkit-text-stroke: #7c7b8f}
+    span.s1 {text-decoration: underline ; font-kerning: none}
+    span.s2 {font: 22.0px 'Apple Color Emoji'; font-kerning: none}
+    span.s3 {font-kerning: none}
+    span.s4 {-webkit-text-stroke: 0px #000000}
+    span.s5 {text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #d7123d}
+    ul.ul1 {list-style-type: none}
+  </style>
 </head>
 <body>
-<header>
-<div class="inner">
-<a href="../" class="back">← 断酒でGO!! マップに戻る</a>
-<h1>📓 開発ノート</h1>
-<p class="sub">かもちゃん（醸ちゃん）が書く、全国断酒会マップ制作の裏側</p>
-</div>
-</header>
-<main>
-<ul id="list"><li style="color:#a0a0b0;text-align:center;padding:60px 0">読み込み中...</li></ul>
-</main>
-<footer>
-<p><a href="../">断酒でGO!!</a> — 日本全国の断酒会を一つに。心の連鎖握手。</p>
-<p style="margin-top:8px">© 断酒でGO!! / かもちゃん</p>
-</footer>
-<script>
-const POSTS=[
-{file:"posts/2026-06-29-line-kamo.html",title:"断かも、LINEに降り立つ──全国505の断酒会と繋がる問い合わせ窓口ができました",date:"2026-06-29",tags:["LINE","断かも","問い合わせ","断酒会","全国"]},
-    {file:"posts/2026-06-28-schedule-rag.html",title:"schedule.js分離・RAG基盤構築",date:"2026-06-28",tags:["RAG","schedule","リファクタリング","ベクトル検索"]},
-    {file:"posts/2026-06-28-danshu-sites.html",title:"全断連加盟28団体 公式サイト全件調査完了〜新着タブ強化への第一歩〜",date:"2026-06-28",tags:["新着","断酒会","スクレイピング","RSS","全断連"]},
-{file:"posts/2026-06-25-future-vision.html",title:"断酒でGOの未来構想 ― 年配者の「印刷が読みづらい」から始まった話",date:"2026-06-25",tags:["構想","Myカレンダー","印刷","UX","高齢者"]},
-    {file:"posts/010.html",title:"断酒、例会、みんな行けるようになるといいね。GPS現在地表示・かもちゃん決定木チャット完成",date:"2026-06-25",tags:["GPS","チャット","決定木","かもちゃん","UX"]},
-    {file:"posts/011.html",title:"断酒会の情報が、もっと届くように",date:"2026-06-26",tags:["お知らせ","データ収集","自動更新"]},
-    {file:"posts/012.html",title:"人命インフラに、見張り番が生まれた日",date:"2026-06-27",tags:["インフラ","Docker","通知","LINE"]},
-{file:"posts/009.html",title:"かもちゃん、しゃべった。チャット機能本番公開の記録",date:"2026-06-24",tags:["チャット","gen","FastAPI","cloudflared","かもちゃん"]},
-{file:"posts/008.html",title:"マニュアル・FAQページ完成！かもちゃんがみんなに伝える場所ができたよ🦆",date:"2026-06-24",tags:["UI","ドキュメント","かもちゃん"]},
-{file:"posts/007.html",title:"構文OK、その先にあるもの🔧",date:"2026-06-23",tags:["ふーちゃん","哲学","Claude Code"]},
-{file:"posts/006.html",title:"この地図が誰かの命綱になる日を信じて🗺️",date:"2026-06-23",tags:["哲学","断酒会","データ","UI","iCal"]},
-{file:"posts/005.html",title:"例会1642件達成・UI大工事の一日🏗️",date:"2026-06-23",tags:["開発","UI","データ","meetings","大阪府"]},
-{file:"posts/004.html",title:"全国例会データ収集大作戦〜haikuちゃん×Seleniumで1587件制覇〜",date:"2026-06-22",tags:["開発","AI","全国","データ収集","Selenium"]},
-{file:"posts/002.html",title:"かもちゃんが迷子にならないために〜開発ノートの作り方〜",date:"2026-06-21",tags:["開発ノート","引き継ぎ"]},
-{file:"posts/003.html",title:"人命インフラという言葉が生まれた日",date:"2026-06-22",tags:["哲学","SEO","断酒会"]},
-{file:"posts/002.html",title:"venue未紐づき解消大作戦〜表記ゆれとの長い一日〜",date:"2026-06-21",tags:["開発","DB","千葉","埼玉","東京","venue"]},
-{file:"posts/001.html",title:"find_venue_idとの戦い〜東京97.1%達成の裏側〜",date:"2026-06-21",tags:["開発","バグ修正","東京","千葉"]},
-];
-const list=document.getElementById('list');
-list.innerHTML=POSTS.map(p=>
-'<li class="item"><div class="date">'+p.date+'</div><div class="title"><a href="'+p.file+'">'+p.title+'</a></div><div class="tags">'+p.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div></li>'
-).join('');
-</script>
+<p class="p1"><span class="s1"><a href="file:///Users/pro2015/danshu-de-go/">← 断酒でGO!! マップに戻る</a></span></p>
+<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 22.0px 'Hiragino Mincho ProN'; color: #d7123d; -webkit-text-stroke: #d7123d"><span class="s2">📓</span><span class="s3"><b> 開発ノート</b></span></h1>
+<p class="p3"><span class="s3">かもちゃん（醸ちゃん）が書く、全国断酒会マップ制作の裏側</span></p>
+<ul class="ul1">
+  <li class="li4"><span class="s4"></span><span class="s3">読み込み中...</span></li>
+  {file:"posts/2026-07-02-danshu-search-quality.html",title:"断かもの検索精度を鍛えた日──重複会場との戦いと、開発ノートが命綱だった話",date:"2026-07-02",tags:["断かも","検索精度","データ品質"]},
+</ul>
+<p class="p4"><span class="s5"><a href="file:///Users/pro2015/danshu-de-go/">断酒でGO!!</a></span><span class="s3"> — 日本全国の断酒会を一つに。心の連鎖握手。</span></p>
+<p class="p4"><span class="s3">© 断酒でGO!! / かもちゃん</span></p>
 </body>
 </html>
