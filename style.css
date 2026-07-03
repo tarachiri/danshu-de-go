@@ -370,10 +370,27 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 #menu-toggle-float { display: none !important; }
 #menu-panel { bottom: 65px !important; }
 
-/* コンテンツエリアのボトム余白 */
-#map { height: calc(100dvh - 60px) !important; }
+/* コンテンツエリアのボトム余白（60px=ボトムナビ + 16px=地図外の著作権表示帯） */
+#map { height: calc(100dvh - 76px) !important; }
 #schedule-view { padding-bottom: 60px; }
 #news-view { padding-bottom: 60px; }
+
+/* 地図外の著作権表示帯（ボトムナビ直上・地図の可視領域は一切侵食しない） */
+#map-attribution {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 60px;
+  height: 16px;
+  background: #16213e;
+  border-top: 1px solid #0f3460;
+  color: rgba(255,255,255,0.4);
+  font-size: 9px;
+  line-height: 16px;
+  text-align: center;
+  z-index: 1000;
+  padding: 0 4px;
+}
+#map-attribution a { color: rgba(255,255,255,0.5); }
 
 /* 日程タブの日付文字を白に */
 .sch-date-header { color: #ffffff !important; }
@@ -410,21 +427,15 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 }
 .locate-btn:active { background: #f0f0f0; }
 
-/* Leafletコントロール（ズーム等）をボトムナビの上に */
-.leaflet-control-zoom { bottom: 70px !important; }
+/* Leafletコントロール（ズーム等）を地図外バー＋ボトムナビの上に */
+.leaflet-control-zoom { bottom: 86px !important; }
 
 /* ヘッダー1行に */
 #total-count { white-space: nowrap; font-size: 13px !important; }
 
-/* Leaflet帰属（著作権表示）：ボトムナビの上・小さく・控えめに */
-.leaflet-control-attribution {
-  bottom: 65px !important;
-  font-size: 9px !important;
-  padding: 1px 4px !important;
-  background: rgba(255,255,255,0.75) !important;
-  line-height: 1.2 !important;
-  max-width: 60vw;
-}
+/* Leaflet帰属（著作権表示）は地図内蔵版を無効化し、
+   #map-attribution（地図外・ボトムナビ直上の独立バー）に置き換え済み */
+
 /* 位置情報マーカーアイコン非表示 */
 .leaflet-control-locate { display: none !important; }
 /* ============================================================

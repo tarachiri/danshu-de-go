@@ -64,8 +64,61 @@
 対象ファイル: `style.css`（danshu-de-goリポジトリ）
 コミット: `d5d2e71` "fix: Leaflet著作権表示(attribution)の位置・サイズを専用クラスで制御"
 
+## 追記（2026-07-04・第2回対応）
+
+上記の対応（フォントサイズ縮小・位置調整）を本番反映後、実機で確認した
+ところ「小さくはなったが、まだ地図の内側に文字が入り込んで見える」と
+のフィードバックがあった。
+
+### 分かったこと
+
+`.leaflet-control-attribution` はLeafletの仕様上、地図コンテナ
+（`.leaflet-container`）の内側に絶対配置される要素であり、CSSの
+`bottom` 値をどれだけ調整しても「地図の内側」という制約からは
+逃れられない。`#map` 自体の高さ（`calc(100dvh - 60px)`）はボトムナビの
+上で正しく終わっているため、著作権表示は「地図の一番下のライン上」に
+位置しており、これは今回の圧迫感の根本原因ではなく、Leafletの設計上
+そこにしか置けない、という構造的な制約だった。
+
+### 抜本対応
+
+地図内蔵の著作権表示を完全に無効化し（`attribution: false`）、
+かわりに地図の外・独立したDOM要素として `#map-attribution` を新設。
+ボトムナビ（`#bottom-nav`）の直上に高さ16pxの帯として固定配置し、
+`#map` の高さもその16px分を差し引いて再計算するようにした。
+
+```js
+// app.js
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: false
+}).addTo(map);
+```
+
+```html
+<!-- index.html：#bottom-navの直前に追加 -->
+<div id="map-attribution">© <a href="https://www.openstreetmap.org/copyright"
+  target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
+```
+
+```css
+/* style.css */
+#map { height: calc(100dvh - 76px) !important; } /* 60px+16px */
+#map-attribution {
+  position: fixed; left: 0; right: 0; bottom: 60px; height: 16px;
+  background: #16213e; border-top: 1px solid #0f3460;
+  color: rgba(255,255,255,0.4); font-size: 9px; line-height: 16px;
+  text-align: center; z-index: 1000; padding: 0 4px;
+}
+.leaflet-control-zoom { bottom: 86px !important; } /* 地図外バー分を追加考慮 */
+```
+
+これにより著作権表示は地図の可視領域を一切侵食しなくなり、独立した
+帯として常にボトムナビの直上に表示される。OpenStreetMapの利用規約が
+求める帰属表示自体は維持している。
+
 ## 確認事項（未実施）
 
-- 実機（iOS Safari／Android Chrome）でボトムナビとの重なりが解消されて
-  いるか目視確認
-- 地図のズーム操作時にattributionが正しく追従するか確認
+- 実機（iOS Safari／Android Chrome）で地図が著作権表示帯の分だけ
+  正しく縮小され、重なりが完全に解消されているか目視確認
+- ズームボタン（`.leaflet-control-zoom`）が地図外バーの上に正しく
+  表示されるか確認

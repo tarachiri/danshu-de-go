@@ -59,8 +59,10 @@ function getTomorrowJST() {
 }
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap contributors'
+  attribution: false
 }).addTo(map);
+// 地図内蔵の著作権表示は地図の可視領域を圧迫するため無効化し、
+// 画面下部フッター内に静的な帰属表示として設置する（下記footer参照）
 
 const TODAY    = getTodayJST();
 const TOMORROW = getTomorrowJST();
