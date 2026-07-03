@@ -410,16 +410,21 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 }
 .locate-btn:active { background: #f0f0f0; }
 
-/* Leaflet帰属テキストをボトムナビの上に */
-.leaflet-bottom { bottom: 65px !important; }
+/* Leafletコントロール（ズーム等）をボトムナビの上に */
 .leaflet-control-zoom { bottom: 70px !important; }
 
 /* ヘッダー1行に */
 #total-count { white-space: nowrap; font-size: 13px !important; }
 
-/* Leaflet帰属を完全に下に */
-.leaflet-bottom.leaflet-right { bottom: 62px !important; }
-.leaflet-bottom.leaflet-left { bottom: 62px !important; }
+/* Leaflet帰属（著作権表示）：ボトムナビの上・小さく・控えめに */
+.leaflet-control-attribution {
+  bottom: 65px !important;
+  font-size: 9px !important;
+  padding: 1px 4px !important;
+  background: rgba(255,255,255,0.75) !important;
+  line-height: 1.2 !important;
+  max-width: 60vw;
+}
 /* 位置情報マーカーアイコン非表示 */
 .leaflet-control-locate { display: none !important; }
 /* ============================================================
