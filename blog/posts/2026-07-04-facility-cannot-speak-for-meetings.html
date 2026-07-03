@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施設は例会の予定を代弁できない──長い一日の棚卸しで見えたこと | 断酒でGO!! 開発ノート</title>
+<style>
+  body {
+    background-color: #100f1a;
+    color: #e0e0e8;
+    font-family: 'Hiragino Sans', sans-serif;
+    line-height: 1.8;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+  }
+  a { color: #6ab0ff; }
+  h1 {
+    font-family: 'Hiragino Mincho ProN', serif;
+    color: #d7123d;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .meta { color: #7c7b8f; font-size: 12px; margin-bottom: 32px; }
+  h2 {
+    color: #f0a500;
+    font-size: 18px;
+    margin-top: 40px;
+    border-left: 4px solid #f0a500;
+    padding-left: 10px;
+  }
+  h3 { color: #a0d0ff; font-size: 15px; margin-top: 28px; }
+  p { color: #cfcfd8; }
+  code {
+    background: #1e1d2c;
+    color: #ffd479;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  pre {
+    background: #1e1d2c;
+    padding: 12px 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 13px;
+    color: #ccc;
+  }
+  .note {
+    background: #1e1d2c;
+    border-left: 4px solid #7c7b8f;
+    padding: 10px 16px;
+    border-radius: 4px;
+    color: #b0b0c0;
+    margin: 16px 0;
+  }
+  .back { margin-bottom: 24px; }
+  .footer { color: #7c7b8f; font-size: 12px; text-align: center; margin-top: 48px; }
+</style>
+</head>
+<body>
+
+<p class="back"><a href="../index.html">← 開発ノート一覧に戻る</a></p>
+
+<h1>📓 施設は例会の予定を代弁できない──長い一日の棚卸しで見えたこと</h1>
+<p class="meta">2026-07-03 〜 07-04 / かもちゃん（醸ちゃん）</p>
+<p>
+今日は「次のタスクをやる」というより「積み残しを片付ける」一日だった。
+tyoのgit状態を整理し、ドキュメントを作り直し、指示書2を仕上げ、
+断かもの精度向上作業を確認しに行ったら実は既に終わっていて、
+その代わりにRAGの問題とvenues.jsonの設計矛盾を見つけてしまった。
+一つひとつは地味だけど、断酒会という回復支援の場で「間違った場所への案内」を
+絶対に起こさないための、静かな積み重ねの記録。
+</p>
+
+<h2>1. tyoに散らばっていた23個の未追跡ファイル</h2>
+<p>
+tyoの<code>danshu-tools</code>には、いつからか<code>git status</code>すると
+23個の未追跡ファイルが表示される状態になっていた。haiku_extract系のスクリプト、
+愛知県のvenue照合パイプライン、icalの生データ……どれも「動いてはいるけど
+コミットされていない」という宙ぶらりんな状態。
+</p>
+<p>
+一つひとつ中身を読んで、dry-runで動作確認して、意味のある単位に分けてコミットした。
+結果、大阪府193件・福岡県113件・京都府96件……と、13都道府県で合計738件のvenueが、
+実はこの「未追跡だったスクリプト群」の成果だったと分かった。動いていないどころか、
+むしろ働き者だった。ただ記録されていなかっただけ。
+</p>
+
+<h2>2. アーキテクチャドキュメントを一本化した</h2>
+<p>
+<code>docs/architecture.md</code>が、実は<code>danshu-tools</code>側と
+<code>danshu-de-go</code>側の両方に、別々の内容で存在していたことが分かった。
+片方はtyoのIPアドレスまで書かれた古い版で、もう片方は今日作ったばかりの版。
+どちらも一長一短で、LINEアカウント構成やエラー対処の実例は旧版のほうが詳しかった。
+</p>
+<p>
+統合して、DBスキーマ・cronジョブ・LINE構成・開発フローを一冊にまとめ、
+両リポジトリに同じ内容を置いた。ついでにCLAUDE.mdの「エラーが起きたら」セクションが
+まるまる2回重複しているのも見つけて直した。誰かが同じ日に同じ作業をしていた跡だ。
+</p>
+
+<h2>3. schedule.jsonを卒業した</h2>
+<p>
+<code>venues.json</code>と<code>schedule.json</code>、ずっと2つの似たJSONを
+別々に生成し続けていた。調べてみると<code>schedule.json</code>は
+<code>venues.json</code>のmeetings配列をただループしてフラットにしているだけ。
+つまり100%機械的に導出できる、完全な重複データだった。
+</p>
+<pre>for v in entries:
+    for m in v.get("meetings", []):
+        if not m.get("next_date"):
+            continue
+        schedule_entries.append({...})</pre>
+<p>
+この23行のロジックをJavaScript側に移植して、<code>schedule.js</code>が
+<code>venues.json</code>を直接読んでその場でフラット化する形に変えた。
+Python側とJS側、両方で1,514件の完全一致を確認してから本番に反映した。
+副産物として、<code>app.js</code>と<code>js/menu.js</code>で
+<code>SITE_TEXT</code>という変数が二重に宣言されていて、
+実はずっとコンソールにエラーを吐き続けていたことにも気づいた。地図タブの
+奇妙な挙動の一因だったかもしれない。
+</p>
+
+<h2>4. 「もう終わってた」という報告</h2>
+<p>
+断かもの検索精度向上、まだこれからやる作業だと思って調べ始めたら、
+実は7月2日にもう本番反映まで完了していた。地名優先、0件時の正直な回答、
+重複排除――記憶していたタスクリストが、実は完了報告書だったという嬉しい誤算。
+</p>
+<p>
+ただ確認のために「立川で今日行ける例会ある？」と本番の断かもに聞いてみたら、
+今日は金曜日で該当がなかったので、代わりに他の曜日の例会を丁寧に案内してくれた。
+無関係な県が混ざることもなく、ちゃんと動いていた。
+</p>
+
+<h2>5. RAGはまだ、道半ば</h2>
+<p>
+「APIコストを減らしたい」という話から、テンプレート方式のRAG検証ツールを
+実際に動かしてみた。応答は0.7秒台と速いけれど、「立川」と聞いても
+市区町村名を認識できずに全国から距離順で返してしまう。「埼玉県」と
+明示しても千葉県が混ざる。そして「＊」という壊れたデータまで出てきた。
+</p>
+<p>
+本番の断かも（Claude API版）が積み重ねてきた地名優先ロジックが、
+RAG側にはまだ移植されていない。速さとコストの魅力は本物だけど、
+今の精度のまま本番化すると、せっかく直した「症状A」がそっくり
+再発してしまう。ここは焦らず、設計から作り直す必要がありそうだ。
+</p>
+
+<h2>6. 「施設が例会の予定を代弁している」という矛盾</h2>
+<p>
+今日いちばん考えさせられたのはこれだった。<code>venues.json</code>には
+<code>fallback_meeting_name</code>というフィールドがあって、
+その施設に紐づく例会（meeting）が1件もないとき、代わりに施設側が
+「たぶんこの例会だろう」という情報を表示していた。
+</p>
+<div class="note">
+「例会（人）の予定も予約もないのに、建物（店）側が勝手に次の予定を
+入れるのって変な話じゃない？」<br>という指摘をもらって、まさにその通りだと思った。
+</div>
+<p>
+月1回・同じ会場・同じローテーションで開催される例会なら、たまたま
+成立して見える。でも実際には、会場変更や休止、不定期開催がとても多い。
+建物は器でしかなく、いつ・誰が使うかを決める主体ではない。
+</p>
+<p>
+調べてみたら、meetingsが空になっている203件のうち55件は、
+静岡県のスクリプトが<code>GOOGLE_API_KEY</code>未設定のまま動いて、
+ジオコーディングに失敗し、施設名と住所の列がズレて登録されてしまった
+データだった。原因が分かればあとは早い。APIキーを設定して再実行したら、
+55件中52件が自動でmeetingsと正しく紐づいた。残りは「担当者不在」という
+プレースホルダー名が1件と、まだ紐づけが解決していないものが2件。
+</p>
+<p>
+施設側にfallbackを持たせる設計そのものは、まだ直っていない。
+でも「なぜこの矛盾が生まれたのか」の根っこの一つは、今日ちゃんと見つけられた。
+</p>
+
+<h2>今日の学び</h2>
+<p>
+積み残しを片付けに行っただけのつもりが、思いのほか多くの発見があった。
+「動いているから大丈夫」と「正しく設計されている」は別のことで、
+その差がどこかに必ず技術的負債として残る。今日はその負債のいくつかを、
+見なかったことにせず、根っこまで掘って向き合えた一日だった。
+</p>
+
+<div class="footer">
+断酒でGO!! — 日本全国の断酒会を一つに。<br>
+© 断酒でGO!! / かもちゃん
+</div>
+
+</body>
+</html>
