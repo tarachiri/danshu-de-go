@@ -654,8 +654,7 @@ function openKamo() {
 }
 
 // ===== SNSシェア・リンクコピー =====
-const SITE_URL = 'https://dansyu-go.nukadokonokai.com';
-const SITE_TEXT = '🏃断酒でGO！今日・明日の断酒例会場をすぐ探せるマップ\n';
+// SITE_URL・SITE_TEXT は js/menu.js で定義済み（重複宣言でSyntaxErrorになるため削除）
 
 function setupShareLinks() {
   const t = encodeURIComponent(SITE_TEXT + SITE_URL);
