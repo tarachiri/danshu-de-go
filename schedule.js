@@ -73,6 +73,35 @@ const Schedule = {
     }
   },
 
+  // venues.json（会場ごとにmeetings[]をネスト）を
+  // schedule.json相当のフラット配列に変換する。
+  // generate_map_v6.pyのschedule_entries生成ロジックと1対1対応。
+  _flattenVenuesToSchedule(venues) {
+    const entries = [];
+    for (const v of venues) {
+      for (const m of (v.meetings || [])) {
+        if (!m.next_date) continue;
+        entries.push({
+          id: v.id,
+          meeting_name: m.name,
+          next_date: m.next_date,
+          start_time: m.start_time,
+          end_time: m.end_time,
+          recurrence: m.recurrence,
+          address: v.address,
+          prefecture: v.prefecture,
+          latitude: v.lat,
+          longitude: v.lng,
+        });
+      }
+    }
+    entries.sort((a, b) => {
+      if (a.next_date !== b.next_date) return a.next_date < b.next_date ? -1 : 1;
+      return (a.start_time || '') < (b.start_time || '') ? -1 : 1;
+    });
+    return entries;
+  },
+
   // タブ切替から呼ぶ
   render() {
     if (this._rendered) return;
@@ -90,10 +119,14 @@ const Schedule = {
     listEl.innerHTML = '<div style="color:#a0a0b0;text-align:center;padding:32px;">読み込み中...</div>';
     container.appendChild(listEl);
 
-    // データ取得（キャッシュあれば再利用）
+    // データ取得（キャッシュあれば再利用）venues.jsonから100%機械的に導出
     const load = this._data
       ? Promise.resolve(this._data)
-      : fetch('schedule.json?v=' + Date.now()).then(r => r.json()).then(d => { this._data = d; return d; });
+      : fetch('venues.json?v=' + Date.now()).then(r => r.json()).then(venues => {
+          const flat = this._flattenVenuesToSchedule(venues);
+          this._data = flat;
+          return flat;
+        });
 
     load
       .then(data => this._renderAll(data, listEl))
