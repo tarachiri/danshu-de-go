@@ -345,6 +345,8 @@ function switchTab(tab) {
   const schEl = document.getElementById('schedule');
   const newsEl = document.getElementById('news');
   const kamoEl = document.getElementById('kamo');
+  const footerEl = document.getElementById('footer');
+  const mapAttrEl = document.getElementById('map-attribution');
   const tabMap = document.getElementById('tab-map');
   const tabSch = document.getElementById('tab-schedule');
   const tabNews = document.getElementById('tab-news');
@@ -357,6 +359,9 @@ function switchTab(tab) {
   tabSch.classList.remove('active');
   if (tabNews) tabNews.classList.remove('active');
   if (tabKamo) tabKamo.classList.remove('active');
+  // フッター・地図帰属バーは「マップ画面」以外のタブでのみ表示
+  if (footerEl) footerEl.style.display = (tab === 'map') ? 'none' : 'block';
+  if (mapAttrEl) mapAttrEl.style.display = (tab === 'map') ? 'block' : 'none';
   if (tab === 'map') {
     mapEl.style.display = '';
     tabMap.classList.add('active');

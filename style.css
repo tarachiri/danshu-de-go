@@ -372,8 +372,26 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 
 /* コンテンツエリアのボトム余白（60px=ボトムナビ + 16px=地図外の著作権表示帯） */
 #map { height: calc(100dvh - 76px) !important; }
-#schedule-view { padding-bottom: 60px; }
-#news-view { padding-bottom: 60px; }
+/* 日程・お知らせタブは#footer(16px)の分だけ余白を追加確保 */
+#schedule-view { padding-bottom: 76px; }
+#news-view { padding-bottom: 76px; }
+
+/* 画面下部フッター（©表記・開発ノートリンク）：
+   マップタブでは非表示、日程・お知らせタブではボトムナビ直上に固定表示 */
+#footer {
+  display: none;
+  position: fixed;
+  left: 0; right: 0;
+  bottom: 60px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 8px !important;
+  font-size: 10px !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 1000;
+}
 
 /* 地図外の著作権表示帯（ボトムナビ直上・地図の可視領域は一切侵食しない） */
 #map-attribution {
