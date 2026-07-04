@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBの勉強をし直した日──「テーブル」と「クラス」の話から、例会という概念の核心にたどり着くまで | 断酒でGO!! 開発ノート</title>
+<meta name="description" content="断酒でGO!!のDB設計を、リレーショナルDBの基礎から学び直した記録。venuesとmeetingsの責務混在の発見、会員登録・Myカレンダー・例会登録機能のエンティティ設計、そして「例会クラス」と「例会インスタンス」という概念にたどり着くまで。アルコール依存症からの回復を支える例会・ミーティング情報の正確性を守るための設計思想の記録。">
+<style>
+body { font-family: sans-serif; max-width: 720px; margin: 0 auto; padding: 2rem 1rem; line-height: 1.8; color: #333; }
+h1 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.25rem; }
+h2 { font-size: 1.15rem; color: #2a6a2a; margin-top: 2em; border-left: 4px solid #2a6a2a; padding-left: 10px; }
+.date { color: #888; font-size: 0.9rem; margin-bottom: 2rem; }
+p { margin-bottom: 1.25rem; }
+.tag { display: inline-block; background: #e8f4e8; color: #2a6a2a; font-size: 0.75rem; padding: 2px 8px; border-radius: 20px; margin-right: 4px; }
+code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.88em; font-family: monospace; }
+pre { background: #2c3e50; color: #ecf0f1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 0.85em; line-height: 1.6; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.9em; }
+th { background: #2a6a2a; color: #fff; padding: 7px 10px; text-align: left; }
+td { border: 1px solid #ddd; padding: 6px 10px; }
+.note { background: #fffde7; border-left: 4px solid #f39c12; padding: 12px 16px; border-radius: 4px; margin: 1em 0; font-size: 0.93em; }
+.danger { background: #fde8e8; border-left: 4px solid #e74c3c; padding: 12px 16px; border-radius: 4px; margin: 1em 0; font-size: 0.93em; }
+hr { border: none; border-top: 1px solid #eee; margin: 2rem 0; }
+.footer { color: #aaa; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<p><a href="/blog/">← 開発ノート一覧</a></p>
+
+<h1>DBの勉強をし直した日──「テーブル」と「クラス」の話から、例会という概念の核心にたどり着くまで</h1>
+<p class="date">2026年7月5日 &nbsp; <span class="tag">DB設計</span><span class="tag">エンティティ設計</span><span class="tag">venues</span><span class="tag">meetings</span></p>
+
+<p>今日はコードを1行も書いていない。その代わり、まじまじさんと一緒にDBの基礎を勉強し直した。リレーショナルDBとは何か、テーブルとマスタの違い、クラスとインスタンスの違い。一見遠回りに見えたこの時間が、最後には断酒でGO!!が抱えている一番根深い設計課題の核心にたどり着くことになった。</p>
+
+<h2>venuesとmeetings、たった2つでは足りなかった</h2>
+
+<p>最初はシンプルな疑問から始まった。「venues（会場）とmeetings（例会）の2つのテーブルだけで足りるんじゃないか」と。実際に本番のdanshu.dbを見てみると、テーブルは11個あった。</p>
+
+<pre>danshu_sites, meetings, raw_meetings
+events, national_sources, schedule_exceptions
+meeting_master, org_hierarchy, venues
+meeting_types, raw_events, zendanren_organizations</pre>
+
+<p>多く見えるが、仕分けてみると3つの軸が混ざっているだけだった。「生データか確定データか」（raw_meetings/meetings、raw_events/events）、「定期活動か単発イベントか」（meetings系/events）、「組織構造」（org_hierarchy、zendanren_organizations）。1つのエンティティに1つの責務だけを持たせる、という原則からすると、11個は多すぎるどころか、まだ足りない領域（会員機能、公開範囲の管理）がある。</p>
+
+<h2>venuesに紛れ込んでいた、meetingsの責務</h2>
+
+<p>実際に <code>.schema venues</code> と <code>.schema meetings</code> を並べて見たとき、venuesテーブルの中に <code>meeting_name</code>, <code>schedule</code>, <code>next_date</code>, <code>start_time</code>, <code>end_time</code>, <code>recurrence</code> という「例会っぽいカラム」が存在していることに気づいた。これは以前から「技術的負債」として認識していたfallback系フィールドの実物だった。</p>
+
+<div class="note">
+<strong>施設が、例会の予定を代弁してはいけない。</strong><br>
+venuesは「会場」という物理的なオブジェクトの情報だけを持つべきで、「いつ、どんな例会が開かれるか」という情報は本来meetings側の責務のはずだった。この2つが1つのテーブルに混ざってしまうと、責務が曖昧になり、後々のバグの温床になる。
+</div>
+
+<h2>「例会」は、クラスでありインスタンスでもある</h2>
+
+<p>今日一番大きな気づきはここだった。まじまじさんの言葉を借りると、こうなる。</p>
+
+<blockquote>
+例会は組織の中でユニーク名がつけられていて、例会はクラスでありインスタンスでもある。例会クラスは定期開催パターンを持っている。例会インスタンスは日時と会場を持った実態。
+</blockquote>
+
+<p>「立川例会」という名前そのものは、組織が定めた継続的な"型"（例会クラス）。そこから生まれる「2026年7月15日19時、立川市民会館で開催」という1回分は、日時と会場が確定した"実態"（例会インスタンス）。この2つを混同すると、会場変更のたびに「これは同じ例会の継続なのか、別の新しい例会なのか」を判断できなくなる。</p>
+
+<p>実は本番の <code>meeting_master</code> テーブルには、すでに <code>match_facility</code>, <code>match_address</code> といった「マッチング用」のカラムが存在していた。最初は「会場変更があるならマッチングは不要では」と思ったが、逆だった。<strong>会場が変わっても"同じ例会である"という連続性を保つために、このマッチングという仕組みが必要</strong>だったのだ。</p>
+
+<h2>組織階層は、固定段数で設計してはいけない</h2>
+
+<p>断酒会の組織構造も整理した。全日本断酒連盟（全断連）を頂点に、ブロック、都道府県断酒会、エリア断酒会、そして支部制を取る細分化された断酒会まで存在する。ただし都道府県ごとに階層の深さも呼び方もまちまちで、エリア制の県もあれば、月1回1会場だけの小規模な組織もある。</p>
+
+<p>この多様性を固定段数のテーブルで表現しようとすると必ず破綻する。代わりに、組織同士の親子関係だけを持つ自己参照型のテーブル（<code>organizations</code> / <code>organization_hierarchy</code>）として設計すれば、どんな深さの階層でも表現できる。<code>org_type</code>を自由記述にしておけば、「ブロック」のような新しい階層単位が将来出てきても構造を変えずに済む。</p>
+
+<p>なお、断酒でGO!!は全日本断酒連盟に加盟している断酒会の例会情報を第一優先で集めている。データ収集の方針として、これは今日整理した組織階層の設計にもそのまま反映される。</p>
+
+<h2>今日書いた設計メモ</h2>
+
+<p>今日の勉強と議論を、以下の2本の設計メモとしてdocsに残した。どちらも未実装の設計段階のものだが、TBD（未確定事項）も含めて明記してある。</p>
+
+<table>
+<tr><th>ファイル</th><th>内容</th></tr>
+<tr><td>docs/future-member-features.md</td><td>会員登録・Myカレンダー・例会登録機能のエンティティ設計</td></tr>
+<tr><td>docs/phase1-organizations-design.md</td><td>組織マスタ（organizations）新設のPhase 1設計</td></tr>
+</table>
+
+<p>会員登録機能は、断酒でGO!!に会員登録することで、利用者一人一人に合わせたサービス提供を可能にするための土台になる。そこから派生するMyカレンダー機能は、所属団体やお気に入り例会を登録して表示をカスタマイズできるようにするもの。例会登録機能は、それよりもさらに厳密な本人確認を前提に、所属断酒会の例会そのものを登録・変更・削除できるようにする機能だ。どちらも、アルコール依存症からの回復を目指す人が、自分に合った例会・ミーティングに継続してアクセスできるようにするための拡張として位置づけている。</p>
+
+<h2>次にやること</h2>
+
+<p>今日の議論で浮かんだ、次に手をつけるべき論点をメモしておく。</p>
+
+<ul>
+<li>meeting_masterが実際にどのスクリプト（promote_raw_meetings.py等）から読み書きされているかを確認し、「例会クラス」の器として育てるか、新規テーブルに分離するかを判断する</li>
+<li>venuesに紛れ込んでいるfallback系カラムを、meeting_master（例会クラス）側に段階的に移す設計（Phase 2）</li>
+<li>meetings/eventsの分離、audience_scope（公開範囲）の設計（Phase 3〜4）</li>
+<li>会員登録機能の2つのTBD（会員種別の扱い、1人が所属できる団体数）を、実態確認の上で決定する</li>
+</ul>
+
+<p>今日はコードは書かなかったが、次に実装するときに迷わないための地図は、確実に一枚描けたと思う。</p>
+
+<hr>
+<p class="footer">断酒でGO!! 開発ノート ／ かもちゃん記</p>
+
+</body>
+</html>
