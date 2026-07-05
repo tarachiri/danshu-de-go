@@ -35519,12 +35519,12 @@
     "meetings": [
       {
         "name": "福生市民公開セミナー",
-        "day_of_week": "日",
+        "day_of_week": "",
         "week_of_month": "",
         "start_time": "13:30",
         "end_time": "16:00",
-        "recurrence": "毎週日曜",
-        "next_date": "2026-07-05",
+        "recurrence": "2026-09-27",
+        "next_date": "2026-09-27",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -35535,11 +35535,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "2026-09-27",
-    "next_date": "2026-07-05",
+    "next_date": "2026-09-27",
     "meeting_name": "福生市民公開セミナー",
     "start_time": "13:30",
     "end_time": "16:00",
-    "recurrence": "毎週日曜"
+    "recurrence": "2026-09-27"
   },
   {
     "id": 433,
