@@ -128,6 +128,15 @@ schedule.json
 
 ## 次にやること（優先度順）
 
+### Androidアプリ試作（2026-07-03追記）
+
+- `/Users/pro2015/AndroidStudioProjects/GO` に作成済みのAndroid Studioプロジェクトを確認。
+- `AndroidManifest.xml` に `INTERNET` 権限を追加。
+- `activity_main.xml` の初期 `Hello World!` を `WebView` 全画面表示へ変更。
+- `MainActivity.kt` で `https://dansyu-go.nukadokonokai.com/` を読み込み、Androidの戻る操作でWebView内履歴を戻る処理を追加。
+- `JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew :app:assembleDebug` でデバッグビルド成功。
+- 次はAndroid Studioから実機またはエミュレーターへ実行し、地図・日程・新着タブの動作確認。
+
 ### すぐ確認できること
 
 1. **本番で日程タブの日時表示を確認** — `e5bbe8c` 反映後、スマホでカードに `📅 日付 時刻` が出るか。
