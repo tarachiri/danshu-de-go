@@ -7874,18 +7874,6 @@
         "exc_note": ""
       },
       {
-        "name": "野田例会",
-        "day_of_week": "土",
-        "week_of_month": "3,4",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "第3・第4土曜",
-        "next_date": "2026-07-18",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "松戸例会",
         "day_of_week": "金",
         "week_of_month": "1",
@@ -31943,6 +31931,30 @@
         "exc_note": ""
       },
       {
+        "name": "荒川断酒会　第1例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "18:30",
+        "end_time": "20:30",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "荒川断酒会　第2例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "18:30",
+        "end_time": "20:30",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "荒川断酒会　例会",
         "day_of_week": "",
         "week_of_month": "",
@@ -32591,119 +32603,11 @@
     "needs_verification": 0,
     "meetings": [
       {
-        "name": "昭島例会",
-        "day_of_week": "木",
-        "week_of_month": "2",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第2木曜",
-        "next_date": "2026-07-09",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "杉並断酒会　懇談会",
-        "day_of_week": "月",
-        "week_of_month": "1,2,4",
-        "start_time": "19:00",
-        "end_time": "20:30",
-        "recurrence": "第1・第2・第4月曜",
-        "next_date": "2026-07-13",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "福生例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "14:00",
-        "end_time": "16:00",
-        "recurrence": "第4金曜",
-        "next_date": "2026-07-24",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "連合合同例会",
-        "day_of_week": "金",
-        "week_of_month": "4,5",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "recurrence": "第4・第5金曜",
-        "next_date": "2026-07-24",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "世田谷例会",
         "day_of_week": "",
         "week_of_month": "",
         "start_time": "",
         "end_time": "",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "立川新年会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "11:00",
-        "end_time": "15:00",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "多摩家族会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "13:00",
-        "end_time": "15:00",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "多摩本部例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "13:00",
-        "end_time": "15:00",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "連合/多摩総会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "13:00",
-        "end_time": "14:00",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "多摩酒害相談",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "13:30",
-        "end_time": "16:00",
         "recurrence": "",
         "next_date": "",
         "has_exception": false,
@@ -32721,78 +32625,6 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
-      },
-      {
-        "name": "中野断酒会　例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "墨田断酒会　第1例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "墨田断酒会　第2例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "荒川断酒会　例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "荒川断酒会　第1例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "荒川断酒会　第2例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "recurrence": "",
-        "next_date": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -32800,11 +32632,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-07-09",
-    "meeting_name": "昭島例会",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第2木曜"
+    "next_date": "",
+    "meeting_name": "世田谷例会",
+    "start_time": "",
+    "end_time": "",
+    "recurrence": ""
   },
   {
     "id": 10,
@@ -34995,20 +34827,33 @@
     "lng": 139.3577752,
     "prefecture": "東京都",
     "official_url": "http://www.tama-danshurengou.jpn.org",
-    "calendar_url": "",
+    "calendar_url": "https://calendar.google.com/calendar/embed?src=tamadanshu%40gmail.com&mode=AGENDA",
     "contact_phone": "",
     "needs_verification": 0,
-    "meetings": [],
+    "meetings": [
+      {
+        "name": "昭島例会",
+        "day_of_week": "木",
+        "week_of_month": "2",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第2木曜",
+        "next_date": "2026-07-09",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      }
+    ],
     "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
-    "meeting_name": "",
-    "start_time": "",
-    "end_time": "",
-    "recurrence": ""
+    "next_date": "2026-07-09",
+    "meeting_name": "昭島例会",
+    "start_time": "19:00",
+    "end_time": "21:00",
+    "recurrence": "第2木曜"
   },
   {
     "id": 247,
@@ -35072,12 +34917,12 @@
     "meetings": [
       {
         "name": "国分寺例会",
-        "day_of_week": "",
-        "week_of_month": "",
+        "day_of_week": "水",
+        "week_of_month": "3",
         "start_time": "19:00",
         "end_time": "21:00",
-        "recurrence": "",
-        "next_date": "",
+        "recurrence": "第3水曜",
+        "next_date": "2026-07-15",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -35088,11 +34933,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
+    "next_date": "2026-07-15",
     "meeting_name": "国分寺例会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": ""
+    "recurrence": "第3水曜"
   },
   {
     "id": 249,
@@ -35168,12 +35013,12 @@
     "meetings": [
       {
         "name": "小平例会",
-        "day_of_week": "",
-        "week_of_month": "",
+        "day_of_week": "火",
+        "week_of_month": "2",
         "start_time": "19:00",
         "end_time": "21:00",
-        "recurrence": "",
-        "next_date": "",
+        "recurrence": "第2火曜",
+        "next_date": "2026-07-14",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -35184,11 +35029,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
+    "next_date": "2026-07-14",
     "meeting_name": "小平例会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": ""
+    "recurrence": "第2火曜"
   },
   {
     "id": 252,
@@ -35210,6 +35055,18 @@
         "end_time": "16:00",
         "recurrence": "第4金曜",
         "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "立川新年会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "11:00",
+        "end_time": "15:00",
+        "recurrence": "",
+        "next_date": "",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -35424,7 +35281,7 @@
     "lng": 139.44450371547399,
     "prefecture": "東京都",
     "official_url": "http://www.tama-danshurengou.jpn.org",
-    "calendar_url": "",
+    "calendar_url": "https://calendar.google.com/calendar/embed?src=tamadanshu%40gmail.com&mode=AGENDA",
     "contact_phone": "",
     "needs_verification": 0,
     "meetings": [
@@ -35441,6 +35298,18 @@
         "exc_note": ""
       },
       {
+        "name": "連合合同例会",
+        "day_of_week": "金",
+        "week_of_month": "4,5",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "recurrence": "第4・第5金曜",
+        "next_date": "2026-07-24",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
         "name": "多摩本部例会",
         "day_of_week": "日",
         "week_of_month": "1",
@@ -35448,6 +35317,54 @@
         "end_time": "15:00",
         "recurrence": "第1日曜",
         "next_date": "2026-08-02",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "連合/多摩総会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "13:00",
+        "end_time": "14:00",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "多摩家族会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "13:00",
+        "end_time": "15:00",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "多摩本部例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "13:00",
+        "end_time": "15:00",
+        "recurrence": "",
+        "next_date": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "多摩酒害相談",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "13:30",
+        "end_time": "16:00",
+        "recurrence": "",
+        "next_date": "",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -39934,78 +39851,6 @@
     "needs_verification": 0,
     "meetings": [
       {
-        "name": "例会",
-        "day_of_week": "火",
-        "week_of_month": "",
-        "start_time": "19:00",
-        "end_time": "20:30",
-        "recurrence": "毎週火曜",
-        "next_date": "2026-07-14",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "相談·質問",
-        "day_of_week": "木",
-        "week_of_month": "1,3",
-        "start_time": "18:00",
-        "end_time": "18:45",
-        "recurrence": "第1・第3木曜",
-        "next_date": "2026-07-16",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "平塚例会",
-        "day_of_week": "木",
-        "week_of_month": "3",
-        "start_time": "18:45",
-        "end_time": "20:30",
-        "recurrence": "第3木曜",
-        "next_date": "2026-07-16",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "幸市民館例会",
-        "day_of_week": "木",
-        "week_of_month": "3",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第3木曜",
-        "next_date": "2026-07-16",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "高津市民館例会",
-        "day_of_week": "土",
-        "week_of_month": "3",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第3土曜",
-        "next_date": "2026-07-18",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
-        "name": "多摩市民館例会",
-        "day_of_week": "金",
-        "week_of_month": "4",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第4金曜",
-        "next_date": "2026-07-24",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "name": "中原市民館例会",
         "day_of_week": "土",
         "week_of_month": "4",
@@ -40016,18 +39861,6 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
-      },
-      {
-        "name": "宮前市民館例会",
-        "day_of_week": "土",
-        "week_of_month": "1",
-        "start_time": "19:00",
-        "end_time": "20:45",
-        "recurrence": "第1土曜",
-        "next_date": "2026-08-01",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -40035,11 +39868,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-07-14",
-    "meeting_name": "例会",
+    "next_date": "2026-07-25",
+    "meeting_name": "中原市民館例会",
     "start_time": "19:00",
-    "end_time": "20:30",
-    "recurrence": "毎週火曜"
+    "end_time": "20:45",
+    "recurrence": "第4土曜"
   },
   {
     "id": 92,
@@ -40156,20 +39989,33 @@
     "lng": 139.6127035,
     "prefecture": "神奈川県",
     "official_url": "https://www.shindanren.com",
-    "calendar_url": "",
+    "calendar_url": "https://calendar.google.com/calendar/embed?src=kawasakidansyu%40gmail.com&mode=AGENDA",
     "contact_phone": "",
     "needs_verification": 0,
-    "meetings": [],
+    "meetings": [
+      {
+        "name": "高津市民館例会",
+        "day_of_week": "土",
+        "week_of_month": "3",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第3土曜",
+        "next_date": "2026-07-18",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      }
+    ],
     "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
-    "meeting_name": "",
-    "start_time": "",
-    "end_time": "",
-    "recurrence": ""
+    "next_date": "2026-07-18",
+    "meeting_name": "高津市民館例会",
+    "start_time": "19:00",
+    "end_time": "20:45",
+    "recurrence": "第3土曜"
   },
   {
     "id": 97,
@@ -40215,20 +40061,45 @@
     "lng": 139.3440372,
     "prefecture": "神奈川県",
     "official_url": "https://www.shindanren.com",
-    "calendar_url": "",
+    "calendar_url": "https://calendar.google.com/calendar/embed?src=shonanhiratsukadansyu%40gmail.com&mode=AGENDA",
     "contact_phone": "",
     "needs_verification": 0,
-    "meetings": [],
+    "meetings": [
+      {
+        "name": "相談·質問",
+        "day_of_week": "木",
+        "week_of_month": "1,3",
+        "start_time": "18:00",
+        "end_time": "18:45",
+        "recurrence": "第1・第3木曜",
+        "next_date": "2026-07-16",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      },
+      {
+        "name": "平塚例会",
+        "day_of_week": "木",
+        "week_of_month": "3",
+        "start_time": "18:45",
+        "end_time": "20:30",
+        "recurrence": "第3木曜",
+        "next_date": "2026-07-16",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      }
+    ],
     "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
-    "meeting_name": "",
-    "start_time": "",
-    "end_time": "",
-    "recurrence": ""
+    "next_date": "2026-07-16",
+    "meeting_name": "相談·質問",
+    "start_time": "18:00",
+    "end_time": "18:45",
+    "recurrence": "第1・第3木曜"
   },
   {
     "id": 100,
@@ -41086,20 +40957,33 @@
     "lng": 139.6875789,
     "prefecture": "神奈川県",
     "official_url": "https://www.shindanren.com",
-    "calendar_url": "",
+    "calendar_url": "https://calendar.google.com/calendar/embed?src=kawasakidansyu%40gmail.com&mode=AGENDA",
     "contact_phone": "",
     "needs_verification": 0,
-    "meetings": [],
+    "meetings": [
+      {
+        "name": "幸市民館例会",
+        "day_of_week": "木",
+        "week_of_month": "3",
+        "start_time": "19:00",
+        "end_time": "20:45",
+        "recurrence": "第3木曜",
+        "next_date": "2026-07-16",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      }
+    ],
     "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
-    "meeting_name": "",
-    "start_time": "",
-    "end_time": "",
-    "recurrence": ""
+    "next_date": "2026-07-16",
+    "meeting_name": "幸市民館例会",
+    "start_time": "19:00",
+    "end_time": "20:45",
+    "recurrence": "第3木曜"
   },
   {
     "id": 384,
