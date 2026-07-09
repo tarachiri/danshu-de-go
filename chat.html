@@ -237,7 +237,8 @@ function processNode(nodeId, inputText, extraData) {
     if (node.next) setTimeout(function(){ processNode(node.next); }, 800);
 
   } else if (node.type === 'api') {
-    callAPI(inputText).then(function() {
+    var request = node.endpoint === 'inquiry' ? callInquiry(inputText, nodeId) : callAPI(inputText);
+    request.then(function() {
       if (node.next) setTimeout(function(){ processNode(node.next); }, 400);
     });
   }
@@ -254,10 +255,15 @@ function searchVenues(query, filter) {
   var days = ['日曜日','月曜日','火曜日','水曜日','木曜日','金曜日','土曜日'];
   var daysShort = ['日','月','火','水','木','金','土'];
   var todayFull = days[jst.getDay()];
-  var todayShort = daysShort[jst.getDay()];
   var tomorrowFull = days[(jst.getDay() + 1) % 7];
-  var tomorrowShort = daysShort[(jst.getDay() + 1) % 7];
   var currentTime = jst.getHours() * 100 + jst.getMinutes();
+
+  function formatDate(d) {
+    var y = d.getFullYear(), m = ('0' + (d.getMonth() + 1)).slice(-2), day = ('0' + d.getDate()).slice(-2);
+    return y + '-' + m + '-' + day;
+  }
+  var todayStr = formatDate(jst);
+  var tomorrowStr = formatDate(new Date(jst.getTime() + 24 * 60 * 60 * 1000));
 
   var isToday = query.indexOf('今日') >= 0 || query === todayFull;
   var isTomorrow = query.indexOf('明日') >= 0 || query === tomorrowFull;
@@ -299,14 +305,14 @@ function searchVenues(query, filter) {
           if (meetingName.indexOf(typeKeywords[ti]) >= 0) { match = true; break; }
         }
       } else if (isNow) {
-        if (meetingDay === todayFull || meetingDay === todayShort) {
+        if (meeting.next_date === todayStr) {
           var t = meeting.start_time ? parseInt(meeting.start_time.replace(':', '')) : 0;
           if (t > currentTime) match = true;
         }
       } else if (isToday) {
-        if (meetingDay === todayFull || meetingDay === todayShort) match = true;
+        if (meeting.next_date === todayStr) match = true;
       } else if (isTomorrow) {
-        if (meetingDay === tomorrowFull || meetingDay === tomorrowShort) match = true;
+        if (meeting.next_date === tomorrowStr) match = true;
       } else if (dayMatch !== null) {
         if (meetingDay === days[dayMatch] || meetingDay === daysShort[dayMatch]) match = true;
       } else if (regionPrefs) {
@@ -391,6 +397,43 @@ async function callAPI(userText) {
   } catch(e) {
     hideTyping();
     addKamoMessage('ごめんね、うまく繋がらなかったみたい😢 もう一度試してみてね。');
+  } finally {
+    isLoading = false;
+    sendBtn.disabled = false;
+  }
+}
+
+async function callInquiry(userText, sourceNode) {
+  isLoading = true;
+  sendBtn.disabled = true;
+  showTyping();
+  if (userText) apiHistory.push({ role: 'user', content: userText });
+  try {
+    var metadata = {
+      page_url: location.href,
+      user_agent: navigator.userAgent,
+      source_node: sourceNode || 'report_chat'
+    };
+    var body = {
+      message: userText || '',
+      source: 'web_chat:' + (sourceNode || 'report_chat'),
+      history: apiHistory.slice(-6),
+      metadata: metadata
+    };
+    if (userLat !== null) { body.lat = userLat; body.lng = userLng; }
+    var res = await fetch(API_URL + '/inquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    hideTyping();
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var data = await res.json();
+    addKamoMessage(data.reply);
+    apiHistory.push({ role: 'assistant', content: data.reply });
+  } catch(e) {
+    hideTyping();
+    addKamoMessage('ごめんね、問い合わせの送信に失敗したみたい😢 少し時間をおいてもう一度送ってみてね。');
   } finally {
     isLoading = false;
     sendBtn.disabled = false;
