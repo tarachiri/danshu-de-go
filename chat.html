@@ -195,18 +195,23 @@ async function init() {
   processNode('start');
 }
 
+var gpsReady = Promise.resolve();
+
 function initGPS() {
   if (!navigator.geolocation) return;
-  navigator.geolocation.getCurrentPosition(
-    function(pos) {
-      userLat = pos.coords.latitude;
-      userLng = pos.coords.longitude;
-      gpsBtn.classList.add('active');
-      gpsBtn.title = '位置情報取得済み';
-    },
-    function() { gpsBtn.title = '位置情報が取得できませんでした'; },
-    { timeout: 10000, maximumAge: 60000 }
-  );
+  gpsReady = new Promise(function(resolve) {
+    navigator.geolocation.getCurrentPosition(
+      function(pos) {
+        userLat = pos.coords.latitude;
+        userLng = pos.coords.longitude;
+        gpsBtn.classList.add('active');
+        gpsBtn.title = '位置情報取得済み';
+        resolve();
+      },
+      function() { gpsBtn.title = '位置情報が取得できませんでした'; resolve(); },
+      { timeout: 10000, maximumAge: 60000 }
+    );
+  });
 }
 
 function processNode(nodeId, inputText, extraData) {
@@ -233,8 +238,11 @@ function processNode(nodeId, inputText, extraData) {
     if (query === '{{input}}') query = inputText || '';
     if (query === '{{data}}') query = extraData || '';
     addKamoMessage(node.message || ('「' + query + '」で例会を探してるね！'));
-    searchVenues(query, node.filter);
-    if (node.next) setTimeout(function(){ processNode(node.next); }, 800);
+    // GPS取得が間に合っていない可能性があるので、短時間だけ待ってから検索する
+    Promise.race([gpsReady, new Promise(function(r){ setTimeout(r, 2500); })]).then(function() {
+      searchVenues(query, node.filter);
+      if (node.next) setTimeout(function(){ processNode(node.next); }, 800);
+    });
 
   } else if (node.type === 'api') {
     var request = node.endpoint === 'inquiry' ? callInquiry(inputText, nodeId) : callAPI(inputText);
