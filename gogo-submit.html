@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>例会情報を送る | 断酒でGO!!</title>
+  <meta name="description" content="断酒会の例会予定表や例会情報を送るための投稿フォームです。">
+  <style>
+    :root { color-scheme: light; --navy:#16213e; --red:#c0392b; --bg:#f6f7f9; --ink:#222; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; font-size:18px; line-height:1.7; }
+    header { background:var(--navy); color:#fff; padding:18px 16px; }
+    header a { color:#fff; text-decoration:none; }
+    main { width:min(720px, calc(100% - 24px)); margin:24px auto 48px; }
+    .panel { background:#fff; border-radius:14px; padding:clamp(20px,5vw,36px); box-shadow:0 3px 18px rgba(0,0,0,.08); }
+    h1 { margin:0 0 14px; font-size:clamp(26px,7vw,36px); line-height:1.35; }
+    .notice { background:#fff7df; border-left:5px solid #e0a000; padding:12px 14px; }
+    label { display:block; margin-top:26px; font-weight:700; }
+    .help { display:block; color:#666; font-size:15px; font-weight:400; margin:4px 0 8px; }
+    input[type="file"], textarea { display:block; width:100%; margin-top:8px; padding:14px; border:2px solid #bbb; border-radius:9px; background:#fff; color:#222; font:inherit; }
+    textarea:focus, input:focus { outline:3px solid rgba(192,57,43,.2); border-color:var(--red); }
+    button { width:100%; margin-top:30px; padding:17px; border:0; border-radius:10px; background:var(--red); color:#fff; font-size:21px; font-weight:700; cursor:pointer; }
+    button:disabled { opacity:.55; cursor:wait; }
+    #result { min-height:2em; margin:18px 0 0; font-weight:700; }
+    .success { color:#176c32; }
+    .error { color:#a5231b; }
+  </style>
+</head>
+<body>
+  <header><a href="./">← 断酒でGO!!へ戻る</a></header>
+  <main>
+    <section class="panel">
+      <h1>例会情報を送る</h1>
+      <p>断酒会の予定表や、例会について分かることをお送りください。内容は確認後に反映します。</p>
+      <p class="notice">ファイルか直接入力の、どちらか一方は必須です。</p>
+      <form id="submission-form" enctype="multipart/form-data">
+        <label>予定表などのファイル
+          <span class="help">PDF、Excel、Word、写真を複数選べます（任意）</span>
+          <input type="file" name="files" multiple accept=".pdf,.xlsx,.xls,.docx,.doc,.jpg,.jpeg,.png,.gif,.heic,image/*">
+        </label>
+        <label>例会予定を直接入力
+          <span class="help">ファイルがない場合は、分かる範囲でお書きください</span>
+          <textarea name="original_text" rows="9" placeholder="例：毎週火曜日 19時から、市民会館で開催"></textarea>
+        </label>
+        <label>補足コメント
+          <span class="help">確認してほしいことなど（任意）</span>
+          <textarea name="submitter_note" rows="4"></textarea>
+        </label>
+        <button type="submit">この内容を送る</button>
+        <p id="result" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <script>
+    const API_URL = "https://gogo-review.nukadokonokai.com/submit";
+    document.getElementById("submission-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const result = document.getElementById("result");
+      const button = form.querySelector("button");
+      result.className = "";
+      result.textContent = "送信しています…";
+      button.disabled = true;
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          body: new FormData(form),
+          credentials: "include"
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "送信できませんでした");
+        result.className = "success";
+        result.textContent = `送信できました。受付番号は ${data.submission_id} です。`;
+        form.reset();
+      } catch (error) {
+        result.className = "error";
+        result.textContent = error.message || "通信に失敗しました。時間をおいて再度お試しください。";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
