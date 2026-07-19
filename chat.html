@@ -240,8 +240,18 @@ function processNode(nodeId, inputText, extraData) {
     addKamoMessage(node.message || ('「' + query + '」で例会を探してるね！'));
     // GPS取得が間に合っていない可能性があるので、短時間だけ待ってから検索する
     Promise.race([gpsReady, new Promise(function(r){ setTimeout(r, 2500); })]).then(function() {
-      searchVenues(query, node.filter);
-      if (node.next) setTimeout(function(){ processNode(node.next); }, 800);
+      var nearbyDate = null;
+      if (userLat !== null && (query.indexOf('今日') >= 0 || query.indexOf('本日') >= 0)) {
+        nearbyDate = jstDateString(0);
+      } else if (userLat !== null && (query.indexOf('明日') >= 0 || query.indexOf('あした') >= 0)) {
+        nearbyDate = jstDateString(1);
+      }
+      var searchRequest = nearbyDate
+        ? searchNearbyMeetings(nearbyDate)
+        : Promise.resolve(searchVenues(query, node.filter));
+      searchRequest.finally(function() {
+        if (node.next) setTimeout(function(){ processNode(node.next); }, 800);
+      });
     });
 
   } else if (node.type === 'api') {
@@ -249,6 +259,64 @@ function processNode(nodeId, inputText, extraData) {
     request.then(function() {
       if (node.next) setTimeout(function(){ processNode(node.next); }, 400);
     });
+  }
+}
+
+function jstDateString(daysAhead) {
+  var date = new Date(Date.now() + (daysAhead || 0) * 24 * 60 * 60 * 1000);
+  var parts = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(date);
+  var values = {};
+  parts.forEach(function(part) { values[part.type] = part.value; });
+  return values.year + '-' + values.month + '-' + values.day;
+}
+
+async function searchNearbyMeetings(date) {
+  showTyping();
+  try {
+    var res = await fetch(API_URL + '/meetings/nearby', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lat: userLat,
+        lng: userLng,
+        date: date,
+        radius_km: 50,
+        limit: 3
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var data = await res.json();
+    hideTyping();
+    var meetings = data.meetings || [];
+    if (!meetings.length) {
+      addKamoMessage('現在地から50km以内に、その日に開催予定の例会は見つからなかったよ。別の日や地名でも探してみてね。');
+      return;
+    }
+    var div = document.createElement('div');
+    div.className = 'message kamo';
+    var html = '<div class="message-avatar">🦆</div><div class="message-bubble">';
+    html += '現在地から近い順に' + meetings.length + '件見つかったよ！';
+    for (var i = 0; i < meetings.length; i++) {
+      var m = meetings[i];
+      html += '<div class="venue-card">';
+      html += '<h4>' + esc(m.name || m.group_name || '') + '</h4>';
+      html += '<p><strong>📅 ' + esc(m.day_of_week || '') + ' ' + esc(m.start_time || '') + '</strong></p>';
+      html += '<p>🏢 ' + esc(m.venue || '') + '</p>';
+      if (m.address) html += '<p>📍 ' + esc(m.address) + '</p>';
+      html += '<p>🚶 約' + Number(m.distance_km || 0).toFixed(1) + 'km</p>';
+      if (m.official_url) html += '<a href="' + esc(m.official_url) + '" target="_blank" rel="noopener">🔗 公式サイト</a>';
+      html += '</div>';
+    }
+    html += '<p style="font-size:13px;color:#888;margin-top:8px;">位置情報は検索にだけ使い、保存しません。お出かけ前に公式サイトで最新情報を確認してね。</p>';
+    html += '</div>';
+    div.innerHTML = html;
+    chatArea.appendChild(div);
+    scrollToBottom();
+  } catch(e) {
+    hideTyping();
+    addKamoMessage('ごめんね、近くの例会を取得できなかったよ。少し待ってもう一度試してみてね。');
   }
 }
 
