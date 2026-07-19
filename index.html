@@ -45,9 +45,7 @@
     .sp-top { display:flex; flex-direction:column; align-items:center; }
     .sp-kana { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
     .sp-title { font-family:'Noto Serif JP',serif; font-size:38px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
-    .sp-sub { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:20px; }
-    .sp-runner { font-size:40px; line-height:1; margin-bottom:8px; }
-    .sp-tagline { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; color:rgba(240,232,208,0.4); letter-spacing:.22em; text-align:center; line-height:1.9; }
+    .sp-sub { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:0; }
     .sp-divider { width:48px; height:1px; background:rgba(180,140,80,0.3); margin: 3px 0; }
 
     /* プログレスエリア */
@@ -116,17 +114,25 @@
     .sp-btn-arrow { font-size:18px; color:rgba(180,140,80,0.9); animation:sp-nudge 1.8s ease-in-out infinite; }
     @keyframes sp-nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 
+    .sp-submit-link {
+      font-family:'Noto Sans JP',sans-serif;
+      font-size: 11px; font-weight: 300;
+      color: rgba(180,140,80,0.75);
+      text-decoration: none;
+      letter-spacing: .1em;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .sp-submit-link:active { color: rgba(180,140,80,1); }
+
     .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; }
     .sp-org { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.2); letter-spacing:.3em; }
     .sp-ver { font-family:'Noto Sans JP',sans-serif; font-size:9px; font-weight:300; color:rgba(180,140,80,0.35); letter-spacing:.2em; }
   </style>
 
   <div class="sp-top">
-    <p class="sp-kana">断酒支援 · 全国例会場マップ</p>
+    <p class="sp-kana">全国断酒会 例会場マップ</p>
     <div class="sp-title">断酒でGO</div>
     <div class="sp-sub">dansyu-go</div>
-    <div class="sp-runner" style="display:none;">🏃</div>
-    <p class="sp-tagline">全国の断酒会例会場を<br>ひとつの地図に</p>
   </div>
 
   <div class="sp-divider"></div>
@@ -158,6 +164,9 @@
       <span class="sp-btn-text">同意して始める</span>
       <span class="sp-btn-arrow">→</span>
     </div>
+    <a class="sp-submit-link" href="gogo-submit.html" target="_blank" rel="noopener">
+      📝 例会情報の追加・修正はこちら
+    </a>
   </div>
 
   <div class="sp-bottom">
