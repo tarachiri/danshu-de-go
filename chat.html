@@ -89,6 +89,18 @@
       transition: background 0.15s, color 0.15s; -webkit-tap-highlight-color: transparent;
     }
     .choice-btn:active, .choice-btn:hover { background: var(--green); color: var(--white); }
+    .pdf-card {
+      background: var(--white); border: 2px solid var(--green);
+      border-radius: var(--radius-sm); padding: 14px; margin-top: 10px;
+    }
+    .pdf-card strong { display: block; color: var(--green); margin-bottom: 8px; }
+    .pdf-actions { display: flex; flex-direction: column; gap: 8px; }
+    .pdf-action {
+      display: block; padding: 11px 14px; border-radius: 999px;
+      background: var(--green); color: var(--white); text-align: center;
+      text-decoration: none; font-size: 16px; font-weight: 700;
+    }
+    .pdf-action.secondary { background: var(--white); color: var(--green); border: 2px solid var(--green); }
     .typing { display: flex; align-items: center; gap: 4px; padding: 12px 16px; }
     .typing span {
       width: 8px; height: 8px; background: var(--text-muted);
@@ -198,7 +210,7 @@ async function init() {
 var gpsReady = Promise.resolve();
 
 function initGPS() {
-  if (!navigator.geolocation) return;
+  if (!navigator.geolocation) return Promise.resolve();
   gpsReady = new Promise(function(resolve) {
     navigator.geolocation.getCurrentPosition(
       function(pos) {
@@ -212,6 +224,7 @@ function initGPS() {
       { timeout: 10000, maximumAge: 60000 }
     );
   });
+  return gpsReady;
 }
 
 function processNode(nodeId, inputText, extraData) {
@@ -259,6 +272,11 @@ function processNode(nodeId, inputText, extraData) {
     request.then(function() {
       if (node.next) setTimeout(function(){ processNode(node.next); }, 400);
     });
+
+  } else if (node.type === 'calendar_pdf') {
+    createMeetingCalendar(extraData || node.month).then(function(created) {
+      if (created && node.next) setTimeout(function(){ processNode(node.next); }, 400);
+    });
   }
 }
 
@@ -270,6 +288,63 @@ function jstDateString(daysAhead) {
   var values = {};
   parts.forEach(function(part) { values[part.type] = part.value; });
   return values.year + '-' + values.month + '-' + values.day;
+}
+
+function jstMonthString(monthsAhead) {
+  var parts = jstDateString(0).split('-');
+  var year = Number(parts[0]);
+  var month = Number(parts[1]) + Number(monthsAhead || 0);
+  while (month > 12) { year += 1; month -= 12; }
+  return year + '-' + String(month).padStart(2, '0');
+}
+
+async function createMeetingCalendar(monthChoice) {
+  addKamoMessage('位置情報を確認して、半径50kmの例会カレンダーを作るね。');
+  if (userLat === null) {
+    await Promise.race([initGPS(), new Promise(function(resolve){ setTimeout(resolve, 12000); })]);
+  }
+  if (userLat === null || userLng === null) {
+    addKamoMessage('位置情報を取得できなかったよ。ブラウザの位置情報を許可して、もう一度試してね。');
+    setTimeout(function(){ processNode('calendar_month'); }, 500);
+    return false;
+  }
+  showTyping();
+  try {
+    var month = jstMonthString(monthChoice === 'next' ? 1 : 0);
+    var res = await fetch(API_URL + '/meetings/calendar.pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lat: userLat,
+        lng: userLng,
+        month: month,
+        radius_km: 50,
+        per_day: 3,
+        location_label: '現在地付近'
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var blob = await res.blob();
+    var pdfUrl = URL.createObjectURL(blob);
+    hideTyping();
+    var div = document.createElement('div');
+    div.className = 'message kamo';
+    div.innerHTML = '<div class="message-avatar">🦆</div><div class="message-bubble">' +
+      '例会カレンダーができたよ！' +
+      '<div class="pdf-card"><strong>' + esc(month.replace('-', '年') + '月 / A4横・白黒') + '</strong>' +
+      '<div class="pdf-actions">' +
+      '<a class="pdf-action secondary" href="' + pdfUrl + '" target="_blank" rel="noopener">👀 PDFを確認</a>' +
+      '<a class="pdf-action" href="' + pdfUrl + '" download="nearby-meetings-' + esc(month) + '.pdf">📄 PDFを保存・印刷</a>' +
+      '</div></div>' +
+      '<p style="font-size:13px;color:#888;margin-top:8px;">位置情報とPDFはサーバーに保存しないよ。</p></div>';
+    chatArea.appendChild(div);
+    scrollToBottom();
+    return true;
+  } catch(e) {
+    hideTyping();
+    addKamoMessage('ごめんね、PDFを作れなかったよ。少し待ってもう一度試してみてね。');
+    return false;
+  }
 }
 
 async function searchNearbyMeetings(date) {

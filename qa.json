@@ -23,7 +23,33 @@
         { "label": "3️⃣ 今から行ける例会", "next": "search_now" },
         { "label": "4️⃣ 地名・地方で探す", "next": "search_area" },
         { "label": "5️⃣ 曜日で探す", "next": "search_day" },
-        { "label": "6️⃣ 例会タイプで探す", "next": "search_type" }
+        { "label": "6️⃣ 例会タイプで探す", "next": "search_type" },
+        { "label": "7️⃣ 近くの例会カレンダー", "next": "calendar_month" }
+      ]
+    },
+
+    "calendar_month": {
+      "type": "choices",
+      "message": "どちらの月を印刷する？現在地から半径50km以内の例会を1日最大3件で作るよ。",
+      "choices": [
+        { "label": "1️⃣ 今月のPDFを作る", "next": "calendar_pdf", "data": "current" },
+        { "label": "2️⃣ 来月のPDFを作る", "next": "calendar_pdf", "data": "next" },
+        { "label": "3️⃣ 例会検索に戻る", "next": "search" }
+      ]
+    },
+
+    "calendar_pdf": {
+      "type": "calendar_pdf",
+      "next": "calendar_done"
+    },
+
+    "calendar_done": {
+      "type": "choices",
+      "message": "",
+      "choices": [
+        { "label": "1️⃣ もう一枚作る", "next": "calendar_month" },
+        { "label": "2️⃣ 例会を探す", "next": "search" },
+        { "label": "3️⃣ 最初に戻る", "next": "start" }
       ]
     },
 
