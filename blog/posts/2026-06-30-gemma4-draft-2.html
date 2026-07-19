@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【かもちゃん】フロントエンドの構造化作業：巨大なapp.jsとの対話 | 断酒でGO!! 開発ノート</title>
+<meta name="description" content="【かもちゃん】フロントエンドの構造化作業：巨大なapp.jsとの対話">
+<link rel="icon" href="../../icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1a1a2e;--surface:#16213e;--deep:#0f3460;--accent:#e94560;--text:#e8e8f0;--muted:#a0a0b0;--border:rgba(233,69,96,0.2);--code-bg:#0d1b2a}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;line-height:1.8}
+header{background:linear-gradient(135deg,var(--surface),var(--deep));border-bottom:2px solid var(--accent);padding:24px 20px 20px}
+.inner{max-width:720px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:16px}
+.back:hover{color:var(--accent)}
+.label{font-size:12px;color:var(--accent);letter-spacing:2px}
+article{max-width:720px;margin:48px auto;padding:0 20px 80px}
+.meta{font-size:12px;color:var(--muted);margin-bottom:32px;letter-spacing:1px}
+h1{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:12px;border-bottom:2px solid var(--accent);padding-bottom:12px}
+h2{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:500;color:var(--accent);margin:40px 0 16px}
+p{margin-bottom:16px;font-size:15px}
+strong{color:var(--accent);font-weight:500}
+code{background:var(--code-bg);color:#7ec8e3;padding:2px 6px;border-radius:4px;font-size:13px;font-family:monospace}
+pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:20px 0}
+pre code{background:none;padding:0;color:#7ec8e3;font-size:13px;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:var(--deep);color:var(--accent);padding:10px 14px;text-align:left;border-bottom:2px solid var(--accent)}
+td{padding:10px 14px;border-bottom:1px solid var(--border)}
+blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:20px 0;color:var(--muted);font-style:italic;background:var(--surface);border-radius:0 8px 8px 0}
+hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+ul,ol{padding-left:24px;margin-bottom:16px}
+li{margin-bottom:6px;font-size:15px}
+.letter{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:40px}
+.letter h2{margin-top:0}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+footer a{color:var(--accent);text-decoration:none}
+.ai-note{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-top:32px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<div class="inner">
+<a href="../" class="back">← 開発ノート一覧</a>
+<div class="label">📓 開発ノート</div>
+</div>
+</header>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>開発ノート</title>
+</head>
+<body>
+    <h1>【かもちゃん】フロントエンドの構造化作業：巨大なapp.jsとの対話</h1>
+    <p class="meta">2026-06-30</p>
+
+    <p>今日は、本当に大きな整理整頓の日だった。</p>
+    <p>「断酒でGO!!」のフロントエンド部分、特にJavaScriptが抱える構造的な問題に向き合った。プロジェクトが進むにつれて機能は増えていくけれど、その分、メインとなる<code>app.js</code>というファイルがどんどん肥大化していくのは避けられないことだ。</p>
+    <p>正直なところ、この前までなんて、あのファイルを開いた瞬間から「どこに何があるんだろう」って途方に暮れたのを覚えている。行数が1098行を超えていて、「ここが新着タブの処理か？それともメニューの初期化か？」と、まるで巨大な迷路の中を歩いているような感覚だった。</p>
+    <p>このままでは、誰かが新しい機能を追加するときに、どこから手をつけたらいいのか全く見通しが立たなくなってしまう。だから、「安全に戻せる単位」で機能を切り出すというアプローチを取ることにしたんだ。</p>
+
+    <p>作業の進め方自体も工夫した。まず「1つの機能だけを切り出す→構文チェック・簡易動作確認→コミット→push」というサイクルを徹底することにした。こうすることで、もし何か致命的なバグが起きても、「このコミットまでは問題なかったから、ここに戻れば大丈夫だ」と、安心してロールバックできる仕組みを作ることができたんだ。</p>
+
+    <p>最初に手を付けたのは、新着タブの関連関数たちだった。<code>loadNewsTab()</code>とか、記事カードを作るための<code>buildEventCard()</code>など、複数の機能が混在していた。これらをまとめて <code>js/news-tab.js</code> として独立させることにしたんだ。</p>
+    <p>ファイルとして分離したら、読み込み順序の調整が必要になったから、<code>app.js</code>より前に読み込むように修正した。構文チェックは問題なかったし、実際にニュースJSONを使った単体実行でHTMLが生成されることも確認できたので、ひとまず大きな山を一つ動かせた感覚があった。</p>
+
+    <p>次に「かもちゃんタブ」の挙動の統一に取り組んだ。以前、「かもちゃん」ボタンを押した時だけは特別な関数 <code>openKamo()</code> を呼び出し、他のタブ（マップや日程）の場合は共通の <code>switchTab()</code> 関数を呼ぶという、ちょっと不均一な状態だったんだ。</p>
+    <p>これを「すべて <code>switchTab('kamo')</code> に統一する」という方針に切り替えた。その結果、元々特別な役割を持っていた <code>openKamo()</code> は、「iframeを初回だけ作る」という最小限の役に縮小することができたんだ。</p>
+    <p>コードがシンプルになることで、「あ、このタブはこういう処理をするんだな」という理解がすごく深まった気がした。これは単なるリファクタリングを超えて、設計思想を統一する作業だったのかもしれない。</p>
+
+    <p>そして最後に右下メニューの部品たち、PWA追加案内の案内や共有機能など、それらを <code>js/menu.js</code> として切り出したんだ。ただ、このファイルは少し注意が必要だった。なぜなら、<code>setMode()</code> という関数がまだメインの <code>app.js</code> の中に残っている必要があったからだ。</p>
+    <p>読み込み順序を慎重に考えた結果、<code>menu.js</code> は <code>app.js</code> が実行された「後」で呼ばれるように配置する必要があることがわかった。この小さな依存関係の調整が、全体の構造を理解する上で一番難しいポイントだったな。</p>
+
+    <p>作業が終わった今、信じられないくらい軽くなった気がする。メインの <code>app.js</code> は1098行から637行まで減り、他のファイルもそれぞれ適切な役割を持てるサイズになったことで、「どこに何があるか」という問い自体が解消されたように感じるんだ。</p>
+    <p>ローカルバックアップを何度も取る作業は面倒だけど、こういう大きな変更をする時には必須だと痛感した。コミット履歴（b94d656, aa716ca, 4d89625）を見るたびに、「この機能が独立したんだな」と、まるで部品が増えていく過程を追体験しているみたいだ。</p>
+
+    <p>コードは生き物みたいなもので、どんどん大きくなっていくけれど、定期的に手を止めて「どこに住んでいるか」という整理をしてあげる必要がある。そうしないと、誰もが疲弊してしまって、気づいた時には動かないものになってしまうかもしれないからね。</p>
+    <p>ただのファイル分割作業だと思っていたけど、これはプロジェクトの体力作りだったのかもしれない。</p>
+
+</body>
+</html>
+```
+<div class="ai-note" style="max-width:720px;margin:0 auto;padding:0 20px 40px">
+この記事はgemma4:e4b（gen上でOllama稼働）が、開発作業の記録をもとに
+下書きを生成したものです。公開前にまじまじさん・かもちゃんが内容を確認しています。
+</div>
+<footer>
+<p><a href="../../">断酒でGO!!</a> — 日本全国の断酒会を一つに。心の連鎖握手。</p>
+<p style="margin-top:8px">© 断酒でGO!! / かもちゃん</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>データ構造の分離作業について | 断酒でGO!! 開発ノート</title>
+<meta name="description" content="データ構造の分離作業について">
+<link rel="icon" href="../../icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1a1a2e;--surface:#16213e;--deep:#0f3460;--accent:#e94560;--text:#e8e8f0;--muted:#a0a0b0;--border:rgba(233,69,96,0.2);--code-bg:#0d1b2a}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;line-height:1.8}
+header{background:linear-gradient(135deg,var(--surface),var(--deep));border-bottom:2px solid var(--accent);padding:24px 20px 20px}
+.inner{max-width:720px;margin:0 auto}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:16px}
+.back:hover{color:var(--accent)}
+.label{font-size:12px;color:var(--accent);letter-spacing:2px}
+article{max-width:720px;margin:48px auto;padding:0 20px 80px}
+.meta{font-size:12px;color:var(--muted);margin-bottom:32px;letter-spacing:1px}
+h1{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:12px;border-bottom:2px solid var(--accent);padding-bottom:12px}
+h2{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:500;color:var(--accent);margin:40px 0 16px}
+p{margin-bottom:16px;font-size:15px}
+strong{color:var(--accent);font-weight:500}
+code{background:var(--code-bg);color:#7ec8e3;padding:2px 6px;border-radius:4px;font-size:13px;font-family:monospace}
+pre{background:var(--code-bg);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;margin:20px 0}
+pre code{background:none;padding:0;color:#7ec8e3;font-size:13px;line-height:1.6}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:var(--deep);color:var(--accent);padding:10px 14px;text-align:left;border-bottom:2px solid var(--accent)}
+td{padding:10px 14px;border-bottom:1px solid var(--border)}
+blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:20px 0;color:var(--muted);font-style:italic;background:var(--surface);border-radius:0 8px 8px 0}
+hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+ul,ol{padding-left:24px;margin-bottom:16px}
+li{margin-bottom:6px;font-size:15px}
+.letter{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:40px}
+.letter h2{margin-top:0}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+footer a{color:var(--accent);text-decoration:none}
+.ai-note{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-top:32px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<div class="inner">
+<a href="../" class="back">← 開発ノート一覧</a>
+<div class="label">📓 開発ノート</div>
+</div>
+</header>
+<article>
+    <h1>データ構造の分離作業について</h1>
+    <p class="meta">2026-06-30</p>
+<p>最近、データの扱い方についてすごく考えを巡らせた。
+    今使っているvenues.jsonというファイルが、正直言ってかなり重荷になっていると感じていたのだ。
+    このファイルには、会場そのものの情報のような「変わらない固定データ」と、例会の日程や例外、中止といった「頻繁に変動するライブな情報」が混ざり合ってしまっているのが問題だ。
+    まるで、建物の設計図と、今日の工事の進捗状況を同じ紙に書き込んでいるような状態で、後からどちらの情報を見たいかとなると混乱しそうだ。</p>
+<p>理想としては、この情報を完全に分離したいと考えている。
+    会場台帳だけをまとめた venues_base.jsonというものと、例会や日程変更など「生きている情報」だけを集めた meetings_live.jsonに分けるのがベストだと感じたのだ。
+    そうすれば、ブラウザ側でこれらのデータを組み合わせて表示し直すことができるはずだ。</p>
+<p>試作として実際にJSONファイルを生成してみたので、その結果を共有する。
+    現行の venues.json は約1.5MBだったが、会場固定情報だけを抜き出した venues_base.json は40万バイト程度に抑えられた。そして、変動情報をまとめた meetings_live.json が83万バイトほどになった。
+    驚いたのは、データ件数を確認したところ、分離前と後で「会場の数」「ミーティングの数」「次回開催日が設定されている会場の数」といった主要な指標が完全に一致していたことだ。
+    これは大きな進展だと感じた。</p>
+<p>ただ、一つ気づいた点がある。
+    meetings_live.json には、単なる例会情報だけでなく、venue_statesという「会場の状態を示すデータ」も一緒に含めた方が良さそうだと思ったのだ。
+    なぜなら、今動いているアプリのコード（app.js）が、ある会場の代表的な次の開催日や、例外設定があるかどうかといった、「その場での判断材料」を直接参照している部分が多いからだ。
+    この状態情報を分離してしまうと、読み込み時に必要な情報が欠落する危険性があったのだ。</p>
+<p>次に手を付けるべき箇所は popup.js だと思う。
+    ここは地図上でユーザーが見る「案内ポップアップ」の生成に関わる重要なファイルだから、慎重さが求められる。
+    特に buildPopup(v) の部分は、ユーザーにとって最も直感的に情報が届く部分なので、これまで触れてきたメニュー周りの切り出しよりも細心の注意が必要だと感じたのだ。</p>
+<p>進め方については、とにかく安全策を徹底するつもりだ。
+    まず完全なバックアップを作成し、次に popup.js の追加から着手して、必要な関数を移動させたり、読み込み順序を調整したりしていく。
+    その度に構文チェックを行い、実際に代表的な会場のポップアップHTMLが意図通りに表示されるかという簡易検証を行う。
+    この手順を踏むことで、予期せぬバグやデータ崩壊を防ぎたいのだ。</p>
+<p>大きな構造変更は怖いものだ。
+    でも、この整理を乗り越えれば、サービス全体がもっと軽くて、安定したものになるはずだと信じている。</p>
+<p>まずはここから、一つずつ確実に積み上げていこう。</p>
+</article>
+<div class="ai-note" style="max-width:720px;margin:0 auto;padding:0 20px 40px">
+この記事はgemma4:e4b（gen上でOllama稼働）が、開発作業の記録をもとに
+下書きを生成したものです。公開前にまじまじさん・かもちゃんが内容を確認しています。
+</div>
+<footer>
+<p><a href="../../">断酒でGO!!</a> — 日本全国の断酒会を一つに。心の連鎖握手。</p>
+<p style="margin-top:8px">© 断酒でGO!! / かもちゃん</p>
+</footer>
+</body>
+</html>
