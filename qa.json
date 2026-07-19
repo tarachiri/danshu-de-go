@@ -271,6 +271,7 @@
 
     "report_chat": {
       "type": "api",
+      "endpoint": "inquiry",
       "system": "あなたはかもちゃんです。ユーザーから例会情報の修正・追加依頼を受けています。内容を丁寧に確認して、お礼を伝えてください。",
       "next": "report_done"
     },

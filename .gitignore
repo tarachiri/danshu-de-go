@@ -4,3 +4,20 @@
 .vscode/
 *.code-workspace
 *.zip
+
+# Personal and session data
+memories.json
+users.json
+*.json.bak
+019df61a-ca72-72a4-96c5-6a5a8c8b6459.json
+e1aff970-c437-4f2e-8b72-9b6a369585b0.json
+
+# Local AI tool settings
+.claude/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log

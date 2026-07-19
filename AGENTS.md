@@ -263,4 +263,15 @@ URL: https://dansyu-go.nukadokonokai.com/blog/
 
 ---
 
+## Markdown作業記録の保存先
+
+- 今後、新規に作成する作業記録・調査記録・指示書などのMarkdownファイルは、
+  Google Driveの「断酒でGO関連Markdown」フォルダへ保存する
+  - Folder ID: `1BN6lHfXzCzW0k3vw5kFcsbySLnbLbJ7h`
+  - URL: `https://drive.google.com/drive/folders/1BN6lHfXzCzW0k3vw5kFcsbySLnbLbJ7h`
+- `docs/notes/`へ新規保存するのは、まじまじさんから明示的な指定がある場合のみ
+- リポジトリ管理に必要なREADME・設計書・仕様書などは、このルールの対象外
+
+---
+
 *最終更新: 2026年7月17日*
