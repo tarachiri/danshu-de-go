@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>例会カレンダーを作る | 断酒でGO!!</title>
+  <meta name="description" content="近くの断酒会例会を月間PDFカレンダーにして印刷できます。">
+  <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+  <main class="calendar-page">
+    <header class="calendar-head">
+      <h1>例会カレンダーを作る</h1>
+      <p>条件を選ぶだけで、玄関に貼れるA4横・モノクロPDFを作成します。</p>
+    </header>
+    <form class="calendar-form" id="calendarForm">
+      <fieldset class="calendar-field">
+        <legend class="calendar-legend">掲載する例会</legend>
+        <div class="calendar-options">
+          <label class="calendar-option"><input type="radio" name="mode" value="regular" checked><span><strong>A 通常例会のみ</strong><small>通常例会を近い順に表示</small></span></label>
+          <label class="calendar-option"><input type="radio" name="mode" value="nearest"><span><strong>B 近い順</strong><small>種類を問わず近い順に表示</small></span></label>
+          <label class="calendar-option"><input type="radio" name="mode" value="targeted"><span><strong>C 通常例会以外</strong><small>家族会・アメシスト等</small></span></label>
+          <label class="calendar-option"><input type="radio" name="mode" value="daytime_station"><span><strong>D 駅近・昼例会</strong><small>9時から17時未満</small></span></label>
+        </div>
+      </fieldset>
+      <div class="calendar-field"><label for="month">対象月</label><select id="month" required></select></div>
+      <div class="calendar-field"><label for="locationType">基準地点</label><select id="locationType"><option value="current">現在地</option><option value="place">市区町村・住所</option><option value="station">駅</option></select></div>
+      <div class="calendar-field" id="locationTextField" hidden><label for="locationText">場所</label><input id="locationText" autocomplete="address-level2"></div>
+      <button class="calendar-submit" id="calendarSubmit" type="submit">PDFカレンダーを作成</button>
+      <p class="calendar-status" id="calendarStatus">位置情報とPDFは保存しません。</p>
+    </form>
+    <section class="calendar-result" id="calendarResult" hidden>
+      <div class="calendar-actions"><a class="secondary" id="calendarOpen" target="_blank" rel="noopener">大きく確認</a><a id="calendarDownload">PDFを保存・印刷</a></div>
+      <iframe id="calendarPreview" title="作成したPDFのプレビュー"></iframe>
+    </section>
+  </main>
+  <script>
+    (function(){var now=new Date(),select=document.getElementById('month');for(var i=0;i<2;i++){var d=new Date(now.getFullYear(),now.getMonth()+i,1),v=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'),o=document.createElement('option');o.value=v;o.textContent=d.getFullYear()+'年'+(d.getMonth()+1)+'月';select.appendChild(o);}})();
+  </script>
+  <script src="js/calendar/calendar-api.js"></script>
+  <script src="js/calendar/calendar-form.js"></script>
+</body>
+</html>

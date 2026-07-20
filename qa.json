@@ -24,13 +24,38 @@
         { "label": "4️⃣ 地名・地方で探す", "next": "search_area" },
         { "label": "5️⃣ 曜日で探す", "next": "search_day" },
         { "label": "6️⃣ 例会タイプで探す", "next": "search_type" },
-        { "label": "7️⃣ 近くの例会カレンダー", "next": "calendar_month" }
+        { "label": "7️⃣ 近くの例会カレンダー", "next": "calendar_mode_select" }
       ]
     },
 
+    "calendar_mode_select": {
+      "type": "choices",
+      "message": "どんな例会カレンダーを作る？特別イベントはどれを選んでも100km以内を別枠で載せるよ。",
+      "choices": [
+        { "label": "A 通常例会のみ", "next": "calendar_mode_regular" },
+        { "label": "B 種類を問わず近い順", "next": "calendar_mode_nearest" },
+        { "label": "C 家族会・アメシスト等", "next": "calendar_mode_targeted" },
+        { "label": "D 駅近・昼例会", "next": "calendar_mode_daytime" },
+        { "label": "例会検索に戻る", "next": "search" }
+      ]
+    },
+
+    "calendar_mode_regular": { "type": "calendar_mode", "mode": "regular" },
+    "calendar_mode_nearest": { "type": "calendar_mode", "mode": "nearest" },
+    "calendar_mode_targeted": { "type": "calendar_mode", "mode": "targeted" },
+    "calendar_mode_daytime": { "type": "calendar_mode", "mode": "daytime_station" },
+
+    "calendar_station_input": {
+      "type": "input",
+      "message": "基準にする駅名を入力してね。例：横浜駅",
+      "next": "calendar_station_result"
+    },
+
+    "calendar_station_result": { "type": "calendar_station" },
+
     "calendar_month": {
       "type": "choices",
-      "message": "どちらの月を印刷する？現在地から半径50km以内の例会を1日最大3件で作るよ。",
+      "message": "どちらの月を印刷する？半径50km以内の例会を1日最大3件で作るよ。",
       "choices": [
         { "label": "1️⃣ 今月のPDFを作る", "next": "calendar_pdf", "data": "current" },
         { "label": "2️⃣ 来月のPDFを作る", "next": "calendar_pdf", "data": "next" },
@@ -47,7 +72,7 @@
       "type": "choices",
       "message": "",
       "choices": [
-        { "label": "1️⃣ もう一枚作る", "next": "calendar_month" },
+        { "label": "1️⃣ もう一枚作る", "next": "calendar_mode_select" },
         { "label": "2️⃣ 例会を探す", "next": "search" },
         { "label": "3️⃣ 最初に戻る", "next": "start" }
       ]

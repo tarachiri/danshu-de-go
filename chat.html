@@ -160,6 +160,8 @@
   <textarea id="input" placeholder="メッセージを入力..." rows="1" aria-label="メッセージ入力"></textarea>
   <button class="send-btn" id="sendBtn" aria-label="送信">↑</button>
 </div>
+<script src="js/calendar/calendar-api.js"></script>
+<script src="js/calendar/calendar-flow.js"></script>
 <script>
 const API_URL = 'https://chat.nukadokonokai.com';
 const chatArea = document.getElementById('chatArea');
@@ -277,6 +279,20 @@ function processNode(nodeId, inputText, extraData) {
     createMeetingCalendar(extraData || node.month).then(function(created) {
       if (created && node.next) setTimeout(function(){ processNode(node.next); }, 400);
     });
+  } else if (node.type === 'calendar_mode') {
+    CalendarFlow.setMode(node.mode);
+    setTimeout(function(){ processNode(node.mode === 'daytime_station' ? 'calendar_station_input' : 'calendar_month'); }, 300);
+  } else if (node.type === 'calendar_station') {
+    showTyping();
+    CalendarFlow.setStation(inputText).then(function(station) {
+      hideTyping();
+      addKamoMessage(station.label + 'を基準にするね。');
+      setTimeout(function(){ processNode('calendar_month'); }, 300);
+    }).catch(function() {
+      hideTyping();
+      addKamoMessage('駅を見つけられなかったよ。「横浜駅」のように入力してね。');
+      setTimeout(function(){ processNode('calendar_station_input'); }, 300);
+    });
   }
 }
 
@@ -290,51 +306,21 @@ function jstDateString(daysAhead) {
   return values.year + '-' + values.month + '-' + values.day;
 }
 
-function jstMonthString(monthsAhead) {
-  var parts = jstDateString(0).split('-');
-  var year = Number(parts[0]);
-  var month = Number(parts[1]) + Number(monthsAhead || 0);
-  while (month > 12) { year += 1; month -= 12; }
-  return year + '-' + String(month).padStart(2, '0');
-}
-
 async function createMeetingCalendar(monthChoice) {
-  addKamoMessage('位置情報を確認して、半径50kmの例会カレンダーを作るね。');
-  if (userLat === null) {
-    await Promise.race([initGPS(), new Promise(function(resolve){ setTimeout(resolve, 12000); })]);
-  }
-  if (userLat === null || userLng === null) {
-    addKamoMessage('位置情報を取得できなかったよ。ブラウザの位置情報を許可して、もう一度試してね。');
-    setTimeout(function(){ processNode('calendar_month'); }, 500);
-    return false;
-  }
+  addKamoMessage('条件を確認して、印刷用の例会カレンダーを作るね。');
   showTyping();
   try {
-    var month = jstMonthString(monthChoice === 'next' ? 1 : 0);
-    var res = await fetch(API_URL + '/meetings/calendar.pdf', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        lat: userLat,
-        lng: userLng,
-        month: month,
-        radius_km: 50,
-        per_day: 3,
-        location_label: '現在地付近'
-      })
-    });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    var blob = await res.blob();
-    var pdfUrl = URL.createObjectURL(blob);
+    var result = await CalendarFlow.create(monthChoice);
+    var pdfUrl = URL.createObjectURL(result.blob);
     hideTyping();
     var div = document.createElement('div');
     div.className = 'message kamo';
     div.innerHTML = '<div class="message-avatar">🦆</div><div class="message-bubble">' +
       '例会カレンダーができたよ！' +
-      '<div class="pdf-card"><strong>' + esc(month.replace('-', '年') + '月 / A4横・白黒') + '</strong>' +
+      '<div class="pdf-card"><strong>' + esc(result.month.replace('-', '年') + '月 / A4横・モノクロ') + '</strong>' +
       '<div class="pdf-actions">' +
       '<a class="pdf-action secondary" href="' + pdfUrl + '" target="_blank" rel="noopener">👀 PDFを確認</a>' +
-      '<a class="pdf-action" href="' + pdfUrl + '" download="nearby-meetings-' + esc(month) + '.pdf">📄 PDFを保存・印刷</a>' +
+      '<a class="pdf-action" href="' + pdfUrl + '" download="meeting-calendar-' + esc(result.month) + '.pdf">📄 PDFを保存・印刷</a>' +
       '</div></div>' +
       '<p style="font-size:13px;color:#888;margin-top:8px;">位置情報とPDFはサーバーに保存しないよ。</p></div>';
     chatArea.appendChild(div);
@@ -346,6 +332,17 @@ async function createMeetingCalendar(monthChoice) {
     return false;
   }
 }
+
+CalendarFlow.configure({
+  apiUrl: API_URL,
+  getCurrentLocation: async function() {
+    if (userLat === null) {
+      await Promise.race([initGPS(), new Promise(function(resolve){ setTimeout(resolve, 12000); })]);
+    }
+    if (userLat === null || userLng === null) throw new Error('位置情報を取得できません');
+    return { lat: userLat, lng: userLng, label: '現在地付近' };
+  }
+});
 
 async function searchNearbyMeetings(date) {
   showTyping();
