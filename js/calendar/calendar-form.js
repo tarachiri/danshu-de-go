@@ -34,8 +34,27 @@
     if (!response.ok) throw new Error('場所を検索できませんでした');
     var items = await response.json();
     if (!items.length) throw new Error('場所が見つかりませんでした');
-    var coordinates = items[0].geometry.coordinates;
-    return { lat: Number(coordinates[1]), lng: Number(coordinates[0]), label: text };
+    var query = String(text || '').trim();
+    var selected = items[0];
+    var exactMunicipality;
+    if (/[市区町村]$/.test(query)) {
+      exactMunicipality = items.find(function(item) {
+        var title = item.properties && String(item.properties.title || '');
+        return title === query || title.endsWith(query);
+      });
+    } else {
+      ['市', '区', '町', '村'].some(function(suffix) {
+        exactMunicipality = items.find(function(item) {
+          var title = item.properties && String(item.properties.title || '');
+          return title === query + suffix || title.endsWith(query + suffix);
+        });
+        return Boolean(exactMunicipality);
+      });
+    }
+    if (exactMunicipality) selected = exactMunicipality;
+    var coordinates = selected.geometry.coordinates;
+    var resolvedTitle = selected.properties && selected.properties.title;
+    return { lat: Number(coordinates[1]), lng: Number(coordinates[0]), label: resolvedTitle || query };
   }
 
   form.addEventListener('submit', async function(event) {
