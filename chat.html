@@ -603,7 +603,8 @@ function showChoices(choices) {
       btn.addEventListener('click', function() {
         removeChoices();
         addUserMessage(c.label);
-        processNode(c.next, c.label, c.data);
+        if (c.url) window.open(c.url, '_blank', 'noopener');
+        if (c.next) processNode(c.next, c.label, c.data);
       });
       div.appendChild(btn);
     })(choices[i]);

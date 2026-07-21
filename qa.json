@@ -307,19 +307,28 @@
     "report_wrong": {
       "type": "answer",
       "message": "教えてくれてありがとう！断酒でGO!!で修正できるものはすぐに対応するよ😊\n\nどの例会場の、どんな情報が間違っているか、具体的に教えてもらえると助かる！",
-      "next": "report_input"
+      "next": "report_how"
     },
 
     "report_missing": {
       "type": "answer",
       "message": "各都道府県の断酒会公式サイトをもとに情報収集してるよ。システムの都合で取得できていない例会があるかも😢\n\nどの例会場が載っていないか教えてもらえたら優先して対応するよ！",
-      "next": "report_input"
+      "next": "report_how"
     },
 
     "report_new": {
       "type": "answer",
       "message": "掲載ありがとう！断酒でGO!!は公式サイトに載っている情報をもとにしてるから、まず所属の都道府県断酒連合会の公式サイトへの掲載をお願いしてみてね。公式サイトに載れば断酒でGO!!にも反映されるよ😊",
-      "next": "report_input"
+      "next": "report_how"
+    },
+
+    "report_how": {
+      "type": "choices",
+      "message": "送り方を選んでね！フォームなら項目に沿って入力できるからおすすめだよ😊",
+      "choices": [
+        { "label": "📝 投稿フォームで送る", "url": "gogo-submit.html", "next": "report_done" },
+        { "label": "💬 このままチャットで伝える", "next": "report_input" }
+      ]
     },
 
     "report_input": {
