@@ -7,10 +7,19 @@
       "message": "こんにちは！かもちゃんです😊 何をお手伝いしようか？",
       "choices": [
         { "label": "1️⃣ 例会を探す", "next": "search" },
-        { "label": "2️⃣ アプリの使い方", "next": "howto" },
-        { "label": "3️⃣ 断酒会について", "next": "about" },
-        { "label": "4️⃣ 情報の修正・追加", "next": "report" },
-        { "label": "5️⃣ 雑談する", "next": "chat" }
+        { "label": "2️⃣ カレンダーを作る", "next": "calendar_mode_select" },
+        { "label": "3️⃣ 例会の登録と修正", "next": "report" },
+        { "label": "4️⃣ マニュアル・雑談", "next": "misc" }
+      ]
+    },
+
+    "misc": {
+      "type": "choices",
+      "message": "どれにする？",
+      "choices": [
+        { "label": "1️⃣ アプリの使い方", "next": "howto" },
+        { "label": "2️⃣ 断酒会について", "next": "about" },
+        { "label": "3️⃣ 雑談する", "next": "chat" }
       ]
     },
 
@@ -23,8 +32,7 @@
         { "label": "3️⃣ 今から行ける例会", "next": "search_now" },
         { "label": "4️⃣ 地名・地方で探す", "next": "search_area" },
         { "label": "5️⃣ 曜日で探す", "next": "search_day" },
-        { "label": "6️⃣ 例会タイプで探す", "next": "search_type" },
-        { "label": "7️⃣ 近くの例会カレンダー", "next": "calendar_mode_select" }
+        { "label": "6️⃣ 例会タイプで探す", "next": "search_type" }
       ]
     },
 
@@ -36,7 +44,7 @@
         { "label": "B 種類を問わず近い順", "next": "calendar_mode_nearest" },
         { "label": "C 家族会・アメシスト等", "next": "calendar_mode_targeted" },
         { "label": "D 駅近・昼例会", "next": "calendar_mode_daytime" },
-        { "label": "例会検索に戻る", "next": "search" }
+        { "label": "最初に戻る", "next": "start" }
       ]
     },
 

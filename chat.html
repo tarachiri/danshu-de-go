@@ -236,8 +236,11 @@ function processNode(nodeId, inputText, extraData) {
   removeChoices();
 
   if (node.type === 'choices') {
-    if (node.message) addKamoMessage(node.message);
-    showChoices(node.choices);
+    if (node.message) {
+      addKamoMessage(node.message, function(){ showChoices(node.choices); });
+    } else {
+      showChoices(node.choices);
+    }
 
   } else if (node.type === 'answer') {
     addKamoMessage(node.message);
@@ -614,7 +617,7 @@ function removeChoices() {
   if (old) old.remove();
 }
 
-function addKamoMessage(text) {
+function addKamoMessage(text, onDone) {
   // **→【】変換
   text = text.replace(/\*\*([^*]+)\*\*/g, '【$1】');
   // 。や改行で文章を分割
@@ -625,6 +628,7 @@ function addKamoMessage(text) {
     div.innerHTML = '<div class="message-avatar">🦆</div><div class="message-bubble">' + esc(text) + '</div>';
     chatArea.appendChild(div);
     scrollToBottom();
+    if (onDone) setTimeout(onDone, 200);
   } else {
     parts.forEach(function(part, idx) {
       setTimeout(function() {
@@ -634,6 +638,7 @@ function addKamoMessage(text) {
         div.innerHTML = avatar + '<div class="message-bubble">' + esc(part) + '</div>';
         chatArea.appendChild(div);
         scrollToBottom();
+        if (onDone && idx === parts.length - 1) setTimeout(onDone, 200);
       }, idx * 300);
     });
   }
