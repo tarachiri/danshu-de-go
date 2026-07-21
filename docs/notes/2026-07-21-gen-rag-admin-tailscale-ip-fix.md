@@ -43,3 +43,27 @@ rag-admin.html側のデフォルト接続先が追従していなかった。バ
   他のツール（他にもgen上に運用画面があれば）がないか、気づいたら同じ手口で確認する
 - gen機のTailscale CLIは`/Applications/Tailscale.app/Contents/MacOS/Tailscale`に
   あり、PATHには入っていない（`tailscale`コマンド単体では`command not found`）
+
+## 追記（2026-07-21）：正しいアクセス方法はMagicDNS経由のhttp
+
+まじまじさんが`file:///Users/mini2014/gen-chat-server/rag-admin.html`ではなく
+`http://gen-3.taile44373.ts.net:8100/rag-admin.html`（Tailscale MagicDNS名＋
+port 8100）で開いたところ動作した。
+
+調査したところ、gen上ではport 8100でPythonの静的ファイルサーバーが
+`/Users/mini2014/gen-chat-server`をcwdとして稼働しており（`curl localhost:8100/rag-admin.html`
+→ HTTP 200）、rag-admin.htmlはこの8100番から配信するのが正しい使い方だった。
+
+`file://`で直接開くと、ブラウザによってはfile://オリジンからのfetch（→port 8200の
+APIへの通信）がCORS/mixed-content扱いで弾かれる可能性があり、これがIPの古さとは
+別に「接続できません」の一因だった可能性が高い。
+
+**今後の正しいアクセスURL：**
+
+| 画面 | URL |
+|---|---|
+| チャット画面 | `http://gen-3.taile44373.ts.net:8100` |
+| RAG管理画面 | `http://gen-3.taile44373.ts.net:8100/rag-admin.html` |
+
+IPアドレス（100.115.171.32など）よりMagicDNS名（`gen-3.taile44373.ts.net`）の方が
+変動しにくく安定するため、今後はこちらを使う。`file://`で直接開くのは避ける。
