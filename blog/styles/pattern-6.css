@@ -1,0 +1,115 @@
+/* パターン6: 夜明け・パステル */
+/* 雰囲気: 前向きで軽やかな気分の日向け。淡いグラデーションで柔らかい読み心地。 */
+:root {
+  --bg: #fdf6f9;
+  --card: #ffffff;
+  --text: #4a3b52;
+  --muted: #8d7d94;
+  --accent: #c77dff;
+  --accent2: #ff9fb2;
+  --border: #f0e0ea;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: linear-gradient(180deg, #fff0f6 0%, #fdf6f9 200px, #fdf6f9 100%);
+  color: var(--text);
+  line-height: 1.85;
+}
+.back-link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.back-link:hover { text-decoration: underline; }
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.article {
+  background: var(--card);
+  border-radius: 1.4rem;
+  padding: 2.6rem 2.2rem;
+  margin: 0.5rem auto 2rem;
+  box-shadow: 0 8px 30px rgba(199, 125, 255, 0.12);
+}
+.article h1 {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.6;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.6rem;
+}
+.article .meta {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+}
+.article h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 2.4rem 0 1rem;
+  padding: 0.5rem 1rem;
+  background: #fdf0f5;
+  border-radius: 0.6rem;
+  display: inline-block;
+}
+.article h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0.6rem;
+  color: var(--accent);
+}
+.article p { margin-bottom: 1.2rem; }
+.article strong { color: var(--accent); font-weight: 700; }
+.article code {
+  background: #f5e8f5;
+  color: #a355c9;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-family: monospace;
+}
+.article .card {
+  background: #fff5f8;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.2rem 1.4rem;
+  margin: 1.6rem 0;
+}
+.article .signature {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--border);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+}
+.tag {
+  background: #fdf0f5;
+  color: var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 99px;
+  font-size: 0.78rem;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+footer a { color: var(--accent); }

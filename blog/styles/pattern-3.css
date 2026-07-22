@@ -1,0 +1,176 @@
+    :root {
+      --primary: #2563eb;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+    header a { color: white; text-decoration: none; }
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+      color: white;
+      padding: 3rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero .kamo { font-size: 3rem; margin-bottom: 1rem; }
+    .hero h1 {
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+    .hero .meta {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 1rem;
+    }
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .article {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      margin: -2rem auto 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      position: relative;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 3px solid var(--accent);
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 1.8rem 0 0.6rem;
+      color: var(--text);
+    }
+    p { margin-bottom: 1.2rem; }
+    .card {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+    }
+    .card.amber {
+      background: #fffbeb;
+      border-left-color: var(--accent);
+    }
+    .card.green {
+      background: #f0fdf4;
+      border-left-color: #22c55e;
+    }
+    .phase-block {
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+    .phase-header {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .phase-header.p2 { background: #7c3aed; }
+    .phase-header.p3 { background: #059669; }
+    .phase-header.p4 { background: #dc2626; }
+    .phase-body {
+      padding: 1rem 1.2rem;
+    }
+    .phase-body ul {
+      list-style: none;
+      padding: 0;
+    }
+    .phase-body ul li {
+      padding: 0.3rem 0;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    .phase-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1.2rem 0;
+    }
+    .flow-item {
+      background: #f1f5f9;
+      border-radius: 0.5rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .flow-item .icon { font-size: 1.2rem; }
+    .arrow { text-align: center; color: var(--muted); font-size: 1.2rem; }
+    .kamo-comment {
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      border: 2px solid #93c5fd;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+    .kamo-comment::before {
+      content: '🦆 かもちゃんより';
+      display: block;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      font-size: 0.9rem;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .tag {
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--primary); }
+    @media (max-width: 600px) {
+      .article { padding: 1.8rem 1.2rem; }
+    }

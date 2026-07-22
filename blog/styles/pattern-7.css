@@ -1,0 +1,119 @@
+/* パターン7: 和紙・アースカラー */
+/* 雰囲気: 落ち着いて実直な気分の日向け。生成り色の背景に深緑と朱色、断酒会の「和」の空気感。 */
+:root {
+  --bg: #f5f0e6;
+  --card: #fbf8f1;
+  --text: #3a3229;
+  --muted: #8a7f6e;
+  --accent: #6b7a52;
+  --accent2: #b5482f;
+  --border: #ddd3bf;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.9;
+}
+.back-link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.back-link:hover { color: var(--accent2); }
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2.6rem 2.2rem;
+  margin: 0.5rem auto 2rem;
+  position: relative;
+}
+.article::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.article h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  padding-top: 0.6rem;
+}
+.article .meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+.article h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 2.6rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--accent);
+  display: inline-block;
+}
+.article h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0.6rem;
+  color: var(--accent2);
+}
+.article p { margin-bottom: 1.3rem; font-size: 0.98rem; }
+.article strong { color: var(--accent2); font-weight: 700; }
+.article code {
+  background: #ede5d3;
+  color: #6b5a3a;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  font-family: monospace;
+}
+.article .card {
+  background: #f0ece0;
+  border-left: 3px solid var(--accent2);
+  padding: 1.1rem 1.4rem;
+  margin: 1.8rem 0;
+}
+.article .signature {
+  color: var(--muted);
+  font-size: 0.86rem;
+  margin-top: 2.2rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--border);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.tag {
+  background: #ede5d3;
+  color: var(--accent);
+  padding: 0.28rem 0.75rem;
+  border-radius: 2px;
+  font-size: 0.76rem;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+footer a { color: var(--accent2); }

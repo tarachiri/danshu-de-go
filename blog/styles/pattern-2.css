@@ -1,0 +1,102 @@
+/* パターン2: ダーク・装飾多め赤系（005.htmlベース） */
+:root {
+  --bg: #1a1a2e;
+  --deep: #0f3460;
+  --accent: #e94560;
+  --text: #e0e0e0;
+  --muted: #888888;
+  --border: rgba(233,69,96,0.2);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.9;
+}
+.back-link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  color: #a0c4ff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.back-link:hover { color: var(--accent); }
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.article { padding: 2rem 0; }
+.article h1 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.article .meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+}
+.article h2 {
+  color: var(--accent);
+  font-size: 1.05rem;
+  margin: 2.4rem 0 1rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+}
+.article h3 {
+  color: #a0c4ff;
+  font-size: 0.95rem;
+  margin: 1.6rem 0 0.6rem;
+}
+.article p { line-height: 1.9; font-size: 0.95rem; color: #ccc; margin-bottom: 1rem; }
+.article strong { color: var(--accent); font-weight: 500; }
+.article code {
+  background: var(--deep);
+  color: #a0c4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+.article .card {
+  background: var(--deep);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #f0e8d0;
+}
+.article .signature {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.tag {
+  display: inline-block;
+  background: #C0392B;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--accent); text-decoration: none; }
