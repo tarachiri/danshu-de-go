@@ -1,0 +1,113 @@
+/* パターン1: ダーク・落ち着いた赤系（001.htmlベース） */
+:root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --deep: #0f3460;
+  --accent: #e94560;
+  --text: #e8e8f0;
+  --muted: #a0a0b0;
+  --border: rgba(233,69,96,0.2);
+  --code-bg: #0d1b2a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+.back-link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.back-link:hover { color: var(--accent); }
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.article {
+  padding: 2rem 0;
+}
+.article h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 0.7rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.7rem;
+}
+.article .meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+.article h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 2.4rem 0 1rem;
+}
+.article h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 1.6rem 0 0.6rem;
+}
+.article p { margin-bottom: 1rem; font-size: 0.95rem; }
+.article strong { color: var(--accent); font-weight: 500; }
+.article code {
+  background: var(--code-bg);
+  color: #7ec8e3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: monospace;
+}
+.article .card {
+  border-left: 3px solid var(--accent);
+  padding: 0.8rem 1.2rem;
+  margin: 1.2rem 0;
+  color: var(--muted);
+  font-style: italic;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.article .signature {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.tag {
+  background: var(--deep);
+  color: var(--accent);
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--accent); text-decoration: none; }

@@ -1,0 +1,97 @@
+/* パターン4: シンプル・ライト緑系（db-design-study.htmlベース） */
+:root {
+  --accent: #2a6a2a;
+  --text: #333333;
+  --muted: #888888;
+  --border: #eeeeee;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+}
+.back-link {
+  display: block;
+  padding: 1.2rem 1.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.back-link:hover { text-decoration: underline; }
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.article { padding: 2rem 0; }
+.article h1 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+.article .meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+.article h2 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-top: 2em;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+.article h3 {
+  font-size: 1rem;
+  color: var(--text);
+  margin-top: 1.4rem;
+}
+.article p { margin-bottom: 1.1rem; }
+.article strong { color: var(--accent); font-weight: bold; }
+.article code {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  font-family: monospace;
+}
+.article .card {
+  background: #fffde7;
+  border-left: 4px solid #f39c12;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 1em 0;
+  font-size: 0.93em;
+}
+.article .signature {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.tag {
+  display: inline-block;
+  background: #e8f4e8;
+  color: var(--accent);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--accent); }
