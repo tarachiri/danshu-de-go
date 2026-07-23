@@ -683,33 +683,33 @@ body.sheet-active .leaflet-control-container {
 .sheet-venue-badge {
   display: inline-flex; align-items: center; gap: 5px;
   background: #f0f0f5; color: #c0392b;
-  font-size: 12px; font-weight: 700;
+  font-size: 15px; font-weight: 700;
   padding: 4px 11px; border-radius: 20px; margin-bottom: 8px;
 }
-.sheet-title { font-size: 19px; font-weight: 800; color: #16213e; margin: 0 0 4px; }
-.sheet-address { font-size: 13px; color: #666; margin: 0 0 14px; }
+.sheet-title { font-size: 24px; font-weight: 800; color: #16213e; margin: 0 0 4px; }
+.sheet-address { font-size: 15px; color: #666; margin: 0 0 14px; }
 
 .sheet-meeting-group {
   border: 1px solid #e0e0e8; border-radius: 10px;
   padding: 12px 14px; margin-bottom: 10px; background: rgba(250,250,253,0.65);
 }
 .sheet-meeting-group:last-child { margin-bottom: 0; }
-.sheet-meeting-name { font-weight: 700; font-size: 15px; color: #16213e; }
-.sheet-meeting-recurrence { font-size: 12px; color: #666; margin: 3px 0 8px; }
+.sheet-meeting-name { font-weight: 700; font-size: 24px; color: #16213e; }
+.sheet-meeting-recurrence { font-size: 15px; color: #666; margin: 3px 0 8px; }
 .sheet-upcoming-list { display: flex; flex-direction: column; gap: 6px; }
 .sheet-upcoming-item {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  padding: 6px 10px; background: rgba(255,255,255,0.6); border: 1px solid #ececf2; border-radius: 6px; font-size: 13px;
+  padding: 6px 10px; background: rgba(255,255,255,0.6); border: 1px solid #ececf2; border-radius: 6px; font-size: 19px;
 }
 .sheet-date-badge {
-  display: inline-block; font-size: 11px; font-weight: 700; color: #fff;
+  display: inline-block; font-size: 15px; font-weight: 700; color: #fff;
   padding: 2px 10px; border-radius: 11px; white-space: nowrap;
 }
-.sheet-upcoming-time { color: #666; font-size: 12px; }
-.sheet-exception-note { font-size: 12px; color: #c0392b; margin-top: 4px; width: 100%; }
+.sheet-upcoming-time { color: #666; font-size: 15px; }
+.sheet-exception-note { font-size: 15px; color: #c0392b; margin-top: 4px; width: 100%; }
 
 .sheet-section-title {
-  font-size: 14px; font-weight: 700; color: #16213e;
+  font-size: 19px; font-weight: 700; color: #16213e;
   margin: 16px 0 8px; display: flex; align-items: center; gap: 6px;
 }
 .sheet-section-title::before {
@@ -718,7 +718,7 @@ body.sheet-active .leaflet-control-container {
 
 .sheet-btn-line, .sheet-btn-map, .sheet-btn-cal, .sheet-btn-official {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 16px; border-radius: 10px; font-size: 14px; font-weight: 700;
+  padding: 12px 16px; border-radius: 10px; font-size: 19px; font-weight: 700;
   margin: 6px 0; text-decoration: none;
 }
 .sheet-btn-line { background: #06C755; color: #fff; }
@@ -728,7 +728,7 @@ body.sheet-active .leaflet-control-container {
 
 .sheet-verify-banner {
   background: #fff4e5; border: 1px solid #e0a030; border-radius: 8px;
-  padding: 10px 12px; margin-bottom: 12px; font-size: 12px; color: #8a5a00;
+  padding: 10px 12px; margin-bottom: 12px; font-size: 19px; color: #8a5a00;
   display: flex; align-items: flex-start; gap: 6px; line-height: 1.6;
 }
 .sheet-verify-banner a { color: #8a5a00; text-decoration: underline; font-weight: 700; }
