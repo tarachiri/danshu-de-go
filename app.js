@@ -396,7 +396,7 @@ function buildSheetContent(v) {
     ${verifyBanner}
     <div class="sheet-section-title">開催予定の例会・イベント</div>
     ${meetingsHTML}
-    <a href="https://line.me/R/ti/p/@867qlgsx?text=${encodeURIComponent((v.facility_name||'会場')+'のページから問い合わせ')}" class="sheet-btn-line" target="_blank">🟢 LINEで問い合わせる</a>
+    <a href="https://line.me/R/oaMessage/%40867qlgsx/?${encodeURIComponent((v.facility_name||'会場')+'のページから問い合わせ')}" class="sheet-btn-line" target="_blank">🟢 LINEで問い合わせる</a>
     ${calLink}
     ${officialLink}
     ${mapsLink}
