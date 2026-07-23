@@ -298,6 +298,15 @@ function splashClose() {
 </div>
 
 <div id="map"></div>
+
+<!-- 会場詳細ボトムシート（ピンタップで表示） -->
+<div id="sheet-overlay" onclick="closeVenueSheet()"></div>
+<div id="bottom-sheet">
+  <button class="sheet-close" onclick="closeVenueSheet()" aria-label="閉じる">✕</button>
+  <div class="sheet-handle"></div>
+  <div class="sheet-scroll" id="sheet-content"></div>
+</div>
+
 <div id="schedule"></div>
 <div id="news" style="display:none;padding:12px;max-height:calc(100vh - 136px);overflow-y:auto;"></div>
 <div id="kamo" style="display:none;"></div>
