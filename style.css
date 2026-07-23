@@ -310,10 +310,10 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   color: #333 !important;
 }
 
-/* ボトムナビ */
+/* ボトムナビ（常にfooter/map-attribution=16px分の直上に固定） */
 #bottom-nav {
   position: fixed;
-  bottom: 0;
+  bottom: 16px;
   left: 0;
   right: 0;
   height: 60px;
@@ -322,7 +322,6 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   display: flex;
   align-items: stretch;
   z-index: 1000;
-  padding-bottom: env(safe-area-inset-bottom);
   align-items: flex-start;
 }
 
@@ -370,34 +369,35 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
 #menu-toggle-float { display: none !important; }
 #menu-panel { bottom: 65px !important; }
 
-/* コンテンツエリアのボトム余白（60px=ボトムナビ + 16px=地図外の著作権表示帯） */
+/* コンテンツエリアのボトム余白（60px=ボトムナビ + 16px=最下部の著作権表示帯/footer、合計は変わらず76px） */
 #map { height: calc(100dvh - 76px) !important; }
 /* 日程・お知らせタブは#footer(16px)の分だけ余白を追加確保 */
 #schedule-view { padding-bottom: 76px; }
 #news-view { padding-bottom: 76px; }
 
 /* 画面下部フッター（©表記・開発ノートリンク）：
-   マップタブでは非表示、日程・お知らせタブではボトムナビ直上に固定表示 */
+   マップタブでは非表示、日程・お知らせタブでは画面最下部（ボトムナビより下）に固定表示 */
 #footer {
   display: none;
   position: fixed;
   left: 0; right: 0;
-  bottom: 60px;
+  bottom: 0;
   height: 16px;
   line-height: 16px;
   padding: 0 8px !important;
+  padding-bottom: env(safe-area-inset-bottom) !important;
   font-size: 10px !important;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  z-index: 1000;
+  z-index: 1001;
 }
 
-/* 地図外の著作権表示帯（ボトムナビ直上・地図の可視領域は一切侵食しない） */
+/* 地図外の著作権表示帯（画面最下部・ボトムナビより下・地図の可視領域は一切侵食しない） */
 #map-attribution {
   position: fixed;
   left: 0; right: 0;
-  bottom: 60px;
+  bottom: 0;
   height: 16px;
   background: #16213e;
   border-top: 1px solid #0f3460;
@@ -405,8 +405,9 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
   font-size: 9px;
   line-height: 16px;
   text-align: center;
-  z-index: 1000;
+  z-index: 1001;
   padding: 0 4px;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 #map-attribution a { color: rgba(255,255,255,0.5); }
 

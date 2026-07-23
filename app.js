@@ -508,6 +508,9 @@ function switchTab(tab) {
   // フッター・地図帰属バーは「マップ画面」以外のタブでのみ表示
   if (footerEl) footerEl.style.display = (tab === 'map') ? 'none' : 'block';
   if (mapAttrEl) mapAttrEl.style.display = (tab === 'map') ? 'block' : 'none';
+  // 【備考】footer/map-attributionは両方とも画面最下部(bottom:0)・ボトムナビはその直上(bottom:16px)で統一済みのため、
+  // footer-hiddenクラスは現在CSS側では未使用（将来の調整用に残置）
+  document.body.classList.toggle('footer-hidden', tab === 'map');
   if (tab === 'map') {
     mapEl.style.display = '';
     tabMap.classList.add('active');
