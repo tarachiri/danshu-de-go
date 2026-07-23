@@ -411,6 +411,7 @@ function openVenueSheet(v) {
   content.innerHTML = buildSheetContent(v);
   sheet.classList.add('open');
   overlay.classList.add('active');
+  document.body.classList.add('sheet-active');
 }
 
 function closeVenueSheet() {
@@ -418,6 +419,7 @@ function closeVenueSheet() {
   const overlay = document.getElementById('sheet-overlay');
   if (sheet) sheet.classList.remove('open');
   if (overlay) overlay.classList.remove('active');
+  document.body.classList.remove('sheet-active');
 }
 
 // 座標から最寄りマーカーを探す（id不一致時のフォールバック）
