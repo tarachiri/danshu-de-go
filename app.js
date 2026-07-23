@@ -284,6 +284,142 @@ function buildPopup(v) {
 }
 
 
+// ============================================================
+// ボトムシート用コンテンツ生成
+// buildPopup()と同じデータ源・同じ日付ラベル/バッジロジックを使うが、
+// 1件に圧縮せず、meeting_idごとに直近開催予定を最大2件まで展開する
+// ============================================================
+function getUpcomingDates(m) {
+  const dates = [];
+  if (m.next_date) dates.push(m.next_date);
+  // 【申し送り】次々回日付(next_date_2)はvenues.json生成側(tyo generate_map_v6.py)で
+  // recurrenceから計算して追加する改修が必要。未実装の間は1件のみ表示される。
+  if (m.next_date_2) dates.push(m.next_date_2);
+  return dates.slice(0, 2); // 無限生成防止：必ず2件で打ち切る
+}
+
+function buildSheetMeetingGroup(m) {
+  const typeEmoji = {
+    'シングル':   '🔵',
+    'アメシスト': '💜',
+    '家族':       '👨‍👩‍👧',
+    '相談':       '💬',
+    '本部':       '🏛️'
+  };
+  const badgeColors = {
+    today: '#C0392B', tomorrow: '#D35400', dayafter: '#9A7D0A',
+    other: '#555', none: '#888', exception: '#C0392B', cancel: '#7D3C00'
+  };
+  const badgeTexts = {
+    today: '今日開催！', tomorrow: '明日開催', dayafter: '明後日開催',
+    other: '開催予定あり', none: '日程未定', exception: '⚠️ 要確認', cancel: '⚠️ 中止あり'
+  };
+
+  const mEmoji = typeEmoji[m.meeting_type] || '';
+  const dates = getUpcomingDates(m);
+
+  let itemsHTML;
+  if (m.has_exception) {
+    const cardLabel = m.exc_type === 'cancel' ? 'cancel' : 'exception';
+    itemsHTML = `
+      <div class="sheet-upcoming-item">
+        <span class="sheet-date-badge" style="background:${badgeColors[cardLabel]}">${badgeTexts[cardLabel]}</span>
+        ${m.exc_note ? `<span class="sheet-exception-note">📢 ${m.exc_note}</span>` : ''}
+      </div>`;
+  } else if (dates.length === 0) {
+    itemsHTML = `
+      <div class="sheet-upcoming-item">
+        <span class="sheet-date-badge" style="background:${badgeColors.none}">${badgeTexts.none}</span>
+      </div>`;
+  } else {
+    itemsHTML = dates.map(d => {
+      const label = getDateLabel(d);
+      const timeStr = m.start_time ? `${m.start_time}〜${m.end_time || ''}` : '';
+      return `
+      <div class="sheet-upcoming-item">
+        <span class="sheet-date-badge" style="background:${badgeColors[label]}">${badgeTexts[label]}</span>
+        <span>${formatDate(d)}</span>
+        ${timeStr ? `<span class="sheet-upcoming-time">${timeStr}</span>` : ''}
+      </div>`;
+    }).join('');
+  }
+
+  return `
+    <div class="sheet-meeting-group">
+      <div class="sheet-meeting-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}</div>
+      ${m.recurrence ? `<div class="sheet-meeting-recurrence">🔁 ${m.recurrence}${m.start_time ? '　' + m.start_time + '〜' + (m.end_time||'') : ''}</div>` : ''}
+      <div class="sheet-upcoming-list">${itemsHTML}</div>
+    </div>`;
+}
+
+function buildSheetContent(v) {
+  let addr = v.address || '';
+  addr = addr.replace(/^.*〒\d{3}-\d{4}\s*/, '').replace(/,?\s*日本.*$/, '').trim();
+
+  const meetings = (v.meetings && v.meetings.length > 0) ? v.meetings : null;
+
+  let verifyBanner = '';
+  if (Number(v.needs_verification) === 1) {
+    const url = v.official_url || '';
+    const isAozora = (v.facility_name === 'あおぞら例会' || (meetings && meetings[0] && meetings[0].name === 'あおぞら例会'));
+    const msg = isAozora
+      ? 'この例会は季節や天候により開催地が変わる場合があります。'
+      : 'この例会の日程は変更になる場合があります。';
+    verifyBanner = `
+      <div class="sheet-verify-banner">
+        ⚠️ ${msg}
+        ${url ? `<a href="${url}" target="_blank" rel="noopener">公式サイト</a>で要確認` : '事前に確認を'}
+      </div>`;
+  }
+
+  const meetingsHTML = meetings
+    ? meetings.map(buildSheetMeetingGroup).join('')
+    : `<div class="sheet-meeting-group">
+         <div class="sheet-upcoming-item">
+           <span class="sheet-date-badge" style="background:#888">📅 ${v.fallback_next_date ? formatDate(v.fallback_next_date) : '日程未定'}</span>
+           ${v.fallback_schedule ? `<span class="sheet-upcoming-time">🔁 ${v.fallback_schedule}</span>` : ''}
+         </div>
+       </div>`;
+
+  const calLink = v.calendar_url
+    ? `<a href="${v.calendar_url}" target="_blank" class="sheet-btn-cal">📅 公式カレンダー</a>` : '';
+  const officialLink = v.official_url
+    ? `<a href="${v.official_url}" target="_blank" rel="noopener" class="sheet-btn-official">🌐 公式サイト</a>` : '';
+  const mapsQuery = encodeURIComponent(addr || v.facility_name || '');
+  const mapsLink = mapsQuery
+    ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="sheet-btn-map">🗺️ 経路を調べる</a>` : '';
+
+  return `
+    <div class="sheet-venue-badge">📍 会場・例会情報</div>
+    <div class="sheet-title">🏢 ${v.facility_name || '会場'}</div>
+    ${addr ? `<div class="sheet-address">📍 ${addr}</div>` : ''}
+    ${verifyBanner}
+    <div class="sheet-section-title">開催予定の例会・イベント</div>
+    ${meetingsHTML}
+    <a href="https://line.me/R/ti/p/@867qlgsx?text=${encodeURIComponent((v.facility_name||'会場')+'のページから問い合わせ')}" class="sheet-btn-line" target="_blank">🟢 LINEで問い合わせる</a>
+    ${calLink}
+    ${officialLink}
+    ${mapsLink}
+  `;
+}
+
+function openVenueSheet(v) {
+  const sheet = document.getElementById('bottom-sheet');
+  const overlay = document.getElementById('sheet-overlay');
+  const content = document.getElementById('sheet-content');
+  if (!sheet || !overlay || !content) return;
+  content.innerHTML = buildSheetContent(v);
+  sheet.classList.add('open');
+  overlay.classList.add('active');
+}
+
+function closeVenueSheet() {
+  const sheet = document.getElementById('bottom-sheet');
+  const overlay = document.getElementById('sheet-overlay');
+  if (sheet) sheet.classList.remove('open');
+  if (overlay) overlay.classList.remove('active');
+}
+
 // 座標から最寄りマーカーを探す（id不一致時のフォールバック）
 function findMarkerByCoords(lat, lng) {
   let best = null, bestD = Infinity;
@@ -293,6 +429,17 @@ function findMarkerByCoords(lat, lng) {
     const d = Math.abs(ll.lat - lat) + Math.abs(ll.lng - lng);
     if (d < bestD) { bestD = d; best = ms[key]; }
   }
+  return bestD < 0.001 ? best : null;
+}
+
+// 座標から最寄りvenueデータを探す（findMarkerByCoordsのvenues.json版）
+function findVenueByCoords(lat, lng) {
+  let best = null, bestD = Infinity;
+  (window.VENUES || []).forEach(v => {
+    if (!v.lat || !v.lng) return;
+    const d = Math.abs(v.lat - lat) + Math.abs(v.lng - lng);
+    if (d < bestD) { bestD = d; best = v; }
+  });
   return bestD < 0.001 ? best : null;
 }
 
@@ -317,15 +464,12 @@ function jumpToMarker(id, lat, lng, name) {
         const m = (window._markers && window._markers[id]) || findMarkerByCoords(lat, lng);
         if (m) {
           clusterGroup.zoomToShowLayer(m, () => {
-            m.openPopup();
-            const mapHeight = window._leafletMap.getSize().y;
-            const markerPoint = window._leafletMap.latLngToContainerPoint([lat, lng]);
-            const targetY = mapHeight * 0.65;
-            const offset = markerPoint.y - targetY;
-            window._leafletMap.panBy([0, offset]);
+            const v = (window.VENUES || []).find(x => String(x.id) === String(id)) || findVenueByCoords(lat, lng);
+            if (v) openVenueSheet(v);
           });
         } else if (name) {
-          L.popup().setLatLng([lat, lng]).setContent('<b>' + name + '</b>').openOn(window._leafletMap);
+          // venueデータが見当たらない場合の最低限のフォールバック表示
+          openVenueSheet({ facility_name: name, address: '', meetings: null });
         }
       });
     }
@@ -417,16 +561,8 @@ let clusterGroup = L.markerClusterGroup({
 });
 map.addLayer(clusterGroup);
 
-// popupopen: LeafletのmaxHeightを解除
-map.on('popupopen', function(e) {
-  const el = e.popup.getElement();
-  if (!el) return;
-  const content = el.querySelector('.leaflet-popup-content');
-  if (content) {
-    content.style.maxHeight = '';
-    content.style.overflow = '';
-  }
-});
+// 【廃止】旧ポップアップ方式のmaxHeight解除処理。
+// ボトムシート方式（openVenueSheet）へ移行したため不要になった。
 let comfortGroup = L.layerGroup();
 let currentMode = 'comfort';
 
@@ -518,8 +654,8 @@ function applyFilters() {
     // エリアフィルター
     if (areaFilter !== 'all' && v.prefecture !== areaFilter) return;
 
-    const marker = L.marker([v.lat, v.lng], { icon: makeIcon(v) })
-      .bindPopup(buildPopup(v), { maxWidth: 300, autoPan: false });
+    const marker = L.marker([v.lat, v.lng], { icon: makeIcon(v) });
+    marker.on('click', () => openVenueSheet(v));
 
     activeGroup.addLayer(marker);
     window._markers[v.id] = marker;
