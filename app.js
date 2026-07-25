@@ -480,6 +480,9 @@ function jumpToMarker(id, lat, lng, name) {
 
 // タブ切替
 function switchTab(tab) {
+  // #seo-summary閲覧中にタブ切替した場合、#app-shellが画面内に戻るようスクロール位置をリセット
+  // （2026-07-25、bodyスクロール可能化に伴う対応）
+  window.scrollTo(0, 0);
   // ボトムナビのactive更新
   document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
   const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news', 'kamo': 'bottom-kamo' };
@@ -696,7 +699,7 @@ initVenues();
   const container = document.createElement('div');
   container.id = 'zoom-slider-container';
   container.style.cssText = `
-    position: fixed;
+    position: absolute;
     bottom: 160px;
     right: 16px;
     z-index: 500;
@@ -766,7 +769,10 @@ initVenues();
   container.appendChild(plusBtn);
   container.appendChild(slider);
   container.appendChild(minusBtn);
-  document.body.appendChild(container);
+  // #app-shellに追加（bodyではなく）: position:absoluteで#app-shell基準にすることで
+  // #seo-summaryまでスクロールした際、地図と一緒に画面外へ流れるようにする
+  // （2026-07-25、bodyスクロール可能化に伴う対応）
+  document.getElementById('app-shell').appendChild(container);
 })();
 
 // ===== Service Worker登録（index.htmlインラインから移設） =====

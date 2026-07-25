@@ -1,5 +1,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; display: flex; flex-direction: column; height: 100dvh; margin: 0; overflow: hidden; }
+body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; margin: 0; }
+
+/* 従来#appellだった単一画面レイアウト（地図・タブ切替UI）をラッパーに分離。
+   bodyはこのラッパーの下に#seo-summaryが続く形でスクロール可能にする
+   （SEO静的コンテンツ埋め込み、2026-07-25） */
+#app-shell { position: relative; display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
 
 #header {
     background: linear-gradient(135deg, #16213e, #0f3460);
@@ -732,3 +737,40 @@ body.sheet-active .leaflet-control-container {
   display: flex; align-items: flex-start; gap: 6px; line-height: 1.6;
 }
 .sheet-verify-banner a { color: #8a5a00; text-decoration: underline; font-weight: 700; }
+
+/* SEOサマリー（#app-shellの下に常時表示、generate_seo_summary.pyが自動生成） */
+#seo-summary {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  padding: 28px 16px 40px;
+  line-height: 1.7;
+}
+#seo-summary h1 {
+  font-size: 20px;
+  color: #f0e8d0;
+  margin: 0 0 12px;
+}
+#seo-summary > p {
+  font-size: 14px;
+  color: #b0b0c0;
+  margin: 0 0 20px;
+}
+#seo-summary h2 {
+  font-size: 16px;
+  color: #e94560;
+  border-bottom: 1px solid #0f3460;
+  padding-bottom: 4px;
+  margin: 24px 0 8px;
+}
+#seo-summary ul {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+#seo-summary li {
+  font-size: 13px;
+  color: #c8c8d8;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+#seo-summary li strong { color: #f0e8d0; }
