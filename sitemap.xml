@@ -2,21 +2,261 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <loc>https://dansyu-go.nukadokonokai.com/chat.html</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/calendar.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/gogo-submit.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-28-auto-2026-07-06-wiki-script-summary.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-28-auto-2026-07-06-cloudflare-access-wiki-curl-check.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-27-auto-2026-07-05_systemd_setup_complete.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-24-auto-2026-07-05_gen_investigation_root_cause.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05_dns_misroute_incident.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05_cloudflare_tunnel_reality_check.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05_access_wizard_progress.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05-web-chat-inquiry-delivery.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-05-line-inquiry-delivery.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-05-kamochan-wiki-access-issue.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-04-leaflet-attribution-fix.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-04-footer-tab-visibility.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-03-work-status.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-02-news-tab-safe-fixes.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-06-30-js-split-worklog.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-21-auto-2026-06-29-line-webhook.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-30-gemma4-draft-2.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-30-gemma4-draft.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-17-tohoku-venue-search.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-05-db-design-study.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-04-facility-cannot-speak-for-meetings.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-02-danshu-search-quality.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-29-line-kamo.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-28-schedule-rag.html</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-28-danshu-sites.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-25-future-vision.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/010.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/011.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/012.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/009.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/008.html</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/007.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/006.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/005.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/004.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/002.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/003.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/001.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/aichi/</loc>
@@ -239,6 +479,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/nagano/</loc>
@@ -499,12 +745,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/chugoku/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chugoku/hiroshima/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -583,6 +823,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/chugoku/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chugoku/okayama/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -635,12 +881,6 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokkaido/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokkaido/hokkaido/</loc>
@@ -769,7 +1009,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokuriku/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokkaido/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -797,6 +1037,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokuriku/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokuriku/ishikawa/</loc>
@@ -919,10 +1165,10 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/chiba/</loc>
@@ -1103,6 +1349,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/kanagawa/</loc>
@@ -1603,12 +1855,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/hyogo/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -1703,6 +1949,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/kyoto/</loc>
@@ -2419,12 +2671,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/fukuoka/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -2573,6 +2819,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/kagoshima/</loc>
@@ -3073,12 +3325,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/shikoku/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/shikoku/ehime/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -3125,6 +3371,12 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/shikoku/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/shikoku/kagawa/</loc>
@@ -3179,12 +3431,6 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chiiki/tohoku/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/tohoku/akita/</loc>
@@ -3289,6 +3535,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dansyu-go.nukadokonokai.com/chiiki/tohoku/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/tohoku/iwate/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -3383,257 +3635,5 @@
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/gogo-submit.html</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/chat.html</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/calendar.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-28-auto-2026-07-06-wiki-script-summary.html</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-28-auto-2026-07-06-cloudflare-access-wiki-curl-check.html</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-27-auto-2026-07-05_systemd_setup_complete.html</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-24-auto-2026-07-05_gen_investigation_root_cause.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05_dns_misroute_incident.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05_cloudflare_tunnel_reality_check.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05_access_wizard_progress.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-23-auto-2026-07-05-web-chat-inquiry-delivery.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-05-line-inquiry-delivery.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-05-kamochan-wiki-access-issue.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-04-leaflet-attribution-fix.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-04-footer-tab-visibility.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-03-work-status.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-07-02-news-tab-safe-fixes.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-22-auto-2026-06-30-js-split-worklog.html</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-21-auto-2026-06-29-line-webhook.html</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-30-gemma4-draft-2.html</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-30-gemma4-draft.html</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-17-tohoku-venue-search.html</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-05-db-design-study.html</loc>
-    <lastmod>2026-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-04-facility-cannot-speak-for-meetings.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-02-danshu-search-quality.html</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-29-line-kamo.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-28-schedule-rag.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-28-danshu-sites.html</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-06-25-future-vision.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/010.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/011.html</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/012.html</loc>
-    <lastmod>2026-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/009.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/008.html</loc>
-    <lastmod>2026-06-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/007.html</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/006.html</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/005.html</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/004.html</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/002.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/003.html</loc>
-    <lastmod>2026-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/001.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>
