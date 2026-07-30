@@ -296,16 +296,35 @@ function splashClose() {
     <span class="bottom-icon">🤖</span>
     <span class="bottom-label">かもちゃん</span>
   </button>
+  <button class="bottom-btn" id="menu-nav-btn" onclick="openMenuSheet()">
+    <span class="bottom-icon">☰</span>
+    <span class="bottom-label">メニュー</span>
+  </button>
 </div>
 
 <div id="map"></div>
 
 <!-- 会場詳細ボトムシート（ピンタップで表示） -->
-<div id="sheet-overlay" onclick="closeVenueSheet()"></div>
-<div id="bottom-sheet">
+<div id="sheet-overlay" class="sheet-overlay-base" onclick="closeVenueSheet()"></div>
+<div id="bottom-sheet" class="sheet-panel">
   <button class="sheet-close" onclick="closeVenueSheet()" aria-label="閉じる">✕</button>
   <div class="sheet-handle"></div>
   <div class="sheet-scroll" id="sheet-content"></div>
+</div>
+
+<!-- メニューボトムシート（ハンバーガーメニュー） -->
+<div id="menu-sheet-overlay" class="sheet-overlay-base" onclick="closeMenuSheet()"></div>
+<div id="menu-sheet" class="sheet-panel">
+  <button class="sheet-close" onclick="closeMenuSheet()" aria-label="閉じる">✕</button>
+  <div class="sheet-handle"></div>
+  <div class="sheet-scroll">
+    <a class="menu-item" href="/chiiki/">🗾 地域から探す</a>
+    <a class="menu-item" href="/gogo-submit.html">📝 例会情報を登録する</a>
+    <a class="menu-item" href="/about.html">ℹ️ このサービスについて</a>
+    <div class="menu-item menu-item-disabled">📅 Myカレンダー <span class="menu-badge-soon">準備中</span></div>
+    <div class="menu-item menu-item-disabled">🏆 マイポイント・実績 <span class="menu-badge-soon">準備中</span></div>
+    <div class="menu-item menu-item-disabled">⚙️ 設定・ログイン <span class="menu-badge-soon">準備中</span></div>
+  </div>
 </div>
 
 <div id="schedule"></div>

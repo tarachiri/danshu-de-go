@@ -404,6 +404,7 @@ function buildSheetContent(v) {
 }
 
 function openVenueSheet(v) {
+  closeMenuSheet();
   const sheet = document.getElementById('bottom-sheet');
   const overlay = document.getElementById('sheet-overlay');
   const content = document.getElementById('sheet-content');
@@ -417,6 +418,24 @@ function openVenueSheet(v) {
 function closeVenueSheet() {
   const sheet = document.getElementById('bottom-sheet');
   const overlay = document.getElementById('sheet-overlay');
+  if (sheet) sheet.classList.remove('open');
+  if (overlay) overlay.classList.remove('active');
+  document.body.classList.remove('sheet-active');
+}
+
+function openMenuSheet() {
+  closeVenueSheet();
+  const sheet = document.getElementById('menu-sheet');
+  const overlay = document.getElementById('menu-sheet-overlay');
+  if (!sheet || !overlay) return;
+  sheet.classList.add('open');
+  overlay.classList.add('active');
+  document.body.classList.add('sheet-active');
+}
+
+function closeMenuSheet() {
+  const sheet = document.getElementById('menu-sheet');
+  const overlay = document.getElementById('menu-sheet-overlay');
   if (sheet) sheet.classList.remove('open');
   if (overlay) overlay.classList.remove('active');
   document.body.classList.remove('sheet-active');
@@ -700,7 +719,7 @@ initVenues();
   container.id = 'zoom-slider-container';
   container.style.cssText = `
     position: absolute;
-    bottom: 160px;
+    bottom: 86px;
     right: 16px;
     z-index: 500;
     display: flex;
