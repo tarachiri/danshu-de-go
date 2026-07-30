@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/blog/</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -29,6 +29,12 @@
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-28-auto-2026-07-07-gogo-app-domain-and-input-plan.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-07-28-auto-2026-07-06-wiki-script-summary.html</loc>
@@ -362,7 +368,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/aichi/org-617/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -542,7 +548,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/nagano/org-573/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -698,7 +704,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/shizuoka/org-598/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -980,7 +986,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokkaido/hokkaido/org-397/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2216,7 +2222,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/osaka/org-700/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2438,7 +2444,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/osaka/org-737/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2582,7 +2588,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/shiga/org-661/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2960,13 +2966,13 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/miyazaki/org-883/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/miyazaki/org-884/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -3032,7 +3038,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kyushu/nagasaki/org-846/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
