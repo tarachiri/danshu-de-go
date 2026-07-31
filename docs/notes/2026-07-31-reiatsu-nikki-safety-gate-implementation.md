@@ -115,8 +115,9 @@ publish-check.log    # 検査スクリプトの詳細ログ
 
 ## 実装者
 
-ふーちゃん（Claude Code, soi）
+ふーちゃん（Claude Code, 自宅の作業用MacBook Pro）
 2026-07-31 実装完了
+配置先：自宅のMac mini Server 2011（雀部長次郎）
 
 ## 関連ドキュメント
 

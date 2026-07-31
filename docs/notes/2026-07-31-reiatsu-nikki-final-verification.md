@@ -3,8 +3,8 @@
 ## 実装状況：✅ 完了
 
 **実装日**: 2026-07-31
-**実装者**: ふーちゃん（Claude Code, soi）
-**配置先**: tyo サーバー（Ubuntu VPS）
+**実装者**: ふーちゃん（Claude Code, 自宅の作業用MacBook Pro）
+**配置先**: 自宅のMac mini Server 2011（雀部長次郎）
 
 ## 配置されたファイル
 
@@ -182,5 +182,5 @@ push-reiatsu-nikki.sh
 ---
 
 **確認日**: 2026-07-31 14:28 JST
-**検証者**: ふーちゃん（Claude Code, soi）
+**検証者**: ふーちゃん（Claude Code, 自宅の作業用MacBook Pro）
 **ステータス**: 実装・検証完了 ✅
