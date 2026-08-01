@@ -130,22 +130,28 @@ function formatDate(d) {
 function buildPopup(v) {
   // ── 定数 ──────────────────────────────────────────
   const badgeColors = {
-    today:     '#C0392B',
-    tomorrow:  '#D35400',
-    dayafter:  '#9A7D0A',
-    other:     '#555',
-    none:      '#888',
-    exception: '#C0392B',
-    cancel:    '#7D3C00'
+    today:       '#C0392B',
+    tomorrow:    '#D35400',
+    dayafter:    '#9A7D0A',
+    other:       '#555',
+    none:        '#888',
+    cancel:      '#7D3C00',      // 中止
+    reschedule:  '#E67E22',      // 日程変更
+    date_change: '#E67E22',      // 日程変更
+    venue_change: '#3498DB',     // 会場変更
+    exception:   '#F39C12'       // その他要確認
   };
   const badgeTexts = {
-    today:     '今日開催！',
-    tomorrow:  '明日開催',
-    dayafter:  '明後日開催',
-    other:     '開催予定あり',
-    none:      '日程未定',
-    exception: '⚠️ 要確認',
-    cancel:    '⚠️ 中止あり'
+    today:       '今日開催！',
+    tomorrow:    '明日開催',
+    dayafter:    '明後日開催',
+    other:       '開催予定あり',
+    none:        '日程未定',
+    cancel:      '🚫 中止',
+    reschedule:  '📍 日程変更',
+    date_change: '📍 日程変更',
+    venue_change: '📌 会場変更',
+    exception:   '⚠️ 要確認'
   };
 
   // 例会タイプアイコン（通常・空は表示なし）
@@ -170,9 +176,17 @@ function buildPopup(v) {
     const first = meetings[0];
     headName  = first.name || v.facility_name || '例会場';
     headEmoji = typeEmoji[first.meeting_type] || '';
-    // 大見出しバッジ：has_exception か next_date で判定
+    // 大見出しバッジ：has_exception か next_date で判定（4分類）
     if (first.has_exception) {
-      headLabel = first.exc_type === 'cancel' ? 'cancel' : 'exception';
+      if (first.exc_type === 'cancel') {
+        headLabel = 'cancel';
+      } else if ((first.exc_note || '').includes('会場変更') || (first.exc_note || '').includes('会場')) {
+        headLabel = 'venue_change';
+      } else if (first.exc_type === 'reschedule' || first.exc_type === 'date_change') {
+        headLabel = first.exc_type;
+      } else {
+        headLabel = 'exception';
+      }
     } else {
       headLabel = getDateLabel(first.next_date);
     }
@@ -219,10 +233,18 @@ function buildPopup(v) {
   let meetingsHTML = '';
   if (meetings) {
     meetingsHTML = meetings.map(m => {
-      // カードごとバッジ
+      // カードごとバッジ（4分類：中止 / 日程変更 / 会場変更 / その他要確認）
       let cardLabel;
       if (m.has_exception) {
-        cardLabel = m.exc_type === 'cancel' ? 'cancel' : 'exception';
+        if (m.exc_type === 'cancel') {
+          cardLabel = 'cancel';
+        } else if ((m.exc_note || '').includes('会場変更') || (m.exc_note || '').includes('会場')) {
+          cardLabel = 'venue_change';
+        } else if (m.exc_type === 'reschedule' || m.exc_type === 'date_change') {
+          cardLabel = m.exc_type;
+        } else {
+          cardLabel = 'exception';
+        }
       } else {
         cardLabel = getDateLabel(m.next_date);
       }
@@ -308,11 +330,15 @@ function buildSheetMeetingGroup(m) {
   };
   const badgeColors = {
     today: '#C0392B', tomorrow: '#D35400', dayafter: '#9A7D0A',
-    other: '#555', none: '#888', exception: '#C0392B', cancel: '#7D3C00'
+    other: '#555', none: '#888',
+    cancel: '#7D3C00', reschedule: '#E67E22', date_change: '#E67E22',
+    venue_change: '#3498DB', exception: '#F39C12'
   };
   const badgeTexts = {
     today: '今日開催！', tomorrow: '明日開催', dayafter: '明後日開催',
-    other: '開催予定あり', none: '日程未定', exception: '⚠️ 要確認', cancel: '⚠️ 中止あり'
+    other: '開催予定あり', none: '日程未定',
+    cancel: '🚫 中止', reschedule: '📍 日程変更', date_change: '📍 日程変更',
+    venue_change: '📌 会場変更', exception: '⚠️ 要確認'
   };
 
   const mEmoji = typeEmoji[m.meeting_type] || '';
@@ -320,7 +346,17 @@ function buildSheetMeetingGroup(m) {
 
   let itemsHTML;
   if (m.has_exception) {
-    const cardLabel = m.exc_type === 'cancel' ? 'cancel' : 'exception';
+    // 4分類：中止 / 日程変更 / 会場変更 / その他要確認
+    let cardLabel;
+    if (m.exc_type === 'cancel') {
+      cardLabel = 'cancel';
+    } else if ((m.exc_note || '').includes('会場変更') || (m.exc_note || '').includes('会場')) {
+      cardLabel = 'venue_change';
+    } else if (m.exc_type === 'reschedule' || m.exc_type === 'date_change') {
+      cardLabel = m.exc_type;
+    } else {
+      cardLabel = 'exception';
+    }
     itemsHTML = `
       <div class="sheet-upcoming-item">
         <span class="sheet-date-badge" style="background:${badgeColors[cardLabel]}">${badgeTexts[cardLabel]}</span>
