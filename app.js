@@ -425,8 +425,13 @@ function buildSheetContent(v) {
   const mapsLink = mapsQuery
     ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="sheet-btn-map">🗺️ 経路を調べる</a>` : '';
 
+  // 最寄駅・徒歩距離バッジ（データが揃っている場合のみ切り替え。それ以外は既存の固定文言）
+  const venueBadgeLabel = (v.nearest_station && v.walk_duration_min != null)
+    ? `🚶 ${v.nearest_station}駅 徒歩${v.walk_duration_min}分`
+    : '📍 会場・例会情報';
+
   return `
-    <div class="sheet-venue-badge">📍 会場・例会情報</div>
+    <div class="sheet-venue-badge">${venueBadgeLabel}</div>
     <div class="sheet-title">🏢 ${v.facility_name || '会場'}</div>
     ${addr ? `<div class="sheet-address">📍 ${addr}</div>` : ''}
     ${verifyBanner}
