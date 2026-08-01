@@ -916,7 +916,7 @@ if (document.readyState === 'loading') {
 // 掲示板機能
 // ═══════════════════════════════════════════
 
-const API_BASE = 'https://gen-3.taile44373.ts.net:8000';
+const API_BASE = 'https://chat.nukadokonokai.com';
 let CLIENT_TOKEN = null;
 
 function initBulletin() {
