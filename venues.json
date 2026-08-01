@@ -8184,9 +8184,9 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "市川例会（本八幡）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 514,
@@ -8200,9 +8200,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "一日研修会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 531,
@@ -8221,8 +8221,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "市川例会（本八幡）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8256,9 +8256,9 @@
         "event_date": "",
         "recurrence": "第1火曜",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "酒害教室（ｱﾙｺｰﾙ･ﾘｶﾊﾞﾘｰ･ﾐｰﾃｨﾝｸﾞ）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 520,
@@ -8277,8 +8277,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "酒害教室（ｱﾙｺｰﾙ･ﾘｶﾊﾞﾘｰ･ﾐｰﾃｨﾝｸﾞ）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8312,9 +8312,9 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "菜の花会（県家族会）（東部公民館）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 512,
@@ -8328,9 +8328,9 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "アメシスト"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 527,
@@ -8344,9 +8344,9 @@
         "event_date": "",
         "recurrence": "第1・第4木曜",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "船橋例会（東部公民館）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2785,
@@ -8381,8 +8381,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "菜の花会（県家族会）（東部公民館）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8417,12 +8417,12 @@
         "recurrence": "第1・第3日曜",
         "next_date": "2026-08-02",
         "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "市原例会"
+        "exc_type": "cancel",
+        "exc_note": "▼中止▼市原例会"
       }
     ],
     "has_exception": true,
-    "exc_note": "市原例会",
+    "exc_note": "▼中止▼市原例会",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8456,13 +8456,13 @@
         "event_date": "",
         "recurrence": "第3日曜",
         "next_date": "2026-08-16",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "鎌ケ谷例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "鎌ケ谷例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8496,13 +8496,13 @@
         "event_date": "",
         "recurrence": "第3・第4土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "野田例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "野田例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8536,9 +8536,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-21",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "稲毛"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 536,
@@ -8552,13 +8552,13 @@
         "event_date": "",
         "recurrence": "第3・第4金曜",
         "next_date": "2026-08-21",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "千葉例会（稲毛）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "稲毛",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8592,13 +8592,13 @@
         "event_date": "",
         "recurrence": "第2・第4日曜",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "かずさ例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "かずさ例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8632,9 +8632,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "東金"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2602,
@@ -8664,9 +8664,9 @@
         "event_date": "",
         "recurrence": "第2土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "県本部例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2784,
@@ -8680,9 +8680,9 @@
         "event_date": "",
         "recurrence": "第2土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "本部"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2604,
@@ -8696,9 +8696,9 @@
         "event_date": "",
         "recurrence": "第2・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "浦安例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2787,
@@ -8712,9 +8712,9 @@
         "event_date": "",
         "recurrence": "第2・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "浦安"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2818,
@@ -8728,9 +8728,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-14",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "鎌ケ谷例会（白井）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 988,
@@ -8744,13 +8744,13 @@
         "event_date": "",
         "recurrence": "第3土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "やちまた例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "東金",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8784,13 +8784,13 @@
         "event_date": "",
         "recurrence": "第4月曜",
         "next_date": "2026-08-24",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "八千代例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "八千代例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8824,9 +8824,9 @@
         "event_date": "",
         "recurrence": "第1・第3月曜",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "我孫子例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1384,
@@ -8845,8 +8845,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "我孫子例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8880,13 +8880,13 @@
         "event_date": "",
         "recurrence": "第4土曜",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "習志野例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "習志野例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -8920,9 +8920,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "船北"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 994,
@@ -8936,13 +8936,13 @@
         "event_date": "",
         "recurrence": "第3土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "船橋北病院院内断酒会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "船北",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9016,13 +9016,13 @@
         "event_date": "",
         "recurrence": "第2月曜",
         "next_date": "2026-08-10",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "断酒学級"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "断酒学級",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9056,13 +9056,13 @@
         "event_date": "",
         "recurrence": "第4金曜",
         "next_date": "2026-08-28",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "流山例会（江戸川台）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "流山例会（江戸川台）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9096,9 +9096,9 @@
         "event_date": "",
         "recurrence": "第2木曜",
         "next_date": "2026-08-13",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "幕張"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2615,
@@ -9117,8 +9117,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "幕張",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9152,9 +9152,9 @@
         "event_date": "",
         "recurrence": "第1・第2・第3火曜",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "つくも例会（東金）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2783,
@@ -9173,8 +9173,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "つくも例会（東金）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9248,13 +9248,13 @@
         "event_date": "",
         "recurrence": "第1金曜",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "アルコール教室（我孫子保健所）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "アルコール教室（我孫子保健所）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9288,9 +9288,9 @@
         "event_date": "",
         "recurrence": "第1・第2・第3金曜",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "松戸例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1386,
@@ -9325,8 +9325,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "松戸例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9376,13 +9376,13 @@
         "event_date": "",
         "recurrence": "第2水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "柏家族会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "柏家族会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9416,13 +9416,13 @@
         "event_date": "",
         "recurrence": "第2・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "浦安例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "浦安例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -9456,9 +9456,9 @@
         "event_date": "",
         "recurrence": "第2土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "県本部例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1385,
@@ -9493,8 +9493,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "県本部例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -10472,9 +10472,9 @@
         "event_date": "",
         "recurrence": "毎週木曜",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "こころの広場 | 13:00~15:30 | 下落合コミュニティセンター"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 21,
@@ -10488,9 +10488,9 @@
         "event_date": "",
         "recurrence": "第1・第3木曜",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "与野例会 | 19:00~20:30 | 下落合コミュニティセンター, 日本、〒338-0002 埼玉県さいたま市中央区下落合１７１２ スカイレジデンシャルタワーズ ノースウィング301・401"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 262,
@@ -10504,9 +10504,9 @@
         "event_date": "",
         "recurrence": "第4水曜",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "合同例会 | 19:00~20:30 | 浦和コミュニティセンター（浦和パルコ10F）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2082,
@@ -10520,13 +10520,13 @@
         "event_date": "",
         "recurrence": "第4水曜",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "家族例会 | 19:00~20:30 | 浦和コミュニティセンター（浦和パルコ10F）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "こころの広場 | 13:00~15:30 | 下落合コミュニティセンター",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -10600,8 +10600,8 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -10616,9 +10616,9 @@
         "event_date": "",
         "recurrence": "第2土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "埼玉中央本部例会 | 19:00~20:30 | 浦和コミュニティセンター, 日本、〒330-0063 埼玉県さいたま市東浦和区高砂１１−１"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 261,
@@ -10648,8 +10648,8 @@
         "event_date": "",
         "recurrence": "第3水曜",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -10712,9 +10712,9 @@
         "event_date": "",
         "recurrence": "第4水曜",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "アメシスト例会（本部） | 19:00~20:30 | 浦和パルコ10階　浦和コミュニティセンター"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 266,
@@ -10728,9 +10728,9 @@
         "event_date": "",
         "recurrence": "第4水曜",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "家族例会 | 19:00~20:30 | 浦和コミュニティセンター（浦和パルコ10F）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 376,
@@ -10760,12 +10760,12 @@
         "event_date": "",
         "recurrence": "第4金曜",
         "next_date": "2026-08-28",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "シングル例会 | 19:00~21:00 | 武蔵浦和コミュニティセンター"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -10840,13 +10840,13 @@
         "event_date": "",
         "recurrence": "第1・第3土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "加須例会 | 10:00~12:00 | 加須市中央2-4-17"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "加須例会 | 10:00~12:00 | 加須市中央2-4-17",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -10880,13 +10880,13 @@
         "event_date": "",
         "recurrence": "第3金曜",
         "next_date": "2026-08-21",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "春日部例会 | 19:00~20:45 | 春日部市南1-12-23"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "春日部例会 | 19:00~20:45 | 春日部市南1-12-23",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -10920,13 +10920,13 @@
         "event_date": "",
         "recurrence": "第1・第3水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "岩槻例会 | 19:00~20:30 | さいたま市岩槻区本町1-10-7"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "岩槻例会 | 19:00~20:30 | さいたま市岩槻区本町1-10-7",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -10960,13 +10960,13 @@
         "event_date": "",
         "recurrence": "第2・第4火曜",
         "next_date": "2026-08-11",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "越谷例会 | 18:30~20:30 | 越谷市越ヶ谷4-1-1"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "越谷例会 | 18:30~20:30 | 越谷市越ヶ谷4-1-1",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11000,9 +11000,9 @@
         "event_date": "",
         "recurrence": "第2水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "草加例会 | 19:00~21:00 | 草加市旭町6-13-20"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 139,
@@ -11021,8 +11021,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "草加例会 | 19:00~21:00 | 草加市旭町6-13-20",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11208,9 +11208,9 @@
         "event_date": "",
         "recurrence": "第1水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "富士見例会 | 19:00~21:00 | 埼玉県富士見市針ヶ谷１−３８−２０　針ヶ谷コミニティセンター,"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 6,
@@ -11225,12 +11225,12 @@
         "recurrence": "第3水曜",
         "next_date": "2026-08-19",
         "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "西部本部例会 | 19:00~21:00 | 富士見市　針ヶ谷コミュニティーセンター"
+        "exc_type": "reschedule",
+        "exc_note": "【変更】西部本部例会 → ２０日(木)へ変更 | 19:00~21:00 | 富士見市　針ヶ谷コミュニティーセンター"
       }
     ],
     "has_exception": true,
-    "exc_note": "富士見例会 | 19:00~21:00 | 埼玉県富士見市針ヶ谷１−３８−２０　針ヶ谷コミニティセンター,",
+    "exc_note": "【変更】西部本部例会 → ２０日(木)へ変更 | 19:00~21:00 | 富士見市　針ヶ谷コミュニティーセンター",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11336,9 +11336,9 @@
         "event_date": "",
         "recurrence": "第2水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "所沢例会 | 19:00~21:00 | 所沢市立中央公民館"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 143,
@@ -11357,8 +11357,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "所沢例会 | 19:00~21:00 | 所沢市立中央公民館",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11448,13 +11448,13 @@
         "event_date": "",
         "recurrence": "第2土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "川越例会 | 19:00~21:00 | 川越市　高階市民センター"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "川越例会 | 19:00~21:00 | 川越市　高階市民センター",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11800,9 +11800,9 @@
         "event_date": "",
         "recurrence": "第1水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "南部昼例会 | 13:00~15:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 32,
@@ -11816,9 +11816,9 @@
         "event_date": "",
         "recurrence": "第2・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "川口例会 | 19:00~21:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 29,
@@ -11832,9 +11832,9 @@
         "event_date": "",
         "recurrence": "第3土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "本部例会 | 19:00~21:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 151,
@@ -11853,8 +11853,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "南部昼例会 | 13:00~15:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11888,13 +11888,13 @@
         "event_date": "",
         "recurrence": "第3木曜",
         "next_date": "2026-08-20",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "蕨中央例会 | 19:00~21:00 | 蕨市 中央公民館, 日本、〒335-0004 埼玉県蕨市中央４丁目４−２１−２９"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "蕨中央例会 | 19:00~21:00 | 蕨市 中央公民館, 日本、〒335-0004 埼玉県蕨市中央４丁目４−２１−２９",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11928,9 +11928,9 @@
         "event_date": "",
         "recurrence": "第2金曜",
         "next_date": "2026-08-14",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "蕨南例会 | 19:00~21:00 | 南公民館　蕨市南町２－２３－１９"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 153,
@@ -11949,8 +11949,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "蕨南例会 | 19:00~21:00 | 南公民館　蕨市南町２－２３－１９",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -11984,13 +11984,13 @@
         "event_date": "",
         "recurrence": "第1火曜",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "蕨くるる例会 | 19:00~21:00 | 蕨市立文化ホールくるる, 日本、〒335-0004 埼玉県蕨市中央１丁目２３−８"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "蕨くるる例会 | 19:00~21:00 | 蕨市立文化ホールくるる, 日本、〒335-0004 埼玉県蕨市中央１丁目２３−８",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12024,9 +12024,9 @@
         "event_date": "",
         "recurrence": "第1・第5金曜",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "鳩ヶ谷例会 | 19:00~21:00 | 川口市 里公民館, 日本、〒334-0005 埼玉県川口市大字里１４７８−１"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 386,
@@ -12040,9 +12040,9 @@
         "event_date": "",
         "recurrence": "第1金曜",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "鳩ヶ谷例会 | 19:00~21:00 | 川口市 里公民館, 日本、〒334-0005 埼玉県川口市大字里１４７８−１"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 269,
@@ -12061,8 +12061,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "鳩ヶ谷例会 | 19:00~21:00 | 川口市 里公民館, 日本、〒334-0005 埼玉県川口市大字里１４７８−１",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12096,13 +12096,13 @@
         "event_date": "",
         "recurrence": "第2・第4月曜",
         "next_date": "2026-08-10",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "【あいパル】戸田例会 | 19:00~21:00 | 上戸田地域交流センター あいパル, 日本、〒335-0022 埼玉県戸田市上戸田２丁目２１−１"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "【あいパル】戸田例会 | 19:00~21:00 | 上戸田地域交流センター あいパル, 日本、〒335-0022 埼玉県戸田市上戸田２丁目２１−１",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12152,9 +12152,9 @@
         "event_date": "",
         "recurrence": "第4火曜",
         "next_date": "2026-08-25",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "合同例会/家族会 | 19:00~21:00 | 並木公民館, 日本、〒332-0034 埼玉県川口市並木２丁目８−２ 並木公民館"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 268,
@@ -12168,13 +12168,13 @@
         "event_date": "",
         "recurrence": "第5火曜",
         "next_date": "2026-09-29",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "合同例会/家族会 | 19:00~21:00 | 並木公民館, 日本、〒332-0034 埼玉県川口市並木２丁目８−２ 並木公民館",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12208,13 +12208,13 @@
         "event_date": "",
         "recurrence": "第1・第3金曜",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "桶川断酒会 | 19:00~21:00 | 桶川市西１丁目５"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "桶川断酒会 | 19:00~21:00 | 桶川市西１丁目５",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12320,13 +12320,13 @@
         "event_date": "",
         "recurrence": "第4月曜",
         "next_date": "2026-08-24",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "鴻巣断酒会 | 19:00~21:00 | 鴻巣市赤見台1-15-5"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "鴻巣断酒会 | 19:00~21:00 | 鴻巣市赤見台1-15-5",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12416,9 +12416,9 @@
         "event_date": "",
         "recurrence": "第3水曜",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "北部本部例会 | 19:00~21:00 | 熊谷市仲町19"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 155,
@@ -12453,8 +12453,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "北部本部例会 | 19:00~21:00 | 熊谷市仲町19",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12488,9 +12488,9 @@
         "event_date": "",
         "recurrence": "第2・第4土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "深谷断酒会 | 19:00~21:00 | 埼玉県深谷市仲町２０−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 156,
@@ -12509,8 +12509,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "深谷断酒会 | 19:00~21:00 | 埼玉県深谷市仲町２０−２",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12544,13 +12544,13 @@
         "event_date": "",
         "recurrence": "第1・第3土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "本庄断酒会 | 19:00~21:00 | 本庄市銀座１－１－１"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "本庄断酒会 | 19:00~21:00 | 本庄市銀座１－１－１",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12584,9 +12584,9 @@
         "event_date": "",
         "recurrence": "第1日曜",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "秩父断酒会 | 13:00~15:00 | 秩父市上宮地町27-5"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 157,
@@ -12605,8 +12605,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "秩父断酒会 | 13:00~15:00 | 秩父市上宮地町27-5",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12656,13 +12656,13 @@
         "event_date": "",
         "recurrence": "第1・第3月曜",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "済生会鴻巣病院院内 | 19:00~21:00 | 鴻巣市八幡田849"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "済生会鴻巣病院院内 | 19:00~21:00 | 鴻巣市八幡田849",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12696,9 +12696,9 @@
         "event_date": "",
         "recurrence": "第3土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "【休止】皆野病院院内 | 13:00~15:00 | 皆野町皆野2031-1"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 158,
@@ -12717,8 +12717,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "【休止】皆野病院院内 | 13:00~15:00 | 皆野町皆野2031-1",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12872,13 +12872,13 @@
         "event_date": "",
         "recurrence": "第3土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "与野例会 | 19:00~20:30 | 下落合コミュニティセンター, 日本、〒338-0002 埼玉県さいたま市中央区下落合１７１２ スカイレジデンシャルタワーズ ノースウィング301・401"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "与野例会 | 19:00~20:30 | 下落合コミュニティセンター, 日本、〒338-0002 埼玉県さいたま市中央区下落合１７１２ スカイレジデンシャルタワーズ ノースウィング301・401",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12912,13 +12912,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "埼玉中央本部例会 | 19:00~20:30 | 浦和コミュニティセンター, 日本、〒330-0063 埼玉県さいたま市東浦和区高砂１１−１"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "埼玉中央本部例会 | 19:00~20:30 | 浦和コミュニティセンター, 日本、〒330-0063 埼玉県さいたま市東浦和区高砂１１−１",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -12992,13 +12992,13 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "浦和例会 | 19:00~20:30 | 浦和コミセン（浦和パルコ10F)"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "浦和例会 | 19:00~20:30 | 浦和コミセン（浦和パルコ10F)",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13032,9 +13032,9 @@
         "event_date": "",
         "recurrence": "第1・第2・第4水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "熊谷断酒会 | 19:00~21:00 | 熊谷市仲町19番地"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 373,
@@ -13048,13 +13048,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "北部本部例会 | 19:00~21:00 | 熊谷市仲町19"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "熊谷断酒会 | 19:00~21:00 | 熊谷市仲町19番地",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13088,13 +13088,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "南部昼例会 | 13:00~15:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "南部昼例会 | 13:00~15:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13128,9 +13128,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "本部例会 | 13:30~16:00 | さいたま市岩槻区本町3-1-1"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 388,
@@ -13144,9 +13144,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "本部例会 | 19:00~21:00 | 川口市 幸栄公民館, 日本、〒332-0016 埼玉県川口市幸町３丁目８−３３"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 7,
@@ -13176,13 +13176,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "西部本部例会 | 19:00~21:00 | 富士見市　針ヶ谷コミュニティーセンター"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "本部例会 | 13:30~16:00 | さいたま市岩槻区本町3-1-1",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13216,13 +13216,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "蕨くるる例会 | 19:00~21:00 | 蕨市立文化ホールくるる, 日本、〒335-0004 埼玉県蕨市中央１丁目２３−８"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "蕨くるる例会 | 19:00~21:00 | 蕨市立文化ホールくるる, 日本、〒335-0004 埼玉県蕨市中央１丁目２３−８",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13256,9 +13256,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-20",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "蕨中央例会 | 19:00~21:00 | 蕨市 中央公民館, 日本、〒335-0004 埼玉県蕨市中央４丁目４−２１−２９"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 152,
@@ -13277,8 +13277,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "蕨中央例会 | 19:00~21:00 | 蕨市 中央公民館, 日本、〒335-0004 埼玉県蕨市中央４丁目４−２１−２９",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13312,13 +13312,13 @@
         "event_date": "",
         "recurrence": "第2金曜",
         "next_date": "2026-08-14",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "蕨南例会 | 19:00~21:00 | 南公民館　蕨市南町２－２３－１９"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "蕨南例会 | 19:00~21:00 | 南公民館　蕨市南町２－２３－１９",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13352,9 +13352,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "岩槻例会 | 19:00~20:30 | さいたま市岩槻区本町1-10-7"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 138,
@@ -13373,8 +13373,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "岩槻例会 | 19:00~20:30 | さいたま市岩槻区本町1-10-7",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13408,13 +13408,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "草加例会 | 19:00~21:00 | 草加市旭町6-13-20"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "草加例会 | 19:00~21:00 | 草加市旭町6-13-20",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13464,13 +13464,13 @@
         "event_date": "",
         "recurrence": "第4火曜",
         "next_date": "2026-08-25",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "ふじみ野例会 | 19:00~21:00 | ふじみ野市　市民交流プラザ・フクトピア"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "ふじみ野例会 | 19:00~21:00 | ふじみ野市　市民交流プラザ・フクトピア",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13576,13 +13576,13 @@
         "event_date": "",
         "recurrence": "第1月曜",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "新生塾　東松山 | 13:00~15:00 | "
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "新生塾　東松山 | 13:00~15:00 | ",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13616,13 +13616,13 @@
         "event_date": "",
         "recurrence": "第1・第3金曜",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "桶川断酒会 | 19:00~21:00 | 桶川市西１丁目５"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "桶川断酒会 | 19:00~21:00 | 桶川市西１丁目５",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -13656,13 +13656,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "深谷断酒会 | 19:00~21:00 | 埼玉県深谷市仲町２０−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "深谷断酒会 | 19:00~21:00 | 埼玉県深谷市仲町２０−２",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -26255,8 +26255,8 @@
         "event_date": "",
         "recurrence": "第3土曜",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -26276,7 +26276,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -39226,9 +39226,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-27",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "荒川断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 99,
@@ -39279,8 +39279,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "荒川断酒会　例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -39330,9 +39330,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "品川断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 422,
@@ -39346,9 +39346,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "品川断酒会　懇談会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 421,
@@ -39362,9 +39362,9 @@
         "event_date": "",
         "recurrence": "第4・第5月曜",
         "next_date": "2026-08-24",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "品川断酒会　家族会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 100,
@@ -39378,8 +39378,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-29",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -39399,8 +39399,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "品川断酒会　例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -39570,8 +39570,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -39591,7 +39591,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -39626,8 +39626,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -39674,9 +39674,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-16",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "スマホ・PC勉強会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1402,
@@ -39722,9 +39722,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-18",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "世田谷断酒会　五心会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2581,
@@ -39738,9 +39738,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "北断酒会　第２例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 976,
@@ -39770,9 +39770,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "アメシスト　第２例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 959,
@@ -39935,7 +39935,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -39970,9 +39970,9 @@
         "event_date": "",
         "recurrence": "第1・第2・第3・第4火曜",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "ハートボックス"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 452,
@@ -39986,9 +39986,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-13",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "港断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1394,
@@ -40018,9 +40018,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-27",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "港断酒会　懇談会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 81,
@@ -40055,8 +40055,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "ハートボックス",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -40090,8 +40090,8 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -40127,7 +40127,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -40162,9 +40162,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "世田谷断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 489,
@@ -40178,9 +40178,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■多摩家族会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 491,
@@ -40194,9 +40194,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■多摩本部例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 434,
@@ -40226,9 +40226,9 @@
         "event_date": "",
         "recurrence": "第4金曜",
         "next_date": "2026-08-28",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●福生例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 506,
@@ -40242,9 +40242,9 @@
         "event_date": "",
         "recurrence": "第4・第5金曜",
         "next_date": "2026-08-28",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●■連合合同例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 104,
@@ -40343,8 +40343,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "世田谷断酒会　例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -40394,9 +40394,9 @@
         "event_date": "",
         "recurrence": "第1水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "北断酒会　第１例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 445,
@@ -40442,8 +40442,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-18",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -40506,8 +40506,8 @@
         "event_date": "",
         "recurrence": "第3金曜",
         "next_date": "2026-08-21",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -40538,8 +40538,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-31",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -40623,8 +40623,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "北断酒会　第１例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -40658,9 +40658,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■日野例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1154,
@@ -40674,9 +40674,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■多摩市桜ケ丘"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 102,
@@ -40690,8 +40690,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -40722,9 +40722,9 @@
         "event_date": "",
         "recurrence": "第2火曜",
         "next_date": "2026-08-11",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■小平例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1153,
@@ -40738,9 +40738,9 @@
         "event_date": "",
         "recurrence": "第3水曜",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■国分寺例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 448,
@@ -40759,8 +40759,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "■日野例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -40834,9 +40834,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "板橋断酒会　第１例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 209,
@@ -40855,8 +40855,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "板橋断酒会　第１例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -40890,9 +40890,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-10",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "千代田断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1399,
@@ -40911,8 +40911,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "千代田断酒会　例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -40962,9 +40962,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-16",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "西武断酒会　若葉会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 107,
@@ -40983,8 +40983,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "西武断酒会　若葉会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -41018,8 +41018,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41034,9 +41034,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "足立断酒会　第１例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 479,
@@ -41050,9 +41050,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-20",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "足立断酒会　第2例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 173,
@@ -41071,7 +41071,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41106,8 +41106,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41159,7 +41159,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41194,8 +41194,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41226,8 +41226,8 @@
         "event_date": "",
         "recurrence": "第3・第4水曜",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41295,7 +41295,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41330,9 +41330,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-14",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "荒川断酒会　懇談会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 466,
@@ -41346,9 +41346,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-21",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "荒川断酒会　家族会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 196,
@@ -41367,8 +41367,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "荒川断酒会　懇談会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -41402,8 +41402,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41471,7 +41471,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41506,9 +41506,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-11",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "ザ・体験談(京王断酒会）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 405,
@@ -41522,9 +41522,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-16",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "京王家族会(家族のみ参加)"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 199,
@@ -41554,9 +41554,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-30",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "京王断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 409,
@@ -41575,8 +41575,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "ザ・体験談(京王断酒会）",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -41650,8 +41650,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41682,9 +41682,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-27",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "墨田断酒会　第２例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 132,
@@ -41735,7 +41735,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41770,8 +41770,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41786,8 +41786,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-20",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41823,7 +41823,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41858,8 +41858,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -41927,7 +41927,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -41962,9 +41962,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "文京断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 80,
@@ -41983,8 +41983,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "文京断酒会　例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -42058,9 +42058,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "西武断酒会　朝例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1401,
@@ -42090,13 +42090,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "西武断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "西武断酒会　朝例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -42130,8 +42130,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42146,8 +42146,8 @@
         "event_date": "",
         "recurrence": "第2・第3・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42167,7 +42167,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42202,9 +42202,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "練馬断酒会　石神井懇談会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 176,
@@ -42239,8 +42239,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "練馬断酒会　石神井懇談会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -42274,8 +42274,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-10",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42311,7 +42311,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42346,8 +42346,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42399,7 +42399,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42434,8 +42434,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42450,9 +42450,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "葛飾断酒会　第１例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 471,
@@ -42466,9 +42466,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-29",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "葛飾断酒会　第２例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 178,
@@ -42487,7 +42487,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42522,8 +42522,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42543,7 +42543,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42634,13 +42634,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "練馬断酒会　第１例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "練馬断酒会　第１例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -42706,8 +42706,8 @@
         "event_date": "",
         "recurrence": "第3月曜",
         "next_date": "2026-08-17",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42727,7 +42727,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42762,9 +42762,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "MM豊洲"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 971,
@@ -42783,8 +42783,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "MM豊洲",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -42874,8 +42874,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-11",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42895,7 +42895,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -42946,8 +42946,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -42967,7 +42967,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43002,9 +43002,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "中野断酒会　例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 120,
@@ -43023,8 +43023,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "中野断酒会　例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -43178,9 +43178,9 @@
         "event_date": "",
         "recurrence": "第3日曜",
         "next_date": "2026-08-16",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●立川家族会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 501,
@@ -43194,9 +43194,9 @@
         "event_date": "",
         "recurrence": "第3日曜",
         "next_date": "2026-08-16",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●立川本部例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 184,
@@ -43210,8 +43210,8 @@
         "event_date": "",
         "recurrence": "第3木曜",
         "next_date": "2026-08-20",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43226,9 +43226,9 @@
         "event_date": "",
         "recurrence": "第3木曜",
         "next_date": "2026-08-20",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●立川第二例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 503,
@@ -43247,8 +43247,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "●立川家族会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -43282,8 +43282,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43303,7 +43303,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43338,9 +43338,9 @@
         "event_date": "",
         "recurrence": "第4月曜",
         "next_date": "2026-08-24",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■八王子例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 186,
@@ -43359,8 +43359,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "■八王子例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -43394,9 +43394,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-13",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●昭島例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 187,
@@ -43415,8 +43415,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "●昭島例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -43450,8 +43450,8 @@
         "event_date": "",
         "recurrence": "第2・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43466,9 +43466,9 @@
         "event_date": "",
         "recurrence": "第2・第4水曜",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●立川酒害相談"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2470,
@@ -43482,12 +43482,12 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-09-27",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●福生市民公開ｾﾐﾅｰ(立川断酒新生会アルコール勉強会）"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43522,8 +43522,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-19",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43543,7 +43543,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43578,9 +43578,9 @@
         "event_date": "",
         "recurrence": "第1木曜",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●青梅例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1390,
@@ -43631,8 +43631,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "●青梅例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -43666,8 +43666,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-11",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43687,7 +43687,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43722,9 +43722,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-28",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●福生例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 500,
@@ -43743,8 +43743,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "●福生例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -43778,8 +43778,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-07",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43799,7 +43799,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43834,8 +43834,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -43850,9 +43850,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "江戸川断酒会　第１例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1393,
@@ -43882,9 +43882,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-15",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "江戸川断酒会　第２例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 193,
@@ -43903,7 +43903,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -43938,9 +43938,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●福生酒害相談"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 194,
@@ -43954,13 +43954,13 @@
         "event_date": "",
         "recurrence": "第1・第3水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "●福生酒害相談",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -44057,9 +44057,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■多摩家族会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2805,
@@ -44073,9 +44073,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■多摩本部例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1389,
@@ -44089,8 +44089,8 @@
         "event_date": "",
         "recurrence": "第1日曜",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -44121,9 +44121,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-28",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "●■連合合同例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 1388,
@@ -44174,8 +44174,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "■多摩家族会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -44281,8 +44281,8 @@
         "event_date": "",
         "recurrence": "第2日曜",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -44398,7 +44398,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -44593,8 +44593,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -44614,7 +44614,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -44649,8 +44649,8 @@
         "event_date": "",
         "recurrence": "第1日曜",
         "next_date": "2026-08-02",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -44665,12 +44665,12 @@
         "event_date": "",
         "recurrence": "第4土曜",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -44705,8 +44705,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-27",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -44742,7 +44742,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -44833,9 +44833,9 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-10",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■国立矢川例会"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 482,
@@ -44849,13 +44849,13 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-12",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "■ひまわりの会(女性のみ)"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "■国立矢川例会",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -45086,8 +45086,8 @@
         "event_date": "",
         "recurrence": "第1・第3火曜",
         "next_date": "2026-08-04",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -45107,7 +45107,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -48781,9 +48781,9 @@
         "event_date": "",
         "recurrence": "毎週水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "昼例会 | 13:00~14:30 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 302,
@@ -48797,9 +48797,9 @@
         "event_date": "",
         "recurrence": "第1・第2水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "神断連昼例会　県民センター7階 | 13:00~14:30 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 355,
@@ -48829,9 +48829,9 @@
         "event_date": "",
         "recurrence": "毎週水曜",
         "next_date": "2026-08-05",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "県断連 昼例会 | 13:00~14:30 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 288,
@@ -48845,9 +48845,9 @@
         "event_date": "",
         "recurrence": "第2日曜",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "⭐️横浜酒害相談：14階セルフヘルプ第１相談室 | 10:00~12:00 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 293,
@@ -48861,9 +48861,9 @@
         "event_date": "",
         "recurrence": "第2日曜",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "横浜酒害相談：14階セルフヘルプ第１相談室 | 10:00~12:00 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 290,
@@ -48877,9 +48877,9 @@
         "event_date": "",
         "recurrence": "第2日曜",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "合同例会 | 13:00~15:30 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 294,
@@ -48893,9 +48893,9 @@
         "event_date": "",
         "recurrence": "第2・第3・第4金曜",
         "next_date": "2026-08-14",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "横浜酒害相談：１２階セルフヘルプ第２相談室 | 13:00~15:00 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 289,
@@ -48941,13 +48941,13 @@
         "event_date": "",
         "recurrence": "第4水曜",
         "next_date": "2026-08-26",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "昼例会　担当　川崎 | 13:00~14:30 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "昼例会 | 13:00~14:30 | かながわ県民センター, 日本、〒221-0835 神奈川県横浜市神奈川区鶴屋町２丁目２４−２",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -49333,12 +49333,12 @@
         "event_date": "",
         "recurrence": "第1月曜",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -49989,8 +49989,8 @@
         "event_date": "",
         "recurrence": "日程はカレンダー参照（不定期開催）",
         "next_date": "2026-08-06",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -50010,7 +50010,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -50133,8 +50133,8 @@
         "event_date": "",
         "recurrence": "第1土曜",
         "next_date": "2026-08-01",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       },
       {
@@ -50154,7 +50154,7 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -50189,9 +50189,9 @@
         "event_date": "",
         "recurrence": "第2・第3・第4日曜",
         "next_date": "2026-08-09",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "未定)オンライン例会 Zoom | 18:00~20:00"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 277,
@@ -50226,8 +50226,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "未定)オンライン例会 Zoom | 18:00~20:00",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -50397,12 +50397,12 @@
         "event_date": "",
         "recurrence": "第2木曜",
         "next_date": "2026-08-13",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -50773,9 +50773,9 @@
         "event_date": "",
         "recurrence": "第1月曜",
         "next_date": "2026-08-03",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "葉山例会 | 19:00~20:00 | "
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 2081,
@@ -50810,8 +50810,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "葉山例会 | 19:00~20:00 | ",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -50973,9 +50973,9 @@
         "event_date": "",
         "recurrence": "第2月曜",
         "next_date": "2026-08-10",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "酒害相談（三浦） | 15:00~16:30 | 神奈川県三浦合同庁舎, 日本、〒238-0221 神奈川県三浦市三崎町六合３２−３２"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 90,
@@ -50994,8 +50994,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "酒害相談（三浦） | 15:00~16:30 | 神奈川県三浦合同庁舎, 日本、〒238-0221 神奈川県三浦市三崎町六合３２−３２",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -51141,12 +51141,12 @@
         "event_date": "",
         "recurrence": "第2土曜",
         "next_date": "2026-08-08",
-        "has_exception": true,
-        "exc_type": "extra",
+        "has_exception": false,
+        "exc_type": "",
         "exc_note": ""
       }
     ],
-    "has_exception": true,
+    "has_exception": false,
     "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
@@ -51277,9 +51277,9 @@
         "event_date": "",
         "recurrence": "第4土曜",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "みくるべ病院院内例会 | 10:10~11:10 | みくるべ病院, 日本, 〒259-1335 神奈川県秦野市三廻部９４８"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 311,
@@ -51293,9 +51293,9 @@
         "event_date": "",
         "recurrence": "第4土曜",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "みくるべ病院院内例会 | 10:15~11:15 | みくるべ病院, 日本, 〒259-1335 神奈川県秦野市三廻部９４８"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 327,
@@ -51309,9 +51309,9 @@
         "event_date": "",
         "recurrence": "第4土曜",
         "next_date": "2026-08-22",
-        "has_exception": true,
-        "exc_type": "extra",
-        "exc_note": "みくるべ病院院内例会 | 10:15~11:15 | みくるべ病院, 日本, 〒259-1335 神奈川県秦野市三廻部９４８"
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       },
       {
         "meeting_id": 241,
@@ -51330,8 +51330,8 @@
         "exc_note": ""
       }
     ],
-    "has_exception": true,
-    "exc_note": "みくるべ病院院内例会 | 10:10~11:10 | みくるべ病院, 日本, 〒259-1335 神奈川県秦野市三廻部９４８",
+    "has_exception": false,
+    "exc_note": "",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
