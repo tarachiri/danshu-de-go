@@ -929,7 +929,7 @@ function loadBulletinBoard() {
           <span style="font-size:12px; color:#999;">${formatPostTime(post.timestamp)}</span>
           <button onclick="deleteBulletinPost(${idx})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>
         </div>
-        <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word; line-height:1.6;">${escapeHtml(post.content)}</p>
+        <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word; line-height:1.6; color:#222;">${escapeHtml(post.content)}</p>
         <button onclick="toggleLikeBulletin(${idx})" style="padding:6px 12px; background:${post.likedByUser ? '#ffcccc' : '#f0f0f0'}; color:${post.likedByUser ? '#c33' : '#666'}; border:1px solid #ddd; border-radius:4px; cursor:pointer; font-size:12px;">❤️ ${post.likes}</button>
       </div>
     `).join('');
