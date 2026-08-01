@@ -925,27 +925,31 @@ function loadBulletinBoard() {
     .map((post, idx) => `
       <div style="background:#fff; border-radius:8px; padding:16px; margin-bottom:12px; border:1px solid #e0e0e0;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <span style="font-weight:bold; color:#666;">匿名ユーザー</span>
+          <span style="font-weight:bold; color:#666;">${post.userName || '匿名'}</span>
           <span style="font-size:12px; color:#999;">${formatPostTime(post.timestamp)}</span>
           <button onclick="deleteBulletinPost(${idx})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>
         </div>
-        <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word;">${escapeHtml(post.content)}</p>
+        <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word; line-height:1.6;">${escapeHtml(post.content)}</p>
         <button onclick="toggleLikeBulletin(${idx})" style="padding:6px 12px; background:${post.likedByUser ? '#ffcccc' : '#f0f0f0'}; color:${post.likedByUser ? '#c33' : '#666'}; border:1px solid #ddd; border-radius:4px; cursor:pointer; font-size:12px;">❤️ ${post.likes}</button>
       </div>
     `).join('');
 }
 
 function submitBulletinPost() {
+  const nameInput = document.getElementById('bulletin-name');
   const input = document.getElementById('bulletin-input');
   if (!input) return;
 
   const content = input.value.trim();
+  const userName = (nameInput?.value.trim() || '').slice(0, 20); // 最大20文字
+
   if (!content) {
     alert('投稿内容を入力してください');
     return;
   }
 
   const post = {
+    userName: userName,
     content: content,
     timestamp: Date.now(),
     likes: 0,
@@ -957,6 +961,7 @@ function submitBulletinPost() {
   setBulletinPosts(posts);
 
   input.value = '';
+  if (nameInput) nameInput.value = '';
   loadBulletinBoard();
 }
 
