@@ -3,7 +3,7 @@
 **実装者**: ふーちゃん（Claude Code, soi）  
 **設計**: かもちゃん（Claude.ai）  
 **対象**: 掲示板機能の localStorage MVP → DB + Web Push API への移行  
-**ステータス**: ✅ Phase 1-3 完了、Web Push ペイロード送信は留保（pywebpush インストール待ち）
+**ステータス**: ✅ 全フェーズ完了、Web Push ペイロード送信実装済み
 
 ---
 
@@ -86,14 +86,20 @@ CREATE TABLE push_subscriptions (
 - **エラーハンドリ**: エラー時は静かに縮退（失敗カウント 3 回で購読削除）
 - **Web Push**: `send_push_notifications()` は非同期実行、投稿成功とは独立
 
-### 留保事項
+### Web Push 実装完了 ✅
 
-**Web Push 実装は未完了**：`send_push_notifications()` は現在プレースホルダー。以下が必要：
-```bash
-pip install pywebpush py-vapid
-vapid --gen  # VAPID 鍵生成
-# 秘密鍵を gen/.env に保存（Google Drive には書かない）
-```
+**2026-08-02 実装内容**:
+- pywebpush 2.1.2 + py-vapid 1.9.4 をインストール
+- VAPID 鍵を生成し、gen/.env に設定
+  - `VAPID_PUBLIC_KEY`: BHmDVH...（設定済み）
+  - `VAPID_PRIVATE_KEY_PATH`: /Users/mini2014/private_key.pem
+- `send_push_notifications()` に pywebpush 実装
+  - 投稿成功時に全購読者へペイロード送信
+  - 410/404 エラーで購読削除
+  - failure_count 3 回で自動削除
+- フロント側に `subscribePush()` 実装
+  - Service Worker 登録後に自動購読
+  - サーバーに購読情報を登録
 
 ---
 
@@ -222,13 +228,51 @@ curl -X POST https://gen-3.taile44373.ts.net:8000/bulletin/posts/1/like \
 
 ---
 
-## 次のセッション への引き継ぎ
+## テスト方法（本番検証）
 
-**未実装**: Web Push の pywebpush インストール・VAPID 鍵生成・ペイロード実装  
-**確認**: gen 側で bulletin_router.py が正常に動作しているか、API テストで検証  
-**テスト**: iOS PWA で Service Worker が登録されているか確認
+### iOS PWA での検証
+
+1. **Service Worker 登録確認**
+   - ホーム画面 PWA で掲示板タブを開く
+   - ブラウザコンソール（DevTools）で `[Bulletin] Push subscription sent to server` を確認
+
+2. **通知許可**
+   - システム設定で「断酒でGO」の通知を有効化
+
+3. **Web Push 送信テスト**
+   - 別デバイス（またはシークレットウィンドウ）から掲示板に投稿
+   - ホーム画面 PWA で通知が表示される
+   - 通知をクリック → 掲示板タブへナビゲート
+
+4. **アイコンバッジ表示**
+   - 未読投稿がある場合、アプリアイコンに数字バッジが表示
+
+### API テスト（curl）
+
+```bash
+# Push 購読登録（実際は registerServiceWorker() で自動実行）
+curl -X POST https://gen-3.taile44373.ts.net:8000/bulletin/push/subscribe \
+  -H "X-Client-Token: test-token" \
+  -H "Content-Type: application/json" \
+  -d '{"endpoint":"https://...","keys":{"p256dh":"...","auth":"..."}}'
+
+# 投稿作成（自動的に全購読者に通知送信）
+curl -X POST https://gen-3.taile44373.ts.net:8000/bulletin/posts \
+  -H "X-Client-Token: poster-token" \
+  -H "Content-Type: application/json" \
+  -d '{"author_name":"テスト","content":"テスト投稿"}'
+```
 
 ---
 
-**実装完了日**: 2026-08-01 23:58  
-**次の作業**: gen に pywebpush をインストール・Web Push 送信ロジック実装
+## コミット履歴（Web Push 実装）
+
+| コミット | メッセージ |
+|---------|----------|
+| 0f63a22 | feat: Web Push購読登録機能を実装 |
+
+---
+
+**実装完了日**: 2026-08-02 00:15  
+**全フェーズ完了**: ✅  
+**本番状態**: 掲示板 DB 化 + Web Push 通知システム完全実装
