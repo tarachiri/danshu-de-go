@@ -593,6 +593,7 @@ function switchTab(tab) {
   } else if (tab === 'bulletin') {
     if (bulletinEl) bulletinEl.style.display = 'block';
     if (tabBulletin) tabBulletin.classList.add('active');
+    if (navigator.clearAppBadge) navigator.clearAppBadge();
     loadBulletinBoard();
   } else if (tab === 'kamo') {
     openKamo();
@@ -915,92 +916,140 @@ if (document.readyState === 'loading') {
 // 掲示板機能
 // ═══════════════════════════════════════════
 
-function loadBulletinBoard() {
-  const posts = getBulletinPosts();
+const API_BASE = 'https://gen-3.taile44373.ts.net:8000';
+let CLIENT_TOKEN = null;
+
+function initBulletin() {
+  CLIENT_TOKEN = initClientToken();
+  registerServiceWorker();
+  loadBulletinBoard();
+}
+
+function initClientToken() {
+  let token = localStorage.getItem('bulletin_client_token');
+  if (!token) {
+    token = 'client_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('bulletin_client_token', token);
+  }
+  return token;
+}
+
+function registerServiceWorker() {
+  if (!navigator.serviceWorker) return;
+  navigator.serviceWorker.register('/sw.js').catch(err => {
+    console.warn('[Bulletin] SW registration failed:', err);
+  });
+}
+
+async function loadBulletinBoard() {
   const listEl = document.getElementById('bulletin-list');
   if (!listEl) return;
 
-  if (posts.length === 0) {
-    listEl.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">まだ投稿がありません。最初の投稿をしてみてください！</p>';
-    return;
-  }
+  listEl.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">読み込み中...</p>';
 
-  listEl.innerHTML = posts
-    .sort((a, b) => b.timestamp - a.timestamp)
-    .map((post, idx) => `
-      <div style="background:#fff; border-radius:8px; padding:16px; margin-bottom:12px; border:1px solid #e0e0e0;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-          <span style="font-weight:bold; color:#666;">${post.userName || '匿名'}</span>
-          <span style="font-size:12px; color:#999;">${formatPostTime(post.timestamp)}</span>
-          <button onclick="deleteBulletinPost(${idx})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>
+  try {
+    const response = await fetch(`${API_BASE}/bulletin/posts`, {
+      headers: {
+        'X-Client-Token': CLIENT_TOKEN
+      }
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const posts = await response.json();
+
+    if (posts.length === 0) {
+      listEl.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">まだ投稿がありません。最初の投稿をしてみてください！</p>';
+      return;
+    }
+
+    listEl.innerHTML = posts
+      .map((post) => `
+        <div style="background:#fff; border-radius:8px; padding:16px; margin-bottom:12px; border:1px solid #e0e0e0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-weight:bold; color:#666;">${post.author_name}</span>
+            <span style="font-size:12px; color:#999;">${formatPostTime(new Date(post.created_at).getTime())}</span>
+            ${post.id ? `<button onclick="deleteBulletinPost(${post.id})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>` : ''}
+          </div>
+          <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word; line-height:1.6; color:#000;">${escapeHtml(post.content)}</p>
+          <button onclick="toggleLikeBulletin(${post.id})" style="padding:6px 12px; background:${post.liked_by_user ? '#ffcccc' : '#f0f0f0'}; color:${post.liked_by_user ? '#c33' : '#666'}; border:1px solid #ddd; border-radius:4px; cursor:pointer; font-size:12px;">❤️ ${post.likes}</button>
         </div>
-        <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word; line-height:1.6; color:#000;">${escapeHtml(post.content)}</p>
-        <button onclick="toggleLikeBulletin(${idx})" style="padding:6px 12px; background:${post.likedByUser ? '#ffcccc' : '#f0f0f0'}; color:${post.likedByUser ? '#c33' : '#666'}; border:1px solid #ddd; border-radius:4px; cursor:pointer; font-size:12px;">❤️ ${post.likes}</button>
-      </div>
-    `).join('');
+      `).join('');
+  } catch (error) {
+    console.error('[Bulletin] loadBulletinBoard error:', error);
+    listEl.innerHTML = '<p style="text-align:center; color:#c33; padding:20px;">読み込みに失敗しました。リロードしてください。</p>';
+  }
 }
 
-function submitBulletinPost() {
+async function submitBulletinPost() {
   const nameInput = document.getElementById('bulletin-name');
   const input = document.getElementById('bulletin-input');
   if (!input) return;
 
   const content = input.value.trim();
-  const userName = (nameInput?.value.trim() || '').slice(0, 20); // 最大20文字
+  const author_name = (nameInput?.value.trim() || '').slice(0, 20) || null;
 
   if (!content) {
     alert('投稿内容を入力してください');
     return;
   }
 
-  const post = {
-    userName: userName,
-    content: content,
-    timestamp: Date.now(),
-    likes: 0,
-    likedByUser: false
-  };
+  try {
+    const response = await fetch(`${API_BASE}/bulletin/posts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Token': CLIENT_TOKEN
+      },
+      body: JSON.stringify({ author_name, content })
+    });
 
-  const posts = getBulletinPosts();
-  posts.push(post);
-  setBulletinPosts(posts);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-  input.value = '';
-  if (nameInput) nameInput.value = '';
-  loadBulletinBoard();
-}
-
-function deleteBulletinPost(idx) {
-  if (!confirm('この投稿を削除しますか？')) return;
-  const posts = getBulletinPosts();
-  posts.splice(idx, 1);
-  setBulletinPosts(posts);
-  loadBulletinBoard();
-}
-
-function toggleLikeBulletin(idx) {
-  const posts = getBulletinPosts();
-  if (!posts[idx]) return;
-
-  if (posts[idx].likedByUser) {
-    posts[idx].likes--;
-    posts[idx].likedByUser = false;
-  } else {
-    posts[idx].likes++;
-    posts[idx].likedByUser = true;
+    input.value = '';
+    if (nameInput) nameInput.value = '';
+    await loadBulletinBoard();
+  } catch (error) {
+    console.error('[Bulletin] submitBulletinPost error:', error);
+    alert('投稿に失敗しました');
   }
-
-  setBulletinPosts(posts);
-  loadBulletinBoard();
 }
 
-function getBulletinPosts() {
-  const data = localStorage.getItem('bulletin_posts');
-  return data ? JSON.parse(data) : [];
+async function deleteBulletinPost(postId) {
+  if (!confirm('この投稿を削除しますか？')) return;
+
+  try {
+    const response = await fetch(`${API_BASE}/bulletin/posts/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'X-Client-Token': CLIENT_TOKEN
+      }
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    await loadBulletinBoard();
+  } catch (error) {
+    console.error('[Bulletin] deleteBulletinPost error:', error);
+    alert('削除に失敗しました');
+  }
 }
 
-function setBulletinPosts(posts) {
-  localStorage.setItem('bulletin_posts', JSON.stringify(posts));
+async function toggleLikeBulletin(postId) {
+  try {
+    const response = await fetch(`${API_BASE}/bulletin/posts/${postId}/like`, {
+      method: 'POST',
+      headers: {
+        'X-Client-Token': CLIENT_TOKEN
+      }
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    await loadBulletinBoard();
+  } catch (error) {
+    console.error('[Bulletin] toggleLikeBulletin error:', error);
+  }
 }
 
 function formatPostTime(timestamp) {
@@ -1029,4 +1078,11 @@ function escapeHtml(text) {
     "'": '&#039;'
   };
   return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// 掲示板機能の初期化
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBulletin);
+} else {
+  initBulletin();
 }
