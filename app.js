@@ -540,7 +540,7 @@ function switchTab(tab) {
   window.scrollTo(0, 0);
   // ボトムナビのactive更新
   document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
-  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news', 'kamo': 'bottom-kamo' };
+  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news', 'bulletin': 'tab-bulletin', 'kamo': 'bottom-kamo' };
   if (bottomBtnMap[tab]) {
     const btn = document.getElementById(bottomBtnMap[tab]);
     if (btn) btn.classList.add('active');
@@ -548,20 +548,24 @@ function switchTab(tab) {
   const mapEl = document.getElementById('map');
   const schEl = document.getElementById('schedule');
   const newsEl = document.getElementById('news');
+  const bulletinEl = document.getElementById('bulletin');
   const kamoEl = document.getElementById('kamo');
   const footerEl = document.getElementById('footer');
   const mapAttrEl = document.getElementById('map-attribution');
   const tabMap = document.getElementById('tab-map');
   const tabSch = document.getElementById('tab-schedule');
   const tabNews = document.getElementById('tab-news');
+  const tabBulletin = document.getElementById('tab-bulletin');
   const tabKamo = document.getElementById('bottom-kamo');
   mapEl.style.display = 'none';
   schEl.style.display = 'none';
   if (newsEl) newsEl.style.display = 'none';
+  if (bulletinEl) bulletinEl.style.display = 'none';
   if (kamoEl) kamoEl.style.display = 'none';
   tabMap.classList.remove('active');
   tabSch.classList.remove('active');
   if (tabNews) tabNews.classList.remove('active');
+  if (tabBulletin) tabBulletin.classList.remove('active');
   if (tabKamo) tabKamo.classList.remove('active');
   // フッター・地図帰属バーは「マップ画面」以外のタブでのみ表示
   if (footerEl) footerEl.style.display = (tab === 'map') ? 'none' : 'block';
@@ -581,6 +585,10 @@ function switchTab(tab) {
     if (newsEl) newsEl.style.display = 'block';
     if (tabNews) tabNews.classList.add('active');
     loadNewsTab();
+  } else if (tab === 'bulletin') {
+    if (bulletinEl) bulletinEl.style.display = 'block';
+    if (tabBulletin) tabBulletin.classList.add('active');
+    loadBulletinBoard();
   } else if (tab === 'kamo') {
     openKamo();
     if (kamoEl) kamoEl.style.display = 'flex';
@@ -896,4 +904,119 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', setupShareLinks);
 } else {
   setupShareLinks();
+}
+
+// ═══════════════════════════════════════════
+// 掲示板機能
+// ═══════════════════════════════════════════
+
+function loadBulletinBoard() {
+  const posts = getBulletinPosts();
+  const listEl = document.getElementById('bulletin-list');
+  if (!listEl) return;
+
+  if (posts.length === 0) {
+    listEl.innerHTML = '<p style="text-align:center; color:#999; padding:20px;">まだ投稿がありません。最初の投稿をしてみてください！</p>';
+    return;
+  }
+
+  listEl.innerHTML = posts
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .map((post, idx) => `
+      <div style="background:#fff; border-radius:8px; padding:16px; margin-bottom:12px; border:1px solid #e0e0e0;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <span style="font-weight:bold; color:#666;">匿名ユーザー</span>
+          <span style="font-size:12px; color:#999;">${formatPostTime(post.timestamp)}</span>
+          <button onclick="deleteBulletinPost(${idx})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>
+        </div>
+        <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word;">${escapeHtml(post.content)}</p>
+        <button onclick="toggleLikeBulletin(${idx})" style="padding:6px 12px; background:${post.likedByUser ? '#ffcccc' : '#f0f0f0'}; color:${post.likedByUser ? '#c33' : '#666'}; border:1px solid #ddd; border-radius:4px; cursor:pointer; font-size:12px;">❤️ ${post.likes}</button>
+      </div>
+    `).join('');
+}
+
+function submitBulletinPost() {
+  const input = document.getElementById('bulletin-input');
+  if (!input) return;
+
+  const content = input.value.trim();
+  if (!content) {
+    alert('投稿内容を入力してください');
+    return;
+  }
+
+  const post = {
+    content: content,
+    timestamp: Date.now(),
+    likes: 0,
+    likedByUser: false
+  };
+
+  const posts = getBulletinPosts();
+  posts.push(post);
+  setBulletinPosts(posts);
+
+  input.value = '';
+  loadBulletinBoard();
+}
+
+function deleteBulletinPost(idx) {
+  if (!confirm('この投稿を削除しますか？')) return;
+  const posts = getBulletinPosts();
+  posts.splice(idx, 1);
+  setBulletinPosts(posts);
+  loadBulletinBoard();
+}
+
+function toggleLikeBulletin(idx) {
+  const posts = getBulletinPosts();
+  if (!posts[idx]) return;
+
+  if (posts[idx].likedByUser) {
+    posts[idx].likes--;
+    posts[idx].likedByUser = false;
+  } else {
+    posts[idx].likes++;
+    posts[idx].likedByUser = true;
+  }
+
+  setBulletinPosts(posts);
+  loadBulletinBoard();
+}
+
+function getBulletinPosts() {
+  const data = localStorage.getItem('bulletin_posts');
+  return data ? JSON.parse(data) : [];
+}
+
+function setBulletinPosts(posts) {
+  localStorage.setItem('bulletin_posts', JSON.stringify(posts));
+}
+
+function formatPostTime(timestamp) {
+  const now = Date.now();
+  const diff = now - timestamp;
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  if (seconds < 60) return '今';
+  if (minutes < 60) return `${minutes}分前`;
+  if (hours < 24) return `${hours}時間前`;
+  if (days < 7) return `${days}日前`;
+
+  const date = new Date(timestamp);
+  return date.toLocaleDateString('ja-JP');
+}
+
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
 }

@@ -292,9 +292,9 @@ function splashClose() {
     <span class="bottom-icon">📢</span>
     <span class="bottom-label">新着</span>
   </button>
-  <button class="bottom-btn" id="bottom-kamo" onclick="switchTab('kamo')">
-    <span class="bottom-icon">🤖</span>
-    <span class="bottom-label">かもちゃん</span>
+  <button class="bottom-btn" id="tab-bulletin" onclick="switchTab('bulletin')">
+    <span class="bottom-icon">💬</span>
+    <span class="bottom-label">掲示板</span>
   </button>
   <button class="bottom-btn" id="menu-nav-btn" onclick="openMenuSheet()">
     <span class="bottom-icon">☰</span>
@@ -303,6 +303,21 @@ function splashClose() {
 </div>
 
 <div id="map"></div>
+
+<!-- 掲示板タブ -->
+<div id="bulletin" style="display:none; padding:12px; max-height:calc(100vh - 136px); overflow-y:auto; background:#f8f9fa;">
+  <div style="max-width:600px; margin:0 auto;">
+    <!-- 投稿フォーム -->
+    <div style="background:#fff; border-radius:8px; padding:16px; margin-bottom:16px; border:1px solid #e0e0e0;">
+      <textarea id="bulletin-input" placeholder="💬 何か書き込んでください（匿名です）" style="width:100%; height:80px; padding:12px; border:1px solid #ddd; border-radius:4px; font-family:inherit; font-size:14px; resize:none;"></textarea>
+      <button onclick="submitBulletinPost()" style="width:100%; padding:10px; margin-top:8px; background:#C0392B; color:#fff; border:none; border-radius:4px; font-size:14px; font-weight:bold; cursor:pointer;">投稿する</button>
+    </div>
+    <!-- 掲示板投稿リスト -->
+    <div id="bulletin-list">
+      <p style="text-align:center; color:#999; padding:20px;">掲示板を読み込み中...</p>
+    </div>
+  </div>
+</div>
 
 <!-- 会場詳細ボトムシート（ピンタップで表示） -->
 <div id="sheet-overlay" class="sheet-overlay-base" onclick="closeVenueSheet()"></div>
@@ -320,6 +335,7 @@ function splashClose() {
   <div class="sheet-scroll">
     <a class="menu-item" href="/chiiki/">🗾 地域から探す</a>
     <a class="menu-item" href="/gogo-submit.html">📝 例会情報を登録する</a>
+    <button class="menu-item" onclick="closeMenuSheet(); switchTab('kamo')" style="text-align:left; background:none; padding:14px 16px; border:none; cursor:pointer;">🤖 かもちゃん</button>
     <a class="menu-item" href="/about.html">ℹ️ このサービスについて</a>
     <div class="menu-item menu-item-disabled">📅 Myカレンダー <span class="menu-badge-soon">準備中</span></div>
     <div class="menu-item menu-item-disabled">🏆 マイポイント・実績 <span class="menu-badge-soon">準備中</span></div>
