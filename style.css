@@ -651,13 +651,32 @@ details[open] .sch-adj-summary::before {
 
 /* メニューシートはアクセントカラーを紫系にして会場詳細シート（赤系）と区別 */
 #menu-sheet .sheet-handle { background: #6C3483; }
-#menu-sheet .sheet-close { color: #6C3483; }
+#menu-sheet .sheet-close {
+  width: 40px; height: 40px;
+  background: #6C3483;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 50%;
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(108, 52, 131, 0.3);
+}
+#menu-sheet .sheet-close:hover {
+  background: #581C87;
+  box-shadow: 0 4px 12px rgba(108, 52, 131, 0.5);
+  transform: scale(1.1);
+}
+#menu-sheet .sheet-close:active {
+  transform: scale(0.95);
+}
 
 .menu-item {
   display: flex; align-items: center; gap: 10px;
   padding: 14px 16px;
   border-bottom: 1px solid #ececf2;
-  font-size: 15px; color: #16213e;
+  font-size: 17px; color: #16213e;
   text-decoration: none;
 }
 .menu-item:last-child { border-bottom: none; }
