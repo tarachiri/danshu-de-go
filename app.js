@@ -922,6 +922,7 @@ let CLIENT_TOKEN = null;
 function initBulletin() {
   CLIENT_TOKEN = initClientToken();
   registerServiceWorker();
+  subscribePush();
   loadBulletinBoard();
 }
 
@@ -939,6 +940,56 @@ function registerServiceWorker() {
   navigator.serviceWorker.register('/sw.js').catch(err => {
     console.warn('[Bulletin] SW registration failed:', err);
   });
+}
+
+async function subscribePush() {
+  if (!navigator.serviceWorker || !navigator.serviceWorker.controller) return;
+  if (!('PushManager' in window)) {
+    console.warn('[Bulletin] Push API not supported');
+    return;
+  }
+
+  try {
+    const registration = await navigator.serviceWorker.ready;
+    const subscription = await registration.pushManager.getSubscription();
+
+    if (subscription) {
+      console.log('[Bulletin] Already subscribed to push');
+      return;
+    }
+
+    // VAPID 公開鍵
+    const vapidPublicKey = 'BHmDVH5alXSaOhlfjUmyf2l9UCtltuBebR6uFbznS67gZ1xww0g_W3EksrOm8fsDMJO5VfMZtlo7cBXHnZEBIAY';
+
+    const newSubscription = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
+    });
+
+    await fetch(`${API_BASE}/bulletin/push/subscribe`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Token': CLIENT_TOKEN
+      },
+      body: JSON.stringify(newSubscription)
+    });
+
+    console.log('[Bulletin] Push subscription sent to server');
+  } catch (error) {
+    console.warn('[Bulletin] Push subscription failed:', error);
+  }
+}
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
 }
 
 async function loadBulletinBoard() {
