@@ -918,21 +918,22 @@ if (document.readyState === 'loading') {
 
 const API_BASE = 'https://chat.nukadokonokai.com';
 let CLIENT_TOKEN = null;
+let USER_TOKEN = null;
 
 function initBulletin() {
-  CLIENT_TOKEN = initClientToken();
+  const identity = initBrowserIdentity();
+  USER_TOKEN = identity.userToken;
+  CLIENT_TOKEN = identity.bulletinToken;
   registerServiceWorker();
   subscribePush();
   loadBulletinBoard();
 }
 
-function initClientToken() {
-  let token = localStorage.getItem('bulletin_client_token');
-  if (!token) {
-    token = 'client_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('bulletin_client_token', token);
+function initBrowserIdentity() {
+  if (!window.DanshuBrowserIdentity) {
+    throw new Error('DanshuBrowserIdentity is not loaded');
   }
-  return token;
+  return window.DanshuBrowserIdentity.initialize(localStorage, window.crypto);
 }
 
 function registerServiceWorker() {
