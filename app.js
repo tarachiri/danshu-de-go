@@ -1015,20 +1015,108 @@ async function loadBulletinBoard() {
     }
 
     listEl.innerHTML = posts
-      .map((post) => `
+      .map((post) => {
+        const replies = Array.isArray(post.replies) ? post.replies : [];
+        const seenCount = getSeenReplyCount(post.id);
+        const newReplyCount = post.is_own_post ? Math.max(0, replies.length - seenCount) : 0;
+        const repliesHtml = replies.map((reply) => `
+          <div style="margin:8px 0 0 18px; padding:10px 12px; background:#f8f9fa; border-left:3px solid #d7d7d7; border-radius:4px;">
+            <div style="display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:5px;">
+              <span style="font-size:13px; font-weight:bold; color:#666;">${escapeHtml(reply.author_name)}</span>
+              <span style="margin-left:auto; font-size:11px; color:#999;">${formatPostTime(new Date(reply.created_at).getTime())}</span>
+              ${reply.is_own_reply ? `<button onclick="deleteBulletinReply(${reply.id})" style="padding:3px 7px; font-size:11px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>` : ''}
+            </div>
+            <div style="white-space:pre-wrap; word-break:break-word; line-height:1.55; color:#000; font-size:14px;">${escapeHtml(reply.content)}</div>
+          </div>
+        `).join('');
+
+        return `
         <div style="background:#fff; border-radius:8px; padding:16px; margin-bottom:12px; border:1px solid #e0e0e0;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="font-weight:bold; color:#666;">${post.author_name}</span>
+            <span style="font-weight:bold; color:#666;">${escapeHtml(post.author_name)}</span>
             <span style="font-size:12px; color:#999;">${formatPostTime(new Date(post.created_at).getTime())}</span>
-            ${post.id ? `<button onclick="deleteBulletinPost(${post.id})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>` : ''}
+            ${post.is_own_post ? `<button onclick="deleteBulletinPost(${post.id})" style="padding:4px 8px; font-size:12px; background:#fee; color:#c33; border:1px solid #fcc; border-radius:3px; cursor:pointer;">削除</button>` : ''}
           </div>
           <p style="margin:0 0 12px 0; white-space:pre-wrap; word-break:break-word; line-height:1.6; color:#000;">${escapeHtml(post.content)}</p>
           <button onclick="toggleLikeBulletin(${post.id})" style="padding:6px 12px; background:${post.liked_by_user ? '#ffcccc' : '#f0f0f0'}; color:${post.liked_by_user ? '#c33' : '#666'}; border:1px solid #ddd; border-radius:4px; cursor:pointer; font-size:12px;">❤️ ${post.likes}</button>
+          <button onclick="toggleBulletinReplies(${post.id}, ${replies.length})" style="margin-left:6px; padding:6px 12px; background:#eef5ff; color:#245b91; border:1px solid #c9ddf2; border-radius:4px; cursor:pointer; font-size:12px; font-weight:bold;">
+            💬 返信 <span style="display:inline-block; min-width:18px; padding:1px 5px; background:#245b91; color:#fff; border-radius:10px;">${replies.length}</span>
+          </button>
+          ${newReplyCount > 0 ? `<span style="display:inline-block; margin-left:6px; padding:4px 8px; background:#C0392B; color:#fff; border-radius:12px; font-size:11px; font-weight:bold;">新しい返信 ${newReplyCount}件</span>` : ''}
+          <div id="bulletin-replies-${post.id}" style="display:none; margin-top:10px;">
+            ${repliesHtml || '<p style="margin:8px 0; color:#888; font-size:13px;">まだ返信はありません。</p>'}
+            <div style="margin:10px 0 0 18px; padding:10px; background:#fffaf7; border:1px solid #f1ddd2; border-radius:6px;">
+              <input id="bulletin-reply-name-${post.id}" type="text" maxlength="20" placeholder="お名前（任意・匿名OK）" style="width:100%; padding:8px; margin-bottom:7px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box; font-size:13px;">
+              <textarea id="bulletin-reply-input-${post.id}" maxlength="500" placeholder="この投稿に返信する" style="width:100%; height:64px; padding:8px; border:1px solid #ddd; border-radius:4px; box-sizing:border-box; resize:vertical; font-family:inherit; font-size:13px;"></textarea>
+              <button onclick="submitBulletinReply(${post.id})" style="width:100%; margin-top:7px; padding:8px; background:#245b91; color:#fff; border:0; border-radius:4px; font-weight:bold; cursor:pointer;">返信する</button>
+            </div>
+          </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
   } catch (error) {
     console.error('[Bulletin] loadBulletinBoard error:', error);
     listEl.innerHTML = '<p style="text-align:center; color:#c33; padding:20px;">読み込みに失敗しました。リロードしてください。</p>';
+  }
+}
+
+function getSeenReplyCount(postId) {
+  const value = Number(localStorage.getItem(`bulletin_seen_replies_${postId}`));
+  return Number.isFinite(value) && value >= 0 ? value : 0;
+}
+
+function toggleBulletinReplies(postId, replyCount) {
+  const repliesEl = document.getElementById(`bulletin-replies-${postId}`);
+  if (!repliesEl) return;
+  const willOpen = repliesEl.style.display === 'none';
+  repliesEl.style.display = willOpen ? 'block' : 'none';
+  if (willOpen) {
+    localStorage.setItem(`bulletin_seen_replies_${postId}`, String(replyCount));
+    const badges = repliesEl.parentElement.querySelectorAll('span');
+    badges.forEach((badge) => {
+      if (badge.textContent.trim().startsWith('新しい返信')) badge.remove();
+    });
+  }
+}
+
+async function submitBulletinReply(postId) {
+  const nameInput = document.getElementById(`bulletin-reply-name-${postId}`);
+  const input = document.getElementById(`bulletin-reply-input-${postId}`);
+  const content = input?.value.trim() || '';
+  const author_name = (nameInput?.value.trim() || '').slice(0, 20) || null;
+  if (!content) {
+    alert('返信内容を入力してください');
+    return;
+  }
+  try {
+    const response = await fetch(`${API_BASE}/bulletin/posts/${postId}/replies`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Token': CLIENT_TOKEN
+      },
+      body: JSON.stringify({ author_name, content })
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    await loadBulletinBoard();
+  } catch (error) {
+    console.error('[Bulletin] submitBulletinReply error:', error);
+    alert('返信に失敗しました');
+  }
+}
+
+async function deleteBulletinReply(replyId) {
+  if (!confirm('この返信を削除しますか？')) return;
+  try {
+    const response = await fetch(`${API_BASE}/bulletin/replies/${replyId}`, {
+      method: 'DELETE',
+      headers: { 'X-Client-Token': CLIENT_TOKEN }
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    await loadBulletinBoard();
+  } catch (error) {
+    console.error('[Bulletin] deleteBulletinReply error:', error);
+    alert('返信の削除に失敗しました');
   }
 }
 
