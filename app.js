@@ -380,9 +380,11 @@ function buildSheetMeetingGroup(m) {
     }).join('');
   }
 
+  const favBtn = favoriteBtnHTML(m);
+
   return `
     <div class="sheet-meeting-group">
-      <div class="sheet-meeting-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}</div>
+      <div class="sheet-meeting-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}${favBtn}</div>
       ${m.recurrence ? `<div class="sheet-meeting-recurrence">🔁 ${m.recurrence}${m.start_time ? '　' + m.start_time + '〜' + (m.end_time||'') : ''}</div>` : ''}
       <div class="sheet-upcoming-list">${itemsHTML}</div>
     </div>`;
@@ -926,6 +928,7 @@ function initBulletin() {
   CLIENT_TOKEN = identity.bulletinToken;
   resolveBrowserIdentity();
   loadFavorites();
+  attachFavoriteHandlers();
   registerServiceWorker();
   subscribePush();
   loadBulletinBoard();
@@ -949,11 +952,62 @@ function resolveBrowserIdentity() {
 
 let FAVORITE_MEETINGS = null;
 
+function favoriteBtnHTML(m) {
+  if (!window.DanshuFavoriteUi || !m || !m.meeting_id) return '';
+  const favorite = window.DanshuFavoriteUi.isFavorite(FAVORITE_MEETINGS, m.meeting_id);
+  return window.DanshuFavoriteUi.buttonHTML(m.meeting_id, favorite);
+}
+
+function setFavoriteButton(btn, favorite) {
+  const fav = Boolean(favorite);
+  btn.classList.toggle('is-fav', fav);
+  btn.textContent = fav ? '★' : '☆';
+  btn.setAttribute('aria-pressed', String(fav));
+  btn.setAttribute('aria-label', fav ? 'お気に入りから外す' : 'お気に入りに追加');
+}
+
+function refreshFavoriteButtons() {
+  if (!window.DanshuFavoriteUi) return;
+  document.querySelectorAll('.fav-btn').forEach(btn => {
+    const meetingId = Number(btn.dataset.meetingId);
+    setFavoriteButton(btn, window.DanshuFavoriteUi.isFavorite(FAVORITE_MEETINGS, meetingId));
+  });
+}
+
+function handleFavoriteToggle(btn) {
+  if (!window.DanshuFavoriteApi || !window.DanshuFavoriteUi || !USER_TOKEN) return;
+  const meetingId = Number(btn.dataset.meetingId);
+  if (!meetingId) return;
+  const wasFavorite = window.DanshuFavoriteUi.isFavorite(FAVORITE_MEETINGS, meetingId);
+  const next = !wasFavorite;
+  // 楽観的更新（失敗時は巻き戻す）
+  setFavoriteButton(btn, next);
+  FAVORITE_MEETINGS = window.DanshuFavoriteUi.toggleState(FAVORITE_MEETINGS, meetingId, next);
+  const request = next
+    ? window.DanshuFavoriteApi.add(USER_TOKEN, meetingId)
+    : window.DanshuFavoriteApi.remove(USER_TOKEN, meetingId);
+  request.then(result => {
+    if (result) return;
+    setFavoriteButton(btn, wasFavorite);
+    FAVORITE_MEETINGS = window.DanshuFavoriteUi.toggleState(FAVORITE_MEETINGS, meetingId, wasFavorite);
+  });
+}
+
+function attachFavoriteHandlers() {
+  document.addEventListener('click', function onFavoriteBtnClick(event) {
+    const btn = event.target && event.target.closest ? event.target.closest('.fav-btn') : null;
+    if (!btn) return;
+    event.preventDefault();
+    handleFavoriteToggle(btn);
+  });
+}
+
 function loadFavorites() {
   if (!window.DanshuFavoriteApi || !USER_TOKEN) return;
   window.DanshuFavoriteApi.list(USER_TOKEN).then(favorites => {
     if (!favorites) return;
     FAVORITE_MEETINGS = favorites;
+    refreshFavoriteButtons();
   });
 }
 

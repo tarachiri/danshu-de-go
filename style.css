@@ -754,6 +754,20 @@ body.sheet-active .leaflet-control-container {
 }
 .sheet-meeting-group:last-child { margin-bottom: 0; }
 .sheet-meeting-name { font-weight: 700; font-size: 24px; color: #16213e; }
+.sheet-meeting-name { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.fav-btn {
+  margin-left: 4px;
+  font-size: 22px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #bbb;
+  padding: 2px 6px;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+}
+.fav-btn.is-fav { color: #f5b301; }
 .sheet-meeting-recurrence { font-size: 15px; color: #666; margin: 3px 0 8px; }
 .sheet-upcoming-list { display: flex; flex-direction: column; gap: 6px; }
 .sheet-upcoming-item {
