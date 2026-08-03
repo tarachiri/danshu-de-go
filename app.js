@@ -925,6 +925,7 @@ function initBulletin() {
   USER_TOKEN = identity.userToken;
   CLIENT_TOKEN = identity.bulletinToken;
   resolveBrowserIdentity();
+  loadFavorites();
   registerServiceWorker();
   subscribePush();
   loadBulletinBoard();
@@ -943,6 +944,16 @@ function resolveBrowserIdentity() {
     if (result && result.created) {
       console.log('[Identity] 新規利用者として紐付けました');
     }
+  });
+}
+
+let FAVORITE_MEETINGS = null;
+
+function loadFavorites() {
+  if (!window.DanshuFavoriteApi || !USER_TOKEN) return;
+  window.DanshuFavoriteApi.list(USER_TOKEN).then(favorites => {
+    if (!favorites) return;
+    FAVORITE_MEETINGS = favorites;
   });
 }
 
