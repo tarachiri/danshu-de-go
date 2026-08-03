@@ -924,6 +924,7 @@ function initBulletin() {
   const identity = initBrowserIdentity();
   USER_TOKEN = identity.userToken;
   CLIENT_TOKEN = identity.bulletinToken;
+  resolveBrowserIdentity();
   registerServiceWorker();
   subscribePush();
   loadBulletinBoard();
@@ -934,6 +935,15 @@ function initBrowserIdentity() {
     throw new Error('DanshuBrowserIdentity is not loaded');
   }
   return window.DanshuBrowserIdentity.initialize(localStorage, window.crypto);
+}
+
+function resolveBrowserIdentity() {
+  if (!window.DanshuIdentityApi || !USER_TOKEN) return;
+  window.DanshuIdentityApi.resolve(USER_TOKEN).then(result => {
+    if (result && result.created) {
+      console.log('[Identity] 新規利用者として紐付けました');
+    }
+  });
 }
 
 function registerServiceWorker() {
