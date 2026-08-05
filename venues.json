@@ -46294,11 +46294,11 @@
         "next_date": "2026-08-05",
         "has_exception": true,
         "exc_type": "cancel",
-        "exc_note": "地元の祭りのため開催中止"
+        "exc_note": "夏祭りのため今回のみ中止"
       }
     ],
     "has_exception": true,
-    "exc_note": "地元の祭りのため開催中止",
+    "exc_note": "夏祭りのため今回のみ中止",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
