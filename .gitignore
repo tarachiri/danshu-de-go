@@ -14,6 +14,7 @@ e1aff970-c437-4f2e-8b72-9b6a369585b0.json
 
 # Local AI tool settings
 .claude/
+reasonix.toml
 
 # Python cache
 __pycache__/
