@@ -102,6 +102,157 @@ function isPWA() {
     || window.navigator.standalone === true;
 }
 
+// ═══════════════════════════════════════════
+// かんたん会員登録（簡易版）
+// ═══════════════════════════════════════════
+
+function getUserToken() {
+  if (!window.DanshuBrowserIdentity) return null;
+  try {
+    return window.DanshuBrowserIdentity.initialize(localStorage, window.crypto).userToken;
+  } catch (e) {
+    return null;
+  }
+}
+
+function escapeAttr(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+  }[ch]));
+}
+
+function setProfileMenuLabel(registered) {
+  const el = document.getElementById('menu-item-profile');
+  if (!el) return;
+  el.innerHTML = registered ? '✏️ 登録情報の編集' : '📝 かんたん会員登録';
+}
+
+function showToast(message, kind) {
+  const toast = document.createElement('div');
+  toast.textContent = message;
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: ${kind === 'error' ? '#C0392B' : '#27AE60'};
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 10001;
+    max-width: 80vw;
+    text-align: center;
+  `;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2600);
+}
+
+function closeProfileModal() {
+  const existing = document.getElementById('profile-modal-overlay');
+  if (existing) existing.remove();
+}
+
+function openProfileModal(profile) {
+  closeProfileModal();
+  const isEdit = Boolean(profile);
+
+  const overlay = document.createElement('div');
+  overlay.id = 'profile-modal-overlay';
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:flex-end;';
+
+  const modal = document.createElement('div');
+  modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;box-sizing:border-box;';
+
+  const title = isEdit ? '✏️ 登録情報の編集' : '📝 かんたん会員登録';
+  const fieldStyle = 'width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #0f3460;background:#0f1428;color:#fff;font-size:16px;margin-bottom:16px;';
+
+  modal.innerHTML = `
+    <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:16px;">${title}</div>
+    <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">表示名（必須・30文字まで）</label>
+    <input id="profile-display-name" type="text" maxlength="30" value="${escapeAttr(profile && profile.display_name)}" style="${fieldStyle}">
+    <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">都道府県（任意）</label>
+    <input id="profile-prefecture" type="text" placeholder="例: 埼玉県" value="${escapeAttr(profile && profile.prefecture)}" style="width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #0f3460;background:#0f1428;color:#fff;font-size:16px;margin-bottom:6px;">
+    <div style="font-size:13px;color:#888;line-height:1.6;margin-bottom:16px;">
+      都道府県を入力しておくと、お住まいの地域に近い例会を優先的に表示できるようになります。あとからいつでも登録・変更できるので、今すぐ分からなければ空欄のままで大丈夫です。
+    </div>
+    <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">市区町村（任意）</label>
+    <input id="profile-city" type="text" placeholder="例: さいたま市" value="${escapeAttr(profile && profile.city)}" style="${fieldStyle}">
+    <div id="profile-error" style="display:none;font-size:14px;color:#e94560;margin-bottom:8px;"></div>
+    <button id="profile-save-btn" style="width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size:18px;font-weight:bold;margin-top:8px;">保存する</button>
+    <button id="profile-cancel-btn" style="width:100%;padding:12px;background:transparent;color:#ccc;border:1px solid #0f3460;border-radius:8px;font-size:16px;margin-top:8px;">キャンセル</button>
+  `;
+
+  overlay.appendChild(modal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeProfileModal(); });
+  document.body.appendChild(overlay);
+
+  const nameInput = document.getElementById('profile-display-name');
+  const prefInput = document.getElementById('profile-prefecture');
+  const cityInput = document.getElementById('profile-city');
+  const saveBtn = document.getElementById('profile-save-btn');
+  const cancelBtn = document.getElementById('profile-cancel-btn');
+  const errorBox = document.getElementById('profile-error');
+
+  function updateSaveState() {
+    const disabled = !nameInput.value.trim();
+    saveBtn.disabled = disabled;
+    saveBtn.style.opacity = disabled ? '0.5' : '1';
+    saveBtn.style.cursor = disabled ? 'not-allowed' : 'pointer';
+  }
+  nameInput.addEventListener('input', updateSaveState);
+  updateSaveState();
+
+  cancelBtn.addEventListener('click', closeProfileModal);
+
+  saveBtn.addEventListener('click', () => {
+    if (!nameInput.value.trim() || !window.DanshuProfileApi) return;
+    const token = getUserToken();
+    if (!token) return;
+
+    saveBtn.disabled = true;
+    saveBtn.textContent = '保存中...';
+    errorBox.style.display = 'none';
+
+    window.DanshuProfileApi.update(token, {
+      display_name: nameInput.value,
+      prefecture: prefInput.value,
+      city: cityInput.value
+    }).then(result => {
+      if (!result) {
+        errorBox.textContent = '時間をおいて再度お試しください';
+        errorBox.style.display = 'block';
+        saveBtn.disabled = false;
+        saveBtn.textContent = '保存する';
+        return;
+      }
+      closeProfileModal();
+      showToast(isEdit ? '更新しました' : '登録しました');
+      setProfileMenuLabel(true);
+    });
+  });
+}
+
+function openProfileModalFresh() {
+  const token = getUserToken();
+  if (!window.DanshuProfileApi || !token) {
+    openProfileModal(null);
+    return;
+  }
+  window.DanshuProfileApi.get(token).then(profile => {
+    setProfileMenuLabel(Boolean(profile));
+    openProfileModal(profile);
+  });
+}
+
+function checkInitialProfileLabel() {
+  const token = getUserToken();
+  if (!window.DanshuProfileApi || !token) return;
+  window.DanshuProfileApi.get(token).then(profile => setProfileMenuLabel(Boolean(profile)));
+}
+
 (function initMenuButton() {
   const btn = document.createElement('button');
   btn.id = 'menu-toggle-float';
@@ -245,6 +396,7 @@ function isPWA() {
       border-bottom: 1px solid #0f3460;
     `;
     el.innerHTML = `${item.icon} ${item.label}`;
+    if (item.id) el.id = item.id;
     if (item.action) {
       el.addEventListener('click', item.action);
       el.addEventListener('mouseenter', () => el.style.background = '#0f3460');
@@ -298,3 +450,9 @@ function openShareBar() {
 }
 
 openShareBar();
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', checkInitialProfileLabel);
+} else {
+  checkInitialProfileLabel();
+}
