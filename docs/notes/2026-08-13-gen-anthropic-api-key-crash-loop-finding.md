@@ -46,5 +46,32 @@ KeyError: 'ANTHROPIC_API_KEY'
 - 2026-08-12未明に誰が`.env`を編集していたか（別セッションのふーちゃん(Codex)
   かまじまじさん本人か）は特定できていない。当時どんな変更を意図していたか
   分かる人が確認・記録すると良い
-- 再発防止の要否は判断保留。単発の書き込みタイミング問題であり、
-  再発していないため緊急対応は不要と判断
+
+## 対策実施（2026-08-13、まじまじさん承認済み）
+
+再発防止として以下2点を実施した。
+
+### ① launchd側：ThrottleInterval追加（実施済み）
+
+`~/Library/LaunchAgents/com.danshu.uvicorn.plist`に`ThrottleInterval`（10秒）を
+追加。`.env`が一瞬不完全な状態になっても、即座の再起動連打ではなく間隔が空くため
+書き込み完了を待てる可能性が上がる。
+
+- バックアップ：`com.danshu.uvicorn.plist.bak-20260813-throttle-interval`
+- `PlistBuddy -c "Add :ThrottleInterval integer 10"`で追加、`plutil -lint`で検証OK
+- `launchctl unload` → `launchctl load`で反映。新PID(70089)でstartup complete確認、
+  エラーログもクリーン
+
+### ② 運用ルール：`.env`編集はmvによるアトミック置き換えに統一（今後のルール）
+
+`.env`を直接編集する代わりに、`.env.tmp`に新しい内容を書いてから
+`mv .env.tmp .env`で置き換える。同一ファイルシステム内の`mv`はアトミックなため、
+書き換え途中の不完全な状態が原理的に発生しなくなる（根本対策）。
+
+**今後gen上の`/Users/mini2014/danshu-chat/.env`を編集する全エージェント
+（ふーちゃん(Claude Code, soi) / ふーちゃん(Codex, gen) / まじまじさん）は
+このルールに従うこと。**
+
+アプリ側（`main.py`の`os.environ["ANTHROPIC_API_KEY"]`をKeyError許容のまま
+にする判断）はあえて変更しなかった：キー欠如を`.get()`で握りつぶすと
+fail-fastできず、気づかないままAPIキー切れで動き続けるリスクの方が大きいため。
