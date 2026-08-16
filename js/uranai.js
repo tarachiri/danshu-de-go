@@ -30,6 +30,18 @@
  
   // null=未確認, true=会員（無制限）, false=ゲスト（回数制限あり）
   let membershipCache = null;
+　// 占い風の演出用。断酒会・回復・支援のイメージに合う前向きな四字熟語を固定リストで用意し、
+  // 例会カードごとにランダムで1つ添える（サーバー通信なし、LLM不使用）
+  const JUKUGO_LIST = [
+    '一期一会', '心機一転', '七転八起', '日々精進', '一歩一歩',
+    '初心貫徹', '和気あいあい', '一致団結', '切磋琢磨', '前途洋々',
+    '順風満帆', '大願成就', '有言実行', '日進月歩', '温故知新',
+    '泰然自若', '笑門来福', '一意専心'
+  ];
+
+  function pickJukugo() {
+    return JUKUGO_LIST[Math.floor(Math.random() * JUKUGO_LIST.length)];
+  }
  
   // ---- 日付・時刻ヘルパー（app.jsのgetTodayJST/getTomorrowJSTと同じ手法。
   //      別ファイルとして自己完結させるためあえて重複実装している） ----
@@ -234,6 +246,7 @@
           (distText ? '<span class="sp-uranai-card-dist">' + escapeHtml(distText) + '</span>' : '') +
           '</div>' +
           '<div class="sp-uranai-card-name">' + escapeHtml(m.name) + '</div>' +
+          '<div class="sp-uranai-card-jukugo">「' + escapeHtml(pickJukugo()) + '」</div>' +
           '<div class="sp-uranai-card-venue">' + escapeHtml(m.facility_name) + (m.prefecture ? '（' + escapeHtml(m.prefecture) + '）' : '') + '</div>';
         list.appendChild(card);
         if (i === meetings.length - 1) {
