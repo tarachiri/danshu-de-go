@@ -78,6 +78,57 @@
       line-height: 1;
     }
 
+    /* 例会占い（進捗完了後に出現） */
+    #sp-uranai-area {
+      display: none; flex-direction: column;
+      align-items: center; gap: 10px;
+      width: 100%; max-width: 320px;
+    }
+    #sp-uranai-area.visible { display: flex; }
+    .sp-uranai-btn {
+      width: 100%; padding: 12px 0; border-radius: 50px;
+      border: 1px solid rgba(240,232,208,0.35);
+      background: rgba(255,255,255,0.03);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      cursor: pointer;
+      font-family: 'Noto Serif JP', serif; font-size: 14px; font-weight: 500;
+      color: rgba(240,232,208,0.85); letter-spacing: .1em;
+    }
+    .sp-uranai-btn:disabled { opacity: 0.5; cursor: default; }
+    .sp-uranai-icon { font-size: 16px; }
+    #sp-uranai-result { width: 100%; }
+    .sp-uranai-status, .sp-uranai-empty {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px; font-weight: 300;
+      color: rgba(240,232,208,0.6); text-align: center; line-height: 1.7;
+      margin: 6px 0;
+    }
+    .sp-uranai-select {
+      width: 100%; padding: 10px; border-radius: 8px; margin-top: 8px;
+      background: rgba(255,255,255,0.06); color: #f0e8d0;
+      border: 1px solid rgba(240,232,208,0.3); font-size: 13px;
+    }
+    .sp-uranai-list { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+    .sp-uranai-card {
+      border: 1px solid rgba(180,140,80,0.4); border-radius: 10px;
+      background: rgba(180,140,80,0.08);
+      padding: 10px 12px;
+      animation: sp-uranai-in 0.4s ease;
+    }
+    @keyframes sp-uranai-in { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
+    .sp-uranai-card-head {
+      display: flex; justify-content: space-between;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 11px; color: rgba(180,140,80,0.9); font-weight: 500; letter-spacing: .05em;
+    }
+    .sp-uranai-card-name { font-family:'Noto Serif JP',serif; font-size: 15px; color:#f0e8d0; margin-top:4px; }
+    .sp-uranai-card-venue { font-family:'Noto Sans JP',sans-serif; font-size: 12px; color: rgba(240,232,208,0.55); margin-top:2px; }
+    .sp-uranai-note {
+      font-family:'Noto Sans JP',sans-serif;
+      font-size: 10px; color: rgba(240,232,208,0.4); text-align:center; margin-top:8px; line-height:1.6;
+    }
+
+
     /* QR */
     .sp-qr { display:flex; flex-direction:column; align-items:center; gap:8px; }
     .sp-qr-frame { background:#f0e8d0; border-radius:12px; padding:8px; }
@@ -178,6 +229,15 @@
   </div>
 
   <div class="sp-divider"></div>
+  <!-- 例会占い（進捗完了後に表示。同意ボタンとは独立した別アクション） -->
+  <div class="sp-uranai-area" id="sp-uranai-area">
+    <button type="button" class="sp-uranai-btn" id="sp-uranai-btn" onclick="window.DanshuUranai && window.DanshuUranai.run()">
+      <span class="sp-uranai-icon">🔮</span>
+      <span>例会占い（今いる場所から近い順に5件）</span>
+    </button>
+    <div id="sp-uranai-result"></div>
+  </div>
+
 
   <!-- プログレスバー -->
   <div class="sp-progress-area">
@@ -271,6 +331,9 @@ window.setSplashProgress = function(percent, statusText) {
     // 毎回同意ボタンを表示
     const agreeArea = document.getElementById('sp-agree-area');
     if (agreeArea) agreeArea.classList.add('visible');
+    // 例会占い（window.VENUESの読み込み完了と同時に押せるようにする）
+    const uranaiArea = document.getElementById('sp-uranai-area');
+    if (uranaiArea) uranaiArea.classList.add('visible');
   }
 };
 
@@ -414,6 +477,8 @@ function splashClose() {
 <script src="js/identity-api.js?v=20260804a"></script>
 <script src="js/favorite-api.js?v=20260804b"></script>
 <script src="js/favorite-ui.js?v=20260804c"></script>
+<script src="js/profile-api.js?v=20260813a"></script>
+<script src="js/uranai.js?v=20260815a"></script>
 <script src="app.js?v=20260804a"></script>
 <script src="js/menu.js"></script>
 <script>
