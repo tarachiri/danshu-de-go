@@ -1,17 +1,6 @@
 {
-  "generated_at": "2026-08-23T03:40:25.310535+09:00",
+  "generated_at": "2026-08-24T03:30:51.638776+09:00",
   "events": [
-    {
-      "id": "sobernet-1026",
-      "title": "大阪狭山市断酒会一日研修会 大阪狭山市文化会館 「SAYAKAホール」",
-      "date_from": "2026-08-23",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "大阪府",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1026",
-      "source": "ソーバーねっと"
-    },
     {
       "id": "sobernet-956",
       "title": "つくばね一泊研修会 茨木県立中央青年の家",
@@ -580,7 +569,7 @@
       "url": "https://www.shindanren.com/_files/ugd/ad2f10_2bc1fa5299ff4b97b46f5b5c146aaeaf.pdf",
       "org": "神奈川県断酒新生会",
       "prefecture": "神奈川県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -588,7 +577,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2026/07/0808P1.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -596,7 +585,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2026/08/08090728P1.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -604,7 +593,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2024/05/R8_06全断連（行事予定表）.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -612,7 +601,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2024/05/08yotei.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -620,7 +609,7 @@
       "url": "https://www.zdrfukuoka.jp/wp-content/uploads/2026/08/9f380915a1b3223fdac954d6a37cc11c.pdf",
       "org": "福岡県断酒連合会",
       "prefecture": "福岡県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -628,7 +617,7 @@
       "url": "https://dansyu-tochigiken.jp/troublerelatedalchol2023.pdf",
       "org": "栃木県断酒会",
       "prefecture": "栃木県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -636,7 +625,7 @@
       "url": "http://dansyukai.com/teirei/08.pdf",
       "org": "dansyukai",
       "prefecture": "島根県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -644,7 +633,7 @@
       "url": "http://shigadansyu.com/img115.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -652,7 +641,15 @@
       "url": "http://shigadansyu.com/img997.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
+      "source": "公式サイト"
+    },
+    {
+      "title": "9-11 月",
+      "url": "http://shigadansyu.com/img998.pdf",
+      "org": "shigadansyu",
+      "prefecture": "滋賀県",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -660,7 +657,7 @@
       "url": "http://shigadansyu.com/img2022ソフトボール.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -668,15 +665,7 @@
       "url": "http://shigadansyu.com/令和２年会長挨拶.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-08-23",
-      "source": "公式サイト"
-    },
-    {
-      "title": "祝辞",
-      "url": "http://shigadansyu.com/令和２年祝辞.pdf",
-      "org": "shigadansyu",
-      "prefecture": "滋賀県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -684,7 +673,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/08/みやちゃんカレンダー2026年9月号作成中.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -692,7 +681,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/08/みやちゃんカレンダー裏面）2026年４月現在.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -700,7 +689,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/07/みやちゃんカレンダー2026年8月号作成中.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -708,7 +697,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/07/みやちゃんカレンダー裏面）2026年４月現在.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -716,7 +705,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/06/みやちゃんカレンダー2026年7月号作成中.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -724,7 +713,7 @@
       "url": "https://www.dansyu-renmei.or.jp/news/pdf/danwa202511.pdf",
       "org": "dansyu-renmei",
       "prefecture": "新潟県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -732,7 +721,7 @@
       "url": "https://www.dansyu-renmei.or.jp/news/pdf/SBIRTS2022.pdf",
       "org": "dansyu-renmei",
       "prefecture": "新潟県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -740,7 +729,7 @@
       "url": "https://www.dansyu-renmei.or.jp/news/pdf/2025_leaflet.pdf",
       "org": "dansyu-renmei",
       "prefecture": "新潟県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -748,7 +737,7 @@
       "url": "https://www.dansyu-renmei.or.jp/news/pdf/guidelines_join.pdf",
       "org": "dansyu-renmei",
       "prefecture": "新潟県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     },
     {
@@ -756,7 +745,7 @@
       "url": "https://www.dansyu-renmei.or.jp/news/pdf/2014_law02.pdf",
       "org": "dansyu-renmei",
       "prefecture": "新潟県",
-      "found_at": "2026-08-23",
+      "found_at": "2026-08-24",
       "source": "公式サイト"
     }
   ],
@@ -783,14 +772,6 @@
       "org": "大阪市断酒連合会",
       "prefecture": "大阪府",
       "date": "2026-06-24",
-      "source": "RSS"
-    },
-    {
-      "title": "一般社団法人 大阪府断酒会 「断酒宣言」キャンペーン",
-      "url": "https://fudanshu.com/%e4%b8%80%e8%88%ac%e7%a4%be%e5%9b%a3%e6%b3%95%e4%ba%ba-%e5%a4%a7%e9%98%aa%e5%ba%9c%e6%96%ad%e9%85%92%e4%bc%9a/",
-      "org": "大阪府断酒連合会",
-      "prefecture": "大阪府",
-      "date": "2024-11-22",
       "source": "RSS"
     },
     {
@@ -916,8 +897,8 @@
   ],
   "summary": "",
   "stats": {
-    "events": 52,
+    "events": 51,
     "pdfs": 23,
-    "news": 19
+    "news": 18
   }
 }
