@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/blog/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -31,8 +31,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-08-11-auto-2026-07-12-docs-notes-index-created.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-08-06-auto-2026-07-10-gogo-schema-review.html</loc>
     <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/blog/posts/2026-08-02-auto-2026-07-09_venue_matching_generic_word_bug.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
