@@ -225,6 +225,57 @@
       margin-top: 4px;
     }
 
+    .sp-updates {
+      width: 100%; max-width: 320px;
+      margin: 20px 0 16px;
+      padding: 16px;
+      box-sizing: border-box;
+      border-top: 1px solid rgba(180,140,80,0.25);
+      border-bottom: 1px solid rgba(180,140,80,0.18);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .sp-updates-title {
+      margin: 0 0 12px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-align: center;
+      color: rgba(180,140,80,0.95);
+    }
+    .sp-update-day {
+      padding: 9px 0;
+      border-top: 1px solid rgba(240,232,208,0.08);
+    }
+    .sp-update-day:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .sp-update-label {
+      margin: 0 0 5px;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(240,232,208,0.75);
+      letter-spacing: .06em;
+    }
+    .sp-update-list {
+      margin: 0;
+      padding-left: 1.3em;
+      color: rgba(240,232,208,0.5);
+    }
+    .sp-update-list li {
+      margin: 3px 0;
+      font-size: 11px;
+      font-weight: 300;
+      line-height: 1.65;
+      letter-spacing: .02em;
+    }
+    .sp-update-empty {
+      margin: 0;
+      font-size: 11px;
+      color: rgba(240,232,208,0.35);
+    }
+
     .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; }
     .sp-org { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.2); letter-spacing:.3em; }
     .sp-ver { font-family:'Noto Sans JP',sans-serif; font-size:9px; font-weight:300; color:rgba(180,140,80,0.35); letter-spacing:.2em; }
@@ -301,6 +352,29 @@
          参照: docs/notes/2026-08-02-seo-summary-removal-splash-message-implementation.md -->
     </div>
   </div>
+
+  <!-- UPDATE_HISTORY_START -->
+  <section class="sp-updates" aria-labelledby="sp-updates-title">
+    <h2 class="sp-updates-title" id="sp-updates-title">最近の更新</h2>
+    <div class="sp-update-day">
+      <h3 class="sp-update-label">今日（8月23日）</h3>
+      <ul class="sp-update-list">
+        <li>全国の例会・会場情報を更新（1,289会場）</li>
+        <li>開催日程と中止・変更情報を更新</li>
+        <li>愛知・福岡・茨城・香川の例会日程を更新</li>
+        <li>断酒関連ニュースを更新</li>
+      </ul>
+    </div>
+    <div class="sp-update-day">
+      <h3 class="sp-update-label">昨日（8月22日）</h3>
+      <p class="sp-update-empty">更新記録はありません。</p>
+    </div>
+    <div class="sp-update-day">
+      <h3 class="sp-update-label">一昨日（8月21日）</h3>
+      <p class="sp-update-empty">更新記録はありません。</p>
+    </div>
+  </section>
+  <!-- UPDATE_HISTORY_END -->
 
   <div class="sp-bottom">
     <p class="sp-org">ぬか床の会</p>
