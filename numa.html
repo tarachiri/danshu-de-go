@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="20問であなたの断酒会沼度を測る、最大120%のエンタメ診断です。">
+  <meta property="og:title" content="断酒会沼度診断｜断酒でGO!!">
+  <meta property="og:description" content="あなたは沼のほとり？ それとも、あなた自身が沼？ 20問で断酒会沼度を測ってみよう。">
+  <meta property="og:url" content="https://dansyu-go.nukadokonokai.com/numa.html">
+  <meta property="og:type" content="website">
+  <title>断酒会沼度診断｜断酒でGO!!</title>
+  <style>
+    :root { --deep:#102820; --green:#1f5b43; --moss:#74a57f; --cream:#fffaf0; --gold:#d8b45d; --ink:#173126; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(circle at 50% -10%,#39765a 0,#173d2e 35%,#0d211b 100%); color:var(--cream); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif; min-height:100vh; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.18; background:repeating-radial-gradient(ellipse at 50% 30%,transparent 0 24px,rgba(255,255,255,.35) 25px,transparent 27px 52px); }
+    main { position:relative; width:min(680px,100%); margin:auto; padding:24px 16px 56px; }
+    .back { color:#d8e9dc; text-decoration:none; font-size:14px; }
+    .hero { text-align:center; padding:38px 8px 26px; }
+    .hero-mark { font-size:48px; filter:drop-shadow(0 4px 8px #07150f); }
+    h1 { margin:8px 0; font-size:clamp(30px,8vw,44px); letter-spacing:.08em; }
+    .lead { color:#d3e4d7; line-height:1.8; margin:8px auto; }
+    .badge { display:inline-block; padding:6px 14px; border:1px solid rgba(216,180,93,.7); border-radius:99px; color:#f3d98e; font-size:13px; }
+    .card { background:rgba(255,250,240,.96); color:var(--ink); border-radius:22px; padding:22px 18px; box-shadow:0 18px 50px rgba(0,0,0,.28); }
+    .start-note { line-height:1.8; text-align:center; }
+    .primary { width:100%; border:0; border-radius:999px; padding:16px; background:linear-gradient(135deg,#d8b45d,#f0d783); color:#243326; font-size:18px; font-weight:800; cursor:pointer; box-shadow:0 7px 20px rgba(216,180,93,.25); }
+    .primary:active { transform:translateY(1px); }
+    .progress-wrap { display:none; margin:14px 0 18px; }
+    .progress-label { display:flex; justify-content:space-between; font-size:13px; color:#d8e9dc; margin-bottom:7px; }
+    .progress { height:8px; overflow:hidden; border-radius:99px; background:rgba(255,255,255,.16); }
+    .progress > div { height:100%; width:0; background:linear-gradient(90deg,var(--moss),var(--gold)); transition:width .25s; }
+    #quiz, #result { display:none; }
+    .question-number { font-size:13px; color:#47745b; font-weight:700; }
+    .question { font-size:21px; line-height:1.55; margin:8px 0 20px; }
+    .answers { display:grid; gap:10px; }
+    .answer { width:100%; text-align:left; border:1px solid #c8d7ca; border-radius:14px; padding:14px 15px; background:#fff; color:var(--ink); font-size:16px; line-height:1.45; cursor:pointer; }
+    .answer:hover,.answer:focus { border-color:var(--green); background:#edf5ef; }
+    .result-label { color:#47745b; text-align:center; font-weight:700; }
+    .result-score { text-align:center; font-size:68px; font-weight:900; line-height:1.15; color:var(--green); margin:6px 0; }
+    .result-score small { font-size:25px; }
+    .result-title { text-align:center; font-size:25px; color:#765913; margin:8px 0 16px; }
+    .result-text { line-height:1.9; white-space:pre-line; background:#f0f6f1; padding:16px; border-radius:14px; }
+    .actions { display:grid; gap:10px; margin-top:18px; }
+    .x-share,.secondary { display:block; border-radius:999px; padding:14px; text-align:center; text-decoration:none; font-weight:800; }
+    .x-share { background:#111; color:#fff; }
+    .secondary { border:1px solid #7a9b82; color:#28573e; background:#fff; cursor:pointer; font-size:15px; }
+    .notice { color:#c7d9cb; font-size:12px; line-height:1.75; margin:20px 8px 0; }
+    footer { text-align:center; color:#9db9a5; font-size:12px; margin-top:28px; }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="/">← 断酒でGO!!へ戻る</a>
+  <section class="hero">
+    <div class="hero-mark">🫧</div>
+    <h1>断酒会沼度診断</h1>
+    <p class="lead">あなたは沼のほとり？<br>それとも、あなた自身が沼？</p>
+    <span class="badge">20問・最大120%</span>
+  </section>
+
+  <section id="intro" class="card">
+    <p class="start-note">考えすぎず、いちばん近い答えを選んでください。<br>所要時間は約2分です。</p>
+    <button class="primary" type="button" onclick="startQuiz()">沼度を測ってみる</button>
+  </section>
+
+  <div id="progress-wrap" class="progress-wrap" aria-live="polite">
+    <div class="progress-label"><span id="progress-text">1 / 20</span><span>沼へ進行中...</span></div>
+    <div class="progress"><div id="progress-bar"></div></div>
+  </div>
+
+  <section id="quiz" class="card">
+    <div id="question-number" class="question-number"></div>
+    <h2 id="question" class="question"></h2>
+    <div id="answers" class="answers"></div>
+  </section>
+
+  <section id="result" class="card" aria-live="polite">
+    <div class="result-label">あなたの断酒会沼度は...</div>
+    <div class="result-score"><span id="score">0</span><small>%</small></div>
+    <h2 id="result-title" class="result-title"></h2>
+    <p id="result-text" class="result-text"></p>
+    <div class="actions">
+      <a id="x-share" class="x-share" href="#" target="_blank" rel="noopener">𝕏 で結果をシェア</a>
+      <a class="secondary" href="/">近くの例会を探す</a>
+      <button class="secondary" type="button" onclick="restartQuiz()">もう一度やる</button>
+    </div>
+  </section>
+
+  <p class="notice">※この診断はエンタメです。断酒の成果、飲酒欲求の強さ、依存症の程度や回復度を判定するものではありません。回答内容は保存・送信されません。</p>
+  <footer>断酒でGO!!｜ぬか床の会</footer>
+</main>
+
+<script>
+const questions = [
+  ["例会のない日は、なんとなく物足りない？",["まったく感じない","たまに感じる","けっこう感じる","例会を探し始める"]],
+  ["旅行や出張の前に、現地の例会を調べたことがある？",["ない","調べようと思ったことはある","調べたことがある","参加したことがある"]],
+  ["『今日一日』という言葉を聞くと？",["特に何も思わない","断酒会を少し思い出す","ちょっと安心する","心の中で深くうなずく"]],
+  ["例会開始の何分前に着くことが多い？",["開始後またはギリギリ","5分くらい前","15分くらい前","設営できるくらい早く着く"]],
+  ["会場で椅子が並んでいないと？",["誰かが並べるのを待つ","少し手伝う","自然に並べ始める","配置まで頭に入っている"]],
+  ["初参加の人が来たときの気持ちは？",["特に変わらない","少し気になる","来てくれてうれしい","安心できるよう、さりげなく気にかける"]],
+  ["例会仲間の顔と名前はどのくらい分かる？",["まだほとんど分からない","よく会う人なら分かる","かなり分かる","最近見かけない人まで気になる"]],
+  ["例会で話す内容は、行く前に決めている？",["ほとんど話さない","その場で考える","なんとなく考えている","日常で『これは例会で話そう』と思う"]],
+  ["日常で困ったとき、例会仲間の顔が浮かぶ？",["浮かばない","たまに浮かぶ","よく浮かぶ","『例会で聞いてもらおう』と思える"]],
+  ["例会が終わったあとは？",["すぐ帰る","少しだけ話す","雑談も楽しみ","例会後まで含めて例会だと思う"]],
+  ["いつもの例会がお休みだったら？",["そのまま家で過ごす","少し残念に思う","別の日を探す","別会場の例会に行ってみる"]],
+  ["他支部・他地域の例会についてどう思う？",["あまり興味がない","少し気になる","一度参加してみたい","すでに何か所か参加している"]],
+  ["断酒会の大会や行事があると聞いたら？",["参加しないと思う","日程だけ確認する","都合が合えば参加する","早めに予定へ入れる"]],
+  ["例会仲間から『最近どう？』と聞かれたら？",["少し困る","無難に答える","正直に話せることが多い","その一言に助けられたことがある"]],
+  ["家族や身近な人に断酒会の話をする？",["ほとんどしない","ときどきする","例会であったことをよく話す","登場人物を説明しなくても通じる"]],
+  ["断酒会を自分の居場所だと感じる？",["まだ感じない","少しずつ慣れてきた","ほっとできる場所の一つ","大切な居場所になっている"]],
+  ["誰かの体験談を聞いているときは？",["あまり内容が入ってこない","共感することがある","自分と重ねることが多い","後から思い出して支えられることがある"]],
+  ["自分の経験が誰かの役に立つかもしれないと思う？",["思ったことはない","いつかは思えるかもしれない","少しは役立つかもしれない","飾らず話すことにも意味があると思う"]],
+  ["例会へ行くことは、今の自分にとって？",["まだよく分からない","ときどき行く場所","生活のリズムの一部","自分を整える大切な時間"]],
+  ["『断酒会沼』と聞いて、正直どう思う？",["自分には関係なさそう","ちょっと気になる","すでに片足が入っている","ここ、居心地いいんですよね"]]
+];
+
+const results = [
+  [20,"沼の外でひとり踏ん張り中","まだ断酒会の沼には入っていないようです。\n\nしんどさを、ひとりで抱えていませんか？ そんな日は、沼のほとりで誰かの話を聞くだけでも大丈夫です。"],
+  [40,"沼のほとりで様子見中","断酒会が少し気になりながらも、まだ遠慮しているようです。\n\n話さずに参加するだけでも大丈夫。沼の住人は静かに歓迎してくれます。"],
+  [60,"片足を入れてひと休み","しんどいときに戻れる場所が、少しずつできています。\n\n気持ちをなくす場所ではなく、ひとりにしない場所。それが、この沼なのかもしれません。"],
+  [80,"支えを借りられる沼民","例会や仲間の力を、自然に借りられるようになっています。\n\n調子のよい日も、そうでない日も、ありのまま持ってこられる居場所です。"],
+  [100,"断酒会沼の住人","例会はすっかり大切な居場所。\n\n自分のために参加した時間が、いつの間にか誰かの安心にもなっています。"],
+  [110,"断酒会沼の世話人","自分が支えられるだけでなく、誰かが安心して話せる沼を整えています。\n\n世話人も、支えてもらう側へ戻って大丈夫です。"],
+  [118,"断酒会沼の主","いくつもの例会に姿を現し、行事の日程も把握。\n\nもはや沼にいるのではありません。沼の一部です。"],
+  [120,"あなたが沼です","沼の主だと思っていましたが、違いました。\n\nあなた自身が沼でした。\n\n人が集まり、話し、少し安心して帰っていく。あなたの周りに、新しい断酒会沼が生まれています。"]
+];
+
+let current = 0;
+let points = 0;
+
+function startQuiz() {
+  current = 0; points = 0;
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  document.getElementById('progress-wrap').style.display = 'block';
+  showQuestion();
+}
+
+function showQuestion() {
+  const item = questions[current];
+  document.getElementById('question-number').textContent = `QUESTION ${current + 1}`;
+  document.getElementById('question').textContent = item[0];
+  document.getElementById('progress-text').textContent = `${current + 1} / ${questions.length}`;
+  document.getElementById('progress-bar').style.width = `${(current / questions.length) * 100}%`;
+  const box = document.getElementById('answers');
+  box.replaceChildren();
+  item[1].forEach((label, score) => {
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'answer'; button.textContent = label;
+    button.addEventListener('click', () => answer(score));
+    box.appendChild(button);
+  });
+}
+
+function answer(score) {
+  points += score; current += 1;
+  if (current < questions.length) { showQuestion(); window.scrollTo({top:180,behavior:'smooth'}); }
+  else { showResult(); }
+}
+
+function showResult() {
+  const percent = points * 2;
+  const result = results.find(item => percent <= item[0]);
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('score').textContent = percent;
+  document.getElementById('result-title').textContent = result[1];
+  document.getElementById('result-text').textContent = result[2];
+  const shareText = `私の「断酒会沼度」は${percent}%！\n称号は「${result[1]}」でした。\nあなたの沼度は？\n#断酒会沼度診断 #断酒でGO`;
+  document.getElementById('x-share').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent('https://dansyu-go.nukadokonokai.com/numa.html')}`;
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function restartQuiz() {
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('intro').style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
