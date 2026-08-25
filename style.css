@@ -841,3 +841,11 @@ body.sheet-active .leaflet-control-container {
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 #seo-summary li strong { color: #f0e8d0; }
+#seo-summary a { color: #e94560; }
+#seo-summary li a {
+  display: block;
+  color: #c8c8d8;
+  text-decoration: none;
+}
+#seo-summary li a:focus,
+#seo-summary li a:hover { text-decoration: underline; }
