@@ -390,3 +390,18 @@ h2::before {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; transform: none !important; }
 }
+
+/* CHIIKI_SCHEDULE_STYLE_START */
+.chiiki-schedule h3 { margin: 1.25rem 0 .45rem; color: #5b3716; }
+.schedule-updated, .schedule-note { color: #5f5145; font-size: .9rem; line-height: 1.7; }
+.schedule-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid #eadfce; }
+.schedule-list li { display: grid; grid-template-columns: 8.5rem 7.5rem minmax(10rem,1fr); gap: .35rem .8rem; padding: .8rem 0; border-bottom: 1px solid #eadfce; align-items: baseline; }
+.schedule-list time { font-weight: 700; }
+.schedule-time { white-space: nowrap; }
+.schedule-name { color: #3e2814; }
+.schedule-venue { grid-column: 3; color: #685b50; font-size: .9rem; }
+@media (max-width: 700px) {
+  .schedule-list li { grid-template-columns: 1fr auto; }
+  .schedule-name, .schedule-venue { grid-column: 1 / -1; }
+}
+/* CHIIKI_SCHEDULE_STYLE_END */
