@@ -947,10 +947,11 @@ function initBulletin() {
   CLIENT_TOKEN = identity.bulletinToken;
   resolveBrowserIdentity();
   if (window.DanshuActivityApi) {
-    window.DanshuActivityApi.recordVisit(USER_TOKEN).then(result => {
+    window.DanshuActivityVisitReady = window.DanshuActivityApi.recordVisit(USER_TOKEN).then(result => {
       if (result && result.new_badges && result.new_badges.length && typeof showToast === 'function') {
         showToast(`🏅 ${result.new_badges[0].title}`);
       }
+      return result;
     });
   }
   loadFavorites();
