@@ -309,14 +309,21 @@ function openProfileModalFresh() {
     openProfileModal(null, null, null);
     return;
   }
-  const activityRequest = window.DanshuActivityApi
-    ? window.DanshuActivityApi.getProfile(token) : Promise.resolve(null);
-  const globalRequest = window.DanshuActivityApi
-    ? window.DanshuActivityApi.getSummary() : Promise.resolve(null);
-  Promise.all([window.DanshuProfileApi.get(token), activityRequest, globalRequest]).then(([profile, activity, globalSummary]) => {
-    setProfileMenuLabel(Boolean(profile));
-    openProfileModal(profile, activity, globalSummary);
-  });
+  // 初回訪問の登録とプロフィール取得が競合すると、登録直後だけ探索記録が
+  // 「準備中」になるため、訪問登録が終わってから3件を並列取得する。
+  Promise.resolve(window.DanshuActivityVisitReady)
+    .catch(() => null)
+    .then(() => {
+      const activityRequest = window.DanshuActivityApi
+        ? window.DanshuActivityApi.getProfile(token) : Promise.resolve(null);
+      const globalRequest = window.DanshuActivityApi
+        ? window.DanshuActivityApi.getSummary() : Promise.resolve(null);
+      return Promise.all([window.DanshuProfileApi.get(token), activityRequest, globalRequest]);
+    })
+    .then(([profile, activity, globalSummary]) => {
+      setProfileMenuLabel(Boolean(profile));
+      openProfileModal(profile, activity, globalSummary);
+    });
 }
 
 function checkInitialProfileLabel() {
