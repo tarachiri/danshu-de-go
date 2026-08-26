@@ -456,6 +456,25 @@ function openVenueSheet(v) {
   sheet.classList.add('open');
   overlay.classList.add('active');
   document.body.classList.add('sheet-active');
+  trackVenueView(v);
+}
+
+function trackVenueView(v) {
+  if (!v || !v.id || !window.DanshuActivityApi) return;
+  let token = USER_TOKEN;
+  if (!token && window.DanshuBrowserIdentity) {
+    try {
+      token = window.DanshuBrowserIdentity.initialize(localStorage, window.crypto).userToken;
+    } catch (error) {
+      return;
+    }
+  }
+  window.DanshuActivityApi.recordVenueView(token, v.id).then(result => {
+    if (result && result.new_badges && result.new_badges.length) {
+      const badge = result.new_badges[0];
+      if (typeof showToast === 'function') showToast(`🏅 ${badge.title}`);
+    }
+  });
 }
 
 function closeVenueSheet() {
@@ -927,6 +946,13 @@ function initBulletin() {
   USER_TOKEN = identity.userToken;
   CLIENT_TOKEN = identity.bulletinToken;
   resolveBrowserIdentity();
+  if (window.DanshuActivityApi) {
+    window.DanshuActivityApi.recordVisit(USER_TOKEN).then(result => {
+      if (result && result.new_badges && result.new_badges.length && typeof showToast === 'function') {
+        showToast(`🏅 ${result.new_badges[0].title}`);
+      }
+    });
+  }
   loadFavorites();
   attachFavoriteHandlers();
   registerServiceWorker();

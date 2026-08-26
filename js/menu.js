@@ -124,7 +124,7 @@ function escapeAttr(value) {
 function setProfileMenuLabel(registered) {
   const el = document.getElementById('menu-item-profile');
   if (!el) return;
-  el.innerHTML = registered ? '✏️ 登録情報の編集' : '📝 かんたん会員登録';
+  el.innerHTML = registered ? '👤 プロフィール' : '👤 プロフィール・会員登録';
 }
 
 function showToast(message, kind) {
@@ -155,7 +155,53 @@ function closeProfileModal() {
   if (existing) existing.remove();
 }
 
-function openProfileModal(profile) {
+function formatActivityDate(value) {
+  if (!value) return '記録開始前';
+  const normalized = String(value).includes('T') ? value : String(value).replace(' ', 'T') + 'Z';
+  const date = new Date(normalized);
+  if (Number.isNaN(date.getTime())) return String(value).slice(0, 10);
+  return new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo', year: 'numeric', month: 'long', day: 'numeric'
+  }).format(date);
+}
+
+function renderActivitySection(activity, globalSummary) {
+  if (!activity || !activity.periods) {
+    return '<div style="color:#888;font-size:13px;margin-bottom:18px;">探索記録は準備中です</div>';
+  }
+  const badges = Array.isArray(activity.badges) ? activity.badges : [];
+  const badgesHtml = badges.length
+    ? badges.map(b => `
+        <div style="background:#0f1428;border:1px solid #5D4A1F;border-radius:10px;padding:10px;">
+          <div style="font-size:18px;">🏅 ${escapeAttr(b.title || '')}</div>
+          <div style="font-size:12px;color:#aaa;margin-top:4px;">${escapeAttr(b.description || '')}</div>
+        </div>`).join('')
+    : '<div style="color:#888;font-size:13px;">会場を探索するとバッジが増えていきます</div>';
+  return `
+    <section id="profile-activity" style="margin-bottom:22px;">
+      <div style="font-size:16px;font-weight:bold;margin-bottom:10px;">🗺️ あなたの探索記録</div>
+      <div style="font-size:13px;color:#bbb;margin-bottom:10px;">使い始めた日　${escapeAttr(formatActivityDate(activity.started_at))}</div>
+      <div style="display:flex;gap:5px;margin-bottom:10px;">
+        ${[['today','今日'],['week','今週'],['month','今月'],['total','累計']].map(([key,label]) =>
+          `<button type="button" class="activity-period-btn" data-period="${key}" style="flex:1;padding:7px 2px;border:1px solid #0f3460;border-radius:8px;background:${key === 'total' ? '#0f3460' : 'transparent'};color:#fff;">${label}</button>`
+        ).join('')}
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px;text-align:center;">
+        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-visits" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#aaa;">訪問日数</div></div>
+        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-venues" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#aaa;">見た会場</div></div>
+        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-pins" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#aaa;">ピンタップ</div></div>
+      </div>
+      <div style="font-size:14px;font-weight:bold;margin-bottom:8px;">🌏 みんなの記録</div>
+      <div style="background:#0f1428;border-radius:8px;padding:10px;margin-bottom:14px;font-size:13px;color:#ccc;">
+        訪問 <strong id="global-visits" style="color:#fff;">0</strong>　
+        ピンタップ <strong id="global-pins" style="color:#fff;">0</strong>
+      </div>
+      <div style="font-size:14px;font-weight:bold;margin-bottom:8px;">🏅 キリ番・探索バッジ</div>
+      <div style="display:grid;gap:7px;">${badgesHtml}</div>
+    </section>`;
+}
+
+function openProfileModal(profile, activity, globalSummary) {
   closeProfileModal();
   const isEdit = Boolean(profile);
 
@@ -166,11 +212,13 @@ function openProfileModal(profile) {
   const modal = document.createElement('div');
   modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;box-sizing:border-box;';
 
-  const title = isEdit ? '✏️ 登録情報の編集' : '📝 かんたん会員登録';
+  const title = isEdit ? '👤 プロフィール' : '📝 かんたん会員登録';
   const fieldStyle = 'width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #0f3460;background:#0f1428;color:#fff;font-size:16px;margin-bottom:16px;';
 
   modal.innerHTML = `
     <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:16px;">${title}</div>
+    ${renderActivitySection(activity, globalSummary)}
+    <div style="font-size:16px;font-weight:bold;margin-bottom:12px;">${isEdit ? '✏️ 登録情報' : '登録情報'}</div>
     <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">表示名（必須・30文字まで）</label>
     <input id="profile-display-name" type="text" maxlength="30" value="${escapeAttr(profile && profile.display_name)}" style="${fieldStyle}">
     <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">都道府県（任意）</label>
@@ -188,6 +236,26 @@ function openProfileModal(profile) {
   overlay.appendChild(modal);
   overlay.addEventListener('click', (e) => { if (e.target === overlay) closeProfileModal(); });
   document.body.appendChild(overlay);
+
+  if (activity && activity.periods) {
+    const setPeriod = period => {
+      const own = activity.periods[period] || {};
+      const all = (globalSummary && globalSummary.periods && globalSummary.periods[period]) || {};
+      const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = Number(value || 0).toLocaleString('ja-JP'); };
+      setText('activity-visits', own.visits);
+      setText('activity-venues', own.venues);
+      setText('activity-pins', own.pin_taps);
+      setText('global-visits', all.visitors);
+      setText('global-pins', all.pin_taps);
+      document.querySelectorAll('.activity-period-btn').forEach(btn => {
+        btn.style.background = btn.dataset.period === period ? '#0f3460' : 'transparent';
+      });
+    };
+    document.querySelectorAll('.activity-period-btn').forEach(btn => {
+      btn.addEventListener('click', () => setPeriod(btn.dataset.period));
+    });
+    setPeriod('total');
+  }
 
   const nameInput = document.getElementById('profile-display-name');
   const prefInput = document.getElementById('profile-prefecture');
@@ -238,12 +306,16 @@ function openProfileModal(profile) {
 function openProfileModalFresh() {
   const token = getUserToken();
   if (!window.DanshuProfileApi || !token) {
-    openProfileModal(null);
+    openProfileModal(null, null, null);
     return;
   }
-  window.DanshuProfileApi.get(token).then(profile => {
+  const activityRequest = window.DanshuActivityApi
+    ? window.DanshuActivityApi.getProfile(token) : Promise.resolve(null);
+  const globalRequest = window.DanshuActivityApi
+    ? window.DanshuActivityApi.getSummary() : Promise.resolve(null);
+  Promise.all([window.DanshuProfileApi.get(token), activityRequest, globalRequest]).then(([profile, activity, globalSummary]) => {
     setProfileMenuLabel(Boolean(profile));
-    openProfileModal(profile);
+    openProfileModal(profile, activity, globalSummary);
   });
 }
 
