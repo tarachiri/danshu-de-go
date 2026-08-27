@@ -41,5 +41,16 @@ GitHub Pagesの`venues.json`は`Cache-Control: max-age=600`のため、データ
 
 - 専用worktree: `/Users/pro2015/Downloads/danshu-de-go-splash-speed`
 - ブランチ: `codex/splash-speed-20260827`
-- ローカル実装・テスト済み
-- 未コミット、未プッシュ、本番未反映
+- コミット`f46ed6f`を`origin/main`へプッシュ済み
+- GitHub Pages本番反映済み
+
+## 本番確認
+
+キャッシュ回避URLで公開ファイルを読み戻し、以下を確認した。
+
+- `index.html`が`app.js?v=20260827b`を参照
+- スプラッシュDOMがLeaflet JavaScriptより前に存在
+- 公開`app.js`が`fetch('venues.json')`を使用
+- 公開`app.js`に55%・80%・95%の進捗更新が存在
+
+GitHub Pagesの反映前には旧版が返ることを確認し、反映後に上記4項目が切り替わった時点で完了とした。
