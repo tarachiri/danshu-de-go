@@ -8,6 +8,7 @@ const test = require('node:test');
 
 const ROOT = path.resolve(__dirname, '..');
 const ABOUT = fs.readFileSync(path.join(ROOT, 'about.html'), 'utf8');
+const SITEMAP = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 const ABOUT_URL = 'https://dansyu-go.nukadokonokai.com/about.html';
 
 test('aboutページは準備中ではなく目的・情報源・注意事項を説明する', () => {
@@ -58,4 +59,10 @@ test('主要な内部リンクのリンク先が存在する', () => {
 test('変動しやすい掲載件数や比較優位を固定表示しない', () => {
   assert.doesNotMatch(ABOUT, /\d{1,3}(?:,\d{3})+(?:会場|例会|団体)/);
   assert.doesNotMatch(ABOUT, /日本一|国内最大|完全網羅/);
+});
+
+test('aboutページをsitemapへ重複なく掲載する', () => {
+  const escaped = ABOUT_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const matches = SITEMAP.match(new RegExp(`<loc>${escaped}</loc>`, 'g')) || [];
+  assert.equal(matches.length, 1);
 });
