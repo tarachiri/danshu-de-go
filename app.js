@@ -668,7 +668,7 @@ function initVenues() {
   const totalEl = document.getElementById('count-total-header');
   if (totalEl) totalEl.textContent = '...';
   window.setSplashProgress && window.setSplashProgress(30, '例会情報を取得中...');
-  fetch('venues.json?v=' + Date.now())
+  fetch('venues.json')
     .then(r => {
       const lm = r.headers.get('Last-Modified');
       if(lm){
@@ -679,11 +679,16 @@ function initVenues() {
       }
       return r.json();
     })
-    .then(data => {
+    .then(async data => {
+      window.setSplashProgress && window.setSplashProgress(55, '例会情報を受信しました');
+      await yieldForSplashPaint();
       VENUES = data;
       window.VENUES = VENUES;
       window.setSplashProgress && window.setSplashProgress(80, 'データを解析中...');
+      await yieldForSplashPaint();
       applyFilters();
+      window.setSplashProgress && window.setSplashProgress(95, '地図を仕上げています...');
+      await yieldForSplashPaint();
       jumpToVenueFromUrl();
       window.setSplashProgress && window.setSplashProgress(100, '準備完了！');
     })
@@ -695,6 +700,10 @@ function initVenues() {
       const totalEl2 = document.getElementById('count-total-header');
       if (totalEl2) totalEl2.textContent = '!';
     });
+}
+
+function yieldForSplashPaint() {
+  return new Promise(resolve => setTimeout(resolve, 0));
 }
 
 function jumpToVenueFromUrl() {

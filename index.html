@@ -16,11 +16,18 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="断酒でGO!!">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+</noscript>
 <link rel="stylesheet" href="style.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1YCK7W6XG"></script>
 <script src="js/analytics.js"></script>
@@ -30,7 +37,6 @@
 <!-- 統合スプラッシュ（ローディング＋免責同意） -->
 <div id="splash-overlay">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap');
     #splash-overlay {
       position: fixed; inset: 0;
       width: 100vw; height: 100dvh;
@@ -396,10 +402,13 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" onload="window.renderSplashQr && window.renderSplashQr()"></script>
 <script>
 // QRコード生成
-(function(){
+window.renderSplashQr = function renderSplashQr(){
+  var target=document.getElementById('sp-qr-canvas');
+  if(typeof QRCode==='undefined'||!target||target.dataset.rendered==='1')return;
+  target.dataset.rendered='1';
   var d=document.createElement('div');
   d.style.cssText='visibility:hidden;position:absolute;';
   document.body.appendChild(d);
@@ -410,7 +419,8 @@
     if(c&&t)t.getContext('2d').drawImage(c,0,0);
     document.body.removeChild(d);
   },300);
-})();
+};
+window.renderSplashQr();
 
 // プログレス更新関数（app.jsから呼ばれる）
 window.setSplashProgress = function(percent, statusText) {
@@ -588,6 +598,9 @@ function splashClose() {
 </section>
 
 
+<!-- 地図ライブラリはスプラッシュDOMの後で読み込み、初期画面を先に描画する。 -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="schedule.js"></script>
 <script src="js/news-tab.js"></script>
 <script src="js/browser-identity.js?v=20260802a"></script>
@@ -597,7 +610,7 @@ function splashClose() {
 <script src="js/profile-api.js?v=20260813a"></script>
 <script src="js/activity-api.js?v=20260826a"></script>
 <script src="js/uranai.js?v=20260816a"></script>
-<script src="app.js?v=20260827a"></script>
+<script src="app.js?v=20260827b"></script>
 <script src="js/menu.js?v=20260827a"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }
