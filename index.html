@@ -498,18 +498,22 @@ function splashClose() {
 </div>
 
 <div id="legend" style="background:#16213e; border-bottom:1px solid #0f3460; padding:6px 12px;">
-  <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+  <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
+    <div class="legend-item" style="flex-shrink:0;">
+      <div class="legend-dot" style="width:11px;height:11px;background:#2471A3;"></div>
+      <span style="font-size:15px;">今日昼<span id="count-today-day">0</span>件</span>
+    </div>
     <div class="legend-item" style="flex-shrink:0;">
       <div class="legend-dot" style="width:11px;height:11px;background:#C0392B;"></div>
-      <span style="font-size:20px;">今日<span id="count-today">0</span>件</span>
+      <span style="font-size:15px;">今日夕夜<span id="count-today-evening">0</span>件</span>
     </div>
     <div class="legend-item" style="flex-shrink:0;">
       <div class="legend-dot" style="width:11px;height:11px;background:#D35400;"></div>
-      <span style="font-size:20px;">明日<span id="count-tomorrow">0</span>件</span>
+      <span style="font-size:15px;">明日<span id="count-tomorrow">0</span>件</span>
     </div>
     <div class="legend-item" style="flex-shrink:0;">
       <div class="legend-dot" style="width:11px;height:11px;background:#F39C12;"></div>
-      <span style="font-size:20px;">明後日<span id="count-dayafter">0</span>件</span>
+      <span style="font-size:15px;">明後日<span id="count-dayafter">0</span>件</span>
     </div>
   </div>
   <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:6px;">
@@ -639,7 +643,8 @@ function splashClose() {
 <script src="js/profile-api.js?v=20260813a"></script>
 <script src="js/activity-api.js?v=20260826a"></script>
 <script src="js/uranai.js?v=20260816a"></script>
-<script src="app.js?v=20260827b"></script>
+<script src="js/pin-schedule.js?v=20260831a"></script>
+<script src="app.js?v=20260831a"></script>
 <script src="js/menu.js?v=20260827a"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }

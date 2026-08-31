@@ -64,9 +64,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // 地図内蔵の著作権表示は地図の可視領域を圧迫するため無効化し、
 // 画面下部フッター内に静的な帰属表示として設置する（下記footer参照）
 
-const TODAY    = getTodayJST();
-const TOMORROW = getTomorrowJST();
-const DAY_AFTER= new Date(new Date().getTime() + (9 + 48) * 60 * 60 * 1000).toISOString().split('T')[0];
 // エリアカラー（その他用）
 const AREA_COLORS = {
   '東京都':  '#1A5276',
@@ -79,15 +76,23 @@ const AREA_COLORS = {
 // 日付ラベル
 function getDateLabel(next_date) {
   if (!next_date) return 'none';
-  if (next_date === TODAY)     return 'today';
-  if (next_date === TOMORROW)  return 'tomorrow';
-  if (next_date === DAY_AFTER) return 'dayafter';
+  const today = PinSchedule.jstNow().date;
+  const [year, month, day] = today.split('-').map(Number);
+  const dateAfter = days => new Date(Date.UTC(year, month - 1, day + days)).toISOString().slice(0, 10);
+  const tomorrow = dateAfter(1);
+  const dayAfter = dateAfter(2);
+  if (next_date === today)     return 'today';
+  if (next_date === tomorrow)  return 'tomorrow';
+  if (next_date === dayAfter)  return 'dayafter';
   return 'other';
 }
 
 // ピンスタイル
 function getStyle(v) {
   const label = getDateLabel(v.next_date);
+  if (label === 'today' && PinSchedule.isDayMeeting(v.start_time)) {
+    return { color: '#2471A3', size: 28, cls: 'pin-today' };
+  }
   if (label === 'today')    return { color: '#C0392B', size: 28, cls: 'pin-today' };
   if (label === 'tomorrow') return { color: '#D35400', size: 26, cls: '' };
   if (label === 'dayafter') return { color: '#E8857A', size: 21, cls: '' };
@@ -749,7 +754,10 @@ function applyFilters() {
   VENUES.forEach(v => {
     if (!v.lat || !v.lng) return;
 
-    const label = getDateLabel(v.next_date);
+    const pinVenue = PinSchedule.withEffectiveOccurrence(v);
+    if (!pinVenue) return;
+
+    const label = getDateLabel(pinVenue.next_date);
 
     // モード判定
     if (currentMode === 'comfort' && label === 'none') return;
@@ -761,8 +769,8 @@ function applyFilters() {
     // エリアフィルター
     if (areaFilter !== 'all' && v.prefecture !== areaFilter) return;
 
-    const marker = L.marker([v.lat, v.lng], { icon: makeIcon(v) });
-    marker.on('click', () => openVenueSheet(v));
+    const marker = L.marker([v.lat, v.lng], { icon: makeIcon(pinVenue) });
+    marker.on('click', () => openVenueSheet(pinVenue));
 
     activeGroup.addLayer(marker);
     window._markers[v.id] = marker;
@@ -770,14 +778,21 @@ function applyFilters() {
   });
 
 
-let todayCount=0, tomorrowCount=0, dayafterCount=0;
+let todayCount=0, todayDayCount=0, todayEveningCount=0, tomorrowCount=0, dayafterCount=0;
   VENUES.forEach(v => {
-    const l = getDateLabel(v.next_date);
-    if(l==='today') todayCount++;
+    const pinVenue = PinSchedule.withEffectiveOccurrence(v);
+    if (!pinVenue) return;
+    const l = getDateLabel(pinVenue.next_date);
+    if(l==='today') {
+      todayCount++;
+      if (PinSchedule.isDayMeeting(pinVenue.start_time)) todayDayCount++;
+      else todayEveningCount++;
+    }
     else if(l==='tomorrow') tomorrowCount++;
     else if(l==='dayafter') dayafterCount++;
   });
-  document.getElementById('count-today').textContent = todayCount;
+  document.getElementById('count-today-day').textContent = todayDayCount;
+  document.getElementById('count-today-evening').textContent = todayEveningCount;
   const todayHeaderEl = document.getElementById('count-today-header');
   if (todayHeaderEl) todayHeaderEl.textContent = todayCount;
   document.getElementById('count-tomorrow').textContent = tomorrowCount;
@@ -788,6 +803,8 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
 }
 
 initVenues();
+// ページを開いたままでも、終了時刻を過ぎたら次の開催候補へ切り替える。
+setInterval(applyFilters, 60 * 1000);
 
 
 // ===== カスタム縦ズームスライダー =====
