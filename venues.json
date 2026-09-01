@@ -9603,15 +9603,15 @@
       {
         "meeting_id": 995,
         "name": "豊友会",
-        "day_of_week": "水",
-        "week_of_month": "5",
+        "day_of_week": "",
+        "week_of_month": "",
         "start_time": "18:30",
         "end_time": "20:30",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第5水曜",
-        "next_date": "2026-09-30",
+        "recurrence": "",
+        "next_date": "",
         "next_date_2": "",
         "has_exception": false,
         "exc_type": "",
@@ -9623,11 +9623,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-09-30",
+    "next_date": "",
     "meeting_name": "豊友会",
     "start_time": "18:30",
     "end_time": "20:30",
-    "recurrence": "第5水曜"
+    "recurrence": ""
   },
   {
     "id": 1790,
