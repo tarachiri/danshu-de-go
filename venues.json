@@ -60875,15 +60875,15 @@
         "meeting_id": 2058,
         "name": "牛久弥生例会",
         "day_of_week": "火",
-        "week_of_month": "4",
+        "week_of_month": "2",
         "start_time": "19:00",
         "end_time": "20:00",
         "meeting_type": "",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第4火曜",
-        "next_date": "2026-09-22",
-        "next_date_2": "2026-10-27",
+        "recurrence": "第2火曜",
+        "next_date": "2026-09-08",
+        "next_date_2": "2026-10-13",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -60894,11 +60894,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-09-22",
+    "next_date": "2026-09-08",
     "meeting_name": "牛久弥生例会",
     "start_time": "19:00",
     "end_time": "20:00",
-    "recurrence": "第4火曜"
+    "recurrence": "第2火曜"
   },
   {
     "id": 1889,
