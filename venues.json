@@ -54921,15 +54921,15 @@
         "meeting_id": 2413,
         "name": "三浦支部例会",
         "day_of_week": "月",
-        "week_of_month": "2",
+        "week_of_month": "2,4",
         "start_time": "19:00",
         "end_time": "20:30",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第2月曜",
+        "recurrence": "第2・第4月曜",
         "next_date": "2026-09-14",
-        "next_date_2": "2026-10-12",
+        "next_date_2": "2026-09-28",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -54961,7 +54961,7 @@
     "meeting_name": "三浦支部例会",
     "start_time": "19:00",
     "end_time": "20:30",
-    "recurrence": "第2月曜"
+    "recurrence": "第2・第4月曜"
   },
   {
     "id": 739,
