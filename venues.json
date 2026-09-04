@@ -47252,23 +47252,6 @@
     "walk_duration_min": 8,
     "meetings": [
       {
-        "meeting_id": 507,
-        "name": "青梅例会",
-        "day_of_week": "金",
-        "week_of_month": "1",
-        "start_time": "14:00",
-        "end_time": "16:00",
-        "meeting_type": "通常",
-        "family_meeting": 0,
-        "event_date": "",
-        "recurrence": "第1金曜",
-        "next_date": "2026-09-04",
-        "next_date_2": "2026-10-02",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": ""
-      },
-      {
         "meeting_id": 1390,
         "name": "青梅例会",
         "day_of_week": "木",
@@ -47284,6 +47267,23 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
+      },
+      {
+        "meeting_id": 507,
+        "name": "青梅例会",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "meeting_type": "通常",
+        "family_meeting": 0,
+        "event_date": "",
+        "recurrence": "",
+        "next_date": "",
+        "next_date_2": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
       }
     ],
     "has_exception": false,
@@ -47291,11 +47291,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-09-04",
+    "next_date": "2026-10-01",
     "meeting_name": "青梅例会",
     "start_time": "14:00",
     "end_time": "16:00",
-    "recurrence": "第1金曜"
+    "recurrence": "第1木曜"
   },
   {
     "id": 250,
