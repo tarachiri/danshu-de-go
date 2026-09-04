@@ -71172,5 +71172,50 @@
     "start_time": "19:00",
     "end_time": "",
     "recurrence": "公式日程（日付指定）"
+  },
+  {
+    "id": 2219,
+    "facility_name": "鹿児島県精神保健福祉センター（ハートピアかごしま2階）",
+    "address": "鹿児島県鹿児島市小野1丁目1-1",
+    "lat": 31.609949,
+    "lng": 130.532181,
+    "prefecture": "鹿児島県",
+    "official_url": "https://www.pref.kagoshima.jp/ae14/documents/26855_20251202152522-1.pdf",
+    "calendar_url": "",
+    "contact_phone": "",
+    "needs_verification": 0,
+    "nearest_station": "",
+    "straight_distance_m": null,
+    "walk_distance_m": null,
+    "walk_duration_min": null,
+    "meetings": [
+      {
+        "meeting_id": 4388,
+        "name": "鹿児島県断酒友の会例会",
+        "day_of_week": "日",
+        "week_of_month": "1",
+        "start_time": "13:00",
+        "end_time": "15:00",
+        "meeting_type": "通常",
+        "family_meeting": 0,
+        "event_date": "",
+        "recurrence": "第1日曜",
+        "next_date": "2026-09-06",
+        "next_date_2": "2026-10-04",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": ""
+      }
+    ],
+    "has_exception": false,
+    "exc_note": "",
+    "fallback_meeting_name": "鹿児島県断酒友の会例会",
+    "fallback_schedule": "第1日曜日 13:00～15:00",
+    "fallback_next_date": "",
+    "next_date": "2026-09-06",
+    "meeting_name": "鹿児島県断酒友の会例会",
+    "start_time": "13:00",
+    "end_time": "15:00",
+    "recurrence": "第1日曜"
   }
 ]
