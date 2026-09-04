@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,6 +27,12 @@
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/gogo-submit.html</loc>
     <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/about.html</loc>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -530,7 +536,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/gifu/org-637/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -920,7 +926,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chugoku/tottori/org-786/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1508,13 +1514,13 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/saitama/org-448/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/saitama/org-449/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1586,7 +1592,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/saitama/org-461/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1610,7 +1616,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/saitama/org-465/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1634,7 +1640,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/saitama/org-470/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2474,7 +2480,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/osaka/org-734/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
