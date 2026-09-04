@@ -48295,16 +48295,16 @@
       {
         "meeting_id": 490,
         "name": "多摩市桜ケ丘",
-        "day_of_week": "金",
-        "week_of_month": "1",
+        "day_of_week": "",
+        "week_of_month": "",
         "start_time": "19:00",
         "end_time": "21:00",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第1金曜",
-        "next_date": "2026-09-04",
-        "next_date_2": "2026-10-02",
+        "recurrence": "",
+        "next_date": "",
+        "next_date_2": "",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -48315,11 +48315,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-09-04",
+    "next_date": "",
     "meeting_name": "多摩市桜ケ丘",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第1金曜"
+    "recurrence": ""
   },
   {
     "id": 283,
@@ -54489,16 +54489,16 @@
       {
         "meeting_id": 2810,
         "name": "平塚例会",
-        "day_of_week": "火",
-        "week_of_month": "2,3,4",
+        "day_of_week": "木",
+        "week_of_month": "1,2,3,4",
         "start_time": "18:45",
         "end_time": "20:30",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第2・第3・第4火曜",
-        "next_date": "2026-09-08",
-        "next_date_2": "2026-09-15",
+        "recurrence": "第1・第2・第3・第4木曜",
+        "next_date": "2026-09-10",
+        "next_date_2": "2026-09-17",
         "has_exception": false,
         "exc_type": "",
         "exc_note": ""
@@ -54526,11 +54526,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-09-08",
+    "next_date": "2026-09-10",
     "meeting_name": "平塚例会",
     "start_time": "18:45",
     "end_time": "20:30",
-    "recurrence": "第2・第3・第4火曜"
+    "recurrence": "第1・第2・第3・第4木曜"
   },
   {
     "id": 100,
