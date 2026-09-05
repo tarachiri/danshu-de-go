@@ -399,6 +399,7 @@ h2::before {
 .schedule-list time { font-weight: 700; }
 .schedule-time { white-space: nowrap; }
 .schedule-name { color: #3e2814; }
+.btn-meetings { display: inline-block; margin-top: .6rem; padding: .7rem 1rem; border-radius: .5rem; background: #0759a5; color: #fff; font-weight: 700; text-decoration: none; }
 .schedule-venue { grid-column: 3; color: #685b50; font-size: .9rem; }
 @media (max-width: 700px) {
   .schedule-list li { grid-template-columns: 1fr auto; }
