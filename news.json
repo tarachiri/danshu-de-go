@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T03:29:44.430099+09:00",
+  "generated_at": "2026-09-06T03:29:43.934309+09:00",
   "events": [
     {
       "id": "sobernet-942",
@@ -255,14 +255,14 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-958",
-      "title": "東北ブロック研修会 山形青年の家",
-      "date_from": "2026-10-24",
-      "date_to": "2026-10-25",
+      "id": "sobernet-1034",
+      "title": "四国ブロック学習会並びに第11回四国 ブロック家族一日研修会 岡田コミュニティセンター",
+      "date_from": "2026-10-25",
+      "date_to": null,
       "venue": "",
-      "prefecture": "山形県",
+      "prefecture": "",
       "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=958",
+      "url": "https://addiction-peer.net/event.html?evt_id=1034",
       "source": "ソーバーねっと"
     },
     {
@@ -277,17 +277,6 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-1043",
-      "title": "第53回高槻市断酒会一日研修会 高槻城公園芸術文化劇場南館 サンユレックホール",
-      "date_from": "2026-11-01",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1043",
-      "source": "ソーバーねっと"
-    },
-    {
       "id": "sobernet-1021",
       "title": "令和8年度 横浜断酒新生会 地区別一般酒害相談研修会 栄公会堂",
       "date_from": "2026-11-06",
@@ -296,6 +285,17 @@
       "prefecture": "",
       "category": "研修会",
       "url": "https://addiction-peer.net/event.html?evt_id=1021",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-1044",
+      "title": "中部ブロック秋季研修会 陽だまりの家",
+      "date_from": "2026-11-07",
+      "date_to": "2026-11-08",
+      "venue": "",
+      "prefecture": "",
+      "category": "研修会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1044",
       "source": "ソーバーねっと"
     },
     {
@@ -318,17 +318,6 @@
       "prefecture": "",
       "category": "セミナー",
       "url": "https://addiction-peer.net/event.html?evt_id=1045",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1046",
-      "title": "アルコール関連問題啓発セミナー 東北大学さくらホール",
-      "date_from": "2026-11-08",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "",
-      "category": "セミナー",
-      "url": "https://addiction-peer.net/event.html?evt_id=1046",
       "source": "ソーバーねっと"
     },
     {
@@ -365,6 +354,17 @@
       "source": "ソーバーねっと"
     },
     {
+      "id": "sobernet-1055",
+      "title": "アルコール関連問題都民啓発セミナー 宮崎県総合保健センター",
+      "date_from": "2026-11-20",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "宮崎県",
+      "category": "セミナー",
+      "url": "https://addiction-peer.net/event.html?evt_id=1055",
+      "source": "ソーバーねっと"
+    },
+    {
       "id": "sobernet-1022",
       "title": "令和8年度 西湘断酒新生会 地区別一般酒害相談研修会 松田町生涯学習センター",
       "date_from": "2026-11-27",
@@ -376,6 +376,28 @@
       "source": "ソーバーねっと"
     },
     {
+      "id": "sobernet-959",
+      "title": "第10回四国ブロックアメシストの集い 香川県高松市サンポートホール5F",
+      "date_from": "2026-11-29",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "香川県",
+      "category": "アメシスト",
+      "url": "https://addiction-peer.net/event.html?evt_id=959",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-1049",
+      "title": "アルコール関連問題市民啓発セミナー 豊川市ウインディアホール",
+      "date_from": "2026-11-29",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "",
+      "category": "セミナー",
+      "url": "https://addiction-peer.net/event.html?evt_id=1049",
+      "source": "ソーバーねっと"
+    },
+    {
       "id": "sobernet-1050",
       "title": "アルコール関連問題市民啓発セミナー 草津市民交流プラザ",
       "date_from": "2026-11-29",
@@ -384,17 +406,6 @@
       "prefecture": "",
       "category": "セミナー",
       "url": "https://addiction-peer.net/event.html?evt_id=1050",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1051",
-      "title": "奈良若草断酒会一泊研修会 天理教北陸詰所",
-      "date_from": "2026-12-05",
-      "date_to": "2026-12-06",
-      "venue": "",
-      "prefecture": "奈良県",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1051",
       "source": "ソーバーねっと"
     },
     {
@@ -420,28 +431,6 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-1059",
-      "title": "アディクションアカデミー 休暇村讃岐五色台",
-      "date_from": "2026-12-19",
-      "date_to": "2026-12-20",
-      "venue": "",
-      "prefecture": "",
-      "category": "イベント",
-      "url": "https://addiction-peer.net/event.html?evt_id=1059",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1036",
-      "title": "第39回大阪アメシストの集い・一日研修会 ビッグアイ",
-      "date_from": "2027-02-14",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "大阪府",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1036",
-      "source": "ソーバーねっと"
-    },
-    {
       "id": "sobernet-1053",
       "title": "第24回埼玉県市民公開セミナー ・第13回市民公開セミナーinさいたま 埼玉県障害者交流センター",
       "date_from": "2027-02-23",
@@ -450,17 +439,6 @@
       "prefecture": "埼玉県",
       "category": "セミナー",
       "url": "https://addiction-peer.net/event.html?evt_id=1053",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-994",
-      "title": "第72回一泊特別研修会 島根県立少年自然の家",
-      "date_from": "2027-02-27",
-      "date_to": "2027-02-28",
-      "venue": "",
-      "prefecture": "島根県",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=994",
       "source": "ソーバーねっと"
     },
     {
@@ -508,6 +486,17 @@
       "source": "ソーバーねっと"
     },
     {
+      "id": "sobernet-995",
+      "title": "中国ブロックアメシストの集い ワークピア広島",
+      "date_from": "2027-03-14",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "広島県",
+      "category": "アメシスト",
+      "url": "https://addiction-peer.net/event.html?evt_id=995",
+      "source": "ソーバーねっと"
+    },
+    {
       "id": "sobernet-1004",
       "title": "第18回九州ブロックアメシスト研修会 鳥栖市文化会館",
       "date_from": "2027-03-21",
@@ -541,17 +530,6 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-1037",
-      "title": "第80回松村断酒学校 本山町プラチナセンター",
-      "date_from": "2027-05-08",
-      "date_to": "2027-05-09",
-      "venue": "",
-      "prefecture": "",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1037",
-      "source": "ソーバーねっと"
-    },
-    {
       "id": "sobernet-980",
       "title": "第59回関東ブロック東京多摩大会 いちょうホール 八王子市芸術文化会館",
       "date_from": "2027-05-23",
@@ -574,17 +552,6 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-962",
-      "title": "第62回四国断酒ブロック徳島・阿波大会 アエルワホール",
-      "date_from": "2027-07-04",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "徳島県",
-      "category": "大会",
-      "url": "https://addiction-peer.net/event.html?evt_id=962",
-      "source": "ソーバーねっと"
-    },
-    {
       "id": "sobernet-1058",
       "title": "第41回九州ブロック大分大会 臼杵市市民会館",
       "date_from": "2027-08-01",
@@ -602,7 +569,7 @@
       "url": "https://www.shindanren.com/_files/ugd/ad2f10_2bc1fa5299ff4b97b46f5b5c146aaeaf.pdf",
       "org": "神奈川県断酒新生会",
       "prefecture": "神奈川県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -610,7 +577,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2026/07/0808P1.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -618,7 +585,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2026/08/08090728P1.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -626,7 +593,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2024/05/R8_06全断連（行事予定表）.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -634,7 +601,7 @@
       "url": "https://www.sdansyu.org/wp-content/uploads/2024/05/08yotei.pdf",
       "org": "静岡県断酒会",
       "prefecture": "静岡県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -642,7 +609,7 @@
       "url": "https://www.zdrfukuoka.jp/wp-content/uploads/2026/08/9f380915a1b3223fdac954d6a37cc11c.pdf",
       "org": "福岡県断酒連合会",
       "prefecture": "福岡県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -650,7 +617,7 @@
       "url": "https://dansyu-tochigiken.jp/troublerelatedalchol2023.pdf",
       "org": "栃木県断酒会",
       "prefecture": "栃木県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -658,7 +625,7 @@
       "url": "http://dansyukai.com/teirei/09.pdf",
       "org": "dansyukai",
       "prefecture": "島根県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -666,15 +633,7 @@
       "url": "http://shigadansyu.com/img115.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-09-05",
-      "source": "公式サイト"
-    },
-    {
-      "title": "8-10 月",
-      "url": "http://shigadansyu.com/img997.pdf",
-      "org": "shigadansyu",
-      "prefecture": "滋賀県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -682,7 +641,7 @@
       "url": "http://shigadansyu.com/img998.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -690,7 +649,7 @@
       "url": "http://shigadansyu.com/img2022ソフトボール.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -698,7 +657,15 @@
       "url": "http://shigadansyu.com/令和２年会長挨拶.pdf",
       "org": "shigadansyu",
       "prefecture": "滋賀県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
+      "source": "公式サイト"
+    },
+    {
+      "title": "祝辞",
+      "url": "http://shigadansyu.com/令和２年祝辞.pdf",
+      "org": "shigadansyu",
+      "prefecture": "滋賀県",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -706,7 +673,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/08/みやちゃんカレンダー2026年9月号作成中.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -714,7 +681,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/08/みやちゃんカレンダー裏面）2026年４月現在.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -722,7 +689,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/07/みやちゃんカレンダー2026年8月号作成中.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -730,7 +697,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/07/みやちゃんカレンダー裏面）2026年４月現在.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -738,7 +705,7 @@
       "url": "http://danshu-heian.net/wp-content/uploads/2026/06/みやちゃんカレンダー2026年7月号作成中.pdf",
       "org": "danshu-heian",
       "prefecture": "京都府",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     },
     {
@@ -746,7 +713,7 @@
       "url": "https://hiroshima-danshukai-rengoukai.com/images/bingo_tomonokai.pdf",
       "org": "hiroshima-danshukai-rengoukai",
       "prefecture": "広島県",
-      "found_at": "2026-09-05",
+      "found_at": "2026-09-06",
       "source": "公式サイト"
     }
   ],
@@ -906,7 +873,7 @@
   ],
   "summary": "",
   "stats": {
-    "events": 54,
+    "events": 51,
     "pdfs": 19,
     "news": 19
   }
