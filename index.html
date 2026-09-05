@@ -4,10 +4,10 @@
   <meta name="google-site-verification" content="7EhXvtjVoRS35w2Ag4aOtzV5998UUlyJdXe5ST7Dvic" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="全国の断酒会例会場を地図で検索。あなたの近くの断酒会がすぐ見つかる。全日本断酒連盟加盟の断酒会情報を網羅した人命インフラ。">
+<meta name="description" content="全国の断酒会例会場と開催日程を地図で検索。今日・明日の例会、開始時間、会場変更や中止情報を都道府県別に確認できます。">
 <meta name="keywords" content="断酒会,例会,断酒,アルコール依存症,自助グループ,断酒でGO">
-<meta property="og:title" content="断酒でGO!! - 全国断酒会例会場マップ">
-<meta property="og:description" content="全国の断酒会例会場を地図で検索。あなたの近くの断酒会がすぐ見つかる。">
+<meta property="og:title" content="全国の断酒会・例会場を地図で検索｜断酒でGO!!">
+<meta property="og:description" content="全国の断酒会例会場と開催日程を地図で検索。今日・明日の例会、開始時間、会場変更や中止情報を都道府県別に確認できます。">
 <meta property="og:url" content="https://dansyu-go.nukadokonokai.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -16,11 +16,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="断酒でGO!! 全国断酒会例会場マップ">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="断酒でGO!! - 全国断酒会例会場マップ">
-<meta name="twitter:description" content="全国の断酒会例会場を地図で検索。あなたの近くの断酒会がすぐ見つかる。">
+<meta name="twitter:title" content="全国の断酒会・例会場を地図で検索｜断酒でGO!!">
+<meta name="twitter:description" content="全国の断酒会例会場と開催日程を地図で検索。今日・明日の例会、開始時間、会場変更や中止情報を都道府県別に確認できます。">
 <meta name="twitter:image" content="https://dansyu-go.nukadokonokai.com/ogp.png">
 <meta name="twitter:image:alt" content="断酒でGO!! 全国断酒会例会場マップ">
-<title>断酒でGO - 例会場マップ</title>
+<title>全国の断酒会・例会場を地図で検索｜断酒でGO!!</title>
 <link rel="canonical" href="https://dansyu-go.nukadokonokai.com/">
 <script type="application/ld+json">
 {
@@ -29,7 +29,7 @@
   "name": "断酒でGO!!",
   "alternateName": "全国断酒会 例会場マップ",
   "url": "https://dansyu-go.nukadokonokai.com/",
-  "description": "全国の断酒会例会場を地図で検索し、地域や開催日から探せるサービスです。",
+  "description": "全国の断酒会例会場と開催日程を地図で検索し、今日・明日の例会や変更情報を地域から探せるサービスです。",
   "inLanguage": "ja-JP"
 }
 </script>
@@ -54,11 +54,13 @@
 <script src="js/analytics.js"></script>
 </head>
 <body class="footer-hidden">
+<main id="main-content">
 
 <!-- 統合スプラッシュ（ローディング＋免責同意） -->
 <div id="splash-overlay">
   <style>
     #splash-overlay {
+      --sp-detail-font-size: 14px;
       position: fixed; inset: 0;
       width: 100vw; height: 100dvh;
       background: #1a1a2e;
@@ -72,7 +74,8 @@
     #splash-overlay.fade-out { opacity: 0; pointer-events: none; }
     .sp-top { display:flex; flex-direction:column; align-items:center; }
     .sp-kana { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
-    .sp-title { font-family:'Noto Serif JP',serif; font-size:38px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
+    .sp-title { display:flex; flex-direction:column; align-items:center; gap:8px; font-family:'Noto Serif JP',serif; font-size:38px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
+    .sp-title small { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:400; color:rgba(240,232,208,0.72); letter-spacing:.08em; line-height:1.4; }
     .sp-sub { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:0; }
     .sp-divider { width:48px; height:1px; background:rgba(180,140,80,0.3); margin: 3px 0; }
 
@@ -224,30 +227,30 @@
       width: 100%; max-width: 320px;
       margin-top: 22px;
       padding-top: 22px;
-      border-top: 1px solid rgba(180,140,80,0.25);
+      border-top: 2px solid rgba(180,140,80,0.25);
       display: flex; flex-direction: column; gap: 12px;
     }
     .sp-message-block p {
       font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px; font-weight: 300;
+      font-size: var(--sp-detail-font-size); font-weight: 400;
       line-height: 1.9; letter-spacing: .03em;
-      color: rgba(240,232,208,0.55);
+      color: #fff;
       margin: 0;
     }
     .sp-message-block .sp-message-vow,
     .sp-message-block .sp-message-closing {
-      color: rgba(240,232,208,0.75);
+      color: #fff;
       font-weight: 400;
     }
     .sp-message-block .sp-message-closing {
       font-family: 'Noto Serif JP', serif;
-      color: #f0e8d0;
-      font-size: 14px;
+      color: #fff;
+      font-size: var(--sp-detail-font-size);
     }
     .sp-message-block .sp-message-invite {
       font-family: 'Noto Serif JP', serif;
-      font-size: 15px; font-weight: 500;
-      color: rgba(180,140,80,0.95);
+      font-size: var(--sp-detail-font-size); font-weight: 500;
+      color: #fff;
       letter-spacing: .1em;
       text-align: center;
       margin-top: 4px;
@@ -258,22 +261,22 @@
       margin: 20px 0 16px;
       padding: 16px;
       box-sizing: border-box;
-      border-top: 1px solid rgba(180,140,80,0.25);
-      border-bottom: 1px solid rgba(180,140,80,0.18);
+      border-top: 2px solid rgba(180,140,80,0.25);
+      border-bottom: 2px solid rgba(180,140,80,0.18);
       font-family: 'Noto Sans JP', sans-serif;
     }
     .sp-updates-title {
       margin: 0 0 12px;
       font-family: 'Noto Serif JP', serif;
-      font-size: 14px;
+      font-size: calc(var(--sp-detail-font-size) + 2px);
       font-weight: 500;
       letter-spacing: .12em;
       text-align: center;
-      color: rgba(180,140,80,0.95);
+      color: #fff;
     }
     .sp-update-day {
       padding: 9px 0;
-      border-top: 1px solid rgba(240,232,208,0.08);
+      border-top: 2px solid rgba(240,232,208,0.08);
     }
     .sp-update-day:first-of-type {
       border-top: none;
@@ -281,27 +284,27 @@
     }
     .sp-update-label {
       margin: 0 0 5px;
-      font-size: 12px;
+      font-size: calc(var(--sp-detail-font-size) + 1px);
       font-weight: 400;
-      color: rgba(240,232,208,0.75);
+      color: #fff;
       letter-spacing: .06em;
     }
     .sp-update-list {
       margin: 0;
       padding-left: 1.3em;
-      color: rgba(240,232,208,0.5);
+      color: #fff;
     }
     .sp-update-list li {
       margin: 3px 0;
-      font-size: 11px;
-      font-weight: 300;
+      font-size: var(--sp-detail-font-size);
+      font-weight: 400;
       line-height: 1.65;
       letter-spacing: .02em;
     }
     .sp-update-empty {
       margin: 0;
-      font-size: 11px;
-      color: rgba(240,232,208,0.35);
+      font-size: var(--sp-detail-font-size);
+      color: #fff;
     }
 
     .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; }
@@ -311,7 +314,10 @@
 
   <div class="sp-top">
     <p class="sp-kana">全国断酒会 例会場マップ</p>
-    <div class="sp-title">断酒でGO</div>
+    <h1 class="sp-title">
+      <span>断酒でGO</span>
+      <small>全国の断酒会・例会場を探す</small>
+    </h1>
     <div class="sp-sub">dansyu-go</div>
   </div>
 
@@ -494,12 +500,12 @@ function splashClose() {
 
 
 <div id="app-shell">
-<div id="header">
+<header id="header">
   <div id="top-bar">
     <span id="title">🏃 断酒でGO!!</span>
     <span id="total-count" style="color:#ffffff; font-size:15px; font-weight:bold; margin-left:auto;">全<span id="count-total-header">0</span>例会・今日<span id="count-today-header">0</span>件</span>
   </div>
-</div>
+</header>
 
 <div id="legend" style="background:#16213e; border-bottom:1px solid #0f3460; padding:6px 12px;">
   <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
@@ -616,9 +622,16 @@ function splashClose() {
 
 <!-- トップページの静的地域案内。Googlebotと利用者の双方に同じ内容を表示する。 -->
 <section id="seo-summary" aria-labelledby="seo-summary-title">
-  <h1 id="seo-summary-title">全国の断酒会・例会を地域から探す</h1>
+  <h2 id="seo-summary-title">全国の断酒会・例会を地域から探す</h2>
   <p>断酒でGO!!は、全日本断酒連盟加盟の断酒会を中心に、全国の例会場・開催日程・中止や変更情報を案内しています。アルコール依存症からの回復や断酒継続のため、お近くの断酒会を地図または地域一覧から探せます。</p>
-  <h2>地方別の断酒会情報</h2>
+
+  <nav class="seo-primary-links" aria-label="例会の探し方">
+    <a href="/calendar.html">📅 今日・明日の例会を探す</a>
+    <a href="/chiiki/">🗾 地域・都道府県から探す</a>
+    <a href="/about.html">ℹ️ 情報源と運営方針を見る</a>
+  </nav>
+
+  <h3>地方別の断酒会情報</h3>
   <ul>
     <li><a href="/chiiki/hokkaido/"><strong>北海道</strong>の断酒会を探す</a></li>
     <li><a href="/chiiki/tohoku/"><strong>東北</strong>の断酒会を探す</a></li>
@@ -632,7 +645,14 @@ function splashClose() {
     <li><a href="/chiiki/okinawa/"><strong>沖縄</strong>の断酒会を探す</a></li>
   </ul>
   <p><a href="/chiiki/">全国431団体の地域一覧を見る</a></p>
+
+  <section class="seo-trust" aria-labelledby="seo-trust-title">
+    <h3 id="seo-trust-title">掲載情報について</h3>
+    <p>断酒でGO!!は断酒会の公開情報をもとに作成し、確認できた会場・開催日程を掲載しています。AA（アルコホーリクス・アノニマス）は別団体のため掲載対象外です。日程や会場は変更される場合があるため、参加前に主催団体の最新情報もご確認ください。</p>
+    <p><a href="/about.html">運営方針と情報源</a>／<a href="/gogo-submit.html">例会情報の追加・修正を連絡する</a></p>
+  </section>
 </section>
+</main>
 
 
 <!-- 地図ライブラリはスプラッシュDOMの後で読み込み、初期画面を先に描画する。 -->

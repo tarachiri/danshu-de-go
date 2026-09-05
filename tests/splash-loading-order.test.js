@@ -19,6 +19,15 @@ assert.ok(
 assert.doesNotMatch(html, /@import\s+url\([^)]*fonts\.googleapis\.com/);
 assert.match(html, /<script async src="https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/qrcodejs/);
 assert.match(html, /window\.renderSplashQr/);
+assert.match(html, /--sp-detail-font-size:\s*14px/);
+assert.match(
+  html,
+  /\.sp-message-block p\s*\{[\s\S]*?font-size:\s*var\(--sp-detail-font-size\)[\s\S]*?color:\s*#fff/
+);
+assert.match(
+  html,
+  /\.sp-update-list li\s*\{[\s\S]*?font-size:\s*var\(--sp-detail-font-size\)/
+);
 
 assert.match(app, /fetch\('venues\.json'\)/);
 assert.doesNotMatch(app, /fetch\('venues\.json\?v='\s*\+\s*Date\.now\(\)\)/);

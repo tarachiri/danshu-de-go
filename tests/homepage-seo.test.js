@@ -60,12 +60,46 @@ test('トップページのWebSite構造化データが表示内容と一致す�
   assert.equal(data.inLanguage, 'ja-JP');
 });
 
-test('静的な地域検索入口を維持する', () => {
-  assert.match(INDEX_HTML, /<h1[^>]*>全国の断酒会・例会を地域から探す<\/h1>/);
+test('検索目的がtitle・description・唯一のh1で明確になっている', () => {
+  const title = '全国の断酒会・例会場を地図で検索｜断酒でGO!!';
+  const description = metaContent('name', 'description');
+  assert.match(
+    INDEX_HTML,
+    /<title>全国の断酒会・例会場を地図で検索｜断酒でGO!!<\/title>/
+  );
+  assert.match(
+    description,
+    /全国の断酒会例会場と開催日程を地図で検索/
+  );
+  assert.equal(metaContent('property', 'og:title'), title);
+  assert.equal(metaContent('name', 'twitter:title'), title);
+  assert.equal(metaContent('property', 'og:description'), description);
+  assert.equal(metaContent('name', 'twitter:description'), description);
+  assert.equal((INDEX_HTML.match(/<h1\b/gi) || []).length, 1);
+  assert.match(
+    INDEX_HTML,
+    /<main id="main-content">[\s\S]*?<h1 class="sp-title">[\s\S]*?断酒でGO[\s\S]*?全国の断酒会・例会場を探す[\s\S]*?<\/h1>/
+  );
+});
+
+test('静的な主要導線と地域検索入口を維持する', () => {
+  assert.match(INDEX_HTML, /<main id="main-content">/);
+  assert.match(INDEX_HTML, /<header id="header">/);
+  assert.match(INDEX_HTML, /<nav class="seo-primary-links" aria-label="例会の探し方">/);
+  for (const path of ['/calendar.html', '/chiiki/', '/about.html']) {
+    assert.match(INDEX_HTML, new RegExp(`href=["']${escapeRegex(path)}["']`));
+  }
   for (const region of [
     'hokkaido', 'tohoku', 'kanto', 'hokuriku', 'chubu',
     'kinki', 'chugoku', 'shikoku', 'kyushu', 'okinawa'
   ]) {
     assert.match(INDEX_HTML, new RegExp(`href=["']/chiiki/${region}/["']`));
   }
+});
+
+test('掲載範囲・最新情報の確認・修正連絡の説明を表示する', () => {
+  assert.match(INDEX_HTML, /<section class="seo-trust"/);
+  assert.match(INDEX_HTML, /AA（アルコホーリクス・アノニマス）は別団体/);
+  assert.match(INDEX_HTML, /参加前に主催団体の最新情報もご確認ください/);
+  assert.match(INDEX_HTML, /href="\/gogo-submit\.html"/);
 });
