@@ -461,6 +461,13 @@ window.renderSplashQr = function renderSplashQr(){
 };
 window.renderSplashQr();
 
+// 都道府県別の例会一覧などから会場を指定して来た場合は、
+// 入口説明へ戻さず、そのまま地図上の会場詳細を表示する。
+function isVenueDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  return Boolean(params.get('venue') || params.get('pin') || params.get('id'));
+}
+
 // プログレス更新関数（app.jsから呼ばれる）
 window.setSplashProgress = function(percent, statusText) {
   const bar = document.getElementById('sp-progress-bar');
@@ -471,6 +478,10 @@ window.setSplashProgress = function(percent, statusText) {
   if (st && statusText) st.textContent = statusText;
 
   if (percent >= 100) {
+    if (isVenueDeepLink()) {
+      splashClose();
+      return;
+    }
     const today = new Date().toISOString().slice(0, 10);
     const agreed = localStorage.getItem('disclaimer_agreed');
     // 毎回同意ボタンを表示
