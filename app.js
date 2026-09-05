@@ -386,12 +386,16 @@ function buildSheetMeetingGroup(m) {
   }
 
   const favBtn = favoriteBtnHTML(m);
+  const petitHpLink = m.petit_hp_url
+    ? `<a href="${m.petit_hp_url}" class="sheet-btn-petit">🏠 この断酒会のプチHP</a>`
+    : '';
 
   return `
     <div class="sheet-meeting-group">
       <div class="sheet-meeting-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}${favBtn}</div>
       ${m.recurrence ? `<div class="sheet-meeting-recurrence">🔁 ${m.recurrence}${m.start_time ? '　' + m.start_time + '〜' + (m.end_time||'') : ''}</div>` : ''}
       <div class="sheet-upcoming-list">${itemsHTML}</div>
+      ${petitHpLink}
     </div>`;
 }
 

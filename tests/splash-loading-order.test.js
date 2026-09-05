@@ -35,6 +35,8 @@ assert.match(
 );
 
 assert.match(app, /fetch\('venues\.json'\)/);
+assert.match(app, /m\.petit_hp_url/);
+assert.match(app, /この断酒会のプチHP/);
 assert.doesNotMatch(app, /fetch\('venues\.json\?v='\s*\+\s*Date\.now\(\)\)/);
 assert.match(app, /setSplashProgress\(55,/);
 assert.match(app, /setSplashProgress\(80,/);

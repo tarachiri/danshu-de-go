@@ -60,6 +60,22 @@ test('すべての地図詳細リンクが登録済み会場を指す', () => {
   assert.ok(linkCount > 0);
 });
 
+test('プチHPリンクは公開データに明示されたURLだけを使用する', () => {
+  const allowed = new Set();
+  for (const venue of VENUES) {
+    for (const meeting of venue.meetings || []) {
+      if (meeting.petit_hp_url) allowed.add(meeting.petit_hp_url);
+    }
+  }
+  for (const page of fs.readdirSync(MEETINGS_ROOT, { withFileTypes: true })) {
+    if (!page.isDirectory()) continue;
+    const html = fs.readFileSync(path.join(MEETINGS_ROOT, page.name, 'index.html'), 'utf8');
+    for (const match of html.matchAll(/class="button secondary" href="([^"]+)">プチHP<\/a>/g)) {
+      assert.ok(allowed.has(match[1]), `未確認のプチHP URLです: ${match[1]}`);
+    }
+  }
+});
+
 test('トップページから全国の例会一覧へ移動できる', () => {
   const top = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.match(top, /href="\/meetings\/"/);
