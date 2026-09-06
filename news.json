@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T15:35:47.002348+09:00",
+  "generated_at": "2026-09-06T15:47:55.884076+09:00",
   "events": [
     {
       "id": "sobernet-942",
@@ -178,6 +178,28 @@
       "source": "ソーバーねっと"
     },
     {
+      "id": "sobernet-1027",
+      "title": "NPO法人広島断酒ふたば会創立60周年記念大会 広島市安佐北区民文化センター",
+      "date_from": "2026-10-04",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "広島県",
+      "category": "大会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1027",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-1016",
+      "title": "令和8年度 相模原断酒新生会 地区別一般酒害相談研修会 ユニコムプラザさがみはら",
+      "date_from": "2026-10-06",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "",
+      "category": "研修会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1016",
+      "source": "ソーバーねっと"
+    },
+    {
       "id": "sobernet-1017",
       "title": "令和8年度 小田原断酒新生会 地区別一般酒害相談研修会 川東タウンセンターマロニエ",
       "date_from": "2026-10-07",
@@ -211,25 +233,36 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-978",
-      "title": "第9回関東ブロック茨城断酒学校 茨城県さしま青少年自然の家",
-      "date_from": "2026-10-17",
-      "date_to": "2026-10-18",
-      "venue": "",
-      "prefecture": "茨城県",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=978",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1020",
-      "title": "令和8年度 川崎断酒新生会 地区別一般酒害相談研修会 宮前区役所地域みまもり支援センター",
-      "date_from": "2026-10-26",
+      "id": "sobernet-1019",
+      "title": "令和8年度 横須賀断酒新生会 地区別一般酒害相談研修会 横須賀市保健所",
+      "date_from": "2026-10-23",
       "date_to": null,
       "venue": "",
       "prefecture": "",
       "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1020",
+      "url": "https://addiction-peer.net/event.html?evt_id=1019",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-958",
+      "title": "東北ブロック研修会 山形青年の家",
+      "date_from": "2026-10-24",
+      "date_to": "2026-10-25",
+      "venue": "",
+      "prefecture": "山形県",
+      "category": "研修会",
+      "url": "https://addiction-peer.net/event.html?evt_id=958",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-1034",
+      "title": "四国ブロック学習会並びに第11回四国 ブロック家族一日研修会 岡田コミュニティセンター",
+      "date_from": "2026-10-25",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "",
+      "category": "研修会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1034",
       "source": "ソーバーねっと"
     },
     {
@@ -255,6 +288,17 @@
       "source": "ソーバーねっと"
     },
     {
+      "id": "sobernet-1044",
+      "title": "中部ブロック秋季研修会 陽だまりの家",
+      "date_from": "2026-11-07",
+      "date_to": "2026-11-08",
+      "venue": "",
+      "prefecture": "",
+      "category": "研修会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1044",
+      "source": "ソーバーねっと"
+    },
+    {
       "id": "sobernet-979",
       "title": "阿蘇一日研修会 国立阿蘇青少年交流の家",
       "date_from": "2026-11-08",
@@ -277,14 +321,14 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-993",
-      "title": "中国ブロック断酒セミナー 鳥取県大山青年の家",
-      "date_from": "2026-11-14",
-      "date_to": "2026-11-15",
+      "id": "sobernet-1046",
+      "title": "アルコール関連問題啓発セミナー 東北大学さくらホール",
+      "date_from": "2026-11-08",
+      "date_to": null,
       "venue": "",
-      "prefecture": "鳥取県",
+      "prefecture": "",
       "category": "セミナー",
-      "url": "https://addiction-peer.net/event.html?evt_id=993",
+      "url": "https://addiction-peer.net/event.html?evt_id=1046",
       "source": "ソーバーねっと"
     },
     {
@@ -310,14 +354,14 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-1035",
-      "title": "第2回アルコール関連問題啓発セミナー 千葉市こころの健康センター 多目的ホール",
+      "id": "sobernet-1055",
+      "title": "アルコール関連問題都民啓発セミナー 宮崎県総合保健センター",
       "date_from": "2026-11-20",
       "date_to": null,
       "venue": "",
-      "prefecture": "千葉県",
+      "prefecture": "宮崎県",
       "category": "セミナー",
-      "url": "https://addiction-peer.net/event.html?evt_id=1035",
+      "url": "https://addiction-peer.net/event.html?evt_id=1055",
       "source": "ソーバーねっと"
     },
     {
@@ -332,25 +376,14 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-959",
-      "title": "第10回四国ブロックアメシストの集い 香川県高松市サンポートホール5F",
+      "id": "sobernet-1049",
+      "title": "アルコール関連問題市民啓発セミナー 豊川市ウインディアホール",
       "date_from": "2026-11-29",
       "date_to": null,
       "venue": "",
-      "prefecture": "香川県",
-      "category": "アメシスト",
-      "url": "https://addiction-peer.net/event.html?evt_id=959",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1051",
-      "title": "奈良若草断酒会一泊研修会 天理教北陸詰所",
-      "date_from": "2026-12-05",
-      "date_to": "2026-12-06",
-      "venue": "",
-      "prefecture": "奈良県",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1051",
+      "prefecture": "",
+      "category": "セミナー",
+      "url": "https://addiction-peer.net/event.html?evt_id=1049",
       "source": "ソーバーねっと"
     },
     {
@@ -376,28 +409,6 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-1024",
-      "title": "令和8年度 横浜断酒新生会 地区別一般酒害相談研修会 はーと友かながわ",
-      "date_from": "2026-12-18",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1024",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1059",
-      "title": "アディクションアカデミー 休暇村讃岐五色台",
-      "date_from": "2026-12-19",
-      "date_to": "2026-12-20",
-      "venue": "",
-      "prefecture": "",
-      "category": "イベント",
-      "url": "https://addiction-peer.net/event.html?evt_id=1059",
-      "source": "ソーバーねっと"
-    },
-    {
       "id": "sobernet-961",
       "title": "第49回愛媛県ワンナイトセミナー 愛媛県生涯学習センター",
       "date_from": "2027-01-09",
@@ -417,6 +428,17 @@
       "prefecture": "大阪府",
       "category": "研修会",
       "url": "https://addiction-peer.net/event.html?evt_id=1036",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-1053",
+      "title": "第24回埼玉県市民公開セミナー ・第13回市民公開セミナーinさいたま 埼玉県障害者交流センター",
+      "date_from": "2027-02-23",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "埼玉県",
+      "category": "セミナー",
+      "url": "https://addiction-peer.net/event.html?evt_id=1053",
       "source": "ソーバーねっと"
     },
     {
@@ -442,6 +464,17 @@
       "source": "ソーバーねっと"
     },
     {
+      "id": "sobernet-1056",
+      "title": "NPO法人呉みどり断酒会創立60周年記念大会 新日本造機ホール呉市民ホール",
+      "date_from": "2027-02-28",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "",
+      "category": "大会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1056",
+      "source": "ソーバーねっと"
+    },
+    {
       "id": "sobernet-1025",
       "title": "令和8年度 川崎断酒新生会 地区別一般酒害相談研修会 高津区役所地域みまもり支援センター",
       "date_from": "2027-03-11",
@@ -464,28 +497,6 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-995",
-      "title": "中国ブロックアメシストの集い ワークピア広島",
-      "date_from": "2027-03-14",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "広島県",
-      "category": "アメシスト",
-      "url": "https://addiction-peer.net/event.html?evt_id=995",
-      "source": "ソーバーねっと"
-    },
-    {
-      "id": "sobernet-1004",
-      "title": "第18回九州ブロックアメシスト研修会 鳥栖市文化会館",
-      "date_from": "2027-03-21",
-      "date_to": null,
-      "venue": "",
-      "prefecture": "",
-      "category": "研修会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1004",
-      "source": "ソーバーねっと"
-    },
-    {
       "id": "sobernet-1005",
       "title": "第62回中国ブロック山口大会 山口県総合保健会館",
       "date_from": "2027-04-04",
@@ -494,6 +505,17 @@
       "prefecture": "山口県",
       "category": "大会",
       "url": "https://addiction-peer.net/event.html?evt_id=1005",
+      "source": "ソーバーねっと"
+    },
+    {
+      "id": "sobernet-1006",
+      "title": "第54回中部ブロック岐阜大会 関市文化会館ホール",
+      "date_from": "2027-04-11",
+      "date_to": null,
+      "venue": "",
+      "prefecture": "岐阜県",
+      "category": "大会",
+      "url": "https://addiction-peer.net/event.html?evt_id=1006",
       "source": "ソーバーねっと"
     },
     {
@@ -519,14 +541,14 @@
       "source": "ソーバーねっと"
     },
     {
-      "id": "sobernet-1038",
-      "title": "第44回北陸ブロック新潟大会 新潟市江南区文化会館",
-      "date_from": "2027-05-30",
+      "id": "sobernet-1057",
+      "title": "第54回近畿ブロック京都大会 京都テルサ",
+      "date_from": "2027-06-06",
       "date_to": null,
       "venue": "",
-      "prefecture": "新潟県",
+      "prefecture": "京都府",
       "category": "大会",
-      "url": "https://addiction-peer.net/event.html?evt_id=1038",
+      "url": "https://addiction-peer.net/event.html?evt_id=1057",
       "source": "ソーバーねっと"
     },
     {
@@ -902,7 +924,7 @@
   ],
   "summary": "",
   "stats": {
-    "events": 50,
+    "events": 52,
     "pdfs": 24,
     "news": 19
   }
