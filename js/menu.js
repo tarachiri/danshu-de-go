@@ -165,6 +165,36 @@ function formatActivityDate(value) {
   }).format(date);
 }
 
+function renderFavoritesSection(favorites) {
+  if (!Array.isArray(favorites)) {
+    return `
+      <section style="margin-bottom:22px;">
+        <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">⭐ お気に入り例会</div>
+        <div style="color:#888;font-size:13px;">お気に入りを読み込めませんでした</div>
+      </section>`;
+  }
+
+  const items = favorites.map(favorite => {
+    const details = [favorite.day_of_week ? favorite.day_of_week + '曜日' : '', favorite.start_time || '']
+      .filter(Boolean)
+      .join(' ');
+    return `
+      <div style="background:#0f1428;border:1px solid #0f3460;border-radius:10px;padding:10px 12px;">
+        <div style="font-size:15px;font-weight:bold;">${escapeAttr(favorite.name || '名称未登録の例会')}</div>
+        ${favorite.group_name ? `<div style="font-size:13px;color:#bbb;margin-top:4px;">${escapeAttr(favorite.group_name)}</div>` : ''}
+        ${details ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">${escapeAttr(details)}</div>` : ''}
+      </div>`;
+  }).join('');
+
+  return `
+    <section id="mypage-favorites" style="margin-bottom:22px;">
+      <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">⭐ お気に入り例会</div>
+      ${items
+        ? `<div style="display:grid;gap:7px;">${items}</div>`
+        : '<div style="color:#888;font-size:13px;line-height:1.6;">地図の例会詳細にある☆を押すと、ここに表示されます。</div>'}
+    </section>`;
+}
+
 function renderActivitySection(activity, globalSummary) {
   if (!activity || !activity.periods) {
     return '<div style="color:#888;font-size:13px;margin-bottom:18px;">探索記録は準備中です</div>';
@@ -201,7 +231,7 @@ function renderActivitySection(activity, globalSummary) {
     </section>`;
 }
 
-function openProfileModal(profile, activity, globalSummary) {
+function openProfileModal(profile, activity, globalSummary, favorites) {
   closeProfileModal();
   const isEdit = Boolean(profile);
 
@@ -217,6 +247,7 @@ function openProfileModal(profile, activity, globalSummary) {
 
   modal.innerHTML = `
     <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:16px;">${title}</div>
+    ${renderFavoritesSection(favorites)}
     ${renderActivitySection(activity, globalSummary)}
     <div style="font-size:16px;font-weight:bold;margin-bottom:12px;">${isEdit ? '✏️ 登録情報' : '登録情報'}</div>
     <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">表示名（必須・30文字まで）</label>
@@ -306,7 +337,7 @@ function openProfileModal(profile, activity, globalSummary) {
 function openProfileModalFresh() {
   const token = getUserToken();
   if (!window.DanshuProfileApi || !token) {
-    openProfileModal(null, null, null);
+    openProfileModal(null, null, null, null);
     return;
   }
   // 初回訪問の登録とプロフィール取得が競合すると、登録直後だけ探索記録が
@@ -318,11 +349,13 @@ function openProfileModalFresh() {
         ? window.DanshuActivityApi.getProfile(token) : Promise.resolve(null);
       const globalRequest = window.DanshuActivityApi
         ? window.DanshuActivityApi.getSummary() : Promise.resolve(null);
-      return Promise.all([window.DanshuProfileApi.get(token), activityRequest, globalRequest]);
+      const favoritesRequest = window.DanshuFavoriteApi
+        ? window.DanshuFavoriteApi.list(token) : Promise.resolve(null);
+      return Promise.all([window.DanshuProfileApi.get(token), activityRequest, globalRequest, favoritesRequest]);
     })
-    .then(([profile, activity, globalSummary]) => {
+    .then(([profile, activity, globalSummary, favorites]) => {
       setProfileMenuLabel(Boolean(profile));
-      openProfileModal(profile, activity, globalSummary);
+      openProfileModal(profile, activity, globalSummary, favorites);
     });
 }
 
