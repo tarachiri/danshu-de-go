@@ -115,9 +115,10 @@ function pageShell({ title, description, canonical, relativeRoot, body }) {
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${canonical}">
   <link rel="stylesheet" href="${relativeRoot}meetings.css">
+  <script src="/js/return-to-map.js?v=20260911a" defer></script>
 </head>
 <body>
-  <header class="site-header"><a href="${relativeRoot}../index.html">断酒でGO!!</a></header>
+  <header class="site-header"><a href="/" data-return-to-map>← マップへ戻る</a></header>
   ${body}
   <footer>
     <p>例会は変更・中止になる場合があります。参加前に公式情報もご確認ください。</p>
