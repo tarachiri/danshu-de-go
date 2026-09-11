@@ -1,5 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff; margin: 0; }
+body { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; background: #1a1a2e; color: #fff; margin: 0; }
+button, input, select, textarea { font-family: inherit; }
 
 /* 従来#appellだった単一画面レイアウト（地図・タブ切替UI）をラッパーに分離。
    bodyはこのラッパーの下に#seo-summaryが続く形でスクロール可能にする
@@ -134,7 +135,7 @@ body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #fff;
     text-align: center;
   }
 
-  .popup-box { font-family: -apple-system, sans-serif; min-width: 220px; display: flex; flex-direction: column; overflow: hidden; }
+  .popup-box { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; min-width: 220px; display: flex; flex-direction: column; overflow: hidden; }
   .popup-badge {
     display: inline-block;
     max-width: calc(100% - 48px);

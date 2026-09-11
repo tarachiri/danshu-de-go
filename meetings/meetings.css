@@ -4,9 +4,10 @@ body {
   margin: 0;
   color: #202938;
   background: #f5f7fa;
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   line-height: 1.7;
 }
+button, input, select, textarea { font-family: inherit; }
 a { color: #0759a5; }
 .site-header {
   padding: 14px max(18px, calc((100% - 920px) / 2));

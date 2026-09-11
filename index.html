@@ -43,7 +43,7 @@
 <link rel="preload" as="style" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" as="style" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" as="style" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
@@ -73,9 +73,9 @@
     }
     #splash-overlay.fade-out { opacity: 0; pointer-events: none; }
     .sp-top { display:flex; flex-direction:column; align-items:center; }
-    .sp-kana { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
+    .sp-kana { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size:13px; font-weight:300; letter-spacing:.35em; color:rgba(180,140,80,0.7); margin-bottom:14px; }
     .sp-title { display:flex; flex-direction:column; align-items:center; gap:8px; font-family:'Noto Serif JP',serif; font-size:38px; font-weight:700; color:#f0e8d0; letter-spacing:.12em; line-height:1; margin-bottom:6px; }
-    .sp-title small { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:400; color:rgba(240,232,208,0.72); letter-spacing:.08em; line-height:1.4; }
+    .sp-title small { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size:13px; font-weight:400; color:rgba(240,232,208,0.72); letter-spacing:.08em; line-height:1.4; }
     .sp-sub { font-family:'Noto Serif JP',serif; font-size:15px; font-weight:300; color:rgba(240,232,208,0.45); letter-spacing:.3em; margin-bottom:0; }
     .sp-divider { width:48px; height:1px; background:rgba(180,140,80,0.3); margin: 3px 0; }
 
@@ -86,7 +86,7 @@
       align-items: center; gap: 4px;
     }
     .sp-status {
-      font-family:'Noto Sans JP',sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 12px; font-weight: 300;
       color: rgba(180,140,80,0.8);
       letter-spacing: .15em; height: 18px;
@@ -103,7 +103,7 @@
       border-radius: 2px; transition: width 0.4s ease;
     }
     .sp-percent {
-      font-family:'Noto Sans JP',sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 10px; font-weight: 300;
       color: rgba(240,232,208,0.3); letter-spacing: .1em;
       line-height: 1;
@@ -129,7 +129,7 @@
     .sp-uranai-icon { font-size: 16px; }
     #sp-uranai-result { width: 100%; }
     .sp-uranai-status, .sp-uranai-empty {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 12px; font-weight: 300;
       color: rgba(240,232,208,0.6); text-align: center; line-height: 1.7;
       margin: 6px 0;
@@ -149,7 +149,7 @@
     @keyframes sp-uranai-in { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }
     .sp-uranai-card-head {
       display: flex; justify-content: space-between;
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 11px; color: rgba(180,140,80,0.9); font-weight: 500; letter-spacing: .05em;
     }
       .sp-uranai-card-jukugo {
@@ -161,9 +161,9 @@
       margin-top: 6px;
     }
     .sp-uranai-card-name { font-family:'Noto Serif JP',serif; font-size: 15px; color:#f0e8d0; margin-top:4px; }
-    .sp-uranai-card-venue { font-family:'Noto Sans JP',sans-serif; font-size: 12px; color: rgba(240,232,208,0.55); margin-top:2px; }
+    .sp-uranai-card-venue { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size: 12px; color: rgba(240,232,208,0.55); margin-top:2px; }
     .sp-uranai-note {
-      font-family:'Noto Sans JP',sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 10px; color: rgba(240,232,208,0.4); text-align:center; margin-top:8px; line-height:1.6;
     }
 
@@ -171,7 +171,7 @@
     /* QR */
     .sp-qr { display:flex; flex-direction:column; align-items:center; gap:8px; }
     .sp-qr-frame { background:#f0e8d0; border-radius:12px; padding:8px; }
-    .sp-qr-label { font-family:'Noto Sans JP',sans-serif; font-size:12px; font-weight:300; color:rgba(240,232,208,0.35); letter-spacing:.3em; text-align:center; }
+    .sp-qr-label { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size:12px; font-weight:300; color:rgba(240,232,208,0.35); letter-spacing:.3em; text-align:center; }
 
     /* 同意エリア（ローディング完了後に出現） */
     #sp-agree-area {
@@ -182,7 +182,7 @@
     }
     #sp-agree-area.visible { display: flex; }
     .sp-disclaimer-text {
-      font-family:'Noto Sans JP',sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 11px; font-weight: 300;
       color: rgba(240,232,208,0.4);
       text-align: center; line-height: 1.8; letter-spacing: .05em;
@@ -205,7 +205,7 @@
     @keyframes sp-nudge { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 
     .sp-submit-link {
-      font-family:'Noto Sans JP',sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: 13px; font-weight: 400;
       color: rgba(240,232,208,0.85);
       text-decoration: none;
@@ -231,7 +231,7 @@
       display: flex; flex-direction: column; gap: 12px;
     }
     .sp-message-block p {
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
       font-size: var(--sp-detail-font-size); font-weight: 400;
       line-height: 1.9; letter-spacing: .03em;
       color: #fff;
@@ -263,7 +263,7 @@
       box-sizing: border-box;
       border-top: 2px solid rgba(180,140,80,0.25);
       border-bottom: 2px solid rgba(180,140,80,0.18);
-      font-family: 'Noto Sans JP', sans-serif;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
     }
     .sp-updates-title {
       margin: 0 0 12px;
@@ -308,8 +308,8 @@
     }
 
     .sp-bottom { display:flex; flex-direction:column; align-items:center; gap:4px; }
-    .sp-org { font-family:'Noto Sans JP',sans-serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.2); letter-spacing:.3em; }
-    .sp-ver { font-family:'Noto Sans JP',sans-serif; font-size:9px; font-weight:300; color:rgba(180,140,80,0.35); letter-spacing:.2em; }
+    .sp-org { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size:10px; font-weight:300; color:rgba(240,232,208,0.2); letter-spacing:.3em; }
+    .sp-ver { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; font-size:9px; font-weight:300; color:rgba(180,140,80,0.35); letter-spacing:.2em; }
   </style>
 
   <div class="sp-top">

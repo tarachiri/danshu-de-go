@@ -11,7 +11,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   background: linear-gradient(180deg, #fff0f6 0%, #fdf6f9 200px, #fdf6f9 100%);
   color: var(--text);
   line-height: 1.85;

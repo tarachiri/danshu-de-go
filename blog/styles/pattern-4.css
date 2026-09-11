@@ -7,7 +7,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: sans-serif;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   color: var(--text);
   line-height: 1.8;
 }

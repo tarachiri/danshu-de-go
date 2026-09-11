@@ -36,13 +36,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
-               'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
   color: var(--text);
   background: var(--warm-gray);
   line-height: 1.75;
   font-size: 16px;
 }
+
+button, input, select, textarea { font-family: inherit; }
 
 a { color: var(--navy-mid); text-decoration: none; }
 a:hover { text-decoration: underline; }
