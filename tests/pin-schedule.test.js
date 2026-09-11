@@ -46,8 +46,9 @@ assert.equal(cancelledEffective.meetings[0].next_date, '2026-09-07');
 assert.equal(cancelledEffective.meetings[0].has_exception, false);
 
 assert.ok(html.indexOf('js/pin-schedule.js') < html.indexOf('<script src="app.js'));
-assert.match(html, /id="count-today-day"/);
-assert.match(html, /id="count-today-evening"/);
+assert.match(html, /id="count-today"/);
+assert.doesNotMatch(html, /今日昼|今日夕夜/);
+assert.match(fs.readFileSync(path.join(root, 'style.css'), 'utf8'), /#total-count\s*\{[^}]*font-size:\s*15px\s*!important;/);
 assert.match(app, /PinSchedule\.withEffectiveOccurrence\(v\)/);
 assert.match(app, /setInterval\(applyFilters, 60 \* 1000\)/);
 

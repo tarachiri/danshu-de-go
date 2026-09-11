@@ -456,7 +456,7 @@ button, input, select, textarea { font-family: inherit; }
 .leaflet-control-zoom { bottom: 86px !important; }
 
 /* ヘッダー1行に */
-#total-count { white-space: nowrap; font-size: 13px !important; }
+#total-count { white-space: nowrap; font-size: 15px !important; }
 
 /* Leaflet帰属（著作権表示）は地図内蔵版を無効化し、
    #map-attribution（地図外・ボトムナビ直上の独立バー）に置き換え済み */

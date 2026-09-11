@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 </noscript>
-<link rel="stylesheet" href="style.css?v=20260911c">
+<link rel="stylesheet" href="style.css?v=20260911d">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1YCK7W6XG"></script>
 <script src="js/analytics.js"></script>
 </head>
@@ -503,19 +503,15 @@ function splashClose() {
 <header id="header">
   <div id="top-bar">
     <span id="title">🏃 断酒でGO!!</span>
-    <span id="total-count" style="color:#ffffff; font-size:15px; font-weight:bold; margin-left:auto;">全<span id="count-total-header">0</span>例会・今日<span id="count-today-header">0</span>件</span>
+    <span id="total-count" style="color:#ffffff; font-weight:bold; margin-left:auto;">全<span id="count-total-header">0</span>例会・今日<span id="count-today-header">0</span>件</span>
   </div>
 </header>
 
 <div id="legend" style="background:#16213e; border-bottom:1px solid #0f3460; padding:6px 12px;">
   <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
     <div class="legend-item" style="flex-shrink:0;">
-      <div class="legend-dot" style="width:11px;height:11px;background:#2471A3;"></div>
-      <span style="font-size:15px;">今日昼<span id="count-today-day">0</span>件</span>
-    </div>
-    <div class="legend-item" style="flex-shrink:0;">
       <div class="legend-dot" style="width:11px;height:11px;background:#C0392B;"></div>
-      <span style="font-size:15px;">今日夕夜<span id="count-today-evening">0</span>件</span>
+      <span style="font-size:15px;">今日<span id="count-today">0</span>件</span>
     </div>
     <div class="legend-item" style="flex-shrink:0;">
       <div class="legend-dot" style="width:11px;height:11px;background:#D35400;"></div>
@@ -666,7 +662,7 @@ function splashClose() {
 <script src="js/activity-api.js?v=20260826a"></script>
 <script src="js/uranai.js?v=20260816a"></script>
 <script src="js/pin-schedule.js?v=20260831a"></script>
-<script src="app.js?v=20260831a"></script>
+<script src="app.js?v=20260911b"></script>
 <script src="js/menu.js?v=20260911e"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }

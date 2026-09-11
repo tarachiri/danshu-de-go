@@ -782,21 +782,16 @@ function applyFilters() {
   });
 
 
-let todayCount=0, todayDayCount=0, todayEveningCount=0, tomorrowCount=0, dayafterCount=0;
+let todayCount=0, tomorrowCount=0, dayafterCount=0;
   VENUES.forEach(v => {
     const pinVenue = PinSchedule.withEffectiveOccurrence(v);
     if (!pinVenue) return;
     const l = getDateLabel(pinVenue.next_date);
-    if(l==='today') {
-      todayCount++;
-      if (PinSchedule.isDayMeeting(pinVenue.start_time)) todayDayCount++;
-      else todayEveningCount++;
-    }
+    if(l==='today') todayCount++;
     else if(l==='tomorrow') tomorrowCount++;
     else if(l==='dayafter') dayafterCount++;
   });
-  document.getElementById('count-today-day').textContent = todayDayCount;
-  document.getElementById('count-today-evening').textContent = todayEveningCount;
+  document.getElementById('count-today').textContent = todayCount;
   const todayHeaderEl = document.getElementById('count-today-header');
   if (todayHeaderEl) todayHeaderEl.textContent = todayCount;
   document.getElementById('count-tomorrow').textContent = tomorrowCount;
