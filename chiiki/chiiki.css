@@ -7,27 +7,27 @@
 
 :root {
   /* カラーパレット */
-  --navy:      #1e3a5f;   /* メイン：深いネイビー */
-  --navy-mid:  #2d5986;   /* ナビ・ボタン */
-  --navy-light:#e8f0f8;   /* 背景アクセント */
+  --navy:      #16213e;   /* 全画面共通：深いネイビー */
+  --navy-mid:  #27385f;   /* ナビ・補助ボタン */
+  --navy-light:#eef1f7;   /* 背景アクセント */
   --slate:     #5a7a9a;   /* サブテキスト */
   --warm-gray: #f4f5f7;   /* ページ背景 */
   --white:     #ffffff;
   --border:    #dce4ed;
 
   /* アクセント：やわらかいコーラル */
-  --coral:     #e07060;   /* CTAボタン・バッジ */
-  --coral-dark:#c55a4a;
+  --coral:     #c0392b;   /* CTAボタン・バッジ */
+  --coral-dark:#9f2f24;
 
   /* テキスト */
   --text:      #2c3e50;
   --text-sub:  #6b7c93;
 
   /* 角丸・シャドウ */
-  --radius:    10px;
-  --radius-sm: 6px;
-  --shadow:    0 2px 12px rgba(30,58,95,0.10);
-  --shadow-hover: 0 6px 20px rgba(30,58,95,0.16);
+  --radius:    12px;
+  --radius-sm: 8px;
+  --shadow:    0 3px 16px rgba(22,33,62,0.08);
+  --shadow-hover: 0 7px 22px rgba(22,33,62,0.15);
 }
 
 /* ============================================================
@@ -54,7 +54,7 @@ a:hover { text-decoration: underline; }
 .site-header {
   background: var(--navy);
   color: white;
-  padding: 0.9rem 1.5rem;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,10 +87,13 @@ a:hover { text-decoration: underline; }
 .site-header nav a {
   color: rgba(255,255,255,0.85);
   font-size: 0.85rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 20px;
+  min-height: 40px;
+  padding: 7px 14px;
+  border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.3);
   transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
 }
 
 .site-header nav a:hover {
@@ -400,7 +403,7 @@ h2::before {
 .schedule-list time { font-weight: 700; }
 .schedule-time { white-space: nowrap; }
 .schedule-name { color: #3e2814; }
-.btn-meetings { display: inline-block; margin-top: .6rem; padding: .7rem 1rem; border-radius: .5rem; background: #0759a5; color: #fff; font-weight: 700; text-decoration: none; }
+.btn-meetings { display: inline-block; margin-top: .6rem; padding: .7rem 1rem; border-radius: 8px; background: var(--navy); color: #fff; font-weight: 700; text-decoration: none; }
 .schedule-venue { grid-column: 3; color: #685b50; font-size: .9rem; }
 @media (max-width: 700px) {
   .schedule-list li { grid-template-columns: 1fr auto; }

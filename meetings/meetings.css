@@ -1,4 +1,12 @@
-:root { color-scheme: light; }
+:root {
+  color-scheme: light;
+  --navy: #16213e;
+  --navy-mid: #27385f;
+  --accent: #c0392b;
+  --line: #dfe3e8;
+  --radius: 12px;
+  --shadow: 0 3px 16px rgba(22, 33, 62, .08);
+}
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -8,12 +16,12 @@ body {
   line-height: 1.7;
 }
 button, input, select, textarea { font-family: inherit; }
-a { color: #0759a5; }
+a { color: var(--navy-mid); }
 .site-header {
-  padding: 14px max(18px, calc((100% - 920px) / 2));
-  background: #16213e;
+  padding: 12px max(18px, calc((100% - 920px) / 2));
+  background: var(--navy);
 }
-.site-header a { color: #fff; font-size: 21px; font-weight: 700; text-decoration: none; }
+.site-header a { display:inline-flex; align-items:center; min-height:40px; padding:7px 14px; border:1px solid rgba(255,255,255,.35); border-radius:999px; color:#fff; font-size:16px; font-weight:700; text-decoration:none; }
 main, footer { width: min(920px, calc(100% - 32px)); margin: 0 auto; }
 main { padding: 26px 0 48px; }
 h1 { margin: 8px 0; color: #16213e; font-size: clamp(25px, 5vw, 36px); line-height: 1.35; }
@@ -53,9 +61,9 @@ p { margin: 5px 0; }
 .meeting-card {
   padding: 16px;
   border: 1px solid #d9dee7;
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: #fff;
-  box-shadow: 0 2px 7px rgba(22, 33, 62, .06);
+  box-shadow: var(--shadow);
 }
 .time { color: #9a2537; font-weight: 700; }
 .address, .recurrence { color: #566174; font-size: 14px; }
@@ -64,23 +72,24 @@ p { margin: 5px 0; }
 .button {
   display: inline-block;
   padding: 9px 14px;
-  border-radius: 7px;
+  border-radius: 8px;
   color: #fff;
-  background: #0759a5;
+  background: var(--navy);
   font-weight: 700;
   text-decoration: none;
 }
-.button.secondary { background: #536173; }
+.button.secondary { background: var(--navy-mid); }
 .prefecture-links { padding: 0; list-style: none; }
 .prefecture-links a {
   display: flex;
   justify-content: space-between;
   padding: 14px;
   border: 1px solid #d9dee7;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #fff;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: var(--shadow);
 }
 footer { padding: 22px 0 40px; border-top: 1px solid #cbd2dd; color: #566174; font-size: 14px; }
 @media (min-width: 720px) {

@@ -14,7 +14,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
-  font-weight: 300;
+  font-weight:400;
   line-height: 1.8;
 }
 .back-link {

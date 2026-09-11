@@ -798,7 +798,7 @@ body.sheet-active .leaflet-control-container {
 .sheet-btn-map { background: #fff; color: #16213e; border: 1.5px solid #16213e; }
 .sheet-btn-cal { background: #27AE60; color: #fff; }
 .sheet-btn-official { background: #8E44AD; color: #fff; }
-.sheet-btn-petit { display: block; margin-top: 10px; background: #0759a5; color: #fff; text-align: center; }
+.sheet-btn-petit { display: block; margin-top: 10px; background: #16213e; color: #fff; text-align: center; }
 
 .sheet-verify-banner {
   background: #fff4e5; border: 1px solid #e0a030; border-radius: 8px;

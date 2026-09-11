@@ -114,7 +114,7 @@ function pageShell({ title, description, canonical, relativeRoot, body }) {
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${canonical}">
-  <link rel="stylesheet" href="${relativeRoot}meetings.css">
+  <link rel="stylesheet" href="${relativeRoot}meetings.css?v=20260911b">
   <script src="/js/return-to-map.js?v=20260911a" defer></script>
 </head>
 <body>
