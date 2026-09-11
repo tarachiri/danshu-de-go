@@ -165,6 +165,32 @@ function formatActivityDate(value) {
   }).format(date);
 }
 
+function findFavoriteMeeting(favorite) {
+  const meetingId = Number(favorite && favorite.meeting_id);
+  if (!meetingId || !Array.isArray(window.VENUES)) return null;
+  for (const venue of window.VENUES) {
+    const meeting = Array.isArray(venue.meetings)
+      ? venue.meetings.find(item => Number(item && item.meeting_id) === meetingId)
+      : null;
+    if (meeting) return { meeting, venue };
+  }
+  return null;
+}
+
+function formatUpcomingMeetingDate(dateValue, timeValue) {
+  if (!dateValue) return '';
+  const today = window.PinSchedule && window.PinSchedule.jstNow
+    ? window.PinSchedule.jstNow().date
+    : new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  if (dateValue < today) return '';
+  const date = new Date(dateValue + 'T00:00:00+09:00');
+  if (Number.isNaN(date.getTime())) return '';
+  const label = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo', month: 'numeric', day: 'numeric', weekday: 'short'
+  }).format(date);
+  return label + (timeValue ? ' ' + String(timeValue).slice(0, 5) : '');
+}
+
 function renderFavoritesSection(favorites) {
   if (!Array.isArray(favorites)) {
     return `
@@ -175,14 +201,24 @@ function renderFavoritesSection(favorites) {
   }
 
   const items = favorites.map(favorite => {
-    const details = [favorite.day_of_week ? favorite.day_of_week + '曜日' : '', favorite.start_time || '']
+    const current = findFavoriteMeeting(favorite);
+    const meeting = current ? current.meeting : favorite;
+    const venue = current ? current.venue : null;
+    const details = [meeting.day_of_week ? meeting.day_of_week + '曜日' : '', meeting.start_time || '']
       .filter(Boolean)
       .join(' ');
+    const nextDate = formatUpcomingMeetingDate(meeting.next_date, meeting.start_time);
+    const mapLink = venue && venue.id
+      ? `<a href="/?venue=${encodeURIComponent(venue.id)}" style="display:inline-block;color:#7db9ff;font-size:13px;margin-top:7px;">地図で見る →</a>`
+      : '';
     return `
       <div style="background:#0f1428;border:1px solid #0f3460;border-radius:10px;padding:10px 12px;">
-        <div style="font-size:15px;font-weight:bold;">${escapeAttr(favorite.name || '名称未登録の例会')}</div>
-        ${favorite.group_name ? `<div style="font-size:13px;color:#bbb;margin-top:4px;">${escapeAttr(favorite.group_name)}</div>` : ''}
+        <div style="font-size:15px;font-weight:bold;">${escapeAttr(meeting.name || favorite.name || '名称未登録の例会')}</div>
+        ${meeting.group_name || favorite.group_name ? `<div style="font-size:13px;color:#bbb;margin-top:4px;">${escapeAttr(meeting.group_name || favorite.group_name)}</div>` : ''}
+        ${nextDate ? `<div style="font-size:14px;color:#ffd166;font-weight:bold;margin-top:7px;">次回　${escapeAttr(nextDate)}</div>` : ''}
         ${details ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">${escapeAttr(details)}</div>` : ''}
+        ${venue && venue.facility_name ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">📍 ${escapeAttr(venue.facility_name)}</div>` : ''}
+        ${mapLink}
       </div>`;
   }).join('');
 
