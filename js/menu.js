@@ -177,18 +177,86 @@ function findFavoriteMeeting(favorite) {
   return null;
 }
 
-function formatUpcomingMeetingDate(dateValue, timeValue) {
-  if (!dateValue) return '';
-  const today = window.PinSchedule && window.PinSchedule.jstNow
+function getTodayJst() {
+  return window.PinSchedule && window.PinSchedule.jstNow
     ? window.PinSchedule.jstNow().date
     : new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  if (dateValue < today) return '';
+}
+
+function formatUpcomingMeetingDate(dateValue, timeValue) {
+  if (!dateValue) return '';
+  if (dateValue < getTodayJst()) return '';
   const date = new Date(dateValue + 'T00:00:00+09:00');
   if (Number.isNaN(date.getTime())) return '';
   const label = new Intl.DateTimeFormat('ja-JP', {
     timeZone: 'Asia/Tokyo', month: 'numeric', day: 'numeric', weekday: 'short'
   }).format(date);
   return label + (timeValue ? ' ' + String(timeValue).slice(0, 5) : '');
+}
+
+function getExceptionLabel(meeting) {
+  if (!meeting || !meeting.has_exception) return '';
+  if (meeting.exc_type === 'cancel') return '休会情報あり';
+  if (['reschedule', 'date_change', 'venue_change'].includes(meeting.exc_type)) return '変更情報あり';
+  return '特別な日程情報あり';
+}
+
+function renderMyCalendar(favorites) {
+  if (!Array.isArray(favorites)) {
+    return `
+      <section style="margin-bottom:22px;">
+        <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">📅 Myカレンダー</div>
+        <div style="color:#888;font-size:13px;">日程を読み込めませんでした</div>
+      </section>`;
+  }
+
+  const today = getTodayJst();
+  const [year, month, day] = today.split('-').map(Number);
+  const tomorrowValue = new Date(Date.UTC(year, month - 1, day + 1)).toISOString().slice(0, 10);
+  const entries = [];
+  const alerts = [];
+
+  favorites.forEach(favorite => {
+    const current = findFavoriteMeeting(favorite);
+    if (!current) return;
+    const { meeting, venue } = current;
+    const exceptionLabel = getExceptionLabel(meeting);
+    if (exceptionLabel) {
+      alerts.push({ meeting, venue, label: exceptionLabel });
+      return;
+    }
+    [meeting.next_date, meeting.next_date_2].forEach(date => {
+      if (!date || date < today) return;
+      entries.push({ date, meeting, venue });
+    });
+  });
+
+  entries.sort((a, b) => (a.date + (a.meeting.start_time || '')).localeCompare(b.date + (b.meeting.start_time || '')));
+  const alertsHtml = alerts.map(item => `
+    <div style="background:#351c1c;border:1px solid #C0392B;border-radius:10px;padding:10px 12px;">
+      <div style="color:#ff9b8f;font-size:13px;font-weight:bold;">⚠️ ${escapeAttr(item.label)}</div>
+      <div style="font-size:14px;font-weight:bold;margin-top:4px;">${escapeAttr(item.meeting.name || '名称未登録の例会')}</div>
+      ${item.meeting.exc_note ? `<div style="font-size:12px;color:#ccc;margin-top:5px;line-height:1.5;">${escapeAttr(item.meeting.exc_note)}</div>` : ''}
+      <a href="/?venue=${encodeURIComponent(item.venue.id)}" style="display:inline-block;color:#7db9ff;font-size:13px;margin-top:7px;">詳細を確認する →</a>
+    </div>`).join('');
+  const entriesHtml = entries.map(item => {
+    const dayLabel = item.date === today ? '今日' : item.date === tomorrowValue ? '明日' : '';
+    return `
+      <a href="/?venue=${encodeURIComponent(item.venue.id)}" style="display:block;background:#0f1428;border:1px solid #0f3460;border-radius:10px;padding:10px 12px;color:#fff;text-decoration:none;">
+        <div style="color:#ffd166;font-size:14px;font-weight:bold;">${dayLabel ? `<span style="color:#ff9b8f;">${dayLabel}　</span>` : ''}${escapeAttr(formatUpcomingMeetingDate(item.date, item.meeting.start_time))}</div>
+        <div style="font-size:14px;font-weight:bold;margin-top:4px;">${escapeAttr(item.meeting.name || '名称未登録の例会')}</div>
+        ${item.venue.facility_name ? `<div style="font-size:12px;color:#aaa;margin-top:4px;">📍 ${escapeAttr(item.venue.facility_name)}</div>` : ''}
+      </a>`;
+  }).join('');
+
+  const content = alertsHtml + entriesHtml;
+  return `
+    <section id="mypage-calendar" style="margin-bottom:22px;">
+      <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">📅 Myカレンダー</div>
+      ${content
+        ? `<div style="display:grid;gap:7px;">${content}</div>`
+        : '<div style="color:#888;font-size:13px;line-height:1.6;">お気に入り例会を登録すると、これからの日程がここに表示されます。</div>'}
+    </section>`;
 }
 
 function renderFavoritesSection(favorites) {
@@ -207,7 +275,8 @@ function renderFavoritesSection(favorites) {
     const details = [meeting.day_of_week ? meeting.day_of_week + '曜日' : '', meeting.start_time || '']
       .filter(Boolean)
       .join(' ');
-    const nextDate = formatUpcomingMeetingDate(meeting.next_date, meeting.start_time);
+    const exceptionLabel = getExceptionLabel(meeting);
+    const nextDate = exceptionLabel ? '' : formatUpcomingMeetingDate(meeting.next_date, meeting.start_time);
     const mapLink = venue && venue.id
       ? `<a href="/?venue=${encodeURIComponent(venue.id)}" style="display:inline-block;color:#7db9ff;font-size:13px;margin-top:7px;">地図で見る →</a>`
       : '';
@@ -215,6 +284,7 @@ function renderFavoritesSection(favorites) {
       <div style="background:#0f1428;border:1px solid #0f3460;border-radius:10px;padding:10px 12px;">
         <div style="font-size:15px;font-weight:bold;">${escapeAttr(meeting.name || favorite.name || '名称未登録の例会')}</div>
         ${meeting.group_name || favorite.group_name ? `<div style="font-size:13px;color:#bbb;margin-top:4px;">${escapeAttr(meeting.group_name || favorite.group_name)}</div>` : ''}
+        ${exceptionLabel ? `<div style="font-size:13px;color:#ff9b8f;font-weight:bold;margin-top:7px;">⚠️ ${escapeAttr(exceptionLabel)}</div>` : ''}
         ${nextDate ? `<div style="font-size:14px;color:#ffd166;font-weight:bold;margin-top:7px;">次回　${escapeAttr(nextDate)}</div>` : ''}
         ${details ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">${escapeAttr(details)}</div>` : ''}
         ${venue && venue.facility_name ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">📍 ${escapeAttr(venue.facility_name)}</div>` : ''}
@@ -283,6 +353,7 @@ function openProfileModal(profile, activity, globalSummary, favorites) {
 
   modal.innerHTML = `
     <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:16px;">${title}</div>
+    ${renderMyCalendar(favorites)}
     ${renderFavoritesSection(favorites)}
     ${renderActivitySection(activity, globalSummary)}
     <div style="font-size:16px;font-weight:bold;margin-bottom:12px;">${isEdit ? '✏️ 登録情報' : '登録情報'}</div>
