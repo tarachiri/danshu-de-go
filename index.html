@@ -602,15 +602,11 @@ function splashClose() {
   <button class="sheet-close" onclick="closeMenuSheet()" aria-label="閉じる">✕</button>
   <div class="sheet-handle"></div>
   <div class="sheet-scroll">
-    <a class="menu-item" href="/chiiki/">🗾 地域から探す</a>
-    <a class="menu-item" href="/meetings/">📋 都道府県別の例会予定</a>
+    <a class="menu-item" href="/chiiki/">🗾 地域・都道府県から探す</a>
+    <a class="menu-item" href="/meetings/">📅 都道府県別の例会日程</a>
     <a class="menu-item" href="/gogo-submit.html">📝 例会情報を登録する</a>
-    <button class="menu-item" id="menu-item-profile" onclick="closeMenuSheet(); openProfileModalFresh();" style="text-align:left; background:none; padding:14px 16px; border:none; cursor:pointer;">👤 プロフィール・会員登録</button>
-    <button class="menu-item" onclick="closeMenuSheet(); switchTab('kamo')" style="text-align:left; background:none; padding:14px 16px; border:none; cursor:pointer;">🤖 かもちゃん</button>
+    <button class="menu-item" id="menu-item-profile" onclick="closeMenuSheet(); openProfileModalFresh();" style="text-align:left; background:none; padding:14px 16px; border:none; cursor:pointer;">👤 マイページ・会員登録</button>
     <a class="menu-item" href="/about.html">ℹ️ このサービスについて</a>
-    <div class="menu-item menu-item-disabled">📅 Myカレンダー <span class="menu-badge-soon">準備中</span></div>
-    <div class="menu-item menu-item-disabled">🏆 マイポイント・実績 <span class="menu-badge-soon">準備中</span></div>
-    <div class="menu-item menu-item-disabled">⚙️ 設定・ログイン <span class="menu-badge-soon">準備中</span></div>
   </div>
 </div>
 
@@ -671,7 +667,7 @@ function splashClose() {
 <script src="js/uranai.js?v=20260816a"></script>
 <script src="js/pin-schedule.js?v=20260831a"></script>
 <script src="app.js?v=20260831a"></script>
-<script src="js/menu.js?v=20260827a"></script>
+<script src="js/menu.js?v=20260911a"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }
 </script>

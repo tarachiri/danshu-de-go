@@ -124,7 +124,7 @@ function escapeAttr(value) {
 function setProfileMenuLabel(registered) {
   const el = document.getElementById('menu-item-profile');
   if (!el) return;
-  el.innerHTML = registered ? '👤 プロフィール' : '👤 プロフィール・会員登録';
+  el.innerHTML = registered ? '👤 マイページ' : '👤 マイページ・会員登録';
 }
 
 function showToast(message, kind) {
@@ -212,7 +212,7 @@ function openProfileModal(profile, activity, globalSummary) {
   const modal = document.createElement('div');
   modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;box-sizing:border-box;';
 
-  const title = isEdit ? '👤 プロフィール' : '📝 かんたん会員登録';
+  const title = isEdit ? '👤 マイページ' : '📝 かんたん会員登録';
   const fieldStyle = 'width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #0f3460;background:#0f1428;color:#fff;font-size:16px;margin-bottom:16px;';
 
   modal.innerHTML = `
