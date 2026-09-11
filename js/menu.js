@@ -346,13 +346,14 @@ function openProfileModal(profile, activity, globalSummary, favorites) {
   overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:flex-end;';
 
   const modal = document.createElement('div');
-  modal.style.cssText = 'background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;box-sizing:border-box;';
+  modal.style.cssText = 'position:relative;background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;box-sizing:border-box;';
 
   const title = isEdit ? '👤 マイページ' : '📝 かんたん会員登録';
   const fieldStyle = 'width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #0f3460;background:#0f1428;color:#fff;font-size:16px;margin-bottom:16px;';
 
   modal.innerHTML = `
-    <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:16px;">${title}</div>
+    <button type="button" class="profile-modal-close" onclick="closeProfileModal()" aria-label="マイページを閉じる">✕</button>
+    <div style="font-size:20px;font-weight:bold;color:#e94560;margin:4px 56px 16px 0;">${title}</div>
     ${renderMyCalendar(favorites)}
     ${renderFavoritesSection(favorites)}
     ${renderActivitySection(activity, globalSummary)}

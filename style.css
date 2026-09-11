@@ -651,6 +651,7 @@ details[open] .sch-adj-summary::before {
 .sheet-panel.open { transform: translateY(0); }
 
 /* メニューシートはアクセントカラーを紫系にして会場詳細シート（赤系）と区別 */
+#menu-sheet { background: rgba(255,255,255,0.96); }
 #menu-sheet .sheet-handle { background: #6C3483; }
 #menu-sheet .sheet-close {
   width: 40px; height: 40px;
@@ -677,7 +678,8 @@ details[open] .sch-adj-summary::before {
   display: flex; align-items: center; gap: 10px;
   padding: 14px 16px;
   border-bottom: 1px solid #ececf2;
-  font-size: 17px; color: #16213e;
+  font-size: 17px; color: #111;
+  font-weight: 700;
   text-decoration: none;
 }
 .menu-item:last-child { border-bottom: none; }
@@ -691,6 +693,30 @@ details[open] .sch-adj-summary::before {
   background: #999;
   padding: 2px 8px; border-radius: 10px;
 }
+
+.profile-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: 50%;
+  background: #C0392B;
+  color: #fff;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(192,57,43,0.35);
+  z-index: 2;
+}
+
+.profile-modal-close:active { transform: scale(0.95); }
 
 /* シート表示中はボトムナビ・Leafletコントロール（現在地ボタン等）を隠し、
    ボタンの取り合い・z-index競合を避ける */
