@@ -1077,6 +1077,15 @@ function setFavoriteButton(btn, favorite) {
   btn.setAttribute('aria-label', fav ? 'お気に入りから外す' : 'お気に入りに追加');
 }
 
+function animateFavoriteButton(btn) {
+  if (!btn || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  btn.classList.remove('favorite-pop');
+  // 同じボタンを続けて押した場合も、短いフィードバックを再生する。
+  void btn.offsetWidth;
+  btn.classList.add('favorite-pop');
+  setTimeout(() => btn.classList.remove('favorite-pop'), 380);
+}
+
 function refreshFavoriteButtons() {
   if (!window.DanshuFavoriteUi) return;
   document.querySelectorAll('.fav-btn').forEach(btn => {
@@ -1093,6 +1102,7 @@ function handleFavoriteToggle(btn) {
   const next = !wasFavorite;
   // 楽観的更新（失敗時は巻き戻す）
   setFavoriteButton(btn, next);
+  animateFavoriteButton(btn);
   FAVORITE_MEETINGS = window.DanshuFavoriteUi.toggleState(FAVORITE_MEETINGS, meetingId, next);
   const request = next
     ? window.DanshuFavoriteApi.add(USER_TOKEN, meetingId)

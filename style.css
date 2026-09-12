@@ -365,7 +365,7 @@ button, input, select, textarea { font-family: inherit; }
   cursor: pointer;
   font-family: inherit;
   gap: 2px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 180ms ease, background 180ms ease, transform 160ms ease;
   height: 60px;
   -webkit-tap-highlight-color: transparent;
   padding: 6px 0;
@@ -382,6 +382,7 @@ button, input, select, textarea { font-family: inherit; }
 
 .bottom-btn:active {
   background: rgba(255,255,255,0.08);
+  transform: scale(0.94);
 }
 
 .bottom-icon {
@@ -680,6 +681,16 @@ details[open] .sch-adj-summary::before {
 }
 .sheet-panel.open { transform: translateY(0); }
 
+/* Leaflet地図ではなくシート内だけを動かす。描画負荷を抑えつつ、内容の切替を明瞭にする。 */
+.sheet-panel.open .sheet-scroll {
+  animation: sheet-content-reveal 280ms 70ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sheet-content-reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* メニューシートはアクセントカラーを紫系にして会場詳細シート（赤系）と区別 */
 #menu-sheet { background: rgba(255,255,255,0.96); }
 #menu-sheet .sheet-handle { background: #6C3483; }
@@ -711,6 +722,17 @@ details[open] .sch-adj-summary::before {
   font-size: 17px; color: #111;
   font-weight: 700;
   text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+.menu-item:active { background: #f0edf4; transform: scale(0.985); }
+.sheet-panel.open .menu-item { animation: menu-item-reveal 260ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.sheet-panel.open .menu-item:nth-child(2) { animation-delay: 35ms; }
+.sheet-panel.open .menu-item:nth-child(3) { animation-delay: 70ms; }
+.sheet-panel.open .menu-item:nth-child(4) { animation-delay: 105ms; }
+.sheet-panel.open .menu-item:nth-child(5) { animation-delay: 140ms; }
+@keyframes menu-item-reveal {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .menu-item:last-child { border-bottom: none; }
 .menu-item-disabled {
@@ -747,6 +769,32 @@ details[open] .sch-adj-summary::before {
 }
 
 .profile-modal-close:active { transform: scale(0.95); }
+
+.profile-modal-overlay {
+  animation: profile-backdrop-in 200ms ease-out both;
+}
+.profile-modal-panel {
+  animation: profile-panel-in 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.profile-modal-overlay.is-closing { animation: profile-backdrop-out 180ms ease-in both; }
+.profile-modal-overlay.is-closing .profile-modal-panel { animation: profile-panel-out 180ms ease-in both; }
+@keyframes profile-backdrop-in { from { background-color: rgba(0,0,0,0); } }
+@keyframes profile-backdrop-out { to { background-color: rgba(0,0,0,0); } }
+@keyframes profile-panel-in {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes profile-panel-out { to { opacity: 0; transform: translateY(20px); } }
+
+.ui-toast {
+  animation: toast-in 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.ui-toast.is-leaving { animation: toast-out 180ms ease-in both; }
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 12px) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+@keyframes toast-out { to { opacity: 0; transform: translate(-50%, 8px) scale(0.98); } }
 
 /* マイページは濃紺背景のため、ブラウザ既定の灰色プレースホルダーを使わない。 */
 #profile-modal-overlay input::placeholder {
@@ -839,6 +887,30 @@ body.sheet-active .leaflet-control-container {
   -webkit-tap-highlight-color: transparent;
 }
 .fav-btn.is-fav { color: #f5b301; }
+.fav-btn.favorite-pop { animation: favorite-pop 360ms cubic-bezier(0.22, 1, 0.36, 1); }
+@keyframes favorite-pop {
+  0% { transform: scale(0.8) rotate(-8deg); }
+  55% { transform: scale(1.32) rotate(5deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottom-btn,
+  .sheet-panel,
+  .sheet-overlay-base,
+  .sheet-panel.open .sheet-scroll,
+  .sheet-panel.open .menu-item,
+  .profile-modal-overlay,
+  .profile-modal-panel,
+  .profile-modal-overlay.is-closing,
+  .profile-modal-overlay.is-closing .profile-modal-panel,
+  .ui-toast,
+  .ui-toast.is-leaving,
+  .fav-btn.favorite-pop {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 .sheet-meeting-recurrence { font-size: 15px; color: #111; margin: 3px 0 8px; }
 .sheet-upcoming-list { display: flex; flex-direction: column; gap: 6px; }
 .sheet-upcoming-item {

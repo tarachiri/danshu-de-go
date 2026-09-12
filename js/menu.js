@@ -129,6 +129,7 @@ function setProfileMenuLabel(registered) {
 
 function showToast(message, kind) {
   const toast = document.createElement('div');
+  toast.className = 'ui-toast';
   toast.textContent = message;
   toast.style.cssText = `
     position: fixed;
@@ -147,12 +148,21 @@ function showToast(message, kind) {
     text-align: center;
   `;
   document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 2600);
+  setTimeout(() => {
+    toast.classList.add('is-leaving');
+    setTimeout(() => toast.remove(), 180);
+  }, 2400);
 }
 
-function closeProfileModal() {
+function closeProfileModal(immediate) {
   const existing = document.getElementById('profile-modal-overlay');
-  if (existing) existing.remove();
+  if (!existing || existing.classList.contains('is-closing')) return;
+  if (immediate || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    existing.remove();
+    return;
+  }
+  existing.classList.add('is-closing');
+  setTimeout(() => existing.remove(), 180);
 }
 
 function formatActivityDate(value) {
@@ -338,14 +348,17 @@ function renderActivitySection(activity, globalSummary) {
 }
 
 function openProfileModal(profile, activity, globalSummary, favorites) {
-  closeProfileModal();
+  // 再取得結果で差し替える場合は同じidのモーダルを一時的に二重化させない。
+  closeProfileModal(true);
   const isEdit = Boolean(profile);
 
   const overlay = document.createElement('div');
   overlay.id = 'profile-modal-overlay';
+  overlay.className = 'profile-modal-overlay';
   overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:flex-end;';
 
   const modal = document.createElement('div');
+  modal.className = 'profile-modal-panel';
   modal.style.cssText = 'position:relative;background:#1a1a2e;color:#fff;padding:24px;width:100%;border-top:3px solid #C0392B;border-radius:16px 16px 0 0;max-height:85vh;overflow-y:auto;box-sizing:border-box;';
 
   const title = isEdit ? '👤 マイページ' : '📝 かんたん会員登録';
