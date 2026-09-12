@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 </noscript>
-<link rel="stylesheet" href="style.css?v=20260911d">
+<link rel="stylesheet" href="style.css?v=20260912c">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1YCK7W6XG"></script>
 <script src="js/analytics.js"></script>
 </head>
@@ -544,9 +544,9 @@ function splashClose() {
 
 <div id="map-attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
 <div id="bottom-nav">
-  <button class="bottom-btn active" id="tab-map" onclick="switchTab('map')">
+  <button class="bottom-btn active" id="tab-map" onclick="typeof toggleMapPanel === 'function' ? toggleMapPanel() : switchTab('map')" aria-expanded="true" aria-controls="map">
     <span class="bottom-icon">🗺️</span>
-    <span class="bottom-label">マップ</span>
+    <span class="bottom-label" id="tab-map-label">マップを閉じる</span>
   </button>
   <button class="bottom-btn" id="tab-schedule" onclick="switchTab('schedule')">
     <span class="bottom-icon">📅</span>
@@ -662,8 +662,8 @@ function splashClose() {
 <script src="js/activity-api.js?v=20260826a"></script>
 <script src="js/uranai.js?v=20260816a"></script>
 <script src="js/pin-schedule.js?v=20260831a"></script>
-<script src="app.js?v=20260911b"></script>
-<script src="js/menu.js?v=20260911e"></script>
+<script src="app.js?v=20260912c"></script>
+<script src="js/menu.js?v=20260912a"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }
 </script>

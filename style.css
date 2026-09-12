@@ -7,6 +7,28 @@ button, input, select, textarea { font-family: inherit; }
    （SEO静的コンテンツ埋め込み、2026-07-25） */
 #app-shell { position: relative; display: flex; flex-direction: column; height: 100dvh; overflow: hidden; }
 
+/* マップを畳むと、#app-shell直後の地域・都道府県案内が上へ続く。 */
+#app-shell.map-collapsed {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  padding-bottom: 60px;
+}
+#app-shell.map-collapsed #map { display: none !important; }
+#app-shell.map-collapsed #map-attribution { display: none !important; }
+#app-shell.map-collapsed #bottom-nav { bottom: 0; }
+
+/* Leaflet本体へのtransformはタイル再描画を妨げる端末があるため使わない。
+   地域案内とボタンだけを動かし、地図の表示復帰を最優先にする。 */
+#seo-summary.map-summary-reveal {
+  animation: map-summary-reveal 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes map-summary-reveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 #header {
     background: linear-gradient(135deg, #16213e, #0f3460);
     border-bottom: 2px solid #e94560;
@@ -353,6 +375,11 @@ button, input, select, textarea { font-family: inherit; }
   color: #e94560;
 }
 
+#tab-map[aria-expanded="false"] {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
 .bottom-btn:active {
   background: rgba(255,255,255,0.08);
 }
@@ -360,7 +387,10 @@ button, input, select, textarea { font-family: inherit; }
 .bottom-icon {
   font-size: 22px;
   line-height: 1;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+#tab-map[aria-expanded="false"] .bottom-icon { transform: translateY(-1px) scale(1.08); }
 
 .bottom-label {
   font-size: 10px;
@@ -718,6 +748,21 @@ details[open] .sch-adj-summary::before {
 
 .profile-modal-close:active { transform: scale(0.95); }
 
+/* マイページは濃紺背景のため、ブラウザ既定の灰色プレースホルダーを使わない。 */
+#profile-modal-overlay input::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottom-icon {
+    transition: none !important;
+  }
+  #seo-summary.map-summary-reveal {
+    animation: none !important;
+  }
+}
+
 /* シート表示中はボトムナビ・Leafletコントロール（現在地ボタン等）を隠し、
    ボタンの取り合い・z-index競合を避ける */
 body.sheet-active #bottom-nav,
@@ -773,7 +818,7 @@ body.sheet-active .leaflet-control-container {
   padding: 4px 11px; border-radius: 20px; margin-bottom: 8px;
 }
 .sheet-title { font-size: 24px; font-weight: 800; color: #16213e; margin: 0 0 4px; }
-.sheet-address { font-size: 15px; color: #666; margin: 0 0 14px; }
+.sheet-address { font-size: 15px; color: #111; margin: 0 0 14px; }
 
 .sheet-meeting-group {
   border: 1px solid #e0e0e8; border-radius: 10px;
@@ -794,7 +839,7 @@ body.sheet-active .leaflet-control-container {
   -webkit-tap-highlight-color: transparent;
 }
 .fav-btn.is-fav { color: #f5b301; }
-.sheet-meeting-recurrence { font-size: 15px; color: #666; margin: 3px 0 8px; }
+.sheet-meeting-recurrence { font-size: 15px; color: #111; margin: 3px 0 8px; }
 .sheet-upcoming-list { display: flex; flex-direction: column; gap: 6px; }
 .sheet-upcoming-item {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -804,7 +849,7 @@ body.sheet-active .leaflet-control-container {
   display: inline-block; font-size: 15px; font-weight: 700; color: #fff;
   padding: 2px 10px; border-radius: 11px; white-space: nowrap;
 }
-.sheet-upcoming-time { color: #666; font-size: 15px; }
+.sheet-upcoming-time { color: #111; font-size: 15px; }
 .sheet-exception-note { font-size: 15px; color: #c0392b; margin-top: 4px; width: 100%; }
 
 .sheet-section-title {

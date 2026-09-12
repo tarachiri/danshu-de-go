@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>例会情報を送る | 断酒でGO!!</title>
   <script src="/js/return-to-map.js?v=20260911a" defer></script>
+  <script src="/js/gogo-dashboard.js?v=20260912a" defer></script>
   <meta name="description" content="断酒会の例会予定表や例会情報を送るための投稿フォームです。">
   <style>
     :root { color-scheme: light; --navy:#16213e; --red:#c0392b; --bg:#f6f7f9; --ink:#222; }
@@ -13,9 +14,28 @@
     button, input, select, textarea { font-family:inherit; }
     header { background:var(--navy); color:#fff; padding:12px 16px; }
     header a { display:inline-flex; align-items:center; min-height:40px; padding:7px 14px; border:1px solid rgba(255,255,255,.35); border-radius:999px; color:#fff; font-size:16px; font-weight:700; text-decoration:none; }
-    main { width:min(720px, calc(100% - 24px)); margin:24px auto 48px; }
+    main { width:min(860px, calc(100% - 24px)); margin:24px auto 48px; }
     .panel { background:#fff; border-radius:12px; padding:clamp(20px,5vw,36px); box-shadow:0 3px 16px rgba(22,33,62,.08); }
+    .dashboard { margin-bottom:20px; }
     h1 { margin:0 0 14px; font-size:clamp(26px,7vw,36px); line-height:1.35; }
+    h2 { margin:0 0 12px; font-size:clamp(21px,5vw,27px); line-height:1.4; }
+    .dashboard-lead { margin:0 0 18px; color:#555; }
+    .summary-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:18px 0; }
+    .summary-card { padding:16px; border:1px solid #dfe3ea; border-radius:11px; background:#fafbfc; }
+    .summary-number { display:block; color:var(--navy); font-size:30px; font-weight:700; line-height:1.1; }
+    .summary-label { display:block; margin-top:5px; color:#555; font-size:15px; }
+    .quick-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 22px; }
+    .action-link { display:flex; align-items:center; justify-content:center; min-height:54px; padding:10px; border-radius:10px; background:var(--navy); color:#fff; font-weight:700; text-align:center; text-decoration:none; }
+    .action-link.secondary { background:#fff; border:2px solid var(--navy); color:var(--navy); }
+    .history-empty { padding:16px; border-radius:10px; background:#f4f6f8; color:#666; }
+    .receipt-list { display:grid; gap:10px; margin:0; padding:0; list-style:none; }
+    .receipt { padding:14px 16px; border:1px solid #dfe3ea; border-radius:10px; }
+    .receipt-head { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+    .receipt-id { font-weight:700; }
+    .status-chip { padding:4px 9px; border-radius:999px; background:#fff1c2; color:#795b00; font-size:14px; font-weight:700; }
+    .receipt-date { margin-top:5px; color:#666; font-size:14px; }
+    .privacy-note { margin:14px 0 0; color:#666; font-size:14px; }
+    .divider { height:1px; margin:26px 0; background:#e5e7eb; }
     .notice { background:#fff7df; border-left:5px solid #e0a000; padding:12px 14px; }
     label { display:block; margin-top:26px; font-weight:700; }
     .help { display:block; color:#666; font-size:15px; font-weight:400; margin:4px 0 8px; }
@@ -26,13 +46,38 @@
     #result { min-height:2em; margin:18px 0 0; font-weight:700; }
     .success { color:#176c32; }
     .error { color:#a5231b; }
+    @media (max-width:520px) {
+      .summary-grid, .quick-actions { grid-template-columns:1fr; }
+      .summary-card { display:flex; align-items:center; gap:12px; }
+      .summary-label { margin-top:0; }
+    }
   </style>
 </head>
 <body>
   <header><a href="/" data-return-to-map>← マップへ戻る</a></header>
   <main>
-    <section class="panel">
-      <h1>例会情報を送る</h1>
+    <section class="panel dashboard" aria-labelledby="dashboard-title">
+      <h1 id="dashboard-title">例会情報ダッシュボード</h1>
+      <p class="dashboard-lead">例会情報を届けたり、この端末から送った受付番号を確認できます。</p>
+      <div class="summary-grid" aria-label="情報提供の概要">
+        <div class="summary-card">
+          <span class="summary-number" id="receipt-count">0</span>
+          <span class="summary-label">この端末から送った情報</span>
+        </div>
+        <div class="summary-card">
+          <span class="summary-number">確認後</span>
+          <span class="summary-label">公開データへ反映します</span>
+        </div>
+      </div>
+      <div class="quick-actions">
+        <a class="action-link" href="#submission-form">予定表・例会情報を送る</a>
+        <a class="action-link secondary" href="#submission-form">休会・変更を知らせる</a>
+      </div>
+      <h2>これまでの受付</h2>
+      <div id="receipt-history"></div>
+      <p class="privacy-note">受付番号はこの端末のブラウザ内だけに保存します。別の端末には表示されません。現在の確認状況を表示する機能は、次の段階で追加予定です。</p>
+      <div class="divider"></div>
+      <h2>新しい情報を送る</h2>
       <p>断酒会の予定表や、例会について分かることをお送りください。内容は確認後に反映します。</p>
       <p class="notice">ファイルか直接入力の、どちらか一方は必須です。</p>
       <form id="submission-form" enctype="multipart/form-data">
@@ -55,6 +100,34 @@
   </main>
   <script>
     const API_URL = "https://gogo-review.nukadokonokai.com/submit";
+    const history = document.getElementById("receipt-history");
+    const count = document.getElementById("receipt-count");
+
+    function escapeHtml(value) {
+      return String(value == null ? "" : value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[character]));
+    }
+
+    function renderReceipts() {
+      if (!window.DanshuGogoDashboard) return;
+      const receipts = window.DanshuGogoDashboard.load(localStorage);
+      count.textContent = receipts.length.toLocaleString("ja-JP");
+      if (!receipts.length) {
+        history.innerHTML = '<div class="history-empty">この端末から送った受付はまだありません。</div>';
+        return;
+      }
+      history.innerHTML = `<ul class="receipt-list">${receipts.map(receipt => `
+        <li class="receipt">
+          <div class="receipt-head">
+            <span class="receipt-id">受付番号 ${escapeHtml(receipt.submissionId)}</span>
+            <span class="status-chip">受付済み・確認中</span>
+          </div>
+          <div class="receipt-date">${escapeHtml(window.DanshuGogoDashboard.formatSubmittedAt(receipt.submittedAt))}</div>
+        </li>`).join("")}</ul>`;
+    }
+
+    window.addEventListener("DOMContentLoaded", renderReceipts);
     document.getElementById("submission-form").addEventListener("submit", async (event) => {
       event.preventDefault();
       const form = event.currentTarget;
@@ -73,6 +146,10 @@
         if (!response.ok) throw new Error(data.error || "送信できませんでした");
         result.className = "success";
         result.textContent = `送信できました。受付番号は ${data.submission_id} です。`;
+        if (window.DanshuGogoDashboard) {
+          window.DanshuGogoDashboard.save(localStorage, data.submission_id, new Date());
+          renderReceipts();
+        }
         form.reset();
       } catch (error) {
         result.className = "error";

@@ -27,7 +27,7 @@ function showInstallGuide() {
   if (isLine) {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:16px;line-height:2;color:#ccc;">
+      <div style="font-size:16px;line-height:2;color:#fff;">
         LINEブラウザではホーム画面への追加ができません。<br>
         右上の <b style="color:#fff;">「…」→「ブラウザで開く」</b> をタップしてから追加してください。
       </div>
@@ -35,7 +35,7 @@ function showInstallGuide() {
   } else if (isIOS && isSafari) {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:18px;line-height:2;color:#ccc;">
+      <div style="font-size:18px;line-height:2;color:#fff;">
         ① 下のメニューバーの <b style="color:#fff;">「共有」</b> をタップ<br>
         ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択<br>
         ③ 右上の <b style="color:#fff;">「追加」</b> をタップ
@@ -44,29 +44,29 @@ function showInstallGuide() {
   } else if (isIOS && isChrome) {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:18px;line-height:2;color:#ccc;">
+      <div style="font-size:18px;line-height:2;color:#fff;">
         ① 右下の <b style="color:#fff;">「…」</b> をタップ<br>
         ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択
       </div>
-      <div style="font-size:13px;color:#888;margin-top:8px;">
+      <div style="font-size:13px;color:#fff;margin-top:8px;">
         ※ iOS版Chromeは機能が制限される場合があります。Safariでの追加を推奨します。
       </div>
     `;
   } else if (isAndroid && isChrome) {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:18px;line-height:2;color:#ccc;">
+      <div style="font-size:18px;line-height:2;color:#fff;">
         ① ブラウザ右上の <b style="color:#fff;">「⋮」</b> をタップ<br>
         ② <b style="color:#fff;">「ホーム画面に追加」</b> を選択
       </div>
-      <div style="font-size:13px;color:#888;margin-top:8px;">
+      <div style="font-size:13px;color:#fff;margin-top:8px;">
         ※ アドレスバーに「インストール」アイコンが表示される場合はそちらからも追加できます。
       </div>
     `;
   } else if (isAndroid && isFirefox) {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:18px;line-height:2;color:#ccc;">
+      <div style="font-size:18px;line-height:2;color:#fff;">
         ① ブラウザ右上の <b style="color:#fff;">「⋮」</b> をタップ<br>
         ② <b style="color:#fff;">「ページのショートカット」</b> を選択<br>
         ③ <b style="color:#fff;">「ホーム画面に追加」</b> をタップ
@@ -75,7 +75,7 @@ function showInstallGuide() {
   } else if (isEdge) {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:18px;line-height:2;color:#ccc;">
+      <div style="font-size:18px;line-height:2;color:#fff;">
         ① ブラウザ右下の <b style="color:#fff;">「…」</b> をタップ<br>
         ② <b style="color:#fff;">「電話に追加」</b> を選択
       </div>
@@ -83,7 +83,7 @@ function showInstallGuide() {
   } else {
     content = `
       <div style="font-size:20px;font-weight:bold;color:#e94560;margin-bottom:12px;">📲 ホーム画面に追加しよう！</div>
-      <div style="font-size:18px;line-height:2;color:#ccc;">
+      <div style="font-size:18px;line-height:2;color:#fff;">
         お使いのブラウザのメニューから<br>
         <b style="color:#fff;">「ホーム画面に追加」</b> または<br>
         <b style="color:#fff;">「アプリをインストール」</b> を選択してください。
@@ -206,7 +206,7 @@ function renderMyCalendar(favorites) {
     return `
       <section style="margin-bottom:22px;">
         <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">📅 Myカレンダー</div>
-        <div style="color:#888;font-size:13px;">日程を読み込めませんでした</div>
+        <div style="color:#fff;font-size:13px;">日程を読み込めませんでした</div>
       </section>`;
   }
 
@@ -236,7 +236,7 @@ function renderMyCalendar(favorites) {
     <div style="background:#351c1c;border:1px solid #C0392B;border-radius:10px;padding:10px 12px;">
       <div style="color:#ff9b8f;font-size:13px;font-weight:bold;">⚠️ ${escapeAttr(item.label)}</div>
       <div style="font-size:14px;font-weight:bold;margin-top:4px;">${escapeAttr(item.meeting.name || '名称未登録の例会')}</div>
-      ${item.meeting.exc_note ? `<div style="font-size:12px;color:#ccc;margin-top:5px;line-height:1.5;">${escapeAttr(item.meeting.exc_note)}</div>` : ''}
+      ${item.meeting.exc_note ? `<div style="font-size:12px;color:#fff;margin-top:5px;line-height:1.5;">${escapeAttr(item.meeting.exc_note)}</div>` : ''}
       <a href="/?venue=${encodeURIComponent(item.venue.id)}" style="display:inline-block;color:#7db9ff;font-size:13px;margin-top:7px;">詳細を確認する →</a>
     </div>`).join('');
   const entriesHtml = entries.map(item => {
@@ -245,7 +245,7 @@ function renderMyCalendar(favorites) {
       <a href="/?venue=${encodeURIComponent(item.venue.id)}" style="display:block;background:#0f1428;border:1px solid #0f3460;border-radius:10px;padding:10px 12px;color:#fff;text-decoration:none;">
         <div style="color:#ffd166;font-size:14px;font-weight:bold;">${dayLabel ? `<span style="color:#ff9b8f;">${dayLabel}　</span>` : ''}${escapeAttr(formatUpcomingMeetingDate(item.date, item.meeting.start_time))}</div>
         <div style="font-size:14px;font-weight:bold;margin-top:4px;">${escapeAttr(item.meeting.name || '名称未登録の例会')}</div>
-        ${item.venue.facility_name ? `<div style="font-size:12px;color:#aaa;margin-top:4px;">📍 ${escapeAttr(item.venue.facility_name)}</div>` : ''}
+        ${item.venue.facility_name ? `<div style="font-size:12px;color:#fff;margin-top:4px;">📍 ${escapeAttr(item.venue.facility_name)}</div>` : ''}
       </a>`;
   }).join('');
 
@@ -255,7 +255,7 @@ function renderMyCalendar(favorites) {
       <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">📅 Myカレンダー</div>
       ${content
         ? `<div style="display:grid;gap:7px;">${content}</div>`
-        : '<div style="color:#888;font-size:13px;line-height:1.6;">お気に入り例会を登録すると、これからの日程がここに表示されます。</div>'}
+        : '<div style="color:#fff;font-size:13px;line-height:1.6;">お気に入り例会を登録すると、これからの日程がここに表示されます。</div>'}
     </section>`;
 }
 
@@ -264,7 +264,7 @@ function renderFavoritesSection(favorites) {
     return `
       <section style="margin-bottom:22px;">
         <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">⭐ お気に入り例会</div>
-        <div style="color:#888;font-size:13px;">お気に入りを読み込めませんでした</div>
+        <div style="color:#fff;font-size:13px;">お気に入りを読み込めませんでした</div>
       </section>`;
   }
 
@@ -283,11 +283,11 @@ function renderFavoritesSection(favorites) {
     return `
       <div style="background:#0f1428;border:1px solid #0f3460;border-radius:10px;padding:10px 12px;">
         <div style="font-size:15px;font-weight:bold;">${escapeAttr(meeting.name || favorite.name || '名称未登録の例会')}</div>
-        ${meeting.group_name || favorite.group_name ? `<div style="font-size:13px;color:#bbb;margin-top:4px;">${escapeAttr(meeting.group_name || favorite.group_name)}</div>` : ''}
+        ${meeting.group_name || favorite.group_name ? `<div style="font-size:13px;color:#fff;margin-top:4px;">${escapeAttr(meeting.group_name || favorite.group_name)}</div>` : ''}
         ${exceptionLabel ? `<div style="font-size:13px;color:#ff9b8f;font-weight:bold;margin-top:7px;">⚠️ ${escapeAttr(exceptionLabel)}</div>` : ''}
         ${nextDate ? `<div style="font-size:14px;color:#ffd166;font-weight:bold;margin-top:7px;">次回　${escapeAttr(nextDate)}</div>` : ''}
-        ${details ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">${escapeAttr(details)}</div>` : ''}
-        ${venue && venue.facility_name ? `<div style="font-size:13px;color:#aaa;margin-top:4px;">📍 ${escapeAttr(venue.facility_name)}</div>` : ''}
+        ${details ? `<div style="font-size:13px;color:#fff;margin-top:4px;">${escapeAttr(details)}</div>` : ''}
+        ${venue && venue.facility_name ? `<div style="font-size:13px;color:#fff;margin-top:4px;">📍 ${escapeAttr(venue.facility_name)}</div>` : ''}
         ${mapLink}
       </div>`;
   }).join('');
@@ -297,38 +297,38 @@ function renderFavoritesSection(favorites) {
       <div style="font-size:16px;font-weight:bold;margin-bottom:8px;">⭐ お気に入り例会</div>
       ${items
         ? `<div style="display:grid;gap:7px;">${items}</div>`
-        : '<div style="color:#888;font-size:13px;line-height:1.6;">地図の例会詳細にある☆を押すと、ここに表示されます。</div>'}
+        : '<div style="color:#fff;font-size:13px;line-height:1.6;">地図の例会詳細にある☆を押すと、ここに表示されます。</div>'}
     </section>`;
 }
 
 function renderActivitySection(activity, globalSummary) {
   if (!activity || !activity.periods) {
-    return '<div style="color:#888;font-size:13px;margin-bottom:18px;">探索記録は準備中です</div>';
+    return '<div style="color:#fff;font-size:13px;margin-bottom:18px;">探索記録は準備中です</div>';
   }
   const badges = Array.isArray(activity.badges) ? activity.badges : [];
   const badgesHtml = badges.length
     ? badges.map(b => `
         <div style="background:#0f1428;border:1px solid #5D4A1F;border-radius:10px;padding:10px;">
           <div style="font-size:18px;">🏅 ${escapeAttr(b.title || '')}</div>
-          <div style="font-size:12px;color:#aaa;margin-top:4px;">${escapeAttr(b.description || '')}</div>
+          <div style="font-size:12px;color:#fff;margin-top:4px;">${escapeAttr(b.description || '')}</div>
         </div>`).join('')
-    : '<div style="color:#888;font-size:13px;">会場を探索するとバッジが増えていきます</div>';
+    : '<div style="color:#fff;font-size:13px;">会場を探索するとバッジが増えていきます</div>';
   return `
     <section id="profile-activity" style="margin-bottom:22px;">
       <div style="font-size:16px;font-weight:bold;margin-bottom:10px;">🗺️ あなたの探索記録</div>
-      <div style="font-size:13px;color:#bbb;margin-bottom:10px;">使い始めた日　${escapeAttr(formatActivityDate(activity.started_at))}</div>
+      <div style="font-size:13px;color:#fff;margin-bottom:10px;">使い始めた日　${escapeAttr(formatActivityDate(activity.started_at))}</div>
       <div style="display:flex;gap:5px;margin-bottom:10px;">
         ${[['today','今日'],['week','今週'],['month','今月'],['total','累計']].map(([key,label]) =>
           `<button type="button" class="activity-period-btn" data-period="${key}" style="flex:1;padding:7px 2px;border:1px solid #0f3460;border-radius:8px;background:${key === 'total' ? '#0f3460' : 'transparent'};color:#fff;">${label}</button>`
         ).join('')}
       </div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px;text-align:center;">
-        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-visits" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#aaa;">訪問日数</div></div>
-        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-venues" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#aaa;">見た会場</div></div>
-        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-pins" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#aaa;">ピンタップ</div></div>
+        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-visits" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#fff;">訪問日数</div></div>
+        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-venues" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#fff;">見た会場</div></div>
+        <div style="background:#0f1428;border-radius:8px;padding:9px 3px;"><div id="activity-pins" style="font-size:20px;font-weight:bold;">0</div><div style="font-size:11px;color:#fff;">ピンタップ</div></div>
       </div>
       <div style="font-size:14px;font-weight:bold;margin-bottom:8px;">🌏 みんなの記録</div>
-      <div style="background:#0f1428;border-radius:8px;padding:10px;margin-bottom:14px;font-size:13px;color:#ccc;">
+      <div style="background:#0f1428;border-radius:8px;padding:10px;margin-bottom:14px;font-size:13px;color:#fff;">
         訪問 <strong id="global-visits" style="color:#fff;">0</strong>　
         ピンタップ <strong id="global-pins" style="color:#fff;">0</strong>
       </div>
@@ -358,18 +358,18 @@ function openProfileModal(profile, activity, globalSummary, favorites) {
     ${renderFavoritesSection(favorites)}
     ${renderActivitySection(activity, globalSummary)}
     <div style="font-size:16px;font-weight:bold;margin-bottom:12px;">${isEdit ? '✏️ 登録情報' : '登録情報'}</div>
-    <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">表示名（必須・30文字まで）</label>
+    <label style="display:block;font-size:14px;color:#fff;margin-bottom:6px;">表示名（必須・30文字まで）</label>
     <input id="profile-display-name" type="text" maxlength="30" value="${escapeAttr(profile && profile.display_name)}" style="${fieldStyle}">
-    <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">都道府県（任意）</label>
+    <label style="display:block;font-size:14px;color:#fff;margin-bottom:6px;">都道府県（任意）</label>
     <input id="profile-prefecture" type="text" placeholder="例: 埼玉県" value="${escapeAttr(profile && profile.prefecture)}" style="width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:1px solid #0f3460;background:#0f1428;color:#fff;font-size:16px;margin-bottom:6px;">
-    <div style="font-size:13px;color:#888;line-height:1.6;margin-bottom:16px;">
+    <div style="font-size:13px;color:#fff;line-height:1.6;margin-bottom:16px;">
       都道府県を入力しておくと、お住まいの地域に近い例会を優先的に表示できるようになります。あとからいつでも登録・変更できるので、今すぐ分からなければ空欄のままで大丈夫です。
     </div>
-    <label style="display:block;font-size:14px;color:#ccc;margin-bottom:6px;">市区町村（任意）</label>
+    <label style="display:block;font-size:14px;color:#fff;margin-bottom:6px;">市区町村（任意）</label>
     <input id="profile-city" type="text" placeholder="例: さいたま市" value="${escapeAttr(profile && profile.city)}" style="${fieldStyle}">
     <div id="profile-error" style="display:none;font-size:14px;color:#e94560;margin-bottom:8px;"></div>
     <button id="profile-save-btn" style="width:100%;padding:12px;background:#C0392B;color:#fff;border:none;border-radius:8px;font-size:18px;font-weight:bold;margin-top:8px;">保存する</button>
-    <button id="profile-cancel-btn" style="width:100%;padding:12px;background:transparent;color:#ccc;border:1px solid #0f3460;border-radius:8px;font-size:16px;margin-top:8px;">キャンセル</button>
+    <button id="profile-cancel-btn" style="width:100%;padding:12px;background:transparent;color:#fff;border:1px solid #fff;border-radius:8px;font-size:16px;margin-top:8px;">キャンセル</button>
   `;
 
   overlay.appendChild(modal);

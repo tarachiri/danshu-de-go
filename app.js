@@ -568,6 +568,63 @@ function jumpToMarker(id, lat, lng, name) {
   }, 300);
 }
 
+function setMapPanelExpanded(expanded) {
+  const appShell = document.getElementById('app-shell');
+  const mapButton = document.getElementById('tab-map');
+  const mapLabel = document.getElementById('tab-map-label');
+  if (!appShell || !mapButton) return;
+
+  appShell.classList.toggle('map-collapsed', !expanded);
+  mapButton.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  if (mapLabel) mapLabel.textContent = expanded ? 'マップを閉じる' : 'マップを開く';
+}
+
+// ボトムメニューのマップボタンだけは、表示中に再度押すと地図を畳む。
+// switchTab('map') は会場ジャンプ等からも呼ばれるため、常に開く動作として分離する。
+function toggleMapPanel() {
+  const appShell = document.getElementById('app-shell');
+  const mapButton = document.getElementById('tab-map');
+  const summary = document.getElementById('seo-summary');
+  const mapIsCurrent = mapButton && mapButton.classList.contains('active');
+  const expanded = !mapButton || mapButton.getAttribute('aria-expanded') !== 'false';
+  const reduceMotion = window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!mapIsCurrent) {
+    switchTab('map');
+    return;
+  }
+
+  if (!appShell) return;
+  summary && summary.classList.remove('map-summary-reveal');
+  setMapPanelExpanded(!expanded);
+  if (expanded) {
+    if (summary) {
+      if (!reduceMotion) {
+        summary.classList.add('map-summary-reveal');
+        setTimeout(() => summary.classList.remove('map-summary-reveal'), 450);
+      }
+      summary.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+    return;
+  }
+
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  if (window._leafletMap) {
+    requestAnimationFrame(() => window._leafletMap.invalidateSize());
+    // Safariの履歴復元時は1フレームでは不足することがあるため保険でもう一度実行する。
+    setTimeout(() => window._leafletMap.invalidateSize(), 120);
+  }
+}
+
+// 戻る操作で「畳んだDOM」だけが復元されても、初期画面では必ず地図を表示する。
+window.addEventListener('pageshow', () => {
+  const mapButton = document.getElementById('tab-map');
+  if (!mapButton || !mapButton.classList.contains('active')) return;
+  setMapPanelExpanded(true);
+  if (window._leafletMap) setTimeout(() => window._leafletMap.invalidateSize(), 120);
+});
+
 // タブ切替
 function switchTab(tab) {
   // #seo-summary閲覧中にタブ切替した場合、#app-shellが画面内に戻るようスクロール位置をリセット
@@ -592,6 +649,8 @@ function switchTab(tab) {
   const tabNews = document.getElementById('tab-news');
   const tabBulletin = document.getElementById('tab-bulletin');
   const tabKamo = document.getElementById('bottom-kamo');
+  // 日程等から戻る場合や会場ジャンプでは、マップを必ず展開状態に戻す。
+  setMapPanelExpanded(true);
   mapEl.style.display = 'none';
   schEl.style.display = 'none';
   if (newsEl) newsEl.style.display = 'none';
