@@ -92,9 +92,19 @@ function getStyle(v) {
   const label = getDateLabel(v.next_date);
   const specialEvent = SpecialEvents.findForVenue(v);
   if (label === 'today' && PinSchedule.isDayMeeting(v.start_time)) {
-    return { color: '#2471A3', size: 28, cls: 'pin-today' };
+    return {
+      color: '#2471A3', size: 28,
+      cls: specialEvent ? 'pin-today pin-special pin-special-soon' : 'pin-today',
+      symbol: specialEvent ? specialEvent.icon : ''
+    };
   }
-  if (label === 'today')    return { color: '#C0392B', size: 28, cls: 'pin-today' };
+  if (label === 'today') {
+    return {
+      color: '#C0392B', size: 28,
+      cls: specialEvent ? 'pin-today pin-special pin-special-soon' : 'pin-today',
+      symbol: specialEvent ? specialEvent.icon : ''
+    };
+  }
   if (specialEvent) {
     return {
       color: specialEvent.is_soon ? '#E0A000' : '#B8860B',
@@ -428,14 +438,19 @@ function buildSheetContent(v) {
       </div>`;
   }
 
+  const hasFallbackSchedule = Boolean(
+    v.fallback_meeting_name || v.fallback_next_date || v.fallback_schedule
+  );
   const meetingsHTML = meetings
     ? meetings.map(buildSheetMeetingGroup).join('')
-    : `<div class="sheet-meeting-group">
+    : hasFallbackSchedule ? `<div class="sheet-meeting-group">
          <div class="sheet-upcoming-item">
            <span class="sheet-date-badge" style="background:#888">📅 ${v.fallback_next_date ? formatDate(v.fallback_next_date) : '日程未定'}</span>
            ${v.fallback_schedule ? `<span class="sheet-upcoming-time">🔁 ${v.fallback_schedule}</span>` : ''}
          </div>
-       </div>`;
+       </div>` : '';
+  const meetingsSection = meetingsHTML
+    ? `<div class="sheet-section-title">開催予定の例会</div>${meetingsHTML}` : '';
 
   const calLink = v.calendar_url
     ? `<a href="${v.calendar_url}" target="_blank" class="sheet-btn-cal">📅 公式カレンダー</a>` : '';
@@ -445,37 +460,72 @@ function buildSheetContent(v) {
   const mapsLink = mapsQuery
     ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="sheet-btn-map">🗺️ 経路を調べる</a>` : '';
 
-  const specialEvent = SpecialEvents.findForVenue(v);
-  const poster = specialEvent && specialEvent.asset
-    ? `<section class="special-event-poster">
-         <div class="sheet-section-title">${specialEvent.icon} イベントのポスター</div>
-         <button type="button" class="special-event-poster-trigger"
-                 onclick="openEventPoster('${specialEvent.asset.poster_url}', '${specialEvent.asset.poster_alt}')"
-                 aria-label="ポスターを大きく見る">
-           <img src="${specialEvent.asset.poster_url}" alt="${specialEvent.asset.poster_alt}" loading="lazy">
-           <span>🔍 ポスターを大きく見る</span>
-         </button>
-       </section>`
-    : '';
+  const eventSection = buildSpecialEventSection(v);
 
   // 最寄駅・徒歩距離バッジ（データが揃っている場合のみ切り替え。それ以外は既存の固定文言）
   const venueBadgeLabel = (v.nearest_station && v.walk_duration_min != null)
     ? `🚶 ${v.nearest_station}駅 徒歩${v.walk_duration_min}分`
-    : '📍 会場・例会情報';
+    : (meetingsHTML ? '📍 会場・例会情報' : '📍 会場・イベント情報');
 
   return `
     <div class="sheet-venue-badge">${venueBadgeLabel}</div>
     <div class="sheet-title">🏢 ${v.facility_name || '会場'}</div>
     ${addr ? `<div class="sheet-address">📍 ${addr}</div>` : ''}
     ${verifyBanner}
-    <div class="sheet-section-title">開催予定の例会・イベント</div>
-    ${meetingsHTML}
-    ${poster}
+    ${meetingsSection}
+    ${eventSection}
     <a href="https://line.me/R/oaMessage/%40867qlgsx/?${encodeURIComponent((v.facility_name||'会場')+'のページから問い合わせ')}" class="sheet-btn-line" target="_blank">🟢 LINEで問い合わせる</a>
     ${calLink}
     ${officialLink}
     ${mapsLink}
   `;
+}
+
+function buildSpecialEventSection(venue) {
+  const events = SpecialEvents.findAllForVenue(venue);
+  if (events.length === 0) return '';
+
+  const cards = events.map(event => {
+    const title = escapeHtml(event.title || '特別イベント');
+    const date = formatDate(event.date);
+    const time = [event.start_time, event.end_time].filter(Boolean).join('〜');
+    const description = event.description
+      ? `<p class="special-event-description">${escapeHtml(event.description)}</p>` : '';
+    const organizer = event.organizer_name
+      ? `<div class="special-event-organizer">主催：${escapeHtml(event.organizer_name)}</div>` : '';
+    const poster = event.asset
+      ? `<button type="button" class="special-event-poster-trigger"
+                 data-poster-url="${escapeEventAttr(event.asset.poster_url)}"
+                 data-poster-alt="${escapeEventAttr(event.asset.poster_alt)}"
+                 onclick="openEventPosterFromButton(this)"
+                 aria-label="${escapeHtml(event.asset.poster_alt)}を大きく見る">
+           <img src="${escapeEventAttr(event.asset.poster_url)}" alt="${escapeHtml(event.asset.poster_alt)}" loading="lazy">
+           <span>🔍 ポスターを大きく見る</span>
+         </button>` : '';
+    const pdf = event.poster_pdf && event.poster_pdf.url
+      ? `<a class="special-event-pdf-link" href="${escapeEventAttr(event.poster_pdf.url)}" target="_blank" rel="noopener">📄 PDFで見る</a>` : '';
+    const official = event.official_url
+      ? `<a class="special-event-official-link" href="${escapeEventAttr(event.official_url)}" target="_blank" rel="noopener">🌐 公式案内</a>` : '';
+
+    return `<article class="special-event-card">
+      <div class="special-event-card-label">${event.icon} ${escapeHtml(event.label)}</div>
+      <h3>${title}</h3>
+      <div class="special-event-card-date">📅 ${date}${time ? `　${escapeHtml(time)}` : ''}</div>
+      ${description}
+      ${organizer}
+      ${poster}
+      ${(pdf || official) ? `<div class="special-event-links">${pdf}${official}</div>` : ''}
+    </article>`;
+  }).join('');
+
+  return `<section class="special-event-poster">
+    <div class="sheet-section-title">📣 特別イベント</div>
+    ${cards}
+  </section>`;
+}
+
+function openEventPosterFromButton(button) {
+  openEventPoster(button.dataset.posterUrl || '', button.dataset.posterAlt || '');
 }
 
 function openEventPoster(url, alt) {
@@ -500,9 +550,7 @@ function closeEventPoster() {
 function renderSpecialEventAnnouncements() {
   const container = document.getElementById('special-event-announcements');
   if (!container) return;
-  const upcoming = VENUES.map(venue => ({ venue, event: SpecialEvents.findForVenue(venue) }))
-    .filter(item => item.event && item.event.is_soon)
-    .sort((a, b) => a.event.date.localeCompare(b.event.date));
+  const upcoming = SpecialEvents.findFeaturedForVenues(VENUES);
 
   if (upcoming.length === 0) {
     container.replaceChildren();
@@ -515,8 +563,8 @@ function renderSpecialEventAnnouncements() {
   button.type = 'button';
   button.className = 'special-event-announcement';
   button.innerHTML = `<span class="special-event-announcement-icon">${first.event.icon}</span>` +
-    `<span><strong>${formatDate(first.event.date)} ${first.event.meeting.name}</strong>` +
-    `<small>${first.venue.facility_name}${upcoming.length > 1 ? `　ほか${upcoming.length - 1}件` : ''}</small></span>` +
+    `<span><strong>${formatDate(first.event.date)} ${escapeHtml(first.event.meeting.name)}</strong>` +
+    `<small>${escapeHtml(first.venue.facility_name)}${upcoming.length > 1 ? `　ほか${upcoming.length - 1}件` : ''}</small></span>` +
     '<span class="special-event-announcement-arrow">›</span>';
   button.addEventListener('click', () => {
     // 詳細を先に開き、地図移動やクラスタ展開の成否に告知内容を依存させない。
@@ -809,8 +857,9 @@ function initVenues() {
   const totalEl = document.getElementById('count-total-header');
   if (totalEl) totalEl.textContent = '...';
   window.setSplashProgress && window.setSplashProgress(30, '例会情報を取得中...');
-  fetch('venues.json')
+  const venuesRequest = fetch('venues.json')
     .then(r => {
+      if (!r.ok) throw new Error(`venues.json HTTP ${r.status}`);
       const lm = r.headers.get('Last-Modified');
       if(lm){
         const d = new Date(lm);
@@ -819,11 +868,23 @@ function initVenues() {
         if(f) f.textContent = "更新: "+label;
       }
       return r.json();
+    });
+  const eventsRequest = fetch('special_events.json', { cache: 'no-cache' })
+    .then(r => {
+      if (!r.ok) throw new Error(`special_events.json HTTP ${r.status}`);
+      return r.json();
     })
-    .then(async data => {
+    .catch(err => {
+      // イベント告知だけの障害で、通常例会の地図を止めない。
+      console.warn('special_events.json fetch失敗:', err);
+      return { schema_version: 1, events: [] };
+    });
+
+  Promise.all([venuesRequest, eventsRequest])
+    .then(async ([data, specialEvents]) => {
       window.setSplashProgress && window.setSplashProgress(55, '例会情報を受信しました');
       await yieldForSplashPaint();
-      VENUES = data;
+      VENUES = SpecialEvents.mergeIntoVenues(data, specialEvents);
       window.VENUES = VENUES;
       renderSpecialEventAnnouncements();
       window.setSplashProgress && window.setSplashProgress(80, 'データを解析中...');
@@ -1491,7 +1552,11 @@ function escapeHtml(text) {
     '"': '&quot;',
     "'": '&#039;'
   };
-  return text.replace(/[&<>"']/g, m => map[m]);
+  return String(text == null ? '' : text).replace(/[&<>"']/g, m => map[m]);
+}
+
+function escapeEventAttr(text) {
+  return escapeHtml(text);
 }
 
 // 掲示板機能の初期化

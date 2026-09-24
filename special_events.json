@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-24T23:50:00+09:00",
+  "events": [
+    {
+      "event_id": 28,
+      "occurrence_id": 1,
+      "title": "福生市民公開セミナー・アルコール勉強会",
+      "description": "依存症を知ることを回復への第一歩として学ぶ市民公開セミナー。申込み不要、参加無料。",
+      "category": "learning",
+      "category_label": "学びのイベント",
+      "icon": "📖",
+      "event_type": "セミナー・勉強会",
+      "organizer_name": "福生断酒新生会",
+      "organizations": [],
+      "starts_at": "2026-09-27T13:30:00+09:00",
+      "ends_at": "2026-09-27T16:00:00+09:00",
+      "all_day": false,
+      "venue": {
+        "id": 1955,
+        "name": "福生市社会福祉協議会",
+        "address": "〒197-0004 東京都福生市南田園２丁目１３−１ 福祉センター",
+        "prefecture": "東京都",
+        "lat": 35.72788774606559,
+        "lng": 139.33257889560969
+      },
+      "promotion": {
+        "map_from": "2026-08-13T00:00:00+09:00",
+        "map_until": "2026-09-27T16:00:00+09:00",
+        "feature_from": "2026-09-20T00:00:00+09:00",
+        "feature_until": "2026-09-27T16:00:00+09:00",
+        "priority": 100
+      },
+      "poster": {
+        "kind": "poster_image",
+        "url": "assets/event-posters/2026-09-27-fussa-alcohol-seminar.jpeg",
+        "mime_type": "image/jpeg",
+        "alt": "福生市民公開セミナー・アルコール勉強会のポスター"
+      },
+      "poster_pdf": null,
+      "official_url": "",
+      "source_url": ""
+    },
+    {
+      "event_id": 29,
+      "occurrence_id": 2,
+      "title": "空と森とボクのココロ in 多摩平の森 2026",
+      "description": "お酒に関する無料相談、依存症クイズ、アルコールパッチテストを実施する入場無料の市民イベント。",
+      "category": "outreach",
+      "category_label": "相談・啓発イベント",
+      "icon": "🤝",
+      "event_type": "相談・啓発イベント",
+      "organizer_name": "NPO法人ひとしゅが",
+      "organizations": [],
+      "starts_at": "2026-10-25T10:00:00+09:00",
+      "ends_at": "2026-10-25T17:00:00+09:00",
+      "all_day": false,
+      "venue": {
+        "id": 2225,
+        "name": "イオンモール多摩平の森",
+        "address": "〒191-0062 東京都日野市多摩平2丁目4番1",
+        "prefecture": "東京都",
+        "lat": 35.662437,
+        "lng": 139.38092
+      },
+      "promotion": {
+        "map_from": "2026-09-10T00:00:00+09:00",
+        "map_until": "2026-10-25T17:00:00+09:00",
+        "feature_from": "2026-09-27T16:00:00+09:00",
+        "feature_until": "2026-10-25T17:00:00+09:00",
+        "priority": 90
+      },
+      "poster": {
+        "kind": "poster_image",
+        "url": "assets/event-posters/2026-10-25-tama-event.jpg",
+        "mime_type": "image/jpeg",
+        "alt": "空と森とボクのココロ in 多摩平の森 2026のポスター"
+      },
+      "poster_pdf": {
+        "kind": "poster_pdf",
+        "url": "assets/event-posters/2026-10-25-tama-event.pdf",
+        "mime_type": "application/pdf",
+        "alt": "空と森とボクのココロ in 多摩平の森 2026のPDF"
+      },
+      "official_url": "http://www.hitoshuga.com/",
+      "source_url": ""
+    }
+  ]
+}

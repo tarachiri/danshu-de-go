@@ -996,6 +996,32 @@ body.sheet-active .leaflet-control-container {
 .sheet-verify-banner a { color: #8a5a00; text-decoration: underline; font-weight: 700; }
 
 .special-event-poster { margin: 4px 0 12px; }
+.special-event-card {
+  margin: 8px 0 12px;
+  padding: 12px;
+  border: 1px solid #d8aa20;
+  border-radius: 12px;
+  background: #fffdf4;
+  color: #2f260b;
+}
+.special-event-card-label {
+  color: #7a5900;
+  font-size: 14px;
+  font-weight: 800;
+}
+.special-event-card h3 {
+  margin: 5px 0 6px;
+  font-size: 19px;
+  line-height: 1.4;
+}
+.special-event-card-date { font-size: 16px; font-weight: 800; }
+.special-event-description {
+  margin: 8px 0;
+  color: #4d4633;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.special-event-organizer { margin: 7px 0; font-size: 14px; color: #665b3d; }
 .special-event-poster-trigger {
   display: block;
   width: 100%;
@@ -1017,6 +1043,19 @@ body.sheet-active .leaflet-control-container {
   border-radius: 7px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.18);
 }
+.special-event-links { display: flex; gap: 8px; margin-top: 9px; }
+.special-event-pdf-link,
+.special-event-official-link {
+  flex: 1;
+  padding: 9px 10px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+.special-event-pdf-link { background: #7b2f2f; color: #fff; }
+.special-event-official-link { background: #315f82; color: #fff; }
 .poster-modal[hidden] { display: none; }
 .poster-modal {
   position: fixed;
