@@ -49,7 +49,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 </noscript>
-<link rel="stylesheet" href="style.css?v=20260912d">
+<link rel="stylesheet" href="style.css?v=20260924a">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1YCK7W6XG"></script>
 <script src="js/analytics.js"></script>
 </head>
@@ -541,6 +541,8 @@ function splashClose() {
   </div>
 </div>
 
+<div id="special-event-announcements" aria-live="polite"></div>
+
 <div id="map-attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
 <div id="bottom-nav">
   <button class="bottom-btn active" id="tab-map" onclick="typeof toggleMapPanel === 'function' ? toggleMapPanel() : switchTab('map')" aria-expanded="true" aria-controls="map">
@@ -589,6 +591,12 @@ function splashClose() {
   <button class="sheet-close" onclick="closeVenueSheet()" aria-label="閉じる">✕</button>
   <div class="sheet-handle"></div>
   <div class="sheet-scroll" id="sheet-content"></div>
+</div>
+
+<!-- ポスター拡大表示。画像は確認済みの特別イベントだけに紐付ける。 -->
+<div id="poster-modal" class="poster-modal" role="dialog" aria-modal="true" aria-label="イベントポスター" hidden>
+  <button class="poster-modal-close" type="button" onclick="closeEventPoster()" aria-label="ポスターを閉じる">✕</button>
+  <img id="poster-modal-image" src="" alt="">
 </div>
 
 <!-- メニューボトムシート（ハンバーガーメニュー） -->
@@ -661,7 +669,8 @@ function splashClose() {
 <script src="js/activity-api.js?v=20260826a"></script>
 <script src="js/uranai.js?v=20260816a"></script>
 <script src="js/pin-schedule.js?v=20260831a"></script>
-<script src="app.js?v=20260912d"></script>
+<script src="js/special-events.js?v=20260924a"></script>
+<script src="app.js?v=20260924a"></script>
 <script src="js/menu.js?v=20260912d"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }

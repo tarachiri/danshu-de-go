@@ -50,6 +50,7 @@ assert.match(html, /id="count-today"/);
 assert.doesNotMatch(html, /今日昼|今日夕夜/);
 assert.match(fs.readFileSync(path.join(root, 'style.css'), 'utf8'), /#total-count\s*\{[^}]*font-size:\s*15px\s*!important;/);
 assert.match(app, /PinSchedule\.withEffectiveOccurrence\(v\)/);
-assert.match(app, /setInterval\(applyFilters, 60 \* 1000\)/);
+assert.match(app, /renderSpecialEventAnnouncements\(\)/);
+assert.match(app, /setInterval\(\(\) => \{/);
 
 console.log('pin schedule tests: ok');

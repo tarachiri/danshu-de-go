@@ -90,10 +90,19 @@ function getDateLabel(next_date) {
 // ピンスタイル
 function getStyle(v) {
   const label = getDateLabel(v.next_date);
+  const specialEvent = SpecialEvents.findForVenue(v);
   if (label === 'today' && PinSchedule.isDayMeeting(v.start_time)) {
     return { color: '#2471A3', size: 28, cls: 'pin-today' };
   }
   if (label === 'today')    return { color: '#C0392B', size: 28, cls: 'pin-today' };
+  if (specialEvent) {
+    return {
+      color: specialEvent.is_soon ? '#E0A000' : '#B8860B',
+      size: specialEvent.is_soon ? 27 : 23,
+      cls: specialEvent.is_soon ? 'pin-special pin-special-soon' : 'pin-special',
+      symbol: specialEvent.icon
+    };
+  }
   if (label === 'tomorrow') return { color: '#D35400', size: 26, cls: '' };
   if (label === 'dayafter') return { color: '#E8857A', size: 21, cls: '' };
   // その他→エリアカラー
@@ -106,14 +115,14 @@ function getStyle(v) {
 function makeIcon(v) {
   const s = getStyle(v);
   return L.divIcon({
-    html: `<div class="${s.cls}" style="
+    html: `<div class="special-pin-wrap"><div class="${s.cls}" style="
       width:${s.size}px;height:${s.size}px;
       background:${s.color};
       border:2px solid rgba(255,255,255,0.8);
       border-radius:50% 50% 50% 0;
       transform:rotate(-45deg);
       box-shadow:0 2px 6px rgba(0,0,0,0.4);
-    "></div>`,
+    "></div>${s.symbol ? `<span class="special-pin-symbol" aria-hidden="true">${s.symbol}</span>` : ''}</div>`,
     iconSize: [s.size, s.size],
     iconAnchor: [s.size/2, s.size],
     popupAnchor: [0, -s.size],
@@ -436,6 +445,19 @@ function buildSheetContent(v) {
   const mapsLink = mapsQuery
     ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}" target="_blank" class="sheet-btn-map">🗺️ 経路を調べる</a>` : '';
 
+  const specialEvent = SpecialEvents.findForVenue(v);
+  const poster = specialEvent && specialEvent.asset
+    ? `<section class="special-event-poster">
+         <div class="sheet-section-title">${specialEvent.icon} イベントのポスター</div>
+         <button type="button" class="special-event-poster-trigger"
+                 onclick="openEventPoster('${specialEvent.asset.poster_url}', '${specialEvent.asset.poster_alt}')"
+                 aria-label="ポスターを大きく見る">
+           <img src="${specialEvent.asset.poster_url}" alt="${specialEvent.asset.poster_alt}" loading="lazy">
+           <span>🔍 ポスターを大きく見る</span>
+         </button>
+       </section>`
+    : '';
+
   // 最寄駅・徒歩距離バッジ（データが揃っている場合のみ切り替え。それ以外は既存の固定文言）
   const venueBadgeLabel = (v.nearest_station && v.walk_duration_min != null)
     ? `🚶 ${v.nearest_station}駅 徒歩${v.walk_duration_min}分`
@@ -448,11 +470,64 @@ function buildSheetContent(v) {
     ${verifyBanner}
     <div class="sheet-section-title">開催予定の例会・イベント</div>
     ${meetingsHTML}
+    ${poster}
     <a href="https://line.me/R/oaMessage/%40867qlgsx/?${encodeURIComponent((v.facility_name||'会場')+'のページから問い合わせ')}" class="sheet-btn-line" target="_blank">🟢 LINEで問い合わせる</a>
     ${calLink}
     ${officialLink}
     ${mapsLink}
   `;
+}
+
+function openEventPoster(url, alt) {
+  const modal = document.getElementById('poster-modal');
+  const image = document.getElementById('poster-modal-image');
+  if (!modal || !image) return;
+  image.src = url;
+  image.alt = alt || 'イベントポスター';
+  modal.hidden = false;
+  document.body.classList.add('poster-modal-active');
+}
+
+function closeEventPoster() {
+  const modal = document.getElementById('poster-modal');
+  const image = document.getElementById('poster-modal-image');
+  if (!modal || !image) return;
+  modal.hidden = true;
+  image.src = '';
+  document.body.classList.remove('poster-modal-active');
+}
+
+function renderSpecialEventAnnouncements() {
+  const container = document.getElementById('special-event-announcements');
+  if (!container) return;
+  const upcoming = VENUES.map(venue => ({ venue, event: SpecialEvents.findForVenue(venue) }))
+    .filter(item => item.event && item.event.is_soon)
+    .sort((a, b) => a.event.date.localeCompare(b.event.date));
+
+  if (upcoming.length === 0) {
+    container.replaceChildren();
+    container.hidden = true;
+    return;
+  }
+
+  const first = upcoming[0];
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'special-event-announcement';
+  button.innerHTML = `<span class="special-event-announcement-icon">${first.event.icon}</span>` +
+    `<span><strong>${formatDate(first.event.date)} ${first.event.meeting.name}</strong>` +
+    `<small>${first.venue.facility_name}${upcoming.length > 1 ? `　ほか${upcoming.length - 1}件` : ''}</small></span>` +
+    '<span class="special-event-announcement-arrow">›</span>';
+  button.addEventListener('click', () => {
+    // 詳細を先に開き、地図移動やクラスタ展開の成否に告知内容を依存させない。
+    openVenueSheet(first.venue);
+    jumpToMarker(
+      first.venue.id, first.venue.lat, first.venue.lng,
+      first.venue.facility_name || first.event.meeting.name
+    );
+  });
+  container.replaceChildren(button);
+  container.hidden = false;
 }
 
 function openVenueSheet(v) {
@@ -552,18 +627,16 @@ function jumpToMarker(id, lat, lng, name) {
       const point = window._leafletMap.latLngToContainerPoint([lat, lng]);
       const newPoint = window._leafletMap.containerPointToLatLng([point.x, point.y - 150]);
       window._leafletMap.flyTo(newPoint, 15, {duration: 0.8});
-      window._leafletMap.once('moveend', () => {
-        const m = (window._markers && window._markers[id]) || findMarkerByCoords(lat, lng);
-        if (m) {
-          clusterGroup.zoomToShowLayer(m, () => {
-            const v = (window.VENUES || []).find(x => String(x.id) === String(id)) || findVenueByCoords(lat, lng);
-            if (v) openVenueSheet(v);
-          });
-        } else if (name) {
-          // venueデータが見当たらない場合の最低限のフォールバック表示
-          openVenueSheet({ facility_name: name, address: '', meetings: null });
-        }
-      });
+      // moveendやクラスタ展開のコールバックは、既に近くまで移動済みの場合に
+      // 発火しないことがある。告知・日程・直接URLからの導線では会場データが
+      // 確定しているため、地図移動と同時に詳細を確実に開く。
+      const v = (window.VENUES || []).find(x => String(x.id) === String(id)) || findVenueByCoords(lat, lng);
+      if (v) {
+        openVenueSheet(v);
+      } else if (name) {
+        // venueデータが見当たらない場合の最低限のフォールバック表示
+        openVenueSheet({ facility_name: name, address: '', meetings: null });
+      }
     }
   }, 300);
 }
@@ -752,6 +825,7 @@ function initVenues() {
       await yieldForSplashPaint();
       VENUES = data;
       window.VENUES = VENUES;
+      renderSpecialEventAnnouncements();
       window.setSplashProgress && window.setSplashProgress(80, 'データを解析中...');
       await yieldForSplashPaint();
       applyFilters();
@@ -823,8 +897,9 @@ function applyFilters() {
     const label = getDateLabel(pinVenue.next_date);
 
     // モード判定
-    if (currentMode === 'comfort' && label === 'none') return;
-    if (currentMode === 'comfort' && label === 'other') return;
+    const specialEvent = SpecialEvents.findForVenue(pinVenue);
+    if (currentMode === 'comfort' && label === 'none' && !specialEvent) return;
+    if (currentMode === 'comfort' && label === 'other' && !specialEvent) return;
 
     // 日付フィルター
     if (dateFilter !== 'all' && label !== dateFilter) return;
@@ -862,7 +937,10 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
 
 initVenues();
 // ページを開いたままでも、終了時刻を過ぎたら次の開催候補へ切り替える。
-setInterval(applyFilters, 60 * 1000);
+setInterval(() => {
+  applyFilters();
+  renderSpecialEventAnnouncements();
+}, 60 * 1000);
 
 
 // ===== カスタム縦ズームスライダー =====
