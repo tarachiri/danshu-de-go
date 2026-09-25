@@ -112,5 +112,13 @@
     };
   }
 
-  return { jstNow, timeMinutes, isDayMeeting, isFinished, selectVenueOccurrence, withEffectiveOccurrence };
+  return {
+    jstNow,
+    timeMinutes,
+    isDayMeeting,
+    isFinished,
+    meetingOccurrences,
+    selectVenueOccurrence,
+    withEffectiveOccurrence
+  };
 });
