@@ -18,6 +18,16 @@ assert.equal(PinSchedule.isFinished('2026-08-31', '15:00', atJst('2026-08-31T14:
 assert.equal(PinSchedule.isFinished('2026-08-31', '15:00', atJst('2026-08-31T15:00:00')), true);
 assert.equal(PinSchedule.isFinished('2026-08-31', '', atJst('2026-08-31T23:00:00')), false);
 
+const duplicateMeetings = [
+  { meeting_id: 1, name: '筑後地区協議会昼例会', next_date: '2026-09-25', start_time: '13:00' },
+  { meeting_id: 2, name: '筑後地区協議会（昼例会）', next_date: '2026-09-25', start_time: '13:00' },
+  { meeting_id: 3, name: '家族会', next_date: '2026-09-25', start_time: '13:00' }
+];
+assert.deepEqual(
+  PinSchedule.deduplicateMeetings(duplicateMeetings).map(meeting => meeting.meeting_id),
+  [1, 3]
+);
+
 const venue = {
   meetings: [
     { next_date: '2026-08-31', next_date_2: '2026-09-07', start_time: '13:00', end_time: '15:00' },

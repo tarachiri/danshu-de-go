@@ -46,4 +46,19 @@ const nearby = Uranai.pickNearby([
 assert.deepEqual(nearby.map(candidate => candidate.name), ['近い']);
 assert.equal(Uranai.MAX_DISTANCE_KM, 20);
 
+const duplicateCandidates = Uranai.collectCandidates([
+  {
+    id: 20, lat: 35.7, lng: 139.7, facility_name: '同じ会館',
+    meetings: [{ meeting_id: 201, name: '昼例会', next_date: '2026-09-26', start_time: '13:00' }]
+  },
+  {
+    id: 21, lat: 35.7, lng: 139.7, facility_name: '同じ会館',
+    meetings: [
+      { meeting_id: 202, name: '昼（例会）', next_date: '2026-09-26', start_time: '13:00' },
+      { meeting_id: 203, name: '家族会', next_date: '2026-09-26', start_time: '13:00' }
+    ]
+  }
+], now);
+assert.deepEqual(duplicateCandidates.map(candidate => candidate.name), ['昼例会', '家族会']);
+
 console.log('uranai tests: ok');

@@ -128,12 +128,15 @@
   // ---- 候補抽出 ----
  
   function candidateKey(candidate) {
+    const normalize = root.PinSchedule.normalizeIdentityText;
     return [
-      candidate.meeting_id || '',
-      candidate.venue_id || '',
+      normalize(candidate.prefecture),
+      normalize(candidate.facility_name || candidate.address || candidate.venue_id),
+      Number(candidate.lat).toFixed(5),
+      Number(candidate.lng).toFixed(5),
       candidate.next_date,
       candidate.start_time,
-      String(candidate.name || '').replace(/[\s　]+/g, '')
+      normalize(candidate.name)
     ].join('|');
   }
 

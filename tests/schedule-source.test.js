@@ -15,6 +15,8 @@ test('schedule.jsonは公開物として存在しない', () => {
 test('日程タブはvenues.jsonを正本として一覧を導出する', () => {
   assert.match(SCHEDULE_JS, /fetch\('venues\.json/);
   assert.match(SCHEDULE_JS, /_flattenVenuesToSchedule/);
+  assert.match(SCHEDULE_JS, /seenOccurrences/);
+  assert.match(SCHEDULE_JS, /normalizeIdentityText/);
   assert.doesNotMatch(SCHEDULE_JS, /fetch\(['"]schedule\.json/);
 });
 

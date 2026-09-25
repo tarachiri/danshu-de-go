@@ -77,9 +77,27 @@ const Schedule = {
   // 日程タブで扱いやすいフラット配列へ変換する。
   _flattenVenuesToSchedule(venues) {
     const entries = [];
+    const seenOccurrences = new Set();
     for (const v of venues) {
-      for (const m of (v.meetings || [])) {
+      const meetings = window.PinSchedule && window.PinSchedule.deduplicateMeetings
+        ? window.PinSchedule.deduplicateMeetings(v.meetings)
+        : (v.meetings || []);
+      for (const m of meetings) {
         if (!m.next_date) continue;
+        const normalize = window.PinSchedule && window.PinSchedule.normalizeIdentityText
+          ? window.PinSchedule.normalizeIdentityText
+          : value => String(value || '').replace(/[\s　]+/g, '');
+        const occurrenceKey = [
+          normalize(v.prefecture),
+          normalize(v.facility_name || v.address || v.id),
+          Number(v.lat).toFixed(5),
+          Number(v.lng).toFixed(5),
+          m.next_date,
+          m.start_time || '',
+          normalize(m.name)
+        ].join('|');
+        if (seenOccurrences.has(occurrenceKey)) continue;
+        seenOccurrences.add(occurrenceKey);
         entries.push({
           id: v.id,
           meeting_name: m.name,

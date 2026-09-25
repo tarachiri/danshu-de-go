@@ -43,6 +43,34 @@
     return end !== null && current.minutes >= end;
   }
 
+  function normalizeIdentityText(value) {
+    return String(value || '')
+      .normalize('NFKC')
+      .toLowerCase()
+      .replace(/[\s()（）【】［］「」『』・･]/g, '');
+  }
+
+  function meetingIdentity(meeting) {
+    return [
+      meeting.next_date || meeting.event_date || '',
+      meeting.next_date_2 || '',
+      meeting.start_time || '',
+      normalizeIdentityText(meeting.name)
+    ].join('|');
+  }
+
+  // 同一会場内で、日付・時刻・実質名称が同じレコードだけをまとめる。
+  // 名称が異なる通常例会・家族会などの正当な併催は残す。
+  function deduplicateMeetings(meetings) {
+    const seen = new Set();
+    return (Array.isArray(meetings) ? meetings : []).filter(meeting => {
+      const key = meetingIdentity(meeting);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
   function meetingOccurrences(meeting) {
     const dates = [meeting.next_date, meeting.next_date_2].filter(Boolean);
     if (dates.length === 0 && meeting.event_date) dates.push(meeting.event_date);
@@ -57,7 +85,7 @@
   }
 
   function selectVenueOccurrence(venue, now = new Date()) {
-    const meetings = Array.isArray(venue.meetings) ? venue.meetings : [];
+    const meetings = deduplicateMeetings(venue.meetings);
     let candidates = meetings.flatMap(meetingOccurrences);
     if (candidates.length === 0 && (venue.fallback_next_date || venue.next_date)) {
       candidates = [{
@@ -79,14 +107,16 @@
   }
 
   function withEffectiveOccurrence(venue, now = new Date()) {
-    const occurrence = selectVenueOccurrence(venue, now);
+    const sourceMeetings = deduplicateMeetings(venue.meetings);
+    const sourceVenue = { ...venue, meetings: sourceMeetings };
+    const occurrence = selectVenueOccurrence(sourceVenue, now);
     if (!occurrence) {
-      const hasDatedMeeting = (venue.meetings || []).some(meeting =>
+      const hasDatedMeeting = sourceMeetings.some(meeting =>
         meeting.next_date || meeting.next_date_2 || meeting.event_date
       );
-      return hasDatedMeeting ? null : venue;
+      return hasDatedMeeting ? null : sourceVenue;
     }
-    let meetings = venue.meetings;
+    let meetings = sourceMeetings;
     if (occurrence.meeting) {
       const isOriginalDate = occurrence.date === occurrence.meeting.next_date;
       const effectiveMeeting = {
@@ -99,7 +129,7 @@
       };
       meetings = [
         effectiveMeeting,
-        ...(venue.meetings || []).filter(meeting => meeting !== occurrence.meeting)
+        ...sourceMeetings.filter(meeting => meeting !== occurrence.meeting)
       ];
     }
     return {
@@ -117,6 +147,8 @@
     timeMinutes,
     isDayMeeting,
     isFinished,
+    normalizeIdentityText,
+    deduplicateMeetings,
     meetingOccurrences,
     selectVenueOccurrence,
     withEffectiveOccurrence
