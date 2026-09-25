@@ -35,9 +35,11 @@
 1. 各種収集スクリプト（iCal/スクレイピング）がDBを更新。
 2. `raw_meetings` / `raw_events`（1次情報保管庫）に一時格納。
 3. `meeting_master`（名寄せ）を経て `meetings`（本体）へ昇格。`venues` は施設マスタ（1ピン=1会場）。
-4. **`generate_map_v6.py`**（`tyo`にて毎日5:00実行）がDBから `venues.json` / `schedule.json` を生成し、`danshu-de-go` リポジトリへ自動push。
-5. **`app.js`**（地図タブ）および **`schedule.js`**（日程タブ）が最新JSONを読み込んでブラウザに描画。
+4. **`generate_map_v6.py`**（`tyo`で定期実行）がDBから日程の正本である `venues.json` を生成し、`danshu-de-go` リポジトリへ自動push。
+5. **`app.js`**（地図タブ）および **`schedule.js`**（日程タブ）が同じ `venues.json` を読み込んでブラウザに描画。`schedule.js`は`meetings[]`をブラウザ内で一覧形式へ変換する。
    - `gen`側のAPIによるJSON取得はキャッシュバスター（`?v=...`）付きURLを用い、古いキャッシュを防止。
+
+> `schedule.json`は`venues.json`から100%導出できる重複データだったため、2026年9月25日に正式廃止した。生成・公開・実行時参照の対象にしない。
 
 ---
 
@@ -75,7 +77,7 @@
 03:00  全都道府県コレクター（danshu_collector_v4.py）
 03:25  generate_news.py + news.json の自動生成および git push
 04:00〜04:40  各県iCal更新（埼玉、東京新生会、多摩、千葉、神奈川、愛知、福岡、茨城、香川）
-05:00  generate_map_v6.py + git push（venues.json・schedule.jsonを一括生成）
+05:00  generate_map_v6.py + git push（venues.jsonを生成。schedule.jsonは廃止済み）
 毎週月曜06:00  mirror更新（栃木スクレイプ）
 毎月1日・16日  静岡県・京都府（平安）PDF解析処理とDB反映
 ```

@@ -5,7 +5,7 @@ docs/architecture.md の詳細資料。
 ## 主要JSファイル
 
 - app.js: メインロジック・地図タブ（venues.jsonを読み込み）
-- schedule.js: 日程タブ（都道府県＋隣接絞り込み実装済み、schedule.jsonを読み込み）
+- schedule.js: 日程タブ（都道府県＋隣接絞り込み実装済み、venues.jsonのmeetings[]を一覧形式へ変換）
 - js/analytics.js
 - js/menu.js
 - js/news-tab.js: 新着タブ（news.jsonを読み込み、詳細はnews_tab_audit参照）
@@ -19,26 +19,21 @@ docs/architecture.md の詳細資料。
 ## データファイル（cronが自動生成・push）
 
 - venues.json: 地図タブ用。会場ごとにmeetings[]をネストした構造
-- schedule.json: 日程タブ用。1meeting=1レコードのフラット構造
 - news.json: 新着タブ用
 - qa.json: 断かもチャット用のツリー構造（Webは実装済み、LINE未対応）
 - meetings_live.json
 - venues_base.json, venues_kanto.json 等（地方ブロック別、一部は空ファイル）
 
-## venues.json / schedule.json 一元化構想（未着手・骨子固まり済み）
+## 日程JSONの正本（2026-09-25統一完了）
 
-schedule.jsonは、venues.json生成後にentries変数をmeetings[]でループして
-フラット展開しているだけで、DB独自クエリを持たず、venues.jsonから
-100%機械的に導出可能（generate_map_v6.py確認済み）。
+日程データの正本は`venues.json`のみ。`schedule.json`は、`meetings[]`をフラット展開しただけの重複データだったため正式廃止した。
 
-一元化案:
-- generate_map_v6.py（danshu-tools）: schedule.json生成部分（約29行）を削除
-- app.js（danshu-de-go）: 変更不要
-- schedule.js（danshu-de-go）: venues.jsonをfetchし、フラット化ロジックをJS側に移植
-- gen-main.schedule-work.py（gen、断かもRAG）: fetch_schedule等を統一
+- generate_map_v6.py（danshu-tools）: venues.jsonだけを生成
+- app.js（danshu-de-go）: venues.jsonを地図表示に使用
+- schedule.js（danshu-de-go）: 同じvenues.jsonを読み、ブラウザ内で日程一覧へ変換
+- 公開パイプライン: venues.jsonだけを検証・commit
 
-副次効果: cron自動コミット対象がvenues.json単独になり、コンフリクト発生源が単純化。
-venue登録共通化を先行させる合意のもと保留中。
+これにより、地図と日程タブで日付・中止・変更情報の正本が分かれることを防ぐ。
 
 ## chiiki/配下（地域ページ、505団体）
 

@@ -73,9 +73,8 @@ const Schedule = {
     }
   },
 
-  // venues.json（会場ごとにmeetings[]をネスト）を
-  // schedule.json相当のフラット配列に変換する。
-  // generate_map_v6.pyのschedule_entries生成ロジックと1対1対応。
+  // 日程データの正本であるvenues.json（会場ごとにmeetings[]をネスト）を、
+  // 日程タブで扱いやすいフラット配列へ変換する。
   _flattenVenuesToSchedule(venues) {
     const entries = [];
     for (const v of venues) {

@@ -21,13 +21,15 @@ docs/architecture.md の詳細資料。
 - 30 4 * * *    fukuoka_ical.py
 - 35 4 * * *    ibaraki_ical.py
 - 40 4 * * *    kagawa_ical.py
-- 0 5 * * *     generate_map_v6.py to venues.json/schedule.json commit push
+- 0 5 * * *     generate_map_v6.py to venues.json commit push
 - 0 6 * * 1     mirror_update.sh（毎週月曜）
 
 ## 2段階データパイプライン
 
 1. 4時台: 各ical系スクリプトがDB（danshu.db）を更新
-2. 5時: generate_map_v6.pyがDBから venues.json・schedule.json を生成し、danshu-de-goリポジトリへ自動commit push
+2. 5時: generate_map_v6.pyがDBから venues.json を生成し、danshu-de-goリポジトリへ自動commit push
+
+`schedule.json`は`venues.json`から機械的に導出できる重複データだったため、2026年9月25日に正式廃止した。現行の公開パイプラインは`venues.json`を生成・検証・commitする。
 
 この自動push（毎日5時）と人間の手動コミットが同一mainブランチ上で衝突した経緯があり、
 danshu-de-go/danshu-toolsの2リポジトリ分離の理由になっている。

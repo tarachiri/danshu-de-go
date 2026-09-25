@@ -3,7 +3,7 @@
 > フロントエンドリポジトリ `/Users/pro2015/danshu-de-go` の見取り図。
 > サーバー・DB・cron の詳細は `docs/architecture.md` を参照。
 
-最終確認: 2026-06-30
+最終確認: 2026-09-25
 
 ---
 
@@ -18,7 +18,6 @@ index.html
   ├─ schedule.js
   ├─ app.js
   ├─ venues.json
-  ├─ schedule.json
   ├─ news.json
   ├─ qa.json
   └─ chat.html
@@ -35,13 +34,12 @@ index.html
 | `index.html` | メインアプリのHTML。スプラッシュ、ヘッダー、凡例、下部ナビ、地図/日程/新着コンテナを定義 | 手編集 |
 | `style.css` | メインアプリの共通スタイル。地図ポップアップ、下部ナビ、新着タブなど | 手編集 |
 | `app.js` | 地図、ピン、ポップアップ、タブ切替、メニュー、PWA導線、新着表示の中心ロジック | 手編集 |
-| `schedule.js` | 日程タブ専用ロジック。都道府県フィルタ、近隣都道府県表示、日付別カード生成 | 手編集 |
+| `schedule.js` | `venues.json`から日程一覧を導出するロジック。都道府県フィルタ、近隣都道府県表示、日付別カード生成 | 手編集 |
 | `chat.html` | かもちゃんWebチャット画面。決定木とAPIチャットを併用 | 手編集 |
 | `js/analytics.js` | Google Analytics 初期化 | 手編集 |
 | `sw.js` | Service Worker。現状は同一オリジンリクエストを通常fetchする軽量版 | 手編集 |
 | `manifest.json` | PWA名、テーマ色、アイコン、起動URL | 手編集 |
 | `venues.json` | 地図ピン・会場・例会情報。`app.js` が読む | tyo生成 |
-| `schedule.json` | 日程タブ用の開催予定リスト。`schedule.js` が読む | tyo生成 |
 | `news.json` | 新着タブ用のお知らせ、イベント、PDF、RSS情報 | tyo生成 |
 | `qa.json` | `chat.html` の決定木ノード | 手編集/半生成 |
 | `sitemap.xml` | 検索エンジン向けサイトマップ | tyo生成 |
@@ -126,7 +124,6 @@ index.html
 tyo /home/maji/danshu.db
   ↓ generate_map_v6.py など
 venues.json
-schedule.json
 news.json
 sitemap.xml
   ↓ git push
@@ -144,13 +141,13 @@ DB更新、収集、iCal、JSON生成の本体は tyo の `/home/maji/danshu-too
 
 | JSON | 読む場所 | 主な用途 |
 |---|---|---|
-| `venues.json` | `app.js`, `chat.html` | 地図ピン、ポップアップ、会場検索、件数カウント |
-| `schedule.json` | `schedule.js` | 日程タブの例会一覧 |
+| `venues.json` | `app.js`, `schedule.js`, `chat.html` | 地図ピン、日程タブ、ポップアップ、会場検索、件数カウント |
 | `news.json` | `app.js` | 新着タブのイベント、PDF、ニュース |
 | `qa.json` | `chat.html` | かもちゃん決定木 |
 
 `venues.json` は地図の中心データです。
 ピン表示では `lat/lng` を使い、ポップアップでは `meetings` 配列があれば meetings を優先し、なければフォールバック項目を使います。
+日程データの正本も`venues.json`です。`schedule.js`が`meetings[]`を一覧形式へ変換するため、重複していた`schedule.json`は2026年9月25日に正式廃止しました。
 
 ---
 
@@ -230,7 +227,7 @@ blog/
 ## 編集時の注意
 
 1. `schedule.js` は `app.js` より先に読み込む。
-2. `venues.json`, `schedule.json`, `news.json`, `sitemap.xml`, `chiiki/` 配下の大量HTMLは生成物として扱う。
+2. `venues.json`, `news.json`, `sitemap.xml`, `chiiki/` 配下の大量HTMLは生成物として扱う。
 3. `app.js` は機能が集中しているため、日程系は `schedule.js` へ寄せる方針。
 4. 表示上の安全性では「間違った場所へ案内しない」を最優先する。
 5. `needs_verification=1` の会場はポップアップで確認注意を出す。
@@ -253,4 +250,3 @@ blog/
 | 地域ページの構造を変える | tyo 側の `generate_chiiki_pages_v3.py` |
 | PWA名・アイコンを変える | `manifest.json`, `icon-*.png` |
 | 解析タグを変える | `js/analytics.js`, `index.html` |
-

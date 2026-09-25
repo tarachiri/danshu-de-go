@@ -27,9 +27,11 @@
 1. 各種収集スクリプト（ical/スクレイピング）がDBを更新
 2. raw_meetings / raw_events（1次情報保管庫）に格納
 3. meeting_master（名寄せ）を経て meetings（本体）へ昇格。venuesは施設マスタ
-4. generate_map_v6.py（tyo、毎日5時cron）がDBから venues.json / schedule.json を生成
+4. generate_map_v6.py（tyo）がDBから日程の正本である venues.json を生成
 5. danshu-de-goリポジトリへ自動push
-6. app.js（地図タブ）/ schedule.js（日程タブ）が読み込んで表示
+6. app.js（地図タブ）/ schedule.js（日程タブ）が同じ venues.json を読み込んで表示
+
+`schedule.json`は`venues.json`から100%導出できる重複データだったため、2026年9月25日に正式廃止した。
 
 詳細: docs/detail/db-schema.md
 
