@@ -27,6 +27,9 @@ function classifyDateBasis(meeting) {
   if (['official_date', 'ical', 'pdf', 'official_site', 'manual_official'].includes(declared)) {
     return 'official_date';
   }
+  if (declared === 'official_schedule_calculated') {
+    return 'official_schedule_calculated';
+  }
   if (declared === 'manual_date' || declared === 'event_date') {
     return 'manual_date';
   }
@@ -47,6 +50,7 @@ function emptyCounts() {
   return {
     meetings_total: 0,
     official_date: 0,
+    official_schedule_calculated: 0,
     manual_date: 0,
     recurrence_calculated: 0,
     no_upcoming_date: 0,
@@ -103,7 +107,8 @@ function buildDataQuality(venues, options = {}) {
       date_authority: 'venues.json',
     },
     definitions: {
-      official_date: '公式PDF・公式サイト・iCal等に掲載された開催日を使用',
+      official_date: '公式PDF・公式サイト・iCal等に掲載された個別開催日を使用',
+      official_schedule_calculated: '公式情報に掲載された曜日・第何週などの定期予定から開催日を算出',
       manual_date: '個別日付として登録されているが、公開JSONだけでは公式出典を判定不能',
       recurrence_calculated: '公式の個別開催日がないため、曜日・第何週などの定期予定から算出',
       no_upcoming_date: '現在の公開期間内に次回日なし',
@@ -111,7 +116,7 @@ function buildDataQuality(venues, options = {}) {
     },
     accuracy: {
       status: 'not_independently_measured',
-      note: '公式日付は元情報の日付を採用する。定期計算日程は公式の個別開催日がない地域の補完であり、誤り扱いしない。元情報との独立した標本照合率は未計測。',
+      note: '公式個別日付は元情報の日付を採用する。公式定期予定からの計算と、公式情報がない地域の登録済み定期予定からの計算は、どちらも誤り扱いしない。元情報との独立した標本照合率は未計測。',
     },
     summary: {
       prefectures_covered: prefectures.size,
@@ -140,6 +145,7 @@ if (require.main === module) {
   const report = generateDataQuality(process.argv[2], process.argv[3]);
   console.log(
     `日程根拠を集計: 公式日付${report.summary.official_date}件・` +
+    `公式定期計算${report.summary.official_schedule_calculated}件・` +
     `個別登録日${report.summary.manual_date}件・` +
     `定期計算${report.summary.recurrence_calculated}件・` +
     `次回日なし${report.summary.no_upcoming_date}件`
