@@ -5,6 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { generateDataQuality } = require('./generate_data_quality');
 
 const ROOT = path.resolve(__dirname, '..');
 const VENUES_PATH = path.join(ROOT, 'venues.json');
@@ -265,4 +266,5 @@ for (const { prefecture, slug, rows } of pageData) {
 }
 fs.writeFileSync(path.join(OUTPUT_ROOT, 'index.html'), renderIndex(summary));
 updateSitemap(summary);
+generateDataQuality(VENUES_PATH, path.join(OUTPUT_ROOT, 'data-quality.json'));
 console.log(`${summary.length}都道府県・${summary.reduce((sum, row) => sum + row.count, 0)}件を生成`);

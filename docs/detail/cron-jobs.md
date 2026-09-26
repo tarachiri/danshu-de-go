@@ -22,14 +22,18 @@ docs/architecture.md の詳細資料。
 - 35 4 * * *    ibaraki_ical.py
 - 40 4 * * *    kagawa_ical.py
 - 0 5 * * *     generate_map_v6.py to venues.json commit push
+- 40 5 * * *    generate_meeting_pages.js（都道府県別ページ・data-quality.json・sitemap.xml）
 - 0 6 * * 1     mirror_update.sh（毎週月曜）
 
 ## 2段階データパイプライン
 
 1. 4時台: 各ical系スクリプトがDB（danshu.db）を更新
 2. 5時: generate_map_v6.pyがDBから venues.json を生成し、danshu-de-goリポジトリへ自動commit push
+3. 5時40分: 都道府県別ページを再生成し、同じvenues.jsonから日程根拠別の`meetings/data-quality.json`も生成・push
 
 `schedule.json`は`venues.json`から機械的に導出できる重複データだったため、2026年9月25日に正式廃止した。現行の公開パイプラインは`venues.json`を生成・検証・commitする。
+
+日程品質では、公式に掲載された個別日付と、公式の個別日付がない地域の定期予定から算出した日付を分けて集計する。定期計算は誤り扱いせず、元情報との独立した照合率は別指標として未計測と明記する。
 
 この自動push（毎日5時）と人間の手動コミットが同一mainブランチ上で衝突した経緯があり、
 danshu-de-go/danshu-toolsの2リポジトリ分離の理由になっている。
