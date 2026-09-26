@@ -21,8 +21,8 @@ function jstIsoString(now = new Date()) {
 }
 
 function classifyDateBasis(meeting) {
-  // date_basisはgenerate_map_v6.pyの新しい出力。旧JSONは既存フィールドから
-  // 同じ生成分岐を復元し、移行中も集計を止めない。
+  // date_basisはgenerate_map_v6.pyの新しい出力。旧JSONからは、公式日付を
+  // 使った計算か単なる定期計算かを推測できないため、明示値を優先する。
   const declared = String(meeting.date_basis || '');
   if (['official_date', 'ical', 'pdf', 'official_site', 'manual_official'].includes(declared)) {
     return 'official_date';
@@ -40,9 +40,6 @@ function classifyDateBasis(meeting) {
     return 'official_date';
   }
   if (meeting.event_date) return 'manual_date';
-  if (meeting.day_of_week || meeting.recurrence) {
-    return 'recurrence_calculated';
-  }
   return 'unknown';
 }
 
