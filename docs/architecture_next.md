@@ -78,9 +78,14 @@
 03:25  generate_news.py + news.json の自動生成および git push
 04:00〜04:40  各県iCal更新（埼玉、東京新生会、多摩、千葉、神奈川、愛知、福岡、茨城、香川）
 05:00  generate_map_v6.py + git push（venues.jsonを生成。schedule.jsonは廃止済み）
+05:40  都道府県別ページ・meetings/data-quality.json・sitemap.xmlを生成してpush
 毎週月曜06:00  mirror更新（栃木スクレイプ）
 毎月1日・16日  静岡県・京都府（平安）PDF解析処理とDB反映
 ```
+
+`venues.json`の各例会は、公式PDF・公式サイト・iCal等の日付を使う
+`official_date`と、公式の個別開催日がない地域で定期予定から算出する
+`recurrence_calculated`を区別する。後者は誤り・未確認を意味しない。
 
 ---
 
