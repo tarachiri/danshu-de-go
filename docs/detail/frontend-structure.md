@@ -19,6 +19,7 @@ docs/architecture.md の詳細資料。
 ## データファイル（cronが自動生成・push）
 
 - venues.json: 地図タブ用。会場ごとにmeetings[]をネストした構造
+- meetings/data-quality.json: 日程を公式日付・定期計算・個別登録日に分けた都道府県別集計
 - news.json: 新着タブ用
 - qa.json: 断かもチャット用のツリー構造（Webは実装済み、LINE未対応）
 - meetings_live.json
