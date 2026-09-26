@@ -13,7 +13,8 @@ test('日付根拠を公式日付・定期計算・次回日なしへ分類す�
   assert.equal(classifyDateBasis({ date_basis: 'official_date', next_date: '2026-10-01' }), 'official_date');
   assert.equal(classifyDateBasis({ recurrence: '公式日程（日付指定）', next_date: '2026-10-01' }), 'official_date');
   assert.equal(classifyDateBasis({ event_date: '2026-10-01' }), 'manual_date');
-  assert.equal(classifyDateBasis({ day_of_week: '木', recurrence: '毎週木曜', next_date: '2026-10-01' }), 'recurrence_calculated');
+  assert.equal(classifyDateBasis({ date_basis: 'recurrence_calculated', day_of_week: '木', next_date: '2026-10-01' }), 'recurrence_calculated');
+  assert.equal(classifyDateBasis({ day_of_week: '木', recurrence: '毎週木曜', next_date: '2026-10-01' }), 'unknown');
   assert.equal(classifyDateBasis({ day_of_week: '木' }), 'no_upcoming_date');
   assert.equal(classifyDateBasis({ next_date: '2026-10-01' }), 'unknown');
 });
