@@ -36,9 +36,6 @@ function classifyDateBasis(meeting) {
   if (declared === 'recurrence_calculated' || declared === 'recurrence') {
     return 'recurrence_calculated';
   }
-  if (!meeting.next_date && !meeting.next_date_2 && !meeting.event_date) {
-    return 'no_upcoming_date';
-  }
   if (meeting.recurrence === OFFICIAL_DATE_RECURRENCE) {
     return 'official_date';
   }
@@ -53,8 +50,9 @@ function emptyCounts() {
     official_schedule_calculated: 0,
     manual_date: 0,
     recurrence_calculated: 0,
-    no_upcoming_date: 0,
     unknown: 0,
+    meetings_with_upcoming_date: 0,
+    meetings_without_upcoming_date: 0,
   };
 }
 
@@ -91,15 +89,20 @@ function buildDataQuality(venues, options = {}) {
     }
     for (const meeting of venue.meetings || []) {
       const basis = classifyDateBasis(meeting);
+      const hasUpcomingDate = Boolean(
+        meeting.next_date || meeting.next_date_2 || meeting.event_date
+      );
       totals.meetings_total += 1;
       totals[basis] += 1;
+      totals[hasUpcomingDate ? 'meetings_with_upcoming_date' : 'meetings_without_upcoming_date'] += 1;
       row.meetings_total += 1;
       row[basis] += 1;
+      row[hasUpcomingDate ? 'meetings_with_upcoming_date' : 'meetings_without_upcoming_date'] += 1;
     }
   }
 
   return {
-    schema_version: 1,
+    schema_version: 2,
     generated_at: generatedAt,
     source: {
       file: 'venues.json',
@@ -111,8 +114,9 @@ function buildDataQuality(venues, options = {}) {
       official_schedule_calculated: '公式情報に掲載された曜日・第何週などの定期予定から開催日を算出',
       manual_date: '個別日付として登録されているが、公開JSONだけでは公式出典を判定不能',
       recurrence_calculated: '公式の個別開催日がないため、曜日・第何週などの定期予定から算出',
-      no_upcoming_date: '現在の公開期間内に次回日なし',
       unknown: '日付の根拠を公開データから判定不能',
+      meetings_with_upcoming_date: '現在の公開期間内に次回日あり',
+      meetings_without_upcoming_date: '現在の公開期間内に次回日なし',
     },
     accuracy: {
       status: 'not_independently_measured',
@@ -148,7 +152,8 @@ if (require.main === module) {
     `公式定期計算${report.summary.official_schedule_calculated}件・` +
     `個別登録日${report.summary.manual_date}件・` +
     `定期計算${report.summary.recurrence_calculated}件・` +
-    `次回日なし${report.summary.no_upcoming_date}件`
+    `次回日あり${report.summary.meetings_with_upcoming_date}件・` +
+    `次回日なし${report.summary.meetings_without_upcoming_date}件`
   );
 }
 
