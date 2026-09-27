@@ -1,46 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T23:50:00+09:00",
+  "generated_at": "2026-09-27T21:30:41.645762+09:00",
   "events": [
-    {
-      "event_id": 28,
-      "occurrence_id": 1,
-      "title": "福生市民公開セミナー・アルコール勉強会",
-      "description": "依存症を知ることを回復への第一歩として学ぶ市民公開セミナー。申込み不要、参加無料。",
-      "category": "learning",
-      "category_label": "学びのイベント",
-      "icon": "📖",
-      "event_type": "セミナー・勉強会",
-      "organizer_name": "福生断酒新生会",
-      "organizations": [],
-      "starts_at": "2026-09-27T13:30:00+09:00",
-      "ends_at": "2026-09-27T16:00:00+09:00",
-      "all_day": false,
-      "venue": {
-        "id": 1955,
-        "name": "福生市社会福祉協議会",
-        "address": "〒197-0004 東京都福生市南田園２丁目１３−１ 福祉センター",
-        "prefecture": "東京都",
-        "lat": 35.72788774606559,
-        "lng": 139.33257889560969
-      },
-      "promotion": {
-        "map_from": "2026-08-13T00:00:00+09:00",
-        "map_until": "2026-09-27T16:00:00+09:00",
-        "feature_from": "2026-09-20T00:00:00+09:00",
-        "feature_until": "2026-09-27T16:00:00+09:00",
-        "priority": 100
-      },
-      "poster": {
-        "kind": "poster_image",
-        "url": "assets/event-posters/2026-09-27-fussa-alcohol-seminar.jpeg",
-        "mime_type": "image/jpeg",
-        "alt": "福生市民公開セミナー・アルコール勉強会のポスター"
-      },
-      "poster_pdf": null,
-      "official_url": "",
-      "source_url": ""
-    },
     {
       "event_id": 29,
       "occurrence_id": 2,
