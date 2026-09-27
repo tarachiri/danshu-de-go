@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-09-27T10:52:30+09:00",
+  "generated_at": "2026-09-28T05:40:03+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-09-27T10:52:30+09:00",
+    "file_modified_at": "2026-09-28T00:30:55+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
@@ -24,14 +24,14 @@
     "venues_total": 1377,
     "venues_with_coordinates": 1377,
     "verified_venues": 390,
-    "meetings_total": 2013,
-    "official_date": 4,
-    "official_schedule_calculated": 1577,
+    "meetings_total": 2018,
+    "official_date": 3,
+    "official_schedule_calculated": 1578,
     "manual_date": 1,
-    "recurrence_calculated": 431,
+    "recurrence_calculated": 436,
     "unknown": 0,
-    "meetings_with_upcoming_date": 1787,
-    "meetings_without_upcoming_date": 226
+    "meetings_with_upcoming_date": 1782,
+    "meetings_without_upcoming_date": 236
   },
   "prefectures": [
     {
@@ -389,13 +389,13 @@
       "venues_total": 45,
       "venues_with_coordinates": 45,
       "verified_venues": 45,
-      "meetings_total": 64,
+      "meetings_total": 66,
       "official_date": 0,
       "official_schedule_calculated": 5,
       "manual_date": 0,
-      "recurrence_calculated": 59,
+      "recurrence_calculated": 61,
       "unknown": 0,
-      "meetings_with_upcoming_date": 53,
+      "meetings_with_upcoming_date": 55,
       "meetings_without_upcoming_date": 11
     },
     {
@@ -445,14 +445,14 @@
       "venues_total": 25,
       "venues_with_coordinates": 25,
       "verified_venues": 25,
-      "meetings_total": 50,
+      "meetings_total": 51,
       "official_date": 0,
       "official_schedule_calculated": 4,
       "manual_date": 0,
-      "recurrence_calculated": 46,
+      "recurrence_calculated": 47,
       "unknown": 0,
       "meetings_with_upcoming_date": 41,
-      "meetings_without_upcoming_date": 9
+      "meetings_without_upcoming_date": 10
     },
     {
       "prefecture": "大阪府",
@@ -516,13 +516,13 @@
       "venues_with_coordinates": 28,
       "verified_venues": 28,
       "meetings_total": 31,
-      "official_date": 4,
-      "official_schedule_calculated": 27,
+      "official_date": 3,
+      "official_schedule_calculated": 28,
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 4,
-      "meetings_without_upcoming_date": 27
+      "meetings_with_upcoming_date": 3,
+      "meetings_without_upcoming_date": 28
     },
     {
       "prefecture": "島根県",
@@ -543,14 +543,14 @@
       "venues_total": 72,
       "venues_with_coordinates": 72,
       "verified_venues": 68,
-      "meetings_total": 198,
+      "meetings_total": 200,
       "official_date": 0,
       "official_schedule_calculated": 14,
       "manual_date": 1,
-      "recurrence_calculated": 183,
+      "recurrence_calculated": 185,
       "unknown": 0,
-      "meetings_with_upcoming_date": 72,
-      "meetings_without_upcoming_date": 126
+      "meetings_with_upcoming_date": 66,
+      "meetings_without_upcoming_date": 134
     },
     {
       "prefecture": "徳島県",
