@@ -10613,28 +10613,6 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": "",
-        "petit_hp_url": "/chiiki/kanto/chiba/org-479/"
-      },
-      {
-        "meeting_id": 1384,
-        "name": "我孫子例会",
-        "day_of_week": "月",
-        "week_of_month": "1",
-        "start_time": "18:30",
-        "end_time": "20:30",
-        "meeting_type": "通常",
-        "family_meeting": 0,
-        "event_date": "",
-        "recurrence": "第1月曜",
-        "next_date": "2026-10-05",
-        "next_date_2": "2026-11-02",
-        "date_basis": "official_schedule_calculated",
-        "date_source_type": "official_site",
-        "date_source_url": "https://addiction-peer.net/",
-        "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "",
         "petit_hp_url": "/chiiki/kanto/chiba/org-480/"
       }
     ],
