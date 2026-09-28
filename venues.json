@@ -62657,13 +62657,13 @@
         "meeting_id": 280,
         "name": "未定)オンライン例会 Zoom",
         "day_of_week": "日",
-        "week_of_month": "2,3",
+        "week_of_month": "2,3,4",
         "start_time": "18:00",
         "end_time": "20:00",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第2・第3日曜",
+        "recurrence": "第2・第3・第4日曜",
         "next_date": "2026-10-11",
         "next_date_2": "2026-10-18",
         "date_basis": "recurrence_calculated",
@@ -62707,7 +62707,7 @@
     "meeting_name": "未定)オンライン例会 Zoom",
     "start_time": "18:00",
     "end_time": "20:00",
-    "recurrence": "第2・第3日曜"
+    "recurrence": "第2・第3・第4日曜"
   },
   {
     "id": 105,
