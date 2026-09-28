@@ -222,6 +222,21 @@
       border-color: rgba(180,140,80,0.7);
       color: #f0e8d0;
     }
+    .sp-family-btn {
+      width: 100%; padding: 15px 16px; border-radius: 16px;
+      border: 1.5px solid rgba(244,196,99,0.85);
+      background: linear-gradient(135deg, rgba(244,196,99,0.18), rgba(255,255,255,0.06));
+      color: #fff8e8; cursor: pointer; text-align: left;
+      display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 10px;
+      font-family: 'Noto Serif JP', serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sp-family-btn:active { background: rgba(244,196,99,0.26); }
+    .sp-family-icon { font-size: 28px; line-height: 1; }
+    .sp-family-copy { display: flex; flex-direction: column; gap: 3px; }
+    .sp-family-copy strong { font-size: 16px; letter-spacing: .08em; }
+    .sp-family-copy small { font-size: 11px; color: rgba(255,248,232,.7); line-height: 1.5; }
+    .sp-family-arrow { color: #f4c463; font-size: 20px; }
 
     .sp-message-block {
       width: 100%; max-width: 320px;
@@ -359,6 +374,14 @@
       <span class="sp-btn-text">同意して始める</span>
       <span class="sp-btn-arrow">→</span>
     </div>
+    <button type="button" class="sp-family-btn" onclick="startFamilyMap()">
+      <span class="sp-family-icon" aria-hidden="true">👪</span>
+      <span class="sp-family-copy">
+        <strong>ご家族の方へ</strong>
+        <small>30日以内の家族会と特別イベントを探す</small>
+      </span>
+      <span class="sp-family-arrow" aria-hidden="true">→</span>
+    </button>
     <a class="sp-submit-link" href="gogo-submit.html" target="_blank" rel="noopener">
       📝 例会情報の追加・修正はこちら
     </a>
@@ -545,6 +568,10 @@ function splashClose() {
 </div>
 
 <div id="special-event-announcements" aria-live="polite"></div>
+<div id="family-map-banner" class="family-map-banner" hidden>
+  <span><strong>👪 家族向けマップ</strong><small>30日以内の家族会＋特別イベント</small></span>
+  <button type="button" onclick="closeFamilyMap()">通常マップへ</button>
+</div>
 
 <div id="map-attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
 <div id="bottom-nav">
@@ -673,7 +700,8 @@ function splashClose() {
 <script src="js/uranai.js?v=20260925b"></script>
 <script src="js/pin-schedule.js?v=20260925b"></script>
 <script src="js/special-events.js?v=20260924b"></script>
-<script src="app.js?v=20260924b"></script>
+<script src="js/family-map.js?v=20260928a"></script>
+<script src="app.js?v=20260928a"></script>
 <script src="js/menu.js?v=20260912d"></script>
 <script>
 if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js"); }

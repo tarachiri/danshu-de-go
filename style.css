@@ -243,6 +243,41 @@ button, input, select, textarea { font-family: inherit; }
   }
   .pin-today { animation: pulse 1.2s ease-in-out infinite; }
 
+/* 家族向け入口の試作。通常マップと同じデータを分類表示する。 */
+.family-map-banner {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 850;
+  width: min(92vw, 560px);
+  padding: 10px 12px;
+  border: 1px solid #e5b955;
+  border-radius: 14px;
+  background: rgba(255, 250, 235, 0.97);
+  color: #493412;
+  box-shadow: 0 4px 18px rgba(0,0,0,.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.family-map-banner[hidden] { display: none; }
+.family-map-banner span { display: flex; flex-direction: column; gap: 2px; }
+.family-map-banner strong { font-size: 14px; }
+.family-map-banner small { font-size: 11px; color: #735b2c; }
+.family-map-banner button {
+  flex: none;
+  border: 1px solid #9f792b;
+  border-radius: 999px;
+  background: #fff;
+  color: #604817;
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* 免責同意オーバーレイ */
 #disclaimer-overlay {
   position: fixed;

@@ -1,0 +1,32 @@
+'use strict';
+
+const assert = require('node:assert/strict');
+global.PinSchedule = require('../js/pin-schedule.js');
+const FamilyMap = require('../js/family-map.js');
+
+const now = new Date('2026-09-28T00:00:00+09:00');
+const venue = {
+  id: 1,
+  meetings: [
+    { name: '通常例会', meeting_type: '通常', next_date: '2026-09-29', start_time: '19:00' },
+    { name: '家族例会', meeting_type: '通常', next_date: '2026-10-20', start_time: '13:00' },
+    { name: '家族会', meeting_type: '通常', next_date: '2026-11-10', start_time: '13:00' }
+  ]
+};
+
+assert.equal(FamilyMap.isFamilyMeeting(venue.meetings[0]), false);
+assert.equal(FamilyMap.isFamilyMeeting(venue.meetings[1]), true);
+assert.equal(FamilyMap.isFamilyMeeting({ name: '例会', meeting_type: '家族' }), true);
+
+const selected = FamilyMap.withEffectiveOccurrence(venue, now);
+assert.equal(selected.next_date, '2026-10-20');
+assert.equal(selected.meetings[0].name, '家族例会');
+assert.equal(selected.meetings.some(meeting => meeting.name === '通常例会'), false);
+assert.equal(FamilyMap.withEffectiveOccurrence({ meetings: [venue.meetings[2]] }, now), null);
+
+const edge = FamilyMap.withEffectiveOccurrence({
+  meetings: [{ name: '家族会', next_date: '2026-10-28', start_time: '10:00' }]
+}, now);
+assert.equal(edge.next_date, '2026-10-28', '30日後は表示範囲に含む');
+
+console.log('family map tests: ok');

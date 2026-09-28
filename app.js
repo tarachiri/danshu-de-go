@@ -852,6 +852,34 @@ map.addLayer(clusterGroup);
 // ボトムシート方式（openVenueSheet）へ移行したため不要になった。
 let comfortGroup = L.layerGroup();
 let currentMode = 'comfort';
+let familyMapActive = false;
+
+function startFamilyMap() {
+  familyMapActive = true;
+  currentMode = 'explore';
+  const areaFilter = document.getElementById('area-filter');
+  const dateFilter = document.getElementById('date-filter');
+  if (areaFilter) areaFilter.value = 'all';
+  if (dateFilter) dateFilter.value = 'all';
+  const banner = document.getElementById('family-map-banner');
+  if (banner) banner.hidden = false;
+  splashClose();
+  applyFilters();
+  if (window._leafletMap) {
+    window._leafletMap.setView([36.4, 138.0], 5);
+    setTimeout(() => window._leafletMap.invalidateSize(), 120);
+  }
+}
+
+function closeFamilyMap() {
+  familyMapActive = false;
+  const banner = document.getElementById('family-map-banner');
+  if (banner) banner.hidden = true;
+  applyFilters();
+}
+
+window.startFamilyMap = startFamilyMap;
+window.closeFamilyMap = closeFamilyMap;
 
 function initVenues() {
   const totalEl = document.getElementById('count-total-header');
@@ -952,15 +980,20 @@ function applyFilters() {
   VENUES.forEach(v => {
     if (!v.lat || !v.lng) return;
 
-    const pinVenue = PinSchedule.withEffectiveOccurrence(v);
+    const familyVenue = familyMapActive ? FamilyMap.withEffectiveOccurrence(v) : null;
+    const specialEvent = SpecialEvents.findForVenue(v);
+    let pinVenue = familyMapActive ? familyVenue : PinSchedule.withEffectiveOccurrence(v);
+    if (familyMapActive && !pinVenue && specialEvent) {
+      pinVenue = { ...v, meetings: [], next_date: specialEvent.date };
+    }
     if (!pinVenue) return;
 
     const label = getDateLabel(pinVenue.next_date);
 
     // モード判定
-    const specialEvent = SpecialEvents.findForVenue(pinVenue);
-    if (currentMode === 'comfort' && label === 'none' && !specialEvent) return;
-    if (currentMode === 'comfort' && label === 'other' && !specialEvent) return;
+    const visibleSpecialEvent = SpecialEvents.findForVenue(pinVenue);
+    if (currentMode === 'comfort' && label === 'none' && !visibleSpecialEvent) return;
+    if (currentMode === 'comfort' && label === 'other' && !visibleSpecialEvent) return;
 
     // 日付フィルター
     if (dateFilter !== 'all' && label !== dateFilter) return;
