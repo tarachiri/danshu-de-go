@@ -17,6 +17,25 @@ const venue = {
 assert.equal(FamilyMap.isFamilyMeeting(venue.meetings[0]), false);
 assert.equal(FamilyMap.isFamilyMeeting(venue.meetings[1]), true);
 assert.equal(FamilyMap.isFamilyMeeting({ name: '例会', meeting_type: '家族' }), true);
+assert.equal(
+  FamilyMap.isFamilyMeeting({ name: 'ふじみ野例会', meeting_type: '通常', family_meeting: 1 }),
+  true,
+  '確認済みフラグは名称より優先する'
+);
+assert.equal(
+  FamilyMap.isFamilyMeeting({ name: '合同例会', meeting_type: '通常', family_meeting: '1' }),
+  true,
+  'JSON由来の文字列フラグにも対応する'
+);
+assert.equal(
+  FamilyMap.isFamilyMeeting({ name: '家族会', meeting_type: '通常', family_meeting: 0 }),
+  true,
+  '既存データ移行中は名称判定を残す'
+);
+assert.equal(
+  FamilyMap.isFamilyMeeting({ name: '通常例会', meeting_type: '通常', family_meeting: 0 }),
+  false
+);
 
 const selected = FamilyMap.withEffectiveOccurrence(venue, now);
 assert.equal(selected.next_date, '2026-10-20');
@@ -28,5 +47,17 @@ const edge = FamilyMap.withEffectiveOccurrence({
   meetings: [{ name: '家族会', next_date: '2026-10-28', start_time: '10:00' }]
 }, now);
 assert.equal(edge.next_date, '2026-10-28', '30日後は表示範囲に含む');
+
+const classifiedAlias = FamilyMap.withEffectiveOccurrence({
+  meetings: [{
+    name: '合同例会',
+    meeting_type: '通常',
+    family_meeting: 1,
+    next_date: '2026-10-27',
+    start_time: '19:00'
+  }]
+}, now);
+assert.equal(classifiedAlias.next_date, '2026-10-27');
+assert.equal(classifiedAlias.meetings[0].name, '合同例会');
 
 console.log('family map tests: ok');

@@ -9,6 +9,11 @@
 
   function isFamilyMeeting(meeting) {
     if (!meeting) return false;
+
+    // family_meeting を確認済み分類として優先する。ただし移行前データには、
+    // 公式名が家族会でも歴史的な既定値 0 の行が多いため、既存行の確認が
+    // 終わるまでは下の名称判定を補助として残す。
+    if (Number(meeting.family_meeting) === 1) return true;
     if (String(meeting.meeting_type || '') === '家族') return true;
     return /家族/.test(`${meeting.name || ''} ${meeting.group_name || ''}`);
   }
