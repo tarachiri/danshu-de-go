@@ -11261,7 +11261,7 @@
         "start_time": "18:30",
         "end_time": "20:30",
         "meeting_type": "通常",
-        "family_meeting": 0,
+        "family_meeting": 1,
         "event_date": "",
         "recurrence": "第2水曜",
         "next_date": "2026-10-14",
