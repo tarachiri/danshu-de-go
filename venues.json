@@ -9959,7 +9959,7 @@
         "start_time": "14:15",
         "end_time": "16:15",
         "meeting_type": "通常",
-        "family_meeting": 0,
+        "family_meeting": 1,
         "event_date": "",
         "recurrence": "第1・第2土曜",
         "next_date": "2026-10-03",
