@@ -18112,7 +18112,7 @@
         "start_time": "19:00",
         "end_time": "20:00",
         "meeting_type": "通常",
-        "family_meeting": 0,
+        "family_meeting": 1,
         "event_date": "",
         "recurrence": "第3金曜",
         "next_date": "2026-10-16",
