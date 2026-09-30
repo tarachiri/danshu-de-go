@@ -30,7 +30,12 @@ assert.equal(
 assert.equal(
   FamilyMap.isFamilyMeeting({ name: '家族会', meeting_type: '通常', family_meeting: 0 }),
   true,
-  '既存データ移行中は名称判定を残す'
+  '名称に家族があれば未分類でも表示する'
+);
+assert.equal(
+  FamilyMap.isFamilyMeeting({ name: '南(本人・家族会)', meeting_type: '通常', family_meeting: 0 }),
+  true,
+  '本人との混在名称でも家族を含めば表示する'
 );
 assert.equal(
   FamilyMap.isFamilyMeeting({ name: '通常例会', meeting_type: '通常', family_meeting: 0 }),
@@ -40,8 +45,17 @@ assert.equal(
 const selected = FamilyMap.withEffectiveOccurrence(venue, now);
 assert.equal(selected.next_date, '2026-10-20');
 assert.equal(selected.meetings[0].name, '家族例会');
+assert.equal(selected.family_meeting_count, 1, '30日以内に表示する家族例会だけを数える');
 assert.equal(selected.meetings.some(meeting => meeting.name === '通常例会'), false);
+assert.equal(selected.meetings.some(meeting => meeting.next_date === '2026-11-10'), false);
 assert.equal(FamilyMap.withEffectiveOccurrence({ meetings: [venue.meetings[2]] }, now), null);
+
+const normalMapVenue = global.PinSchedule.withEffectiveOccurrence(venue, now);
+assert.equal(
+  normalMapVenue.meetings.some(meeting => meeting.name === '家族例会'),
+  true,
+  '家族会は通常マップから除外せず、両方のマップに表示する'
+);
 
 const edge = FamilyMap.withEffectiveOccurrence({
   meetings: [{ name: '家族会', next_date: '2026-10-28', start_time: '10:00' }]

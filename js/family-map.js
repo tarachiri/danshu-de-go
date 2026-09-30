@@ -10,9 +10,9 @@
   function isFamilyMeeting(meeting) {
     if (!meeting) return false;
 
-    // family_meeting を確認済み分類として優先する。ただし移行前データには、
-    // 公式名が家族会でも歴史的な既定値 0 の行が多いため、既存行の確認が
-    // 終わるまでは下の名称判定を補助として残す。
+    // 確認済み分類に加え、名称に「家族」がある例会も家族向けマップへ出す。
+    // 2026-09-29に運用方針として確定。「本人・家族会」等の混在名称も含む。
+    // family_meeting の整備状況にかかわらず、名称判定は正式ルールとして残す。
     if (Number(meeting.family_meeting) === 1) return true;
     if (String(meeting.meeting_type || '') === '家族') return true;
     return /家族/.test(`${meeting.name || ''} ${meeting.group_name || ''}`);
@@ -24,12 +24,27 @@
     return result.toISOString().slice(0, 10);
   }
 
+  function meetingsWithinWindow(venue, now = new Date(), windowDays = DEFAULT_WINDOW_DAYS) {
+    const schedule = PinSchedule || (typeof globalThis !== 'undefined' && globalThis.PinSchedule);
+    if (!schedule) return [];
+
+    const today = schedule.jstNow(now).date;
+    const lastDate = addDays(today, windowDays);
+    return schedule.deduplicateMeetings(venue && venue.meetings)
+      .filter(isFamilyMeeting)
+      .filter(meeting => schedule.meetingOccurrences(meeting).some(item =>
+        !item.cancelled &&
+        !schedule.isFinished(item.date, item.end_time, now) &&
+        item.date >= today &&
+        item.date <= lastDate
+      ));
+  }
+
   function withEffectiveOccurrence(venue, now = new Date(), windowDays = DEFAULT_WINDOW_DAYS) {
     const schedule = PinSchedule || (typeof globalThis !== 'undefined' && globalThis.PinSchedule);
     if (!schedule) return null;
 
-    const familyMeetings = schedule.deduplicateMeetings(venue && venue.meetings)
-      .filter(isFamilyMeeting);
+    const familyMeetings = meetingsWithinWindow(venue, now, windowDays);
     const today = schedule.jstNow(now).date;
     const lastDate = addDays(today, windowDays);
     const candidates = familyMeetings
@@ -65,9 +80,15 @@
       start_time: occurrence.start_time,
       end_time: occurrence.end_time,
       effective_meeting: occurrence.meeting,
+      family_meeting_count: familyMeetings.length,
       family_map: true
     };
   }
 
-  return { DEFAULT_WINDOW_DAYS, isFamilyMeeting, withEffectiveOccurrence };
+  return {
+    DEFAULT_WINDOW_DAYS,
+    isFamilyMeeting,
+    meetingsWithinWindow,
+    withEffectiveOccurrence
+  };
 });

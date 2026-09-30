@@ -882,8 +882,8 @@ window.startFamilyMap = startFamilyMap;
 window.closeFamilyMap = closeFamilyMap;
 
 function initVenues() {
-  const totalEl = document.getElementById('count-total-header');
-  if (totalEl) totalEl.textContent = '...';
+  const totalEl = document.getElementById('total-count');
+  if (totalEl) totalEl.textContent = '例会情報を読込中…';
   window.setSplashProgress && window.setSplashProgress(30, '例会情報を取得中...');
   const venuesRequest = fetch('venues.json')
     .then(r => {
@@ -928,7 +928,7 @@ function initVenues() {
       window.setSplashProgress && window.setSplashProgress(100, '⚠️ 読み込み失敗');
       const el = document.getElementById('splash-overlay');
       if (el) el.onclick = () => location.reload();
-      const totalEl2 = document.getElementById('count-total-header');
+      const totalEl2 = document.getElementById('total-count');
       if (totalEl2) totalEl2.textContent = '!';
     });
 }
@@ -977,11 +977,22 @@ function applyFilters() {
   window._markers = {};
 
   let count = 0;
+  let familyMeetingCount = 0;
+  let familyVenueCount = 0;
+  let specialOnlyVenueCount = 0;
   VENUES.forEach(v => {
     if (!v.lat || !v.lng) return;
 
     const familyVenue = familyMapActive ? FamilyMap.withEffectiveOccurrence(v) : null;
     const specialEvent = SpecialEvents.findForVenue(v);
+    if (familyMapActive && familyVenue) {
+      familyMeetingCount += familyVenue.family_meeting_count;
+      familyVenueCount++;
+    } else if (familyMapActive && specialEvent) {
+      specialOnlyVenueCount++;
+    }
+    // 通常マップは全例会が対象。家族会も通常マップから除外せず、
+    // 家族向けマップを開いたときだけ家族会へ絞り込む。
     let pinVenue = familyMapActive ? familyVenue : PinSchedule.withEffectiveOccurrence(v);
     if (familyMapActive && !pinVenue && specialEvent) {
       pinVenue = { ...v, meetings: [], next_date: specialEvent.date };
@@ -1020,13 +1031,19 @@ let todayCount=0, tomorrowCount=0, dayafterCount=0;
     else if(l==='dayafter') dayafterCount++;
   });
   document.getElementById('count-today').textContent = todayCount;
-  const todayHeaderEl = document.getElementById('count-today-header');
-  if (todayHeaderEl) todayHeaderEl.textContent = todayCount;
   document.getElementById('count-tomorrow').textContent = tomorrowCount;
   document.getElementById('count-dayafter').textContent = dayafterCount;
   const totalMeetings = VENUES.reduce((sum, v) => sum + (v.meetings ? v.meetings.length : 0), 0);
-  const headerEl = document.getElementById('count-total-header');
-  if (headerEl) headerEl.textContent = totalMeetings;
+  const headerEl = document.getElementById('total-count');
+  if (headerEl) {
+    headerEl.classList.toggle('family-count', familyMapActive);
+    if (familyMapActive) {
+      const specialLabel = specialOnlyVenueCount ? `＋行事${specialOnlyVenueCount}件` : '';
+      headerEl.textContent = `家族${familyMeetingCount}例会・${familyVenueCount}会場${specialLabel}`;
+    } else {
+      headerEl.textContent = `全${totalMeetings}例会・今日${todayCount}件`;
+    }
+  }
 }
 
 initVenues();

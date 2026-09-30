@@ -57,9 +57,12 @@ assert.equal(cancelledEffective.meetings[0].has_exception, false);
 
 assert.ok(html.indexOf('js/pin-schedule.js') < html.indexOf('<script src="app.js'));
 assert.match(html, /id="count-today"/);
+assert.match(html, /id="total-count"/);
 assert.doesNotMatch(html, /今日昼|今日夕夜/);
 assert.match(fs.readFileSync(path.join(root, 'style.css'), 'utf8'), /#total-count\s*\{[^}]*font-size:\s*15px\s*!important;/);
 assert.match(app, /PinSchedule\.withEffectiveOccurrence\(v\)/);
+assert.match(app, /家族\$\{familyMeetingCount\}例会/);
+assert.match(app, /全\$\{totalMeetings\}例会・今日\$\{todayCount\}件/);
 assert.match(app, /renderSpecialEventAnnouncements\(\)/);
 assert.match(app, /setInterval\(\(\) => \{/);
 
