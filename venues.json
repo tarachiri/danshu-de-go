@@ -63386,15 +63386,15 @@
         "meeting_id": 98,
         "name": "鎌倉例会",
         "day_of_week": "金",
-        "week_of_month": "3,5",
+        "week_of_month": "3",
         "start_time": "19:00",
         "end_time": "20:30",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第3・第5金曜",
+        "recurrence": "第3金曜",
         "next_date": "2026-10-16",
-        "next_date_2": "2026-10-30",
+        "next_date_2": "2026-11-20",
         "date_basis": "recurrence_calculated",
         "date_source_type": "recurrence",
         "date_source_url": "",
@@ -63458,7 +63458,7 @@
     "meeting_name": "鎌倉例会",
     "start_time": "19:00",
     "end_time": "20:30",
-    "recurrence": "第3・第5金曜"
+    "recurrence": "第3金曜"
   },
   {
     "id": 121,
