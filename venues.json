@@ -13401,15 +13401,15 @@
         "meeting_id": 15,
         "name": "草加例会",
         "day_of_week": "水",
-        "week_of_month": "2",
+        "week_of_month": "2,4",
         "start_time": "19:00",
         "end_time": "21:00",
         "meeting_type": "",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第2水曜",
+        "recurrence": "第2・第4水曜",
         "next_date": "2026-10-14",
-        "next_date_2": "2026-11-11",
+        "next_date_2": "2026-10-28",
         "date_basis": "official_schedule_calculated",
         "date_source_type": "official_site",
         "date_source_url": "https://www.saitama-danshu.or.jp/east/sche_east.html",
@@ -13451,7 +13451,7 @@
     "meeting_name": "草加例会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第2水曜"
+    "recurrence": "第2・第4水曜"
   },
   {
     "id": 134,
