@@ -251,8 +251,10 @@ function updateSitemap(summary) {
 const venues = JSON.parse(fs.readFileSync(VENUES_PATH, 'utf8'));
 fs.mkdirSync(OUTPUT_ROOT, { recursive: true });
 const pageData = PREFECTURES
-  .map(([prefecture, slug]) => ({ prefecture, slug, rows: collectMeetings(venues, prefecture) }))
-  .filter(row => row.rows.length > 0);
+  // 例会が0件になった都道府県も毎回上書きする。
+  // 過去(2026-10-04確認)は0件の県を生成対象から除外していたため、
+  // 前回生成した終了済み例会が静的ページに残り続けていた。
+  .map(([prefecture, slug]) => ({ prefecture, slug, rows: collectMeetings(venues, prefecture) }));
 const availablePrefectures = pageData.map(row => [row.prefecture, row.slug]);
 const summary = [];
 for (const { prefecture, slug, rows } of pageData) {

@@ -13,6 +13,7 @@ const VENUES = JSON.parse(fs.readFileSync(path.join(ROOT, 'venues.json'), 'utf8'
 const TODAY = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
 }).format(new Date());
+const PREFECTURE_COUNT = 47;
 
 function monthDistance(date) {
   const [todayYear, todayMonth] = TODAY.split('-').map(Number);
@@ -20,11 +21,36 @@ function monthDistance(date) {
   return (year - todayYear) * 12 + month - todayMonth;
 }
 
-test('全国入口の都道府県リンクは実在する生成ページだけを指す', () => {
+test('全国入口から47都道府県すべての生成ページへ移動できる', () => {
   const links = [...INDEX_HTML.matchAll(/<li><a href="([^/]+)\/">([^<]+)の例会予定/g)];
-  assert.ok(links.length > 0);
+  assert.equal(links.length, PREFECTURE_COUNT);
   for (const [, slug] of links) {
     assert.ok(fs.existsSync(path.join(MEETINGS_ROOT, slug, 'index.html')), `${slug} がありません`);
+  }
+});
+
+test('将来の例会が0件の都道府県も空表示で上書きされる', () => {
+  const futureCountByPrefecture = new Map();
+  for (const venue of VENUES) {
+    let count = futureCountByPrefecture.get(venue.prefecture) || 0;
+    for (const meeting of venue.meetings || []) {
+      count += [meeting.next_date, meeting.next_date_2]
+        .filter(date => date && date >= TODAY).length;
+    }
+    futureCountByPrefecture.set(venue.prefecture, count);
+  }
+
+  const emptyPages = fs.readdirSync(MEETINGS_ROOT, { withFileTypes: true })
+    .filter(entry => entry.isDirectory())
+    .map(entry => fs.readFileSync(path.join(MEETINGS_ROOT, entry.name, 'index.html'), 'utf8'))
+    .filter(html => /掲載予定 0件/.test(html));
+  const emptyPrefectureCount = [...futureCountByPrefecture.values()]
+    .filter(count => count === 0).length;
+
+  assert.equal(emptyPages.length, emptyPrefectureCount);
+  for (const html of emptyPages) {
+    assert.match(html, /現在、日付が登録された例会はありません。/);
+    assert.doesNotMatch(html, /class="date-section"/);
   }
 });
 
