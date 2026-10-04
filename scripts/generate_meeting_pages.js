@@ -2,6 +2,7 @@
 
 // 登録済みの venues.json だけを読み、検索エンジンも読める静的な例会一覧を作る。
 // 団体ページは明示的なURLがある場合だけリンクし、名称からの推測はしない。
+// sitemap.xmlは全ページ生成後にdanshu-tools/generate_sitemap.pyが一度だけ作る。
 
 const fs = require('fs');
 const path = require('path');
@@ -10,10 +11,7 @@ const { generateDataQuality } = require('./generate_data_quality');
 const ROOT = path.resolve(__dirname, '..');
 const VENUES_PATH = path.join(ROOT, 'venues.json');
 const OUTPUT_ROOT = path.join(ROOT, 'meetings');
-const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const SITE_URL = 'https://dansyu-go.nukadokonokai.com';
-const SITEMAP_START = '  <!-- MEETING-PAGES_START -->';
-const SITEMAP_END = '  <!-- MEETING-PAGES_END -->';
 const TODAY_JST = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo',
   year: 'numeric',
@@ -221,33 +219,6 @@ function renderIndex(summary) {
   });
 }
 
-function updateSitemap(summary) {
-  let sitemap = fs.readFileSync(SITEMAP_PATH, 'utf8');
-  const urls = [
-    { path: '/meetings/', priority: '0.7' },
-    ...summary.map(row => ({ path: `/meetings/${row.slug}/`, priority: '0.6' })),
-  ];
-  const block = [
-    SITEMAP_START,
-    ...urls.map(url => `  <url>
-    <loc>${SITE_URL}${url.path}</loc>
-    <lastmod>${TODAY_JST}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>${url.priority}</priority>
-  </url>`),
-    SITEMAP_END,
-  ].join('\n');
-
-  const start = sitemap.indexOf(SITEMAP_START);
-  const end = sitemap.indexOf(SITEMAP_END);
-  if (start !== -1 && end !== -1 && end > start) {
-    sitemap = sitemap.slice(0, start) + block + sitemap.slice(end + SITEMAP_END.length);
-  } else {
-    sitemap = sitemap.replace(/\s*<\/urlset>\s*$/, `\n${block}\n</urlset>\n`);
-  }
-  fs.writeFileSync(SITEMAP_PATH, sitemap);
-}
-
 const venues = JSON.parse(fs.readFileSync(VENUES_PATH, 'utf8'));
 fs.mkdirSync(OUTPUT_ROOT, { recursive: true });
 const pageData = PREFECTURES
@@ -267,6 +238,5 @@ for (const { prefecture, slug, rows } of pageData) {
   summary.push({ prefecture, slug, count: rows.length });
 }
 fs.writeFileSync(path.join(OUTPUT_ROOT, 'index.html'), renderIndex(summary));
-updateSitemap(summary);
 generateDataQuality(VENUES_PATH, path.join(OUTPUT_ROOT, 'data-quality.json'));
 console.log(`${summary.length}都道府県・${summary.reduce((sum, row) => sum + row.count, 0)}件を生成`);

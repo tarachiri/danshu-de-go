@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/gifu/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -56,7 +56,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chubu/nagano/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/chugoku/hiroshima/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -134,7 +134,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/hokuriku/ishikawa/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -164,7 +164,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/gunma/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -188,7 +188,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kanto/saitama/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -236,7 +236,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/kinki/osaka/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -350,7 +350,7 @@
   </url>
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/chiiki/tohoku/aomori/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -384,7 +384,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- MEETING-PAGES_START -->
   <url>
     <loc>https://dansyu-go.nukadokonokai.com/meetings/</loc>
     <lastmod>2026-10-04</lastmod>
@@ -392,25 +391,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/hokkaido/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/aomori/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/iwate/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/miyagi/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/aichi/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -422,37 +403,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/yamagata/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/fukushima/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/ibaraki/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/tochigi/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/gunma/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/saitama/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/aomori/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -464,31 +415,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/tokyo/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/kanagawa/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/niigata/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/toyama/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/ishikawa/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/ehime/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -500,13 +427,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/yamanashi/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/fukuoka/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/nagano/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/fukushima/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -518,73 +445,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/shizuoka/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/aichi/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/mie/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/shiga/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/kyoto/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/osaka/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/hyogo/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/nara/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/wakayama/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/tottori/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/shimane/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/okayama/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/gunma/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -596,13 +457,31 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/yamaguchi/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/hokkaido/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/tokushima/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/hyogo/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/ibaraki/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/ishikawa/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/iwate/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -614,7 +493,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/ehime/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/kagoshima/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/kanagawa/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -626,31 +511,25 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/fukuoka/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/saga/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/nagasaki/</loc>
-    <lastmod>2026-10-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://dansyu-go.nukadokonokai.com/meetings/kumamoto/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/oita/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/kyoto/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/mie/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/miyagi/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -662,7 +541,37 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dansyu-go.nukadokonokai.com/meetings/kagoshima/</loc>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/nagano/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/nagasaki/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/nara/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/niigata/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/oita/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/okayama/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -673,5 +582,94 @@
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- MEETING-PAGES_END -->
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/osaka/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/saga/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/saitama/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/shiga/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/shimane/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/shizuoka/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/tochigi/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/tokushima/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/tokyo/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/tottori/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/toyama/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/wakayama/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/yamagata/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/yamaguchi/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dansyu-go.nukadokonokai.com/meetings/yamanashi/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

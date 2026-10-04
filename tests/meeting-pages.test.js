@@ -10,6 +10,7 @@ const ROOT = path.resolve(__dirname, '..');
 const MEETINGS_ROOT = path.join(ROOT, 'meetings');
 const INDEX_HTML = fs.readFileSync(path.join(MEETINGS_ROOT, 'index.html'), 'utf8');
 const VENUES = JSON.parse(fs.readFileSync(path.join(ROOT, 'venues.json'), 'utf8'));
+const GENERATOR = fs.readFileSync(path.join(ROOT, 'scripts', 'generate_meeting_pages.js'), 'utf8');
 const TODAY = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
 }).format(new Date());
@@ -20,6 +21,10 @@ function monthDistance(date) {
   const [year, month] = date.split('-').map(Number);
   return (year - todayYear) * 12 + month - todayMonth;
 }
+
+test('例会ページ生成はサイトマップを直接書き換えない', () => {
+  assert.doesNotMatch(GENERATOR, /SITEMAP_PATH|updateSitemap/);
+});
 
 test('全国入口から47都道府県すべての生成ページへ移動できる', () => {
   const links = [...INDEX_HTML.matchAll(/<li><a href="([^/]+)\/">([^<]+)の例会予定/g)];
