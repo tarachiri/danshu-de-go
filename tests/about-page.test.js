@@ -45,7 +45,7 @@ test('aboutページのcanonicalと構造化データが一致する', () => {
 });
 
 test('主要な内部リンクのリンク先が存在する', () => {
-  const routes = ['/gogo-submit.html', '/chiiki/', '/docs/manual.html'];
+  const routes = ['/gogo-submit.html', '/sources/', '/chiiki/', '/docs/manual.html'];
   for (const route of routes) {
     assert.match(ABOUT, new RegExp(`href=["']${route.replaceAll('/', '\\/')}["']`));
     const relative = route.replace(/^\//, '');
