@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-05T05:40:04+09:00",
+  "generated_at": "2026-10-05T20:33:37+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-10-05T00:30:51+09:00",
+    "file_modified_at": "2026-10-05T15:30:50+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
@@ -21,16 +21,16 @@
   },
   "summary": {
     "prefectures_covered": 47,
-    "venues_total": 1377,
-    "venues_with_coordinates": 1377,
-    "verified_venues": 390,
-    "meetings_total": 2020,
+    "venues_total": 1378,
+    "venues_with_coordinates": 1378,
+    "verified_venues": 391,
+    "meetings_total": 2021,
     "official_date": 0,
-    "official_schedule_calculated": 1580,
+    "official_schedule_calculated": 1581,
     "manual_date": 4,
     "recurrence_calculated": 436,
     "unknown": 0,
-    "meetings_with_upcoming_date": 1781,
+    "meetings_with_upcoming_date": 1782,
     "meetings_without_upcoming_date": 239
   },
   "prefectures": [
@@ -456,16 +456,16 @@
     },
     {
       "prefecture": "大阪府",
-      "venues_total": 164,
-      "venues_with_coordinates": 164,
-      "verified_venues": 2,
-      "meetings_total": 252,
+      "venues_total": 165,
+      "venues_with_coordinates": 165,
+      "verified_venues": 3,
+      "meetings_total": 253,
       "official_date": 0,
-      "official_schedule_calculated": 252,
+      "official_schedule_calculated": 253,
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 251,
+      "meetings_with_upcoming_date": 252,
       "meetings_without_upcoming_date": 1
     },
     {
