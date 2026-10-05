@@ -62770,28 +62770,6 @@
     "walk_duration_min": 416,
     "meetings": [
       {
-        "meeting_id": 280,
-        "name": "未定)オンライン例会 Zoom",
-        "day_of_week": "日",
-        "week_of_month": "2,3,4",
-        "start_time": "18:00",
-        "end_time": "20:00",
-        "meeting_type": "通常",
-        "family_meeting": 0,
-        "event_date": "",
-        "recurrence": "第2・第3・第4日曜",
-        "next_date": "2026-10-11",
-        "next_date_2": "2026-10-18",
-        "date_basis": "recurrence_calculated",
-        "date_source_type": "recurrence",
-        "date_source_url": "",
-        "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "",
-        "petit_hp_url": "/chiiki/kanto/kanagawa/org-532/"
-      },
-      {
         "meeting_id": 277,
         "name": "オンライン例会 Zoom",
         "day_of_week": "日",
@@ -62812,6 +62790,28 @@
         "exc_type": "",
         "exc_note": "",
         "petit_hp_url": "/chiiki/kanto/kanagawa/org-532/"
+      },
+      {
+        "meeting_id": 280,
+        "name": "未定)オンライン例会 Zoom",
+        "day_of_week": "日",
+        "week_of_month": "3,4",
+        "start_time": "18:00",
+        "end_time": "20:00",
+        "meeting_type": "通常",
+        "family_meeting": 0,
+        "event_date": "",
+        "recurrence": "第3・第4日曜",
+        "next_date": "2026-10-18",
+        "next_date_2": "2026-10-25",
+        "date_basis": "recurrence_calculated",
+        "date_source_type": "recurrence",
+        "date_source_url": "",
+        "date_source_published_at": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": "",
+        "petit_hp_url": "/chiiki/kanto/kanagawa/org-532/"
       }
     ],
     "has_exception": false,
@@ -62819,11 +62819,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-10-11",
-    "meeting_name": "未定)オンライン例会 Zoom",
+    "next_date": "2026-10-18",
+    "meeting_name": "オンライン例会 Zoom",
     "start_time": "18:00",
     "end_time": "20:00",
-    "recurrence": "第2・第3・第4日曜"
+    "recurrence": "第3日曜"
   },
   {
     "id": 105,
