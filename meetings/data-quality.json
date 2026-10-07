@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-07T05:40:03+09:00",
+  "generated_at": "2026-10-08T05:40:03+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-10-07T00:30:33+09:00",
+    "file_modified_at": "2026-10-08T00:30:35+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
