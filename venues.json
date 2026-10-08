@@ -13486,9 +13486,9 @@
         "date_source_type": "official_site",
         "date_source_url": "https://www.saitama-danshu.or.jp/honbu/sche_honbu.html",
         "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "",
+        "has_exception": true,
+        "exc_type": "reschedule",
+        "exc_note": "【日程変更】シングル例会　→30日(金)へ変更",
         "petit_hp_url": "/chiiki/kanto/saitama/org-448/"
       },
       {
@@ -13514,8 +13514,8 @@
         "petit_hp_url": "/chiiki/kanto/saitama/org-449/"
       }
     ],
-    "has_exception": false,
-    "exc_note": "",
+    "has_exception": true,
+    "exc_note": "【日程変更】シングル例会　→30日(金)へ変更",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -63158,7 +63158,7 @@
         "has_exception": false,
         "exc_type": "",
         "exc_note": "",
-        "petit_hp_url": ""
+        "petit_hp_url": "/chiiki/kanto/kanagawa/org-525/"
       },
       {
         "meeting_id": 85,
