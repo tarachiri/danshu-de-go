@@ -63961,15 +63961,15 @@
         "meeting_id": 4297,
         "name": "宮前市民館例会",
         "day_of_week": "土",
-        "week_of_month": "1",
+        "week_of_month": "1,2",
         "start_time": "19:00",
         "end_time": "20:45",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第1土曜",
+        "recurrence": "第1・第2土曜",
         "next_date": "2026-11-07",
-        "next_date_2": "2026-12-05",
+        "next_date_2": "2026-11-14",
         "date_basis": "recurrence_calculated",
         "date_source_type": "recurrence",
         "date_source_url": "",
@@ -63989,7 +63989,7 @@
     "meeting_name": "宮前市民館例会",
     "start_time": "19:00",
     "end_time": "20:45",
-    "recurrence": "第1土曜"
+    "recurrence": "第1・第2土曜"
   },
   {
     "id": 400,
