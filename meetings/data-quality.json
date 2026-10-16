@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-16T05:40:04+09:00",
+  "generated_at": "2026-10-17T05:40:04+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-10-16T00:30:34+09:00",
+    "file_modified_at": "2026-10-17T00:30:50+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
@@ -24,13 +24,13 @@
     "venues_total": 1379,
     "venues_with_coordinates": 1379,
     "verified_venues": 392,
-    "meetings_total": 2026,
+    "meetings_total": 2036,
     "official_date": 0,
-    "official_schedule_calculated": 1581,
+    "official_schedule_calculated": 1591,
     "manual_date": 4,
     "recurrence_calculated": 441,
     "unknown": 0,
-    "meetings_with_upcoming_date": 1783,
+    "meetings_with_upcoming_date": 1793,
     "meetings_without_upcoming_date": 243
   },
   "prefectures": [
@@ -417,13 +417,13 @@
       "venues_total": 63,
       "venues_with_coordinates": 63,
       "verified_venues": 5,
-      "meetings_total": 131,
+      "meetings_total": 141,
       "official_date": 0,
-      "official_schedule_calculated": 131,
+      "official_schedule_calculated": 141,
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 129,
+      "meetings_with_upcoming_date": 139,
       "meetings_without_upcoming_date": 2
     },
     {
