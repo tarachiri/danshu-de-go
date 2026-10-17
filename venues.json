@@ -61593,13 +61593,13 @@
         "meeting_id": 291,
         "name": "昼例会",
         "day_of_week": "水",
-        "week_of_month": "3,4",
+        "week_of_month": "1,2,3,4",
         "start_time": "13:00",
         "end_time": "14:30",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第3・第4水曜",
+        "recurrence": "第1・第2・第3・第4水曜",
         "next_date": "2026-10-21",
         "next_date_2": "2026-10-28",
         "date_basis": "recurrence_calculated",
@@ -61819,7 +61819,7 @@
     "meeting_name": "昼例会",
     "start_time": "13:00",
     "end_time": "14:30",
-    "recurrence": "第3・第4水曜"
+    "recurrence": "第1・第2・第3・第4水曜"
   },
   {
     "id": 72,
