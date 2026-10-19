@@ -15508,9 +15508,9 @@
         "date_source_type": "official_site",
         "date_source_url": "https://www.saitama-danshu.or.jp/north/sche_north.html",
         "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "",
+        "has_exception": true,
+        "exc_type": "cancel",
+        "exc_note": "【中止】秩父断酒会 | 13:00~15:00 | 秩父市上宮地町27-5",
         "petit_hp_url": "/chiiki/kanto/saitama/org-470/"
       },
       {
@@ -15536,8 +15536,8 @@
         "petit_hp_url": "/chiiki/kanto/saitama/org-470/"
       }
     ],
-    "has_exception": false,
-    "exc_note": "",
+    "has_exception": true,
+    "exc_note": "【中止】秩父断酒会 | 13:00~15:00 | 秩父市上宮地町27-5",
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
@@ -63542,7 +63542,7 @@
         "day_of_week": "月",
         "week_of_month": "3",
         "start_time": "19:00",
-        "end_time": "20:30",
+        "end_time": "20:00",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
@@ -63611,7 +63611,7 @@
     "next_date": "2026-10-19",
     "meeting_name": "葉山支部例会",
     "start_time": "19:00",
-    "end_time": "20:30",
+    "end_time": "20:00",
     "recurrence": "第3月曜"
   },
   {
