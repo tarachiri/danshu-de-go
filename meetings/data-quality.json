@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-20T05:40:03+09:00",
+  "generated_at": "2026-10-21T05:40:03+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-10-20T00:30:33+09:00",
+    "file_modified_at": "2026-10-21T00:30:34+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
@@ -24,14 +24,14 @@
     "venues_total": 1379,
     "venues_with_coordinates": 1379,
     "verified_venues": 392,
-    "meetings_total": 2037,
+    "meetings_total": 2038,
     "official_date": 0,
     "official_schedule_calculated": 1591,
-    "manual_date": 5,
+    "manual_date": 6,
     "recurrence_calculated": 441,
     "unknown": 0,
-    "meetings_with_upcoming_date": 1794,
-    "meetings_without_upcoming_date": 243
+    "meetings_with_upcoming_date": 1793,
+    "meetings_without_upcoming_date": 245
   },
   "prefectures": [
     {
@@ -445,13 +445,13 @@
       "venues_total": 25,
       "venues_with_coordinates": 25,
       "verified_venues": 25,
-      "meetings_total": 57,
+      "meetings_total": 58,
       "official_date": 0,
       "official_schedule_calculated": 3,
-      "manual_date": 4,
+      "manual_date": 5,
       "recurrence_calculated": 50,
       "unknown": 0,
-      "meetings_with_upcoming_date": 43,
+      "meetings_with_upcoming_date": 44,
       "meetings_without_upcoming_date": 14
     },
     {
@@ -549,8 +549,8 @@
       "manual_date": 1,
       "recurrence_calculated": 185,
       "unknown": 0,
-      "meetings_with_upcoming_date": 63,
-      "meetings_without_upcoming_date": 137
+      "meetings_with_upcoming_date": 61,
+      "meetings_without_upcoming_date": 139
     },
     {
       "prefecture": "徳島県",
