@@ -10968,6 +10968,28 @@
         "exc_type": "",
         "exc_note": "",
         "petit_hp_url": "/chiiki/kanto/chiba/org-479/"
+      },
+      {
+        "meeting_id": 991,
+        "name": "断酒学級",
+        "day_of_week": "",
+        "week_of_month": "",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "meeting_type": "通常",
+        "family_meeting": 0,
+        "event_date": "2027-01-18",
+        "recurrence": "日程・会場変更",
+        "next_date": "2027-01-18",
+        "next_date_2": "",
+        "date_basis": "official_source_date",
+        "date_source_type": "chiba_ical",
+        "date_source_url": "",
+        "date_source_published_at": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": "変更予定　断酒学級",
+        "petit_hp_url": "/chiiki/kanto/chiba/org-479/"
       }
     ],
     "has_exception": false,
