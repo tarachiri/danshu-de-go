@@ -474,7 +474,6 @@ function buildSheetContent(v) {
     ${verifyBanner}
     ${meetingsSection}
     ${eventSection}
-    <a href="https://line.me/R/oaMessage/%40867qlgsx/?${encodeURIComponent((v.facility_name||'会場')+'のページから問い合わせ')}" class="sheet-btn-line" target="_blank">🟢 LINEで問い合わせる</a>
     ${calLink}
     ${officialLink}
     ${mapsLink}
