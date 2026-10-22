@@ -13796,28 +13796,6 @@
     "walk_duration_min": 20,
     "meetings": [
       {
-        "meeting_id": 6,
-        "name": "西部本部例会",
-        "day_of_week": "水",
-        "week_of_month": "3,4",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "meeting_type": "",
-        "family_meeting": 0,
-        "event_date": "",
-        "recurrence": "第3・第4水曜",
-        "next_date": "2026-10-28",
-        "next_date_2": "2026-11-18",
-        "date_basis": "official_schedule_calculated",
-        "date_source_type": "official_site",
-        "date_source_url": "http://www.saitama-danshu.or.jp/west/sche_west.html",
-        "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "",
-        "petit_hp_url": ""
-      },
-      {
         "meeting_id": 1,
         "name": "富士見例会",
         "day_of_week": "水",
@@ -13838,6 +13816,28 @@
         "exc_type": "",
         "exc_note": "",
         "petit_hp_url": ""
+      },
+      {
+        "meeting_id": 6,
+        "name": "西部本部例会",
+        "day_of_week": "水",
+        "week_of_month": "3",
+        "start_time": "19:00",
+        "end_time": "21:00",
+        "meeting_type": "",
+        "family_meeting": 0,
+        "event_date": "",
+        "recurrence": "第3水曜",
+        "next_date": "2026-11-18",
+        "next_date_2": "2026-12-16",
+        "date_basis": "official_schedule_calculated",
+        "date_source_type": "official_site",
+        "date_source_url": "http://www.saitama-danshu.or.jp/west/sche_west.html",
+        "date_source_published_at": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": "",
+        "petit_hp_url": ""
       }
     ],
     "has_exception": false,
@@ -13845,11 +13845,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-10-28",
-    "meeting_name": "西部本部例会",
+    "next_date": "2026-11-04",
+    "meeting_name": "富士見例会",
     "start_time": "19:00",
     "end_time": "21:00",
-    "recurrence": "第3・第4水曜"
+    "recurrence": "第1水曜"
   },
   {
     "id": 138,
