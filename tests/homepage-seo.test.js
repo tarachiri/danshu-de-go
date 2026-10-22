@@ -86,7 +86,7 @@ test('静的な主要導線と地域検索入口を維持する', () => {
   assert.match(INDEX_HTML, /<main id="main-content">/);
   assert.match(INDEX_HTML, /<header id="header">/);
   assert.match(INDEX_HTML, /<nav class="seo-primary-links" aria-label="例会の探し方">/);
-  for (const path of ['/calendar.html', '/chiiki/', '/about.html']) {
+  for (const path of ['/meetings/', '/chiiki/', '/about.html']) {
     assert.match(INDEX_HTML, new RegExp(`href=["']${escapeRegex(path)}["']`));
   }
   for (const region of [

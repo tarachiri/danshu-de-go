@@ -529,7 +529,8 @@ function checkInitialProfileLabel() {
     { icon: '📖', label: 'マニュアル', action: () => { closeMenu(); window.open('docs/manual.html', '_blank'); } },
     { icon: '❓', label: 'FAQ', action: () => { closeMenu(); window.open('docs/faq.html', '_blank'); } },
     { icon: '📨', label: '例会情報を送る', action: () => { closeMenu(); window.open('gogo-submit.html', '_blank'); } },
-    { icon: '🤖', label: 'かもちゃんに相談', action: () => { closeMenu(); window.open('chat.html', '_blank'); } },
+    // 2026-10-22確認済み: 公開APIに /chat・/inquiry・近隣検索・PDF生成がないため、
+    // 復旧するまでは動かないチャット画面への入口を表示しない。
   ];
 
   const shareBar = document.createElement('div');

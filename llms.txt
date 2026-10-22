@@ -16,7 +16,6 @@
 
 ### アプリ本体
 - [断酒でGO!! アプリ](https://dansyu-go.nukadokonokai.com/) - 地図・スケジュール・例会検索
-- [AIかもちゃん（断かも）チャット](https://dansyu-go.nukadokonokai.com/chat.html) - 例会案内AI
 
 ### 全国断酒会紹介ページ（chiiki/）
 - [全国断酒会一覧](https://dansyu-go.nukadokonokai.com/chiiki/) - 505団体のプチHP
