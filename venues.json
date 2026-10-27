@@ -55064,7 +55064,7 @@
         "day_of_week": "木",
         "week_of_month": "4,5",
         "start_time": "19:00",
-        "end_time": "15:00",
+        "end_time": "21:00",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
@@ -55089,7 +55089,7 @@
     "next_date": "2026-10-29",
     "meeting_name": "八王子例会",
     "start_time": "19:00",
-    "end_time": "15:00",
+    "end_time": "21:00",
     "recurrence": "第4・第5木曜"
   },
   {
