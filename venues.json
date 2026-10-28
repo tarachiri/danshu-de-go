@@ -62755,13 +62755,13 @@
         "meeting_id": 2811,
         "name": "相談·質問",
         "day_of_week": "木",
-        "week_of_month": "1,3",
+        "week_of_month": "1,3,4",
         "start_time": "18:00",
         "end_time": "18:45",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "第1・第3木曜",
+        "recurrence": "第1・第3・第4木曜",
         "next_date": "2026-11-05",
         "next_date_2": "2026-11-19",
         "date_basis": "recurrence_calculated",
@@ -62805,7 +62805,7 @@
     "meeting_name": "相談·質問",
     "start_time": "18:00",
     "end_time": "18:45",
-    "recurrence": "第1・第3木曜"
+    "recurrence": "第1・第3・第4木曜"
   },
   {
     "id": 100,
