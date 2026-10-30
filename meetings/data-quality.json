@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-30T05:40:03+09:00",
+  "generated_at": "2026-10-31T05:40:03+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-10-30T00:30:53+09:00",
+    "file_modified_at": "2026-10-31T00:30:38+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
@@ -30,8 +30,8 @@
     "manual_date": 6,
     "recurrence_calculated": 445,
     "unknown": 0,
-    "meetings_with_upcoming_date": 1801,
-    "meetings_without_upcoming_date": 242
+    "meetings_with_upcoming_date": 1802,
+    "meetings_without_upcoming_date": 241
   },
   "prefectures": [
     {
@@ -59,8 +59,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 26,
-      "meetings_without_upcoming_date": 0
+      "meetings_with_upcoming_date": 25,
+      "meetings_without_upcoming_date": 1
     },
     {
       "prefecture": "茨城県",
@@ -171,8 +171,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 98,
-      "meetings_without_upcoming_date": 1
+      "meetings_with_upcoming_date": 99,
+      "meetings_without_upcoming_date": 0
     },
     {
       "prefecture": "熊本県",
@@ -451,8 +451,8 @@
       "manual_date": 5,
       "recurrence_calculated": 50,
       "unknown": 0,
-      "meetings_with_upcoming_date": 44,
-      "meetings_without_upcoming_date": 14
+      "meetings_with_upcoming_date": 45,
+      "meetings_without_upcoming_date": 13
     },
     {
       "prefecture": "大阪府",
