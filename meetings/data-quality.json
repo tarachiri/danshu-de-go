@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-31T05:40:03+09:00",
+  "generated_at": "2026-11-01T05:40:03+09:00",
   "source": {
     "file": "venues.json",
-    "file_modified_at": "2026-10-31T00:30:38+09:00",
+    "file_modified_at": "2026-11-01T00:30:30+09:00",
     "date_authority": "venues.json"
   },
   "definitions": {
@@ -30,8 +30,8 @@
     "manual_date": 6,
     "recurrence_calculated": 445,
     "unknown": 0,
-    "meetings_with_upcoming_date": 1802,
-    "meetings_without_upcoming_date": 241
+    "meetings_with_upcoming_date": 1804,
+    "meetings_without_upcoming_date": 239
   },
   "prefectures": [
     {
@@ -87,8 +87,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 58,
-      "meetings_without_upcoming_date": 1
+      "meetings_with_upcoming_date": 59,
+      "meetings_without_upcoming_date": 0
     },
     {
       "prefecture": "沖縄県",
@@ -283,8 +283,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 21,
-      "meetings_without_upcoming_date": 1
+      "meetings_with_upcoming_date": 22,
+      "meetings_without_upcoming_date": 0
     },
     {
       "prefecture": "山形県",
@@ -423,8 +423,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 141,
-      "meetings_without_upcoming_date": 0
+      "meetings_with_upcoming_date": 139,
+      "meetings_without_upcoming_date": 2
     },
     {
       "prefecture": "石川県",
@@ -549,8 +549,8 @@
       "manual_date": 1,
       "recurrence_calculated": 187,
       "unknown": 0,
-      "meetings_with_upcoming_date": 65,
-      "meetings_without_upcoming_date": 137
+      "meetings_with_upcoming_date": 68,
+      "meetings_without_upcoming_date": 134
     },
     {
       "prefecture": "徳島県",
@@ -633,8 +633,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 126,
-      "meetings_without_upcoming_date": 1
+      "meetings_with_upcoming_date": 125,
+      "meetings_without_upcoming_date": 2
     },
     {
       "prefecture": "福島県",
@@ -661,8 +661,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 65,
-      "meetings_without_upcoming_date": 0
+      "meetings_with_upcoming_date": 64,
+      "meetings_without_upcoming_date": 1
     },
     {
       "prefecture": "北海道",
@@ -689,8 +689,8 @@
       "manual_date": 0,
       "recurrence_calculated": 0,
       "unknown": 0,
-      "meetings_with_upcoming_date": 20,
-      "meetings_without_upcoming_date": 1
+      "meetings_with_upcoming_date": 21,
+      "meetings_without_upcoming_date": 0
     }
   ]
 }
