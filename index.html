@@ -222,6 +222,21 @@
       border-color: rgba(180,140,80,0.7);
       color: #f0e8d0;
     }
+    .sp-training-link {
+      width: 100%; padding: 15px 16px; border-radius: 16px;
+      border: 1.5px solid rgba(87,205,168,0.9);
+      background: linear-gradient(135deg, rgba(55,169,135,0.25), rgba(255,255,255,0.06));
+      color: #effff9; text-decoration: none;
+      display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 10px;
+      font-family: 'Noto Serif JP', serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .sp-training-link:active { background: rgba(55,169,135,0.34); }
+    .sp-training-icon { font-size: 28px; line-height: 1; }
+    .sp-training-copy { display: flex; flex-direction: column; gap: 3px; text-align: left; }
+    .sp-training-copy strong { font-size: 16px; letter-spacing: .08em; }
+    .sp-training-copy small { font-size: 11px; color: rgba(239,255,249,.72); line-height: 1.5; }
+    .sp-training-arrow { color: #57cda8; font-size: 20px; }
     .sp-family-btn {
       width: 100%; padding: 15px 16px; border-radius: 16px;
       border: 1.5px solid rgba(244,196,99,0.85);
@@ -382,6 +397,14 @@
       </span>
       <span class="sp-family-arrow" aria-hidden="true">→</span>
     </button>
+    <a class="sp-training-link" href="/renshu/">
+      <span class="sp-training-icon" aria-hidden="true">🧭</span>
+      <span class="sp-training-copy">
+        <strong>練習でGO!!</strong>
+        <small>例会登録から練習マップへの反映まで体験する</small>
+      </span>
+      <span class="sp-training-arrow" aria-hidden="true">→</span>
+    </a>
     <a class="sp-submit-link" href="gogo-submit.html" target="_blank" rel="noopener">
       📝 例会情報の追加・修正はこちら
     </a>
@@ -643,6 +666,7 @@ function splashClose() {
     <a class="menu-item" href="/chiiki/?from=map">🗾 地域・都道府県から探す</a>
     <a class="menu-item" href="/meetings/?from=map">📅 都道府県別の例会日程</a>
     <a class="menu-item" href="/gogo-submit.html?from=map">📝 例会情報を登録する</a>
+    <a class="menu-item" href="/renshu/?from=map">🧭 練習でGO!! CMSを体験する</a>
     <button class="menu-item" id="menu-item-profile" onclick="closeMenuSheet(); openProfileModalFresh();" style="text-align:left; background:none; padding:14px 16px; border:none; cursor:pointer;">👤 マイページ・会員登録</button>
     <a class="menu-item" href="/about.html?from=map">ℹ️ このサービスについて</a>
   </div>
