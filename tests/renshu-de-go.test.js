@@ -20,10 +20,10 @@ function createStorage() {
   };
 }
 
-test('トップページから練習でGO!!へ移動できる', () => {
+test('トップページでは練習でGO!!の入口を表示しない', () => {
   const links = HOME.match(/href=["']\/renshu\/(?:\?from=map)?["']/g) || [];
-  assert.ok(links.length >= 2, '起動画面とメニューの両方に入口が必要です');
-  assert.match(HOME, /例会登録から練習マップへの反映まで体験する/);
+  assert.equal(links.length, 0, 'トップページに練習サイトへの入口を表示しません');
+  assert.doesNotMatch(HOME, /例会登録から練習マップへの反映まで体験する/);
 });
 
 test('説明ページは目的・安全範囲・参加ボタンを明示する', () => {
