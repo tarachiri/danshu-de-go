@@ -1,0 +1,75 @@
+name: Netlify production release
+
+# main は日々のデータ更新を保存する正本のまま維持する。
+# Netlify は netlify-production ブランチだけを監視し、このワークフローが
+# 月曜・木曜（日本時間）または緊急時にだけ同ブランチを進める。
+on:
+  schedule:
+    # GitHub Actions の cron は UTC。日本時間の月曜・木曜 05:30 に相当する。
+    # tyo の地図生成（毎日 05:00）の完了後に公開する。
+    - cron: "30 20 * * 0,3"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "緊急公開の理由（誤案内修正・緊急非公開など）"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: netlify-production-release
+  cancel-in-progress: false
+
+jobs:
+  promote-main:
+    name: Promote main to netlify-production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Promote only when main changed
+        id: promote
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin netlify-production || true
+          main_sha="$(git rev-parse HEAD)"
+          production_sha="$(git rev-parse refs/remotes/origin/netlify-production 2>/dev/null || true)"
+
+          if [[ "$main_sha" == "$production_sha" ]]; then
+            echo "netlify-production is already current; no deploy-triggering push is needed."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # 強制pushはしない。誰かが公開ブランチを直接変更して分岐した場合は
+          # ここで安全に失敗させ、人間が履歴を確認してから解消する。
+          git push origin HEAD:refs/heads/netlify-production
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "released_sha=$main_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Write release summary
+        env:
+          RELEASE_REASON: ${{ inputs.reason || '月曜・木曜の定期公開' }}
+          CHANGED: ${{ steps.promote.outputs.changed }}
+          RELEASED_SHA: ${{ steps.promote.outputs.released_sha }}
+        shell: bash
+        run: |
+          {
+            echo "## Netlify production release"
+            echo
+            echo "- 理由: ${RELEASE_REASON}"
+            echo "- 公開ブランチ更新: ${CHANGED}"
+            if [[ -n "${RELEASED_SHA}" ]]; then
+              echo "- 対象コミット: ${RELEASED_SHA}"
+            fi
+            echo
+            echo "Netlify側の本番ブランチは \`netlify-production\` に設定する。"
+          } >> "$GITHUB_STEP_SUMMARY"
