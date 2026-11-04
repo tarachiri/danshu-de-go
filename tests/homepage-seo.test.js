@@ -103,3 +103,11 @@ test('掲載範囲・最新情報の確認・修正連絡の説明を表示す�
   assert.match(INDEX_HTML, /参加前に主催団体の最新情報もご確認ください/);
   assert.match(INDEX_HTML, /href="\/gogo-submit\.html"/);
 });
+
+test('トップページ最下部にCMS管理画面への入口を表示する', () => {
+  assert.match(
+    INDEX_HTML,
+    /<p id="cms-entry-link"[^>]*><a href="https:\/\/gogo-review\.nukadokonokai\.com\/operator\/login" target="_blank" rel="noopener">/
+  );
+  assert.match(INDEX_HTML, /CMS管理画面（断酒会担当者向け）/);
+});
