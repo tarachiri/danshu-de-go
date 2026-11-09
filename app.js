@@ -752,7 +752,7 @@ function switchTab(tab) {
   window.scrollTo(0, 0);
   // ボトムナビのactive更新
   document.querySelectorAll('.bottom-btn').forEach(b => b.classList.remove('active'));
-  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-news', 'bulletin': 'tab-bulletin', 'kamo': 'bottom-kamo' };
+  const bottomBtnMap = { 'map': 'tab-map', 'schedule': 'tab-schedule', 'news': 'tab-schedule', 'bulletin': 'tab-bulletin', 'kamo': 'bottom-kamo' };
   if (bottomBtnMap[tab]) {
     const btn = document.getElementById(bottomBtnMap[tab]);
     if (btn) btn.classList.add('active');
@@ -766,7 +766,6 @@ function switchTab(tab) {
   const mapAttrEl = document.getElementById('map-attribution');
   const tabMap = document.getElementById('tab-map');
   const tabSch = document.getElementById('tab-schedule');
-  const tabNews = document.getElementById('tab-news');
   const tabBulletin = document.getElementById('tab-bulletin');
   const tabKamo = document.getElementById('bottom-kamo');
   // 日程等から戻る場合や会場ジャンプでは、マップを必ず展開状態に戻す。
@@ -778,7 +777,6 @@ function switchTab(tab) {
   if (kamoEl) kamoEl.style.display = 'none';
   tabMap.classList.remove('active');
   tabSch.classList.remove('active');
-  if (tabNews) tabNews.classList.remove('active');
   if (tabBulletin) tabBulletin.classList.remove('active');
   if (tabKamo) tabKamo.classList.remove('active');
   // フッター・地図帰属バーは「マップ画面」以外のタブでのみ表示
@@ -797,7 +795,8 @@ function switchTab(tab) {
     Schedule.render();
   } else if (tab === 'news') {
     if (newsEl) newsEl.style.display = 'block';
-    if (tabNews) tabNews.classList.add('active');
+    // 新着・お知らせは日程タブ内の補助導線なので、下部では日程を選択中として示す。
+    tabSch.classList.add('active');
     loadNewsTab();
   } else if (tab === 'bulletin') {
     if (bulletinEl) bulletinEl.style.display = 'block';

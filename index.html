@@ -222,6 +222,12 @@
       border-color: rgba(180,140,80,0.7);
       color: #f0e8d0;
     }
+    /* 更新履歴の直後に置く案内リンク。スプラッシュ本文と同じ読みやすい幅に揃える。 */
+    .sp-submit-actions {
+      width: 100%; max-width: 320px;
+      display: flex; flex-direction: column; gap: 8px;
+      margin: 0 0 16px;
+    }
     .sp-family-btn {
       width: 100%; padding: 15px 16px; border-radius: 16px;
       border: 1.5px solid rgba(244,196,99,0.85);
@@ -382,12 +388,6 @@
       </span>
       <span class="sp-family-arrow" aria-hidden="true">→</span>
     </button>
-    <a class="sp-submit-link" href="gogo-submit.html" target="_blank" rel="noopener">
-      📝 例会情報の追加・修正はこちら
-    </a>
-    <a class="sp-submit-link" href="numa.html">
-      🫧 断酒会沼度を測ってみる（20問）
-    </a>
     <div class="sp-message-block">
       <p>酒を止めて生きることで、本当の自分を取り戻してほしい。ただそれだけを考えて、断酒でGO!!を作りました。</p>
       <p>断酒会に参加して、酒のない生き方を取り戻してもらうためにはどうしたらいいか。みんなが例会に参加できない理由は何だろうか——そう向き合った結果、たどり着いたのは意外にシンプルなことでした。例会がいつどこで開催されているのか、わからない。それが根本原因の一つだったんです。</p>
@@ -449,6 +449,15 @@
     </div>
   </section>
   <!-- UPDATE_HISTORY_END -->
+
+  <div class="sp-submit-actions" aria-label="参加・情報更新">
+    <a class="sp-submit-link" href="gogo-submit.html" target="_blank" rel="noopener">
+      📝 例会情報の追加・修正はこちら
+    </a>
+    <a class="sp-submit-link" href="numa.html">
+      🫧 断酒会沼度を測ってみる（20問）
+    </a>
+  </div>
 
   <div class="sp-bottom">
     <p class="sp-org">ぬか床の会</p>
@@ -583,10 +592,6 @@ function splashClose() {
   <button class="bottom-btn" id="tab-schedule" onclick="switchTab('schedule')">
     <span class="bottom-icon">📅</span>
     <span class="bottom-label">日程</span>
-  </button>
-  <button class="bottom-btn" id="tab-news" onclick="switchTab('news')">
-    <span class="bottom-icon">📢</span>
-    <span class="bottom-label">新着</span>
   </button>
   <button class="bottom-btn" id="tab-bulletin" onclick="switchTab('bulletin')">
     <span class="bottom-icon">💬</span>

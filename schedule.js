@@ -203,8 +203,19 @@ const Schedule = {
       this.render();
     });
 
+    // 新着は日程確認の補助情報として、都道府県選択のすぐ横から開けるようにする。
+    // ボトムメニューには常設せず、主要導線を地図・日程・掲示板・メニューに絞る。
+    const newsButton = document.createElement('button');
+    newsButton.type = 'button';
+    newsButton.className = 'sch-news-button';
+    newsButton.textContent = '📢 お知らせ';
+    newsButton.setAttribute('aria-label', '新着・お知らせを表示');
+    newsButton.style.cssText = 'flex:0 0 auto;padding:8px 10px;border:1px solid #e94560;border-radius:8px;background:#16213e;color:#f0e8d0;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;';
+    newsButton.addEventListener('click', () => switchTab('news'));
+
     bar.appendChild(icon);
     bar.appendChild(sel);
+    bar.appendChild(newsButton);
     return bar;
   },
 
