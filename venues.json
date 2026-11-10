@@ -73795,28 +73795,6 @@
     "walk_duration_min": 7,
     "meetings": [
       {
-        "meeting_id": 1439,
-        "name": "定例会",
-        "day_of_week": "水",
-        "week_of_month": "1,2,3,4,5",
-        "start_time": "19:00",
-        "end_time": "21:00",
-        "meeting_type": "通常",
-        "family_meeting": 0,
-        "event_date": "",
-        "recurrence": "第1・第2・第3・第4・第5水曜",
-        "next_date": "2026-11-11",
-        "next_date_2": "2026-11-18",
-        "date_basis": "official_schedule_calculated",
-        "date_source_type": "official_site",
-        "date_source_url": "https://addiction-peer.net/",
-        "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "",
-        "petit_hp_url": "/chiiki/chubu/shizuoka/org-597/"
-      },
-      {
         "meeting_id": 649,
         "name": "定例会･家族会",
         "day_of_week": "水",
@@ -73911,10 +73889,10 @@
     "fallback_schedule": "毎週 水曜日 19:00～21:00",
     "fallback_next_date": "",
     "next_date": "2026-11-11",
-    "meeting_name": "定例会",
-    "start_time": "19:00",
-    "end_time": "21:00",
-    "recurrence": "第1・第2・第3・第4・第5水曜"
+    "meeting_name": "定例会･家族会",
+    "start_time": "19:00:00",
+    "end_time": "",
+    "recurrence": "第2・第5水曜"
   },
   {
     "id": 762,
