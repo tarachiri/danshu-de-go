@@ -257,6 +257,12 @@ function buildPopup(v) {
   let meetingsHTML = '';
   if (meetings) {
     meetingsHTML = meetings.map(m => {
+      // 日付指定の公式iCal/PDFではなく、例会原本の曜日・週から算出した予定だけに表示する。
+      // 会場単位のneeds_verificationとは別に、開催予定ごとの根拠を利用する。
+      const isCalculatedSchedule = ['official_schedule_calculated', 'recurrence_calculated'].includes(m.date_basis);
+      const scheduleVerifyNotice = isCalculatedSchedule
+        ? `<div class="popup-verify">⚠️ この例会の日程は変更になる場合があります。${v.official_url ? `<a href="${v.official_url}" target="_blank" rel="noopener" class="verify-link">公式サイト</a>で確認してください` : '事前に確認してください'}</div>`
+        : '';
       // カードごとバッジ（4分類：中止 / 日程変更 / 会場変更 / その他要確認）
       let cardLabel;
       if (m.has_exception) {
@@ -293,6 +299,7 @@ function buildPopup(v) {
           </div>
           ${!m.has_exception && dateStr ? `<div class="popup-date" style="color:${cardColor}">📅 ${dateStr} ${timeStr}</div>` : ''}
           ${!m.has_exception && m.recurrence ? `<div class="popup-recurrence">🔁 ${m.recurrence}</div>` : ''}
+          ${scheduleVerifyNotice}
           ${excNote}
         </div>`;
     }).join('');
@@ -367,6 +374,10 @@ function buildSheetMeetingGroup(m) {
 
   const mEmoji = typeEmoji[m.meeting_type] || '';
   const dates = getUpcomingDates(m);
+  const isCalculatedSchedule = ['official_schedule_calculated', 'recurrence_calculated'].includes(m.date_basis);
+  const scheduleVerifyNotice = isCalculatedSchedule
+    ? `<div class="sheet-verify-banner">⚠️ この例会の日程は変更になる場合があります。事前に公式サイトで確認してください。</div>`
+    : '';
 
   let itemsHTML;
   if (m.has_exception) {
@@ -414,6 +425,7 @@ function buildSheetMeetingGroup(m) {
       <div class="sheet-meeting-name">${mEmoji ? mEmoji + ' ' : ''}${m.name}${favBtn}</div>
       ${m.recurrence ? `<div class="sheet-meeting-recurrence">🔁 ${m.recurrence}${m.start_time ? '　' + m.start_time + '〜' + (m.end_time||'') : ''}</div>` : ''}
       <div class="sheet-upcoming-list">${itemsHTML}</div>
+      ${scheduleVerifyNotice}
       ${petitHpLink}
     </div>`;
 }
