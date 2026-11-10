@@ -44139,15 +44139,15 @@
         "meeting_id": 2450,
         "name": "刈谷(刈谷病院)",
         "day_of_week": "水",
-        "week_of_month": "",
+        "week_of_month": "2",
         "start_time": "14:00",
         "end_time": "16:00",
         "meeting_type": "通常",
         "family_meeting": 0,
         "event_date": "",
-        "recurrence": "毎週水曜",
+        "recurrence": "第2水曜",
         "next_date": "2026-11-11",
-        "next_date_2": "2026-11-18",
+        "next_date_2": "2026-12-09",
         "date_basis": "official_schedule_calculated",
         "date_source_type": "official_site",
         "date_source_url": "https://aichi-danshu.jimdofree.com/",
@@ -44167,7 +44167,7 @@
     "meeting_name": "刈谷(刈谷病院)",
     "start_time": "14:00",
     "end_time": "16:00",
-    "recurrence": "毎週水曜"
+    "recurrence": "第2水曜"
   },
   {
     "id": 1906,
