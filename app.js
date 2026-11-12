@@ -87,6 +87,13 @@ function getDateLabel(next_date) {
   return 'other';
 }
 
+// 地図のポップアップ・ボトムシートは、利用者が今すぐ検討する当月分だけを
+// 詳細表示する。翌月分は地域ページ・断酒会ページで案内する。
+function isCurrentCalendarMonth(dateText) {
+  if (!dateText || !/^\d{4}-\d{2}-\d{2}$/.test(dateText)) return false;
+  return dateText.slice(0, 7) === PinSchedule.jstNow().date.slice(0, 7);
+}
+
 // ピンスタイル
 function getStyle(v) {
   const label = getDateLabel(v.next_date);
@@ -255,8 +262,11 @@ function buildPopup(v) {
 
   // ── 例会カード生成 ────────────────────────────────
   let meetingsHTML = '';
-  if (meetings) {
-    meetingsHTML = meetings.map(m => {
+  const currentMonthMeetings = meetings
+    ? meetings.filter(m => isCurrentCalendarMonth(m.next_date))
+    : null;
+  if (currentMonthMeetings && currentMonthMeetings.length > 0) {
+    meetingsHTML = currentMonthMeetings.map(m => {
       // 日付指定の公式iCal/PDFではなく、例会原本の曜日・週から算出した予定だけに表示する。
       // 会場単位のneeds_verificationとは別に、開催予定ごとの根拠を利用する。
       const isCalculatedSchedule = ['official_schedule_calculated', 'recurrence_calculated'].includes(m.date_basis);
@@ -303,17 +313,24 @@ function buildPopup(v) {
           ${excNote}
         </div>`;
     }).join('');
+  } else if (meetings) {
+    meetingsHTML = '<div class="meeting-card"><div class="popup-recurrence">今月の開催予定はありません。</div></div>';
   } else {
     // フォールバック表示（meetings未リンク）
     const fbTime = v.start_time ? `${v.start_time}〜${v.end_time || ''}` : '';
-    const fbDate = formatDate(v.fallback_next_date || v.next_date);
-    meetingsHTML = `
+    const fallbackDate = v.fallback_next_date || v.next_date;
+    if (!isCurrentCalendarMonth(fallbackDate)) {
+      meetingsHTML = '<div class="meeting-card"><div class="popup-recurrence">今月の開催予定はありません。</div></div>';
+    } else {
+      const fbDate = formatDate(fallbackDate);
+      meetingsHTML = `
       <div class="meeting-card">
         <div class="popup-date" style="color:${badgeColors[headLabel]}">
-          ${fbDate ? `📅 ${fbDate} ${fbTime}` : '📅 日程未定'}
+          📅 ${fbDate} ${fbTime}
         </div>
         ${v.fallback_schedule ? `<div class="popup-recurrence">🔁 ${v.fallback_schedule}</div>` : ''}
       </div>`;
+    }
   }
 
   // ── ポップアップ組み立て ──────────────────────────
@@ -344,10 +361,10 @@ function buildPopup(v) {
 // ============================================================
 function getUpcomingDates(m) {
   const dates = [];
-  if (m.next_date) dates.push(m.next_date);
+  if (isCurrentCalendarMonth(m.next_date)) dates.push(m.next_date);
   // 【申し送り】次々回日付(next_date_2)はvenues.json生成側(tyo generate_map_v6.py)で
   // recurrenceから計算して追加する改修が必要。未実装の間は1件のみ表示される。
-  if (m.next_date_2) dates.push(m.next_date_2);
+  if (isCurrentCalendarMonth(m.next_date_2)) dates.push(m.next_date_2);
   return dates.slice(0, 2); // 無限生成防止：必ず2件で打ち切る
 }
 
