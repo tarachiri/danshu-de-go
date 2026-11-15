@@ -47280,28 +47280,6 @@
     "walk_duration_min": 2,
     "meetings": [
       {
-        "meeting_id": 496,
-        "name": "福生例会",
-        "day_of_week": "",
-        "week_of_month": "",
-        "start_time": "14:00",
-        "end_time": "16:00",
-        "meeting_type": "通常",
-        "family_meeting": 0,
-        "event_date": "2026-11-27",
-        "recurrence": "日程・会場変更",
-        "next_date": "2026-11-27",
-        "next_date_2": "",
-        "date_basis": "manual_date",
-        "date_source_type": "cms",
-        "date_source_url": "",
-        "date_source_published_at": "",
-        "has_exception": false,
-        "exc_type": "",
-        "exc_note": "テスト変更　変更後の会場を変更した",
-        "petit_hp_url": ""
-      },
-      {
         "meeting_id": 101,
         "name": "台東例会",
         "day_of_week": "",
@@ -47351,11 +47329,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "2026-11-27",
-    "meeting_name": "福生例会",
-    "start_time": "14:00",
-    "end_time": "16:00",
-    "recurrence": "日程・会場変更"
+    "next_date": "",
+    "meeting_name": "台東例会",
+    "start_time": "",
+    "end_time": "",
+    "recurrence": ""
   },
   {
     "id": 5,
@@ -51839,6 +51817,28 @@
     "walk_duration_min": 7,
     "meetings": [
       {
+        "meeting_id": 496,
+        "name": "福生例会",
+        "day_of_week": "金",
+        "week_of_month": "4",
+        "start_time": "14:00",
+        "end_time": "16:00",
+        "meeting_type": "通常",
+        "family_meeting": 0,
+        "event_date": "",
+        "recurrence": "第4金曜",
+        "next_date": "2026-11-27",
+        "next_date_2": "2026-12-25",
+        "date_basis": "recurrence_calculated",
+        "date_source_type": "recurrence",
+        "date_source_url": "",
+        "date_source_published_at": "",
+        "has_exception": false,
+        "exc_type": "",
+        "exc_note": "",
+        "petit_hp_url": ""
+      },
+      {
         "meeting_id": 500,
         "name": "立川新年会",
         "day_of_week": "",
@@ -51866,11 +51866,11 @@
     "fallback_meeting_name": "",
     "fallback_schedule": "",
     "fallback_next_date": "",
-    "next_date": "",
-    "meeting_name": "立川新年会",
-    "start_time": "11:00",
-    "end_time": "15:00",
-    "recurrence": ""
+    "next_date": "2026-11-27",
+    "meeting_name": "福生例会",
+    "start_time": "14:00",
+    "end_time": "16:00",
+    "recurrence": "第4金曜"
   },
   {
     "id": 253,
